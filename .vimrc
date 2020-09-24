@@ -53,11 +53,6 @@ noremap <right> <nop>
 set splitright splitbelow
 
 "acceso fácil a las teclas option
-nmap <leader>ç }zz
-nmap <leader>´ {zz
-nmap <leader>2 @
-nmap <leader>4 $
-nmap <leader>5 %
 " nmap `` [[ "move to begining of current section
 " nmap <leader>++ ]] " move to begining of next section
 " nmap +` ][ "end of next section
@@ -71,7 +66,6 @@ nmap <leader>w <C-w>
 
 "imaps cerrar bloques
 imap <leader>'' ''<ESC>i
-imap <leader>22 ""<ESC>i
 imap <leader>88 ()<ESC>i
 imap <leader>` []<ESC>i
 imap <leader>´ {}<ESC>i
@@ -79,6 +73,7 @@ imap <leader>´ {}<ESC>i
 "maps de teclas con shift
 map! º \
 map! <leader>11 \|
+map! <leader>111 \|\|
 map! <leader>1 !
 map! <leader>22 @
 map! <leader>2 "
@@ -87,15 +82,18 @@ map! <leader>33 ·
 map! <leader>4 $
 map! <leader>5 %
 map! <leader>6 &
+map! <leader>66 &&
 map! <leader>7 /
 map! <leader>77 //
 map! <leader>8 (
 map! <leader>9 )
 map! <leader>0 =
+map! <leader>00 ==
 map! <leader>' ?
 map! <leader>¡ ¿
 map! <leader>e €
 map! <leader>< >
+map! <leader><< >>
 map! <leader>- _
 map! <leader>, ;
 map! <leader>. :
@@ -104,12 +102,18 @@ map! <leader>. :
 nnoremap <leader>html :-1read ~/.vim/.skeletons/skel.html<CR>4jf>a
 nnoremap <leader>tex :-1read ~/.vim/.skeletons/skel.tex<CR>6jlwa
 
-"autocompletado
+"autocompletado al programar en Java
+let java_highlight_functions = 1 "java highlight
 imap <leader>sout System.out.print();<ESC>hi
 imap <leader>soutln System.out.println();<ESC>hi
+imap <leader>scan Scanner scan = new Scanner(System.in);
+imap <leader>if if () {<CR>}<ESC>%hhi
+imap <leader>for for () {<CR>}<ESC>%hhi
+imap <leader>while while () {<CR>}<ESC>%hhi
 
 "abreviaciones
 iabbr myname Albert Nafría Febrer
+iabbr myemail albert.nafria@gmail.com
 iabbr teh the
 
 "ultimos retoques
