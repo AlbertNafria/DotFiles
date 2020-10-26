@@ -3,11 +3,13 @@
 set nocompatible
 " Plugins Vundle
 filetype off
+execute pathogen#infect()
 set rtp+=~/dotfiles/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+" Plug 'vimwiki/vimwiki'
 call vundle#end()
 filetype plugin indent on
 
@@ -35,6 +37,7 @@ set expandtab  "expandir tabuladores
 set autoindent smartindent "automate indentations
 
 let mapleader = ',' "leader is comma
+imap <leader>i <Esc> "i para entrar en insert mode, leader i para salir
 
 "Activar color
 colorscheme murphy 
@@ -110,6 +113,7 @@ imap <leader>scan Scanner scan = new Scanner(System.in);
 imap <leader>if if () {<CR>}<ESC>%hhi
 imap <leader>for for () {<CR>}<ESC>%hhi
 imap <leader>while while () {<CR>}<ESC>%hhi
+imap <leader>main public static void main (String[] args) {}<ESC>hi
 
 "abreviaciones
 iabbr myname Albert Nafría Febrer

@@ -21,15 +21,13 @@ export EDITOR="$VISUAL"
 
 export VMAIL_BROWSER='w3m'
 
-# Aliases
-#alias vi='vim'
-
 #enable colors
 	alias ls='ls -G'
 	alias grep='grep -G'
 #alias
 	alias ll='ls -al'
 	alias gst='git status'
+    alias v='vim'
 	alias shutdown='sudo shutdown -h now'
 
 #more alias
@@ -40,3 +38,4 @@ export VMAIL_BROWSER='w3m'
 	alias tfg='cd ~/Documents/TFG'
     alias tiempo='curl -s wttr.in'
     alias mapscii='telnet mapscii.me'
+    alias airpods='blueutil --connect "AirPods de Albert"'
