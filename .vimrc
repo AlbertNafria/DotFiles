@@ -24,6 +24,9 @@ set hlsearch
 set nobackup
 set clipboard=unnamed "compatibility system clipboard
 
+"call interactive shell
+set shellcmdflag=-ic
+
 " Pressing return clears highlighted search
 :nnoremap <CR> :nohlsearch<CR>/<BS>
 
