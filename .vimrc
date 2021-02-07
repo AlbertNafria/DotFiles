@@ -73,8 +73,8 @@ nmap <leader>w <C-w>
 "imaps cerrar bloques
 imap <leader>'' ''<ESC>i
 imap <leader>88 ()<ESC>i
-imap <leader>` []<ESC>i
-imap <leader>´ {}<ESC>i
+imap <leader>` <ESC>A[]<ESC>i
+imap <leader>´ <ESC>A{}<ESC>i
 
 "maps de teclas con shift
 map! º \
@@ -101,18 +101,21 @@ map! <leader>e €
 map! <leader>< >
 map! <leader><< >>
 map! <leader>- _
-map! <leader>, ;
+map! <leader>, <ESC>$a;<ESC>
 map! <leader>. :
 
 "skeletons
 nnoremap <leader>html :-1read ~/.vim/.skeletons/skel.html<CR>4jf>a
 nnoremap <leader>tex :-1read ~/.vim/.skeletons/skel.tex<CR>6jlwa
+nnoremap <leader>gitig :-1read ~/.vim/.skeletons/skel.gitignore<CR>
 
 "autocompletado al programar en Java
 let java_highlight_functions = 1 "java highlight
 imap <leader>sout System.out.print();<ESC>hi
 imap <leader>soutln System.out.println();<ESC>hi
+imap <leader>psvm public static void main(String[] args){}<ESC>i<CR><ESC>O
 imap <leader>scan Scanner scan = new Scanner(System.in);
+imap <leader>rnd Random rnd = new Random();
 imap <leader>if if () {<CR>}<ESC>%hhi
 imap <leader>for for () {<CR>}<ESC>%hhi
 imap <leader>while while () {<CR>}<ESC>%hhi
