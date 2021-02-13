@@ -26,7 +26,9 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export BROWSER='w3m'
 
-export VMAIL_BROWSER='w3m'
+
+#vimwiki
+    alias vimwiki='vim -c VimwikiIndex'
 
 #enable colors
 	alias ls='ls -G'
@@ -52,5 +54,3 @@ export VMAIL_BROWSER='w3m'
     alias airpods='blueutil --connect "AirPods de Albert"'
     alias beats='blueutil --connect "Beats Flex"'
 
-    alias pgdoc='w3m https://www.postgresql.org/docs/current/index.html'
-    alias muttman='w3m http://www.mutt.org/doc/manual/'

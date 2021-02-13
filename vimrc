@@ -9,9 +9,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
-" Plug 'vimwiki/vimwiki'
 call vundle#end()
+"Plug 'vimwiki/vimwiki'
 filetype plugin indent on
+
+"VimWiki settings
+let g:vimwiki_list = [{'path': '~/Nextcloud/vimwiki/', 'path_html': '~/Nextcloud/vimwiki_html', 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_global_ext = 0
 
 "nerdtree conf
 let NERDTreeShowHidden=1
