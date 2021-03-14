@@ -20,11 +20,13 @@ export LANG="es_ES.UTF-8"
 
 export PATH="$PATH:~/bin/"
 export PATH="$PATH:~/usr/local/bin/"
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export BROWSER='w3m'
+export CLICOLOR=1
 
 
 #vimwiki
@@ -34,7 +36,7 @@ export BROWSER='w3m'
 	alias ls='ls -G'
 	alias grep='grep -G'
 #alias
-	alias ll='ls -al'
+	alias ll='ls -alG'
 	alias gst='git status'
     alias v='vim'
 	alias shutdown='sudo shutdown -h now'

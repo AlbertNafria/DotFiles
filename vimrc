@@ -27,12 +27,18 @@ set ruler "indicador fila y col
 set hlsearch
 set nobackup
 set clipboard=unnamed "compatibility system clipboard
+let mapleader = ',' "leader is comma
 
 "call interactive shell
 set shellcmdflag=-ic
 
 " Pressing return clears highlighted search
-:nnoremap <CR> :nohlsearch<CR>/<BS>
+nnoremap <CR> :nohlsearch<CR>/<BS>
+
+nnoremap Q gqip "format a paragrahp
+nnoremap S :vsplit<Return> "Split vertical screen
+nnoremap <leader>ll :tabn<Return>
+nnoremap <leader>hh :tabp<Return>
 
 
 " Add optional packages.
@@ -43,7 +49,6 @@ set shiftwidth=4 "Indentación de 4 caracteres
 set expandtab  "expandir tabuladores
 set autoindent smartindent "automate indentations
 
-let mapleader = ',' "leader is comma
 imap <leader>i <Esc> "i para entrar en insert mode, leader i para salir
 
 "Activar color
@@ -131,6 +136,7 @@ iabbr myemail albert.nafria@gmail.com
 iabbr teh the
 
 "ultimos retoques
+set fileformat=unix
 "set ffs=unix
 "set encoding=utf-8
 "set fileencoding=utf-8
