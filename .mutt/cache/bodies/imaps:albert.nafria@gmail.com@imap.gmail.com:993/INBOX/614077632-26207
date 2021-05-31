@@ -1,0 +1,523 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:3e5b:0:0:0:0 with SMTP id t27csp1468437eji;
+        Sat, 9 Jan 2021 20:43:43 -0800 (PST)
+X-Received: by 2002:a62:7858:0:b029:19d:c011:1cfe with SMTP id t85-20020a6278580000b029019dc0111cfemr10885856pfc.47.1610253822560;
+        Sat, 09 Jan 2021 20:43:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610253822; cv=none;
+        d=google.com; s=arc-20160816;
+        b=kSEXNxE6sz6JLx+Zx7c6zZgs6+IW5G9GELEu8HkfPregWtuY+k2fxd806MlVGodGwm
+         SAiDlXIP7uYSQQsI4Nonq4kaNo2dlIB2OeensWdoci35CKP96TEfQH/pS27YGbumtK6v
+         Ym8QCfrwr6ZS/vduUmQlWvGmM5bj0lR/XMGD1fK+Lk0dP6lvxNwOVn2VzjGysZelyTgI
+         hj2nyxN2gbv8p0WkQZB5Dr9nSQrZCNltafMg/SBN9zjS+lX9rGU524hGAJ7ov+9w/AW3
+         94l9aBOVv1xZIpmLV4Sk+TrX0GD69UQNVDQIzzP1ng232KiIqOZgD/u0D9nT0QUHRFBu
+         5rig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:list-unsubscribe:date:mime-version
+         :dkim-signature;
+        bh=6ahSsBjs7OC/6wh8o0AVWkIcw9ycVLTJIlOD7Ay4X18=;
+        b=E/PLiQlJc7xXme7iCtDVkTo0B/BPGT+plP6qEcGdeo9smqbx3Qi3mwoisCoIF8JTQH
+         26cKZMT9kwYfTs46EoDcOeLzG4q1FdamEaSVfFq/5R9KClZ2M66/+OPbMgV2ytixZyeC
+         MUmOWlSTKZSrb7JruIAKKDyQj7JTeuJ4HgParwHPFyru0Gp6Ho4CdAXOvKz6l+HZlp9x
+         Ntb6HG/KWzL8hXFe/9hbLs9C/5oXwmJIIzbAQZpbfPGVdhZCMsj7lnZSMlWc+cmWJF+W
+         rKvTFld3X3+QFzh9lhyEwY/BjLMziZOVmZaffftjzYej8G4cA++ZIMZIjAri2JC9HlDL
+         uwng==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NbJjCYpn;
+       spf=pass (google.com: domain of 3_yx6xw4kdfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_YX6Xw4KDfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3_YX6Xw4KDfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id d1sor5296563pjw.1.2021.01.09.20.43.41
+        for <albert.nafria@gmail.com>
+        (Google Transport Security);
+        Sat, 09 Jan 2021 20:43:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3_yx6xw4kdfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NbJjCYpn;
+       spf=pass (google.com: domain of 3_yx6xw4kdfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_YX6Xw4KDfgstynk3-stwjuq3lttlqj.htrfqgjwy.sfkwnflrfnq.htr@chime-notifications.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:list-unsubscribe:message-id:subject:from:to;
+        bh=6ahSsBjs7OC/6wh8o0AVWkIcw9ycVLTJIlOD7Ay4X18=;
+        b=NbJjCYpnrFEp8SPzKBmCTw1syzG4F6/uyF8NYCR8xgKK6Erym1Sv0PbcDL3v54JeJa
+         bOQslEk1sjHDKCi+jgZFg1gJ1QQ7DOVG3TB0YRqoJzCWvQGlo0ZnwiiSyvjOSkpJYFlQ
+         O+2atVjtcujWb0Rx1qa1bgPfRRZ1ExK8X+vguRopIrSJZw6gV7PkgZ4Kpk3fRyFBibds
+         ijfDz2RY3/CjOTQzwBuzEi3iUvdLLtECmsGeUwjCg1gkc+lbyMoRS3768KJeREauIFdb
+         YS0bt4SYl2uY/w0RRnQgs5M8tRdXCmV2VvaHTJu9V32SnRlDjl2qs4tYKuguuJQuXwLR
+         TWOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:list-unsubscribe:message-id
+         :subject:from:to;
+        bh=6ahSsBjs7OC/6wh8o0AVWkIcw9ycVLTJIlOD7Ay4X18=;
+        b=VdpuY+KpN9g1G/HgC7YV6h7ZJHEl+YAO6kG8M31u2ACxOSymyS8pmvXv5I8vUOIDjm
+         HF67tQSWqZQ7sLpPdcd0zFMAJ7kzf7N30qgnQ/xjTYCoNz6kSMU67qgVHRbz/1jHX2qo
+         g1XlezAqEomEjxYQHp7MHypiX+GavtHiD7ofc4qLmP9IGTqiTkWD8Xuea85IGgoADz6D
+         seL/JBXZdj+rfsLEGTCtB+PKGHnMC8VT4PqXoIuWfeHSYbv/o9VKig7jFLM4JOuuAFVH
+         gh5DLiWsFWjk4/2nVw5JzUNleUfHFDJcQVDSVtTjtRl3hn4OiQtTh7Eka1jhIbOKAYX4
+         GINA==
+X-Gm-Message-State: AOAM532htSSJSnMLMV4RcjVi/5iaj+X7Kg7QXsK/do2HW5fvq56p1IYC
+	gS0s8/ArGKnISLoeuf6eY5Rd3zKoIeG/9bLe9g==
+X-Google-Smtp-Source: ABdhPJyWxsDqhzrq6RavfRPJacnjFA/4uNepcdi252+07MBtpHX9XKHhLkY+kMopHoqwW1fgmywfVllGDWiiVVLKJxYW
+MIME-Version: 1.0
+X-Received: by 2002:a17:90a:f404:: with SMTP id ch4mr11187216pjb.78.1610253821749;
+ Sat, 09 Jan 2021 20:43:41 -0800 (PST)
+Date: Sat, 09 Jan 2021 20:43:41 -0800
+List-Unsubscribe: https://notifications.google.com/emailpreferences/unsubscribe/AIbu_Fuz7911-hrkheT527IYEvhOGORUaDkKnPqUPtewy2rYGqngkijPaCOkD6llYqyPN4w006f_nObCLBPzXXqUzuMxNLsXCA8SAEOxY2HTTHC1kNzlg3X3FkpUPmwIWhD2U0qSbB76SvWJK90t7xWt660oCLz1ad24Y9ZtDnqWjOfmL24cvnQFzisywEfxXQLem8mr
+X-Notifications: 3bbb5866a1c00000
+Message-ID: <Bc82uGue5M9jHn6D7Pn__A@notifications.google.com>
+Subject: 8 new jobs for "programador java junior" - Jan 9
+From: Job Alerts from Google <notify-noreply@google.com>
+To: albert.nafria@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000000b32c105b8846f88"
+
+--0000000000000b32c105b8846f88
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+UHJvZ3JhbWFkb3IgamF2YSBqdW5pb3INCg0KTmVhciBCYXJjZWxvbmENCg0KDQoNCg0KDQoNCg0K
+DQpMb2dvDQoNCg0KUHJvZ3JhbWFkb3IganVuaW9yLCBCYXJjZWxvbmEgLSBQcmltZXIgRW1wbGVv
+IChCQi1GRTFDQykNCkV2ZXJpcyBTcGFpbg0KDQpCYXJjZWxvbmEsIFNwYWluDQoNCnZpYSBCZUJl
+ZQ0KDQpUaW1lIGljb24gSmFuIDkgV29yayBpY29uIEZ1bGwtdGltZQ0KDQoNCg0KDQoNClQNCg0K
+DQpQcm9ncmFtYWRvciBKdW5pb3IgLSBTaW4gRXhwZXJpZW5jaWEgKEJhcmNlbG9uYSkgKEJCLUQ5
+Q0M0KQ0KdGVjbm9lbXBsZW8uY29tIC0gam9iYm9hcmQNCg0KQmFyY2Vsb25hLCBTcGFpbg0KDQp2
+aWEgQmVCZWUNCg0KVGltZSBpY29uIEphbiA5IFdvcmsgaWNvbiBGdWxsLXRpbWUNCg0KDQoNCg0K
+DQpMb2dvDQoNCg0KUHJvZ3JhbWFkb3IvYSBKYXZhIGp1bmlvciAtIEF1dG9tb2Npw7NuIChUTy0y
+REVBMikNCkFsdHJhbg0KDQpCYXJjZWxvbmEsIFNwYWluDQoNCnZpYSBUcmFiYWpvLm9yZw0KDQpU
+aW1lIGljb24gSmFuIDkgV29yayBpY29uIEZ1bGwtdGltZQ0KDQoNCg0KDQoNClANCg0KDQpQcm9n
+cmFtYWRvciBKdW5pb3IgSmF2YSAoVGFycmFnb25hKSAoVE8tNzlGRDYpDQpQcm9ncmFtYWRvciBK
+dW5pb3IgSmF2YSBTdW1tYXIgU29mdHdhcmUNCg0KUmV1cywgU3BhaW4NCg0KdmlhIFRyYWJham8u
+b3JnDQoNClRpbWUgaWNvbiBKYW4gOSBXb3JrIGljb24gRnVsbC10aW1lDQoNCg0KDQoNCg0KQQ0K
+DQoNClByb2dyYW1hZG9yL2EgRnJvbnQgRW5kIEp1bmlvciAoVE8tQTlDOTYpDQpBbXBsaWZmeQ0K
+DQpCYXJjZWxvbmEsIFNwYWluDQoNCnZpYSBUcmFiYWpvLm9yZw0KDQpUaW1lIGljb24gSmFuIDkg
+V29yayBpY29uIEZ1bGwtdGltZQ0KDQoNCg0KDQoNCkcNCg0KDQpQcm9ncmFtYWRvci9hIEp1bmlv
+ciAoIEJhY2tlbmQgLyBGcm9udGVuZCApIChUTy0zQTU0RikNCkdydXBvIEJsZA0KDQpMYSBMbGFn
+b3N0YSwgU3BhaW4NCg0KdmlhIFRyYWJham8ub3JnDQoNClRpbWUgaWNvbiBKYW4gOSBXb3JrIGlj
+b24gRnVsbC10aW1lDQoNCg0KDQoNCg0KQw0KDQoNClByb2dyYW1hZG9yIEluZm9ybcOhdGljbyBk
+aXNjYXBhY2lkYWQgKFRPLTNCQUU5KQ0KQ29uZmVkZXJhY2nDs24gRXNwYcOxb2xhIGRlIFBlcnNv
+bmFzIGNvbiBEaXNjYXBhY2lkYWQgRsOtc2ljYSB5IE9yZ8OhbmljYSAgDQooQ09DRU1GRSkNCg0K
+WmFyYWdvemEsIFNwYWluDQoNCnZpYSBUcmFiYWpvLm9yZw0KDQpUaW1lIGljb24gSmFuIDkgV29y
+ayBpY29uIEZ1bGwtdGltZQ0KDQoNCg0KDQoNCkkNCg0KDQpQcm9ncmFtYWRvciBQSFAgWmFyYWdv
+emEgKEJCLUU4QzlCKQ0KSW55Y2lvDQoNClphcmFnb3phLCBTcGFpbg0KDQp2aWEgQmVCZWUNCg0K
+VGltZSBpY29uIEphbiA5IFdvcmsgaWNvbiBGdWxsLXRpbWUNCg0KDQoNCg0KDQpGb3J3YXJkIGlj
+b24gRXhwbG9yZSBqb2JzDQoNCg0KDQoNCg0KWW91IHJlY2VpdmVkIHRoaXMgZW1haWwgYmVjYXVz
+ZSB5b3Ugc2lnbmVkIHVwIGZvciBhbiBhbGVydCBvbiBHb29nbGUNCg0KDQoNCk1hbmFnZSBBbGVy
+dHMgVW5zdWJzY3JpYmUNCg0KDQoNCg0KDQpHb29nbGUgSW5jLiAxNjAwIEFtcGhpdGhlYXRyZSBQ
+YXJrd2F5DQpNb3VudGFpbiBWaWV3LCBDQSA5NDA0MywgVVNBDQoNCg0KDQoNCg==
+--0000000000000b32c105b8846f88
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html dir=3Dltr><head><style>
+          body {
+            margin: 0;
+          }
+        </style></head><body><img src=3Dhttps://notifications.googleapis.co=
+m/email/t/AFG8qyX2AylS0wBY4auLUR9TtaVrIBsKWK6SWnHNjisl0XPQQGIrq7f5VxRZaQP9Y=
+vA40MwsQXNaSQBALeVCfwzBUMgZoMdM5SI98_Dcjz4BkP8zedqsiwRwh_PznyDaPbF5N4UbjDLv=
+6Enm0488f8Ixup7lphPWPxpekRCA-zGEb24ZIZAI02fa2NDr5nuoJVkbjCWYOlzmNdhEtQyG75i=
+nr074TJrEs04dxXGtY29FvdaU3BEtkH6X7o8NTH0_KclWvzoh7ZheYmPzFu7ERI_CWh9ydXhJTQ=
+pv6AL8hDt5Zp0APA/a.gif width=3D1 height=3D1><div data-f=3D39421029278557587=
+10 dir=3Dltr><!--[if mso]>\n <style>body, table, td {font-family: arial, sa=
+ns-serif-medium, sans-serif !important;}</style>\n<![endif]--><!--[if mso]>=
+<table cellspacing=3D&quot;0&quot; cellpadding=3D&quot;0&quot; border=3D&qu=
+ot;0&quot; width=3D&quot;680&quot; align=3D&quot;center&quot;><tr><td><![en=
+dif]--><div style=3D"margin-left: auto; margin-right: auto; max-width: 680p=
+x; min-width: 320px;"><table style=3D"background-color: #4285f4; border-col=
+lapse: collapse; border-spacing: 0; width: 100%;"><tr><td style=3D"backgrou=
+nd-color: #4285f4; width: 10%; vertical-align: top; padding: 0;"></td><td s=
+tyle=3D"background-color: #4285f4; max-width: 545px; min-width: 300px; padd=
+ing: 24px 0 20px 17px; position: relative; font-family: arial, sans-serif-m=
+edium, sans-serif !important;"><a style=3D"display: inline-block; text-deco=
+ration: none; width: 100%;" href=3Dhttps://notifications.googleapis.com/ema=
+il/redirect?t=3DAFG8qyWtKZz0Z5q5yIMyti1Djzl2wmV7hFEVwLrV0UsQ4gVzFU5q82LrHGw=
+gneeKuP1e4cs9CJDGpHxX_akkn9aXT0QYe5lcismFzwmw0Nd2cQBaPboXTrRw_Iz7XyvKNy6-dO=
+X623rgfMfPl3M-H4Oq1VFD3wlOIpfAYeATTlO5CkQ-Le7pTK-n6hbuBeORga9y3na_YE70ScUSI=
+PevcYHi_ccVKWXJx7rBn0jL3PR79vsbS_vxoTVaPeUI-IDmnu_SRW3P8LFNW_SQx55jM3xaJcpA=
+kw&amp;c=3Dhttps://www.google.es/search%3Fq%3Dprogramador%2Bjava%2Bjunior%2=
+6ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsemail%26hl%3Den%26gl%3DES%23=
+fpstate%3Dtlexp%26htichips%3Ddate_posted:range_2021-01-08%26htiq%3Dprograma=
+dor%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%3=
+Djobs&amp;s=3DALHZ2r7IKkuA52AOitPC7TRxCzqK><table style=3D"border-collapse:=
+ collapse; border-spacing: 0;"><tr><td><span style=3D"cursor: pointer; text=
+-decoration: none; color: #FFFFFF; font-size: 18px; line-height: 1.22em;">P=
+rogramador java junior</span></td></tr><tr><td style=3D"color: #C0D6FB; fon=
+t-size: 14px; line-height: 1.14em; padding-top: 2px;"><span>Near Barcelona<=
+/span></td></tr></table></a></td><td style=3D"background-color: #4285f4; wi=
+dth: 10%; vertical-align: top; padding: 0;"></td></tr><tr style=3D"backgrou=
+nd-color: #EEEEEE"><td style=3D"background-color: #EEEEEE; vertical-align: =
+top; padding: 0;"><table style=3D"border-collapse: collapse; border-spacing=
+: 0; table-layout: fixed; width: 100%;"><tr><td style=3D"height: 20px; back=
+ground-color: #4285f4; padding: 0;"></td></tr><tr><td style=3D"background-c=
+olor: #EEEEEE; padding: 0;"></td></tr></table></td><td style=3D"vertical-al=
+ign: top; padding: 0;"><table style=3D"border-collapse: collapse; border-sp=
+acing: 0; width: 100%;"><tr><td style=3D"padding: 0"><table style=3D"border=
+-collapse: collapse; border-spacing: 0; border: 1px solid #E5E5E5; width: 1=
+00%;"><tr><td style=3D"background-color: white; border-bottom: 1px solid #E=
+5E5E5; font-family: arial, sans-serif-medium, sans-serif; padding: 0;"><a s=
+tyle=3D"display: inline-block; text-decoration: none; width: 100%;" href=3D=
+https://notifications.googleapis.com/email/redirect?t=3DAFG8qyXbHhmd14H6E-_=
+LSFNiIxEky8n1TXXrVfsyyIhgwKZiN7fI7HRnxKbnIzuyHD0eJQba5inVswJiL0iVuInY_-jfck=
+coGbvjc5uQXiozSmmCiRuC0ruHI5rrjqijG1AQ9pv1i3Q9bhh6CePKKVGjcZ45yLsycPu8EHVmN=
+BWBZqNDSr7FBTeDVnNiwXSlzjjeHBjm9IPUCMMPKAhD2mxOjaRwi-txOa2EB43mSjIptAuRWM9U=
+pf-hnlo3uKHd23dXoE-W2jG9raTLQhar85SzjDvK6POR&amp;c=3Dhttps://www.google.es/=
+search%3Fq%3Dprogramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26c=
+lksrc%3Dalertsemail%26hl%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Dd=
+ate_posted:range_2021-01-08%26htidocid%3D0spaTHeuw1gWDlE1AAAAAA%253D%253D%2=
+6htiq%3Dprogramador%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-=
+01-08%26htivrt%3Djobs&amp;s=3DALHZ2r4VBMyGTRkprx015_EtA9bC><table style=3D"=
+border-collapse: collapse; border-spacing: 0; position: relative;"><tr><td =
+aria-hidden=3Dtrue style=3D"border-spacing: 0; padding: 16px; vertical-alig=
+n: top;"><table style=3D"border-collapse: collapse; border-spacing: 0; widt=
+h: 56px; height: 56px; border: 1px solid #E5E5E5;"><tr><td style=3D"width: =
+56px; height: 56px; padding: 0; text-align: center;"><img alt=3DLogo style=
+=3D"width: 56px; vertical-align: middle; display: inline-block;" src=3Dhttp=
+://t2.gstatic.com/images?q=3Dtbn:ANd9GcQ9Y9sWa5HQAafapqybLyeyQuvYcM6ovx6tzx=
+clt2V4zHCUy8uQqYjPxE6H></td></tr></table></td><td style=3D"position: static=
+; width: 100%;" data-f=3D3942102927855758710><div style=3D"display: inline-=
+block; max-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor:=
+ pointer; color: #212121; display: block; text-decoration: none; font-size:=
+ 16px; line-height: 1.43em;">Programador junior, Barcelona - Primer Empleo =
+(BB-FE1CC)</span><div style=3D"color: black; font-size: 14px; line-height: =
+1.43em;">Everis Spain</div><div style=3D"color: #8A8A8A; font-size: 14px; l=
+ine-height: 1.43em;"><span>Barcelona, Spain</span></div><div style=3D"color=
+: #8A8A8A; font-size: 14px; line-height: 1.43em;">via BeBee</div><div style=
+=3D"padding-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img alt=3D"=
+Time icon" src=3Dhttps://www.gstatic.com/images/icons/material/system/1x/ac=
+cess_time_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-ali=
+gn: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: 1=
+4px; padding-right: 8px; padding-left: 4px; vertical-align: middle;">Jan 9<=
+/span><img alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/icons/mat=
+erial/system/1x/work_grey600_18dp.png style=3D"width: 18px; height: 18px; v=
+ertical-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; f=
+ont-size: 14px; padding-right: 8px; padding-left: 4px; vertical-align: midd=
+le;">Full-time</span></div></div></td></tr></table></a></td></tr><tr><td st=
+yle=3D"background-color: white; border-bottom: 1px solid #E5E5E5; font-fami=
+ly: arial, sans-serif-medium, sans-serif; padding: 0;"><a style=3D"display:=
+ inline-block; text-decoration: none; width: 100%;" href=3Dhttps://notifica=
+tions.googleapis.com/email/redirect?t=3DAFG8qyU9zsffn7XsfRO0LvuWn8P7OOO-dr-=
+ZP2IFfx8W3dqQeH4-V_tDNiuT9rACij3gXzPDRjBLo2AkgRdEgKoCRvFe4C0QyCuyYbnJCKzjrB=
+dG5QAOA-Y2OPL7EGgJVogqUhtnU_uzjQzvgAYAh4HVgG77wFkHGfu6lWpk7v8S2VEKEQKlorXvR=
+UF1kHdzE0X9siMT3epOkmTRpyy9LdMe7QM3cWTvEpvw3SmEUUuEMs5Q3Jovt4QgxroLYfl6G0vw=
+emH8m5CCEgc4lJndG5J_GL0FINVi&amp;c=3Dhttps://www.google.es/search%3Fq%3Dpro=
+gramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsem=
+ail%26hl%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_posted:range=
+_2021-01-08%26htidocid%3D9gFUcRDGbV1ubvTMAAAAAA%253D%253D%26htiq%3Dprograma=
+dor%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%3=
+Djobs&amp;s=3DALHZ2r5oWO0HaomxuxPsPWNWX4oA><table style=3D"border-collapse:=
+ collapse; border-spacing: 0; position: relative;"><tr><td aria-hidden=3Dtr=
+ue style=3D"border-spacing: 0; padding: 16px; vertical-align: top;"><table =
+style=3D"border-collapse: collapse; border-spacing: 0; width: 56px; height:=
+ 56px; border: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; min-width:=
+ 56px; height: 56px; font-size: 28px; line-height: 2em; text-align: center;=
+ vertical-align: middle; display: inline-block; background-color: #EF6C00; =
+color: #FFFFFF;">T</td></tr></table></td><td style=3D"position: static; wid=
+th: 100%;" data-f=3D3942102927855758710><div style=3D"display: inline-block=
+; max-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: poin=
+ter; color: #212121; display: block; text-decoration: none; font-size: 16px=
+; line-height: 1.43em;">Programador Junior - Sin Experiencia (Barcelona) (B=
+B-D9CC4)</span><div style=3D"color: black; font-size: 14px; line-height: 1.=
+43em;">tecnoempleo.com - jobboard</div><div style=3D"color: #8A8A8A; font-s=
+ize: 14px; line-height: 1.43em;"><span>Barcelona, Spain</span></div><div st=
+yle=3D"color: #8A8A8A; font-size: 14px; line-height: 1.43em;">via BeBee</di=
+v><div style=3D"padding-top: 12px; line-height: 1.5em; max-height: 1.5em;">=
+<img alt=3D"Time icon" src=3Dhttps://www.gstatic.com/images/icons/material/=
+system/1x/access_time_grey600_18dp.png style=3D"width: 18px; height: 18px; =
+vertical-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; =
+font-size: 14px; padding-right: 8px; padding-left: 4px; vertical-align: mid=
+dle;">Jan 9</span><img alt=3D"Work icon" src=3Dhttps://www.gstatic.com/imag=
+es/icons/material/system/1x/work_grey600_18dp.png style=3D"width: 18px; hei=
+ght: 18px; vertical-align: middle;" aria-hidden=3Dtrue><span style=3D"color=
+: #8A8A8A; font-size: 14px; padding-right: 8px; padding-left: 4px; vertical=
+-align: middle;">Full-time</span></div></div></td></tr></table></a></td></t=
+r><tr><td style=3D"background-color: white; border-bottom: 1px solid #E5E5E=
+5; font-family: arial, sans-serif-medium, sans-serif; padding: 0;"><a style=
+=3D"display: inline-block; text-decoration: none; width: 100%;" href=3Dhttp=
+s://notifications.googleapis.com/email/redirect?t=3DAFG8qyUBinLHQaXx4O5Mb9C=
+ZIUhYMxH5b_2T5SAI92B-nYnQXvqDgLSWJQzAEkhERYPXnRbR_CRDhUQ8FTTFDrc-Y9_zvLjOjS=
+G-qWeD1mWHK6oswQFy7NUQevG1e61zqonfiWTf87uQjxNj6xwe-5y2xk1O9M3VYEyJQQM6lZF-C=
+hSxeWDCLjv0u-yj8-Z5lLnkUFQvuaMY9wtQaaIfqexyCoP2lcTallmd6iduUAgSmKfG3P2qPxtI=
+HORiuT3RLpjq_lyXQdsAWQg2LEHr7jmkTlJgVTqD&amp;c=3Dhttps://www.google.es/sear=
+ch%3Fq%3Dprogramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksr=
+c%3Dalertsemail%26hl%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_=
+posted:range_2021-01-08%26htidocid%3DTuP0C3cBq9TauUIxAAAAAA%253D%253D%26hti=
+q%3Dprogramador%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-0=
+8%26htivrt%3Djobs&amp;s=3DALHZ2r6KNKe33G9Z4ia5p2i6NjWd><table style=3D"bord=
+er-collapse: collapse; border-spacing: 0; position: relative;"><tr><td aria=
+-hidden=3Dtrue style=3D"border-spacing: 0; padding: 16px; vertical-align: t=
+op;"><table style=3D"border-collapse: collapse; border-spacing: 0; width: 5=
+6px; height: 56px; border: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px=
+; height: 56px; padding: 0; text-align: center;"><img alt=3DLogo style=3D"w=
+idth: 56px; vertical-align: middle; display: inline-block;" src=3Dhttp://t3=
+.gstatic.com/images?q=3Dtbn:ANd9GcSYxiroTFNTFRRo04kEbVx5eTSNBF0oCxmLn-PDpjI=
+E8e_1qhiA09zB6-xl></td></tr></table></td><td style=3D"position: static; wid=
+th: 100%;" data-f=3D3942102927855758710><div style=3D"display: inline-block=
+; max-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: poin=
+ter; color: #212121; display: block; text-decoration: none; font-size: 16px=
+; line-height: 1.43em;">Programador/a Java junior - Automoci=C3=B3n (TO-2DE=
+A2)</span><div style=3D"color: black; font-size: 14px; line-height: 1.43em;=
+">Altran</div><div style=3D"color: #8A8A8A; font-size: 14px; line-height: 1=
+.43em;"><span>Barcelona, Spain</span></div><div style=3D"color: #8A8A8A; fo=
+nt-size: 14px; line-height: 1.43em;">via Trabajo.org</div><div style=3D"pad=
+ding-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img alt=3D"Time ic=
+on" src=3Dhttps://www.gstatic.com/images/icons/material/system/1x/access_ti=
+me_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-align: mid=
+dle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: 14px; pa=
+dding-right: 8px; padding-left: 4px; vertical-align: middle;">Jan 9</span><=
+img alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/icons/material/s=
+ystem/1x/work_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical=
+-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-siz=
+e: 14px; padding-right: 8px; padding-left: 4px; vertical-align: middle;">Fu=
+ll-time</span></div></div></td></tr></table></a></td></tr><tr><td style=3D"=
+background-color: white; border-bottom: 1px solid #E5E5E5; font-family: ari=
+al, sans-serif-medium, sans-serif; padding: 0;"><a style=3D"display: inline=
+-block; text-decoration: none; width: 100%;" href=3Dhttps://notifications.g=
+oogleapis.com/email/redirect?t=3DAFG8qyWBEhRA-7Rx3_NvkBcFhwUOQYMBTaW51yOhLm=
+eepLrHLUGWvg0RQXFn_Q0yEzl3SblLUKzmxndnug_focsbpVmYeEkdAlG_LfaGYqiHox3Hc5R9H=
+wQCTbal_7iYjlIyJf3csXCB-W40sN6FRNTDQ0y2HUoOyk84bgkDdd8NBwSuZM5_vF2--D-CSVST=
+6yNw6a4gCQHKawnfgfib4rdDvC6XblO_2QuCldmobMwaWeqMZx-yXvB8QtVuPo9qVrUxEPSA913=
+NO7dSbO-45XhTrvt8Azms&amp;c=3Dhttps://www.google.es/search%3Fq%3Dprogramado=
+r%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsemail%26h=
+l%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_posted:range_2021-0=
+1-08%26htidocid%3DgBjeAF1elpM61o5YAAAAAA%253D%253D%26htiq%3Dprogramador%2Bj=
+ava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%3Djobs&a=
+mp;s=3DALHZ2r4Blj7wxldfg4uXVvpF7zgD><table style=3D"border-collapse: collap=
+se; border-spacing: 0; position: relative;"><tr><td aria-hidden=3Dtrue styl=
+e=3D"border-spacing: 0; padding: 16px; vertical-align: top;"><table style=
+=3D"border-collapse: collapse; border-spacing: 0; width: 56px; height: 56px=
+; border: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; min-width: 56px=
+; height: 56px; font-size: 28px; line-height: 2em; text-align: center; vert=
+ical-align: middle; display: inline-block; background-color: #689F38; color=
+: #FFFFFF;">P</td></tr></table></td><td style=3D"position: static; width: 1=
+00%;" data-f=3D3942102927855758710><div style=3D"display: inline-block; max=
+-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: pointer; =
+color: #212121; display: block; text-decoration: none; font-size: 16px; lin=
+e-height: 1.43em;">Programador Junior Java (Tarragona) (TO-79FD6)</span><di=
+v style=3D"color: black; font-size: 14px; line-height: 1.43em;">Programador=
+ Junior Java Summar Software</div><div style=3D"color: #8A8A8A; font-size: =
+14px; line-height: 1.43em;"><span>Reus, Spain</span></div><div style=3D"col=
+or: #8A8A8A; font-size: 14px; line-height: 1.43em;">via Trabajo.org</div><d=
+iv style=3D"padding-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img=
+ alt=3D"Time icon" src=3Dhttps://www.gstatic.com/images/icons/material/syst=
+em/1x/access_time_grey600_18dp.png style=3D"width: 18px; height: 18px; vert=
+ical-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font=
+-size: 14px; padding-right: 8px; padding-left: 4px; vertical-align: middle;=
+">Jan 9</span><img alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/i=
+cons/material/system/1x/work_grey600_18dp.png style=3D"width: 18px; height:=
+ 18px; vertical-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8=
+A8A8A; font-size: 14px; padding-right: 8px; padding-left: 4px; vertical-ali=
+gn: middle;">Full-time</span></div></div></td></tr></table></a></td></tr><t=
+r><td style=3D"background-color: white; border-bottom: 1px solid #E5E5E5; f=
+ont-family: arial, sans-serif-medium, sans-serif; padding: 0;"><a style=3D"=
+display: inline-block; text-decoration: none; width: 100%;" href=3Dhttps://=
+notifications.googleapis.com/email/redirect?t=3DAFG8qyUFmRAhhV4JYfo9omedWgK=
+va1vc-oJsIAibNAGR8jTr0Kd_n46eeiNx5MiJYclQ5vIMiJg8eOqrYnYldXvTu_JR48TO2-EXRL=
+D6ZS1UyHblB4hsGR4XDANBvEA76zVjn5U8a9Xl4PtBBUq7O7TCvM5bnMQ-Q6a6j3tAbdpn3DRnv=
+Gm6A9f3vSSsWn9RfzJ12dwxnUvnY3o2rtfrHcKJbrg7oWIrVYD77XJ0CqYl4GMl5ewIdvLjC1fF=
+5n7F8mUpIqXLPPjx9w7wF0Oc2CE6RV0U8vUh&amp;c=3Dhttps://www.google.es/search%3=
+Fq%3Dprogramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3D=
+alertsemail%26hl%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_post=
+ed:range_2021-01-08%26htidocid%3DnQ4luHv-UU6C5wKUAAAAAA%253D%253D%26htiq%3D=
+programador%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26=
+htivrt%3Djobs&amp;s=3DALHZ2r5AuQ8RmjqkDZwWcc3SW-H1><table style=3D"border-c=
+ollapse: collapse; border-spacing: 0; position: relative;"><tr><td aria-hid=
+den=3Dtrue style=3D"border-spacing: 0; padding: 16px; vertical-align: top;"=
+><table style=3D"border-collapse: collapse; border-spacing: 0; width: 56px;=
+ height: 56px; border: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; mi=
+n-width: 56px; height: 56px; font-size: 28px; line-height: 2em; text-align:=
+ center; vertical-align: middle; display: inline-block; background-color: #=
+7B1FA2; color: #FFFFFF;">A</td></tr></table></td><td style=3D"position: sta=
+tic; width: 100%;" data-f=3D3942102927855758710><div style=3D"display: inli=
+ne-block; max-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"curs=
+or: pointer; color: #212121; display: block; text-decoration: none; font-si=
+ze: 16px; line-height: 1.43em;">Programador/a Front End Junior (TO-A9C96)</=
+span><div style=3D"color: black; font-size: 14px; line-height: 1.43em;">Amp=
+liffy</div><div style=3D"color: #8A8A8A; font-size: 14px; line-height: 1.43=
+em;"><span>Barcelona, Spain</span></div><div style=3D"color: #8A8A8A; font-=
+size: 14px; line-height: 1.43em;">via Trabajo.org</div><div style=3D"paddin=
+g-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img alt=3D"Time icon"=
+ src=3Dhttps://www.gstatic.com/images/icons/material/system/1x/access_time_=
+grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-align: middle=
+;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: 14px; paddi=
+ng-right: 8px; padding-left: 4px; vertical-align: middle;">Jan 9</span><img=
+ alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/icons/material/syst=
+em/1x/work_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-al=
+ign: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: =
+14px; padding-right: 8px; padding-left: 4px; vertical-align: middle;">Full-=
+time</span></div></div></td></tr></table></a></td></tr><tr><td style=3D"bac=
+kground-color: white; border-bottom: 1px solid #E5E5E5; font-family: arial,=
+ sans-serif-medium, sans-serif; padding: 0;"><a style=3D"display: inline-bl=
+ock; text-decoration: none; width: 100%;" href=3Dhttps://notifications.goog=
+leapis.com/email/redirect?t=3DAFG8qyWpMiSLAsTkKryLAP5SoYTYGBb-ub6quB1pl7yXV=
+gds05skx7nc-c6765G51_lw2_cDGUFE8Mcp-IT9qHXipu5b1egjvBV23vUtzpFJqJ-qUHwu0ZUJ=
+H5kYJ4stG6HGXhANq7JuzS2Kmi0j81-flnzahJarK1-Y2bXp7M0aROHkaNJahvATUm17GKqju1A=
+oB2iiQAVnSt8LrW3augDsHMbGCjkYLOdmoBSbywQMHJ33xg59lz-qhWCdOAqKSYFdl8RsZMFukR=
+_EWm9jYF5sz90xF_hr&amp;c=3Dhttps://www.google.es/search%3Fq%3Dprogramador%2=
+Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsemail%26hl%3=
+Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_posted:range_2021-01-0=
+8%26htidocid%3Dni2wVYiCn84W9PojAAAAAA%253D%253D%26htiq%3Dprogramador%2Bjava=
+%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%3Djobs&amp;=
+s=3DALHZ2r4K7M8UEbqlMuGLUrJ3y6cm><table style=3D"border-collapse: collapse;=
+ border-spacing: 0; position: relative;"><tr><td aria-hidden=3Dtrue style=
+=3D"border-spacing: 0; padding: 16px; vertical-align: top;"><table style=3D=
+"border-collapse: collapse; border-spacing: 0; width: 56px; height: 56px; b=
+order: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; min-width: 56px; h=
+eight: 56px; font-size: 28px; line-height: 2em; text-align: center; vertica=
+l-align: middle; display: inline-block; background-color: #0288D1; color: #=
+FFFFFF;">G</td></tr></table></td><td style=3D"position: static; width: 100%=
+;" data-f=3D3942102927855758710><div style=3D"display: inline-block; max-wi=
+dth: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: pointer; col=
+or: #212121; display: block; text-decoration: none; font-size: 16px; line-h=
+eight: 1.43em;">Programador/a Junior ( Backend / Frontend ) (TO-3A54F)</spa=
+n><div style=3D"color: black; font-size: 14px; line-height: 1.43em;">Grupo =
+Bld</div><div style=3D"color: #8A8A8A; font-size: 14px; line-height: 1.43em=
+;"><span>La Llagosta, Spain</span></div><div style=3D"color: #8A8A8A; font-=
+size: 14px; line-height: 1.43em;">via Trabajo.org</div><div style=3D"paddin=
+g-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img alt=3D"Time icon"=
+ src=3Dhttps://www.gstatic.com/images/icons/material/system/1x/access_time_=
+grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-align: middle=
+;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: 14px; paddi=
+ng-right: 8px; padding-left: 4px; vertical-align: middle;">Jan 9</span><img=
+ alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/icons/material/syst=
+em/1x/work_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-al=
+ign: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: =
+14px; padding-right: 8px; padding-left: 4px; vertical-align: middle;">Full-=
+time</span></div></div></td></tr></table></a></td></tr><tr><td style=3D"bac=
+kground-color: white; border-bottom: 1px solid #E5E5E5; font-family: arial,=
+ sans-serif-medium, sans-serif; padding: 0;"><a style=3D"display: inline-bl=
+ock; text-decoration: none; width: 100%;" href=3Dhttps://notifications.goog=
+leapis.com/email/redirect?t=3DAFG8qyUaR_8sFuDEN3zutwSmDtjc0TFrIegaq5wcl8NTW=
+n10066nk1yCLbly5tIJNRu_LeSGNhKt2pgW0gEoynpqtv04gFjRl2RIgLa0AAHrnaigl12DyQ95=
+qfMlaKCGkBJ2oYnOfTNWHsjXfzTMSEI4QGy0ImWIAD4YBioOXtRsrTYKdEcF5Zj89z-M2sfDw01=
+c-SerwdhyCKTaBbjUPcNoVcTpTANr-le3FQBtYzTpHJ-JMqGawLq4oDx7qbk_6JmYcBDVOCQ_pJ=
+QfsyAsyGEWOwpoyvEz&amp;c=3Dhttps://www.google.es/search%3Fq%3Dprogramador%2=
+Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsemail%26hl%3=
+Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_posted:range_2021-01-0=
+8%26htidocid%3DUVk05ORa1SXc9zRCAAAAAA%253D%253D%26htiq%3Dprogramador%2Bjava=
+%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%3Djobs&amp;=
+s=3DALHZ2r4_BbNir3AqeX7HoAuffN0E><table style=3D"border-collapse: collapse;=
+ border-spacing: 0; position: relative;"><tr><td aria-hidden=3Dtrue style=
+=3D"border-spacing: 0; padding: 16px; vertical-align: top;"><table style=3D=
+"border-collapse: collapse; border-spacing: 0; width: 56px; height: 56px; b=
+order: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; min-width: 56px; h=
+eight: 56px; font-size: 28px; line-height: 2em; text-align: center; vertica=
+l-align: middle; display: inline-block; background-color: #F4511E; color: #=
+FFFFFF;">C</td></tr></table></td><td style=3D"position: static; width: 100%=
+;" data-f=3D3942102927855758710><div style=3D"display: inline-block; max-wi=
+dth: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: pointer; col=
+or: #212121; display: block; text-decoration: none; font-size: 16px; line-h=
+eight: 1.43em;">Programador Inform=C3=A1tico discapacidad (TO-3BAE9)</span>=
+<div style=3D"color: black; font-size: 14px; line-height: 1.43em;">Confeder=
+aci=C3=B3n Espa=C3=B1ola de Personas con Discapacidad F=C3=ADsica y Org=C3=
+=A1nica (COCEMFE)</div><div style=3D"color: #8A8A8A; font-size: 14px; line-=
+height: 1.43em;"><span>Zaragoza, Spain</span></div><div style=3D"color: #8A=
+8A8A; font-size: 14px; line-height: 1.43em;">via Trabajo.org</div><div styl=
+e=3D"padding-top: 12px; line-height: 1.5em; max-height: 1.5em;"><img alt=3D=
+"Time icon" src=3Dhttps://www.gstatic.com/images/icons/material/system/1x/a=
+ccess_time_grey600_18dp.png style=3D"width: 18px; height: 18px; vertical-al=
+ign: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; font-size: =
+14px; padding-right: 8px; padding-left: 4px; vertical-align: middle;">Jan 9=
+</span><img alt=3D"Work icon" src=3Dhttps://www.gstatic.com/images/icons/ma=
+terial/system/1x/work_grey600_18dp.png style=3D"width: 18px; height: 18px; =
+vertical-align: middle;" aria-hidden=3Dtrue><span style=3D"color: #8A8A8A; =
+font-size: 14px; padding-right: 8px; padding-left: 4px; vertical-align: mid=
+dle;">Full-time</span></div></div></td></tr></table></a></td></tr><tr><td s=
+tyle=3D"background-color: white; border-bottom: 1px solid #E5E5E5; font-fam=
+ily: arial, sans-serif-medium, sans-serif; padding: 0;"><a style=3D"display=
+: inline-block; text-decoration: none; width: 100%;" href=3Dhttps://notific=
+ations.googleapis.com/email/redirect?t=3DAFG8qyU9domLNotlmCpKRzI5q2ZfJGMigG=
+IPdWM6Ml7yh9YNbolo8svH7nlFZdCTmkSLGFeWTdc9d1ul5o7m4A28nNIAxkCijK2D38rBJoJYN=
+Y0KZsz5WNBchfKY5wBjSyP9J2mN-1CU5ttJULAJRWDYLLp5ST5x_a8muipfpdUXjxQXjmn9Yviq=
+DiLulCoiVD0RP7x1Ko-LU3hIpfoK7Pef8e3drbiBicyUv37VOyTTvf90I-xZiV_PlPUzsFz0hhc=
+wKEVyK-WrA2WfjJXhg7gwqTuW-d4G&amp;c=3Dhttps://www.google.es/search%3Fq%3Dpr=
+ogramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertse=
+mail%26hl%3Den%26gl%3DES%23fpstate%3Dtldetail%26htichips%3Ddate_posted:rang=
+e_2021-01-08%26htidocid%3D8O6kRlGpLZ2GsNtYAAAAAA%253D%253D%26htiq%3Dprogram=
+ador%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Brange_2021-01-08%26htivrt%=
+3Djobs&amp;s=3DALHZ2r7BdYaRkO82p-3DiyDqHudZ><table style=3D"border-collapse=
+: collapse; border-spacing: 0; position: relative;"><tr><td aria-hidden=3Dt=
+rue style=3D"border-spacing: 0; padding: 16px; vertical-align: top;"><table=
+ style=3D"border-collapse: collapse; border-spacing: 0; width: 56px; height=
+: 56px; border: 1px solid #E5E5E5;"><tr><td style=3D"width: 56px; min-width=
+: 56px; height: 56px; font-size: 28px; line-height: 2em; text-align: center=
+; vertical-align: middle; display: inline-block; background-color: #00897B;=
+ color: #FFFFFF;">I</td></tr></table></td><td style=3D"position: static; wi=
+dth: 100%;" data-f=3D3942102927855758710><div style=3D"display: inline-bloc=
+k; max-width: 418px; padding: 13px 16px 15px 0;"><span style=3D"cursor: poi=
+nter; color: #212121; display: block; text-decoration: none; font-size: 16p=
+x; line-height: 1.43em;">Programador PHP Zaragoza (BB-E8C9B)</span><div sty=
+le=3D"color: black; font-size: 14px; line-height: 1.43em;">Inycio</div><div=
+ style=3D"color: #8A8A8A; font-size: 14px; line-height: 1.43em;"><span>Zara=
+goza, Spain</span></div><div style=3D"color: #8A8A8A; font-size: 14px; line=
+-height: 1.43em;">via BeBee</div><div style=3D"padding-top: 12px; line-heig=
+ht: 1.5em; max-height: 1.5em;"><img alt=3D"Time icon" src=3Dhttps://www.gst=
+atic.com/images/icons/material/system/1x/access_time_grey600_18dp.png style=
+=3D"width: 18px; height: 18px; vertical-align: middle;" aria-hidden=3Dtrue>=
+<span style=3D"color: #8A8A8A; font-size: 14px; padding-right: 8px; padding=
+-left: 4px; vertical-align: middle;">Jan 9</span><img alt=3D"Work icon" src=
+=3Dhttps://www.gstatic.com/images/icons/material/system/1x/work_grey600_18d=
+p.png style=3D"width: 18px; height: 18px; vertical-align: middle;" aria-hid=
+den=3Dtrue><span style=3D"color: #8A8A8A; font-size: 14px; padding-right: 8=
+px; padding-left: 4px; vertical-align: middle;">Full-time</span></div></div=
+></td></tr></table></a></td></tr><tr><td style=3D"max-width: 560px; backgro=
+und-color: white; border: 1px solid #E5E5E5; border-top-width: 0px; font-fa=
+mily: arial, sans-serif-medium, sans-serif; position: relative; vertical-al=
+ign: middle;"><a style=3D"cursor: pointer; color: #4285f4; display: inline-=
+block; font-size: 16px; padding: 16px 0 16px 0; position: relative; text-de=
+coration: none; vertical-align: middle; width: 100%;" href=3Dhttps://notifi=
+cations.googleapis.com/email/redirect?t=3DAFG8qyVXPYu5ycKsluBb5g_iPxFC9QsK6=
+tjlzkIkO9n3HjLqONiJj9lWpZx8DRHH-xHKjxshiG8imtqEhNcjJTHhIffvCtg5PLK_Dx05Ptwy=
+GLnQ1qrSTHw4rfBUzYCJ3Fly7u5YNv5-ncVQYugjWryhh8GzkF7dYCavhFGnfjHOWHBw7BdgTFY=
+LGvXy_Dq58IDuvwJRs2WUuiq8OJiYhv4p012Uagnq_b2TLiQ-2a-jsZwm9wQzJLIUa_A2pXvhRS=
+2eAXqnqxkywDxzscxqQQOWxUCwNQ&amp;c=3Dhttps://www.google.es/search%3Fq%3Dpro=
+gramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3Djb%26clksrc%3Dalertsem=
+ail%26hl%3Den%26gl%3DES%23fpstate%3Dtlexp%26htichips%3Ddate_posted:range_20=
+21-01-08%26htiq%3Dprogramador%2Bjava%2Bjunior%26htischips%3Ddate_posted%3Br=
+ange_2021-01-08%26htivrt%3Djobs&amp;s=3DALHZ2r4McIATpGH3yHyIOglOXbSL><img a=
+lt=3D"Forward icon" src=3Dhttps://www.gstatic.com/images/icons/material/sys=
+tem/1x/arrow_forward_googblue_24dp.png style=3D"height: 24px; padding: 0 14=
+px 0 16px; vertical-align: middle; width: 24px;"><span style=3D"vertical-al=
+ign: middle;">Explore jobs</span></a></td></tr></table></td></tr><tr><td st=
+yle=3D"width: 100%; text-align: center; padding-top: 60px; padding-bottom: =
+18px; background-color: #EEEEEE;"><table style=3D"border-collapse: collapse=
+; border-spacing: 0; font-family: arial, sans-serif-medium, sans-serif; col=
+or: #8A8A8A; text-align: center; font-size: 14px; width: 85%; margin: 0 aut=
+o;"><tr><td>You received this email because you signed up for an alert on G=
+oogle</td></tr><tr><td style=3D"padding: 24px 0; border-bottom: 2px solid #=
+BDBDBD;"><table style=3D"border-collapse: collapse; border-spacing: 0; widt=
+h: 100%; font-size: 14px; text-align: center;"><tr><td><a style=3D"padding:=
+ 0 8px; text-transform: uppercase; text-decoration: none; color: #427fed;" =
+href=3Dhttps://notifications.googleapis.com/email/redirect?t=3DAFG8qyWhF15a=
+LFVNdRgvKt471EyrUFIvA9qcJT0NAha7-un2TUxadHiB2TlLLiG41YLWLJsgTVCcAflkQB5N6d7=
+URljIrBI1O_DGBUHPhBlrt3wbLBBIUeew-oNjQ8OJvgmbq_9RtXplYfMF83hnONLDwr1n9ngnd5=
+od94NiiTM50H4EI6HfE0xUSM4jJeYc7ArbXR67fLFZ-A-HEStrV-rs4AJ16lN2HtzdzGuR68qtR=
+iIUBivYL-2F8dPG3q7vTSS3dp5HkWhwucLB4Eoan2XgEet9ysPO&amp;c=3Dhttps://www.goo=
+gle.es/search%3Fq%3Dprogramador%2Bjava%2Bjunior%26ibp%3Dhtl%3Bjobs%26rciv%3=
+Djb%26clksrc%3Dalertsemail%26hl%3Den%26gl%3DES%23fpstate%3Dtlexp%26htichips=
+%3Ddate_posted:range_2021-01-08%26htiq%3Dprogramador%2Bjava%2Bjunior%26htis=
+chips%3Ddate_posted%3Brange_2021-01-08%26htitab%3Dalert%26htivrt%3Djobs&amp=
+;s=3DALHZ2r5nTbg7pA13tx1qboruCIau>Manage Alerts</a></td><td><a style=3D"tex=
+t-transform: uppercase; text-decoration: none; color: #427fed;" href=3Dhttp=
+s://notifications.googleapis.com/email/redirect?t=3DAFG8qyW1VTkJGk_1PTrgseA=
+oAMknQ-ePoFjBa9zOIcuLKJNu0SNTF5ZIA8Wams9xK3tgNZrxWJBCnnpjf1n4zt0kIySN1VrJhb=
+zZgRiA1_VozW7atTJL08ES2Gd9I0Q9tDjnbc2gEvfcMAQeLBgZ3MbxwL6GRGqAL1D6qQs1Qha5L=
+Xe-Mff3-I1AJhNT46WlgD6hY9H3eeaq-AnuG2bJTOgxg_H_yL1x6GMmH9AFn4YGCH8pM9B-8z8X=
+Dvd8V9Wg5YnZwY7m7FzVqOERKmraFLz77Tv8pXfkC1_Y6Jo&amp;c=3Dhttps://notificatio=
+ns.google.com/emailpreferences/unsubscribe/AIbu_Fuz7911-hrkheT527IYEvhOGORU=
+aDkKnPqUPtewy2rYGqngkijPaCOkD6llYqyPN4w006f_nObCLBPzXXqUzuMxNLsXCA8SAEOxY2H=
+TTHC1kNzlg3X3FkpUPmwIWhD2U0qSbB76SvWJK90t7xWt660oCLz1ad24Y9ZtDnqWjOfmL24cvn=
+QFzisywEfxXQLem8mr&amp;s=3DALHZ2r6LCzSFuTaT03YCmIdJ8JZh>Unsubscribe</a></td=
+></tr></table></td></tr><tr><td style=3D"padding: 30px 0 5px 0; width: 90px=
+; height: 31px;"><img src=3Dhttps://www.gstatic.com/alerts/images/google_lo=
+go_grey.png style=3D"width: 90px; height: 31px;"></td></tr><tr><td style=3D=
+"font-size: 12px; text-decoration: none; color: #8A8A8A; line-height: 1.5em=
+;">Google Inc. 1600 Amphitheatre Parkway<br>Mountain View, CA 94043, USA<br=
+></td></tr></table></td></tr></table></td><td style=3D"background-color: #E=
+EEEEE; vertical-align: top; padding: 0;"><table style=3D"border-collapse: c=
+ollapse; border-spacing: 0; table-layout: fixed; width: 100%;"><tr><td styl=
+e=3D"height: 20px; background-color: #4285f4; padding: 0;"></td></tr><tr><t=
+d style=3D"background-color: #EEEEEE; padding: 0;"></td></tr></table></td><=
+/tr></table></div><!--[if mso]></td></tr></table><![endif]--></div></body><=
+/html>
+--0000000000000b32c105b8846f88--

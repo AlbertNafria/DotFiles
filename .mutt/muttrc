@@ -1,0 +1,63 @@
+#set ssl_starttls=yes
+
+# Set imap connection
+set realname = "Albert Nafría Febrer"
+set from = $LOGIN
+set imap_user = $LOGIN
+set imap_pass = $PASSWORD
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set record="imaps://imap.gmail.com/Sent"
+set postponed="+[Gmail]/Drafts"
+mailboxes =INBOX #Check for new email here
+set header_cache = ~/.mutt/cache/headers
+
+# Reading email
+set timeout=10
+set mail_check=5
+set sort=threads
+set sort_aux=date
+set move = no
+set mark_old=no
+ignore * #ignore all headers except for...
+unignore Date: From: To: Bcc:
+set index_format="%{%b %d} %-15.15L [%Z] %s" #Custom index format
+
+set use_from = yes
+set envelope_from = yes
+
+# Use Gmail's SMTP server instead of /usr/bin/sendmail -oem -oi
+set copy=yes
+set smtp_url = "smtp://albert.nafria@gmail.com@smtp.gmail.com:587/"
+set smtp_pass = $PASSWORD
+set ssl_force_tls=yes
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set smtp_authenticators = 'gssapi:login'
+set imap_keepalive = 900
+
+# G to get mail
+bind index G imap-fetch-mail
+set cursor_overlay
+set editor="vim"
+set markers=no
+set signature=~,/.mutt/sig
+set include=yes
+set forward_format="Fwd: %s"
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html #Render html
+set charset="utf-8"
+
+# Colors
+color status white blue
+color index green default ~N #New
+color index red default ~D #Deleted
+color index brightmagenta default ~T #Tagged
+color index brightyellow default ~F #Flagged
+color header green default "^Subject:"
+color header yellow default "^Date:"
+color header yellow default "^To:"
+color header yellow default "^Cc:"
+color header yellow default "^Bcc:"
+color header yellow default "^From:"
+color header yellow default "^X-.*:"

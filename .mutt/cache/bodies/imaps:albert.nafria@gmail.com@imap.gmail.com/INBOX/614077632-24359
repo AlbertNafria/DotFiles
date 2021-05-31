@@ -1,0 +1,95 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:2056:0:0:0:0 with SMTP id pg22csp2567101ejb;
+        Mon, 15 Jun 2020 05:28:30 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwG6R84Hfxi/tA14S0K0b3Zlj8Nl9r/NDJkasO05mqJeKQxi0CFOPpPYl0aKuCTw1d5R6Uw
+X-Received: by 2002:a5d:6b81:: with SMTP id n1mr28207168wrx.411.1592224110188;
+        Mon, 15 Jun 2020 05:28:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592224110; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pPcUQr0UV0PlWil2gxQqOLi3jC3GfHUHQ9K7h6Zc3NhoVzHpk9IpU7PlaBV0xSoGf9
+         XwDFQOWqhpz8tmMvjukuBW+TMY736pRs+JWo41uSJKG93Z02I/gMmkdzxWZ2PzmyVb5F
+         TLH6BA5flwVH9fjntTwl+JyRGNjpF7VfdomsSzTLy2Po/5JK2h0tVqA1o9uC8mfrb8++
+         LBrfNG34aXXYw5L41x8+Uaj3qmP55XHVZHlD5TTdHGWJtqpwTmkHwN0niV9+0aLiOck8
+         6BGh2NO+4TkSAJAP3ZuyigL572AE34N1JxtpE+ANvxuI1WNT3iRtnjyCUZahPsZC+LsC
+         HusA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:message-id:date:subject:to:from;
+        bh=vJC4ro9yBj3pr7UZ61HsTPTCQYjJn+Jx03g/0huglJI=;
+        b=TYeB6rXcVG0G7WRkFNM3/eJpZyxq83eMc0d31blttZYVQQdNiY5DgzubiaAp/OvM4K
+         ikfGbG6+i/m2nZ0LaxU9+LeOISL+CeayByhtvkVPJX1pJT0Wo/jqVDOcM0VaJ7uMHU/M
+         QGTYoXYswHxCfZJr1mLd9oVLLid61hFJKrrs1625tsN/TRkncGRxH3PdBm79F067BCmG
+         TC8r+cieD3LHT2NEPmoi1EsQmekSuOQQEuVjeG3KXhvllT9t4uKemyKNxV39GxySdJg6
+         wlU6SYrzDVVMcKIv7jcTTfeuY9GWCTkhQXvm6bzr40o7jWfUEjgwxwXlYz2jfYMECAwK
+         bKrA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 54.217.206.198 is neither permitted nor denied by best guess record for domain of aa@alcoholicos-anonimos.org) smtp.mailfrom=aa@alcoholicos-anonimos.org
+Return-Path: <aa@alcoholicos-anonimos.org>
+Received: from correo.sentidocomun.es (correo.sentidocomun.es. [54.217.206.198])
+        by mx.google.com with ESMTPS id b79si14778490wmb.113.2020.06.15.05.28.29
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 15 Jun 2020 05:28:30 -0700 (PDT)
+Received-SPF: neutral (google.com: 54.217.206.198 is neither permitted nor denied by best guess record for domain of aa@alcoholicos-anonimos.org) client-ip=54.217.206.198;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 54.217.206.198 is neither permitted nor denied by best guess record for domain of aa@alcoholicos-anonimos.org) smtp.mailfrom=aa@alcoholicos-anonimos.org
+Received: from server7 (unknown [154.58.16.49])
+	by correo.sentidocomun.es (Postfix) with ESMTPA id E603DE80E29
+	for <albert.nafria@gmail.com>; Mon, 15 Jun 2020 13:28:28 +0100 (BST)
+From: "=?ISO-8859-1?B?QWxjb2jzbGljb3MgQW7zbmlt?=
+	=?ISO-8859-1?B?b3N=?=" <aa@alcoholicos-anonimos.org>
+To: albert.nafria@gmail.com
+Subject: =?ISO-8859-1?B?QWxjb2jzbGljb3MgQW7zbmlt?=
+	=?ISO-8859-1?B?b3MgLSC/RVMgQS5BLiBQQVJBIFVEPyAtIFBFUlNPTkFTIEpPVkVORVMg?=
+	=?ISO-8859-1?B?LSBGb3JtdWxhcmlvIGRlIGNvbnN1bHRh?=
+Date: Mon, 15 Jun 2020 14:28:28 +0200
+Message-ID: <20200615-14282807-2484-1@server7>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="--=C685A0385BF74ED2A3CA_24DF_F651_89D8"
+X-PPP-Message-ID: <20200615122829.7348.35902@localhost.localdomain>
+X-PPP-Vhost: alcoholicos-anonimos.org
+
+----=C685A0385BF74ED2A3CA_24DF_F651_89D8
+Content-Type: text/html;charset="iso-8859-1"
+Content-Transfer-Encoding: Quoted-Printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://=
+www.w3.org/TR/html4/loose.dtd">
+<html lang=3D"es">
+<head>
+<style type=3D"text/css">
+BODY {
+  PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; MARGIN: 10px; PADDING-L=
+EFT: 0px; WIDTH: 600px; PADDING-RIGHT: 0px;=20
+font-family:Lato,Arial,sans-serif; color:#666666}
+.texto {  POSITION: relative; TEXT-ALIGN: left; PADDING-BOTTOM: 0px; MA=
+RGIN: 0px 0px 0.62em; PADDING-LEFT: 0.62em; WIDTH: 96%; PADDING-RIGHT: =
+0px; FLOAT: left; COLOR: #666666; CLEAR: both; FONT-SIZE: 12px; PADDING=
+-TOP: 0px}
+.brcp1 {border-top:1px solid #006699;}
+.pademtb05 {padding-top:0.5em; padding-bottom:0.5em;}
+</style>
+</head>
+<body>
+<h1><a href=3D"http://www.alcoholicos-anonimos.org"><img border=3D"0" a=
+lt=3D"Alcoh=F3licos An=F3nimos" src=3D"http://www.alcoholicos-anonimos.=
+org/imgslogo/logo_aanonimos.png" NOSEND=3D"1"></a></h1>
+<div class=3D"texto brcp1 pademtb05">PERSONAS JOVENES - Formulario de c=
+onsulta<br><br><a href=3D'http://www.alcoholicos-anonimos.org/index.asp=
+?te=3D166' title=3D'Ir a&nbsp;PERSONAS JOVENES'>Ir a&nbsp;PERSONAS JOVE=
+NES</a><br><br>Nombre : albert.nafria@gmail.com<br>E-mail : albert.nafr=
+ia@gmail.com<br>Consulta : Hola, soy un hombre de 30 a=F1os que debido =
+a unos problemas en la adolescencia empec=E9 a consumir alcohol con reg=
+ularidad, diariamente a partir de los 23. Durante los =FAltimos 6 a=F1o=
+s rara vez he ido a dormir sin estar ebrio y eso ha tenido un impacto e=
+n mi tanto emocional como econ=F3mico, y entr=E9 en un circulo vicioso =
+en el que necesitaba alcohol para apaciguar el malestar que el mismo al=
+cohol me ocasionaba. Vivo en Barcelona ciudad y me gustar=EDa poder asi=
+stir a reuniones con personas que sufran problemas similares, hace vari=
+os meses que estoy decidido a dejarlo pero no soy capaz y en la pr=E1ct=
+ica no he conseguido disminuir el consumo. Muchas gracias.<br></div></b=
+ody>
+</html>
+
+
+----=C685A0385BF74ED2A3CA_24DF_F651_89D8--

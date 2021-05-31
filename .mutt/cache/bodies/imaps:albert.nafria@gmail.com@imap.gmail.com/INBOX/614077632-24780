@@ -1,0 +1,688 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:5e0b:0:0:0:0 with SMTP id n11csp634557eju;
+        Wed, 15 Jul 2020 08:03:01 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJza5/djH1yoT+elMWhp17RqPduoJr/fEPt+mQDCzvvvsYU9WkON2JSNxyMtL9x7wZVASDyV
+X-Received: by 2002:a50:f702:: with SMTP id g2mr41319edn.348.1594825381316;
+        Wed, 15 Jul 2020 08:03:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594825381; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qNIuoAdtdc+XS6g74GBAc2dNpuTvT61Z03zTVPBNCWwb3+VDw7ZVN8CoLyXMOTlVHC
+         vM5oS6sXjov1tbbtNRFFiC22ly+pWf9NEFkQQeuuVkvNQQl1Ys2aLxLnCWmKpyp+RoQs
+         Q7JBGHTTQvMQsERcwhY/tsDksHIHx6T1hq+RUTjuGaqjknPuxO47FLghwgmpyJGKtXpo
+         AIqmIwhCf0daMFBzvd2qmjiVbfnI4YROh+Oyv5fyaDCCi1xQwkvgyplCfBuvUMc2/TBJ
+         ZBXVCpmU8EZ3PfGefhUKaX/DV81nCrPg8UoHio53BDdRjaXg+CgPsAty3TYxV2smxPjF
+         KTgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:message-id:to:reply-to:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=wWDk0uHe1tUJ6+n1JHFOSoVT445TSv9cArj8IT8I7T8=;
+        b=jEAGRnyi/zkOOKADn7ezBsLzady4OdUqJrBxWl+i86F2txnuUQFPbV7KbymIupc1ZT
+         4UhFBR7EeaoUA2fE92R3vJpTkdY0kf6JIBfPjJPwCxtWypo4RkIJDcW/SQXtW3AkAiPK
+         FiYm7X83N+iswpTU24P0WhbXi23f7bH3tEWZH3WfU+oFOeQU1GwiJ8rzOEH5DrsJjqgW
+         XUCJHcgbJ+gWhm+P1H0VOrrkki8w867biZOWqR5uZ+Hu5dVQv7gBNFxy+ehfSMzwBAak
+         CxkWEr1cOM+qZdqJlZngasZESW4qPwdp1Pbi8pfoUiQhFlwJ5OypZR5gM8O8AS5z7lPH
+         K2EA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@community.blablacar.com header.s=s1 header.b=Ba3UtcaX;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="Zn6JbyP/";
+       spf=pass (google.com: domain of bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com designates 167.89.1.164 as permitted sender) smtp.mailfrom="bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=blablacar.com
+Return-Path: <bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com>
+Received: from o510.abmail.community.blablacar.com (o510.abmail.community.blablacar.com. [167.89.1.164])
+        by mx.google.com with ESMTPS id f10si1431277edm.214.2020.07.15.08.03.00
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 15 Jul 2020 08:03:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com designates 167.89.1.164 as permitted sender) client-ip=167.89.1.164;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@community.blablacar.com header.s=s1 header.b=Ba3UtcaX;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="Zn6JbyP/";
+       spf=pass (google.com: domain of bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com designates 167.89.1.164 as permitted sender) smtp.mailfrom="bounces+5337917-759e-albert.nafria=gmail.com@email.community.blablacar.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=blablacar.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=community.blablacar.com; 
+	h=content-type:from:mime-version:reply-to:to:subject; s=s1; 
+	bh=wWDk0uHe1tUJ6+n1JHFOSoVT445TSv9cArj8IT8I7T8=; b=Ba3UtcaXIvNSW
+	kdjYso1qYQ8YrpWqI4GvZsRaDBjWSYyX3H7b5OHvr9uGClVUjT92XXBl/OWLw/GS
+	rYFd7lW7y4IR8iPLnj+7bDFMk+Gg1rbKqxpR1UzPa0Xli0/RXMnnI1psSwzsIx/4
+	bMI4+i5VtOriy2AzP6DJ3Cd7bM19ck=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:from:mime-version:reply-to:to:subject:x-feedback-id; 
+	s=smtpapi; bh=wWDk0uHe1tUJ6+n1JHFOSoVT445TSv9cArj8IT8I7T8=; b=Zn
+	6JbyP/piZLn6Ijk7jUVK3/It80URntM4yC1XlXcdDD64B96L9ZV6j8vV00zg+8rY
+	VQKA31H1gB23nnGD28gh43U88WCX5+OPQ6XcqhzvH35giEPjLyMHkIhHo1uc8YH9
+	+hHykFSB2RICFK0UrmFjDW5yZixofZRasvYYxbXPw=
+Received: by filter0678p1iad2.sendgrid.net with SMTP id filter0678p1iad2-15429-5F0F1AA3-8
+        2020-07-15 15:02:59.487615961 +0000 UTC m=+152907.217715209
+Received: from NTMzNzkxNw (unknown)
+	by ismtpd0008p1lon1.sendgrid.net (SG) with HTTP id JQkwNzSaRveRDPa7DzPlIg
+	Wed, 15 Jul 2020 15:02:59.306 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=3737969c5d1eba666caca2d3cae7f0181d78598607cd542b78cefa28beae
+Date: Wed, 15 Jul 2020 15:02:59 +0000 (UTC)
+From: "Javier de BlaBlaCar" <hello@community.blablacar.com>
+Mime-Version: 1.0
+Reply-to: hello@community.blablacar.com
+To: albert.nafria@gmail.com
+Message-ID: <JQkwNzSaRveRDPa7DzPlIg@ismtpd0008p1lon1.sendgrid.net>
+Subject: =?UTF-8?B?RGVzY3VicmUgbnVldmFzIHZlbnRhamFzIGV4Y2x1c2l2YXMgcG9yIHNlciBjb25kdWN0b3IgQmxhQmxhQ2FyIPCfmpfwn4yf?=
+X-SG-EID: 3+/B6g1AUGNvFLKbKm2GGSYIVXbRpcw5+734I5PBeewlBUor7ic8uOJuu1q8S0exFBUDCBTCEjeXRu
+ wkAh+09Q+sahXg5zTQUherXBzuKvq1Z6wXS9FbQjhQFO/oQCw+CIL+z3FW8JXnW2f/8GGSFP/1kM84
+ QolI33FpZ3ZQ9L5B+IPC2+LWNqcUqS/3R1rYo5RELVgiK0FGpMXcEO52BvgInbV/kWNZWlZznTMQbW
+ zrQtZzgrfwd3KnHPbT7gR3
+X-SG-ID: dXNuuxiaeVPHPf1dZH02eKLKdiQ0LrOBmGGsHJl5LJcJSDpVOEl4osMo6CaQwoYHgrsYgNCG98M4FH
+ vnxnVoZjobJQQ6lkS2UwzQrHHgIiEx0ad+TAqEBdZbnT6GiRxAt8RvyiyZJVlK0KkJ97pkIO5K6Caj
+ JM4fXVZQ8sL5kEUHKa60MVE/9JDdJdtsBaAlAsdZ3XpQQV9mzpUVMz8mZd5/gsiAiCn57rjI+h2p8W
+ NQ6iuzZx9KV+cywg3OewqfFx2DdDvQOz47O1nF2MHT0L27SFrMTyxKnlHQvwM2tKVFznO1Iji4KVz9
+ tzgIywPXt80bUesVaYSlHIGOTNB/9emHarLAjuB9UQ1/mjUlxVEYvew0L1uaJ7mRnzVL4ZHp1MMBkR
+ dYngy/EOKV1Dlo0nWYrN0t50Hkw9E58R50PcrHA5AfgO2EUgnXWTdsNvDk
+X-Feedback-ID: 5337917:qv7v2U7R+Km1LCtk3kUl+23rihsiBX8EZ2259f2oPvs=:qv7v2U7R+Km1LCtk3kUl+23rihsiBX8EZ2259f2oPvs=:SG
+
+--3737969c5d1eba666caca2d3cae7f0181d78598607cd542b78cefa28beae
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+- BlaBlaCar -=20
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYW=
+rD-2F0-2B8teaRd-2Bc48q-2BZ5oC3NjI78MIgENoeCzUtYn4XYrqfP43BG0dtCk6QfizEBYhgq=
+Fmot8waduNTbSTJbcU-3D2H3Z_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2Dr=
+Qzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSE=
+l9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x=
+9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9k=
+mzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzm=
+LuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6=
+AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6l=
+Ai4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltHQfdD7q86T4-2FaZqqLi0MIXmJArgM=
+tBTUSIPKO-2BapU5T1jLQAlE0wQM1APQRlP-2FlvTEn4DRn0750ObLWf1qSVBDjL-2BMkA7t-2B=
+6-2F9sJG3q6CZOqbcl6QCn8OkCxXfUg3nv5DHde97Li5eWGJl3PALmfR8GJTzlm-2Fn6RTZGrMW=
+g3ydU-3D )
+                 BlaBlaCar ( http://link.community.blablacar.com/ls/click?u=
+pn=3D9v58Y93UoKfVdq3QfqorYUJifhbYOMHw2GEKRRDwwnQ-3DBKKy_766DHT2JTcTEhp-2Bku=
+q1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0q=
+ML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWw=
+uN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3Vn=
+DAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnD=
+eE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7Qnhg=
+GGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-=
+2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGlt=
+W-2F2ttD-2BL4Myq07YMcJg9VQ-2Fg1xZAE6QdSdFKHskAnK7cWKqSaRlnRuDX0Wf2YMlD-2BjU=
+ZB6fPY81oc2gyGq1KybdGyUZ3FwhRhxsgAqzJlwse2aOi-2FrcVW8lXSHup31GmmGdLNdISLgVZ=
+gZUldckUEIj6mh2nDAqtawR6fYM-2BQdk-3D )
+Estimado
+Albert,
+
+Nos preguntamos por qu=C3=A9 hace ya m=C3=A1s de un a=C3=B1o que no viajas =
+con
+nosotros y esperamos verte de nuevo en la carretera.
+Quer=C3=ADamos contarte que hemos aprovechado estos meses de par=C3=B3n
+para pensar qu=C3=A9 m=C3=A1s pod=C3=ADamos hacer por ti, para que seguir
+publicando todos tus viajes en BlaBlaCar te aporte una recompensa
+extra a tu bolsillo: hemos creado una nueva secci=C3=B3n en la que
+podr=C3=A1s disfrutar de descuentos exclusivos en servicios para tu
+viaje. Adem=C3=A1s, a medida que vayas subiendo de nivel, tendr=C3=A1s
+acceso a mayores beneficios.
+
+=C2=BFC=C3=B3mo empezar a disfrutar de tus promociones?
+
+1. Inicia sesi=C3=B3n en la web de BlaBlaCar.=20
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYU=
+JifhbYOMHw2GEKRRDwwnQ-3DQmr4_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb=
+2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAe=
+MSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2Fg=
+Y3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvsp=
+t9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1=
+lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2Fnv=
+wO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXm=
+t6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltzzXxJLAH5uf9Gkc7evSqKPOmAoV=
+P96RHsHjmqJY1-2BCCfTmBAtYbNMSMZA-2FLn-2BBaW-2FdFV2swjy3gUeHEQOihL0QUcfWq0vu=
+hepxfWUR-2BKdC8xVS-2FdKOwmdPDwiTreIvBKZW5kstHYmro3sUndwKJC4N1Beo-2FUj-2F7gQ=
+yQbsV5tiq8-3D )
+
+2. Dentro de tu perfil, en la secci=C3=B3n de tu cuenta, ver=C3=A1s que
+hemos a=C3=B1adido un nuevo apartado: Mis promociones.
+
+3. Dentro de =E2=80=9CMis promociones=E2=80=9D, podr=C3=A1s acceder a las v=
+entajas
+que ofrecemos junto con nuestros primeros partners, seg=C3=BAn tu
+nivel de experiencia en BlaBlaCar. Est=C3=A1te atento, =C2=A1iremos
+incluyendo nuevos partners y mejorando las condiciones!
+
+=C2=A1Esperamos que puedas empezar a disfrutar de estos beneficios
+desde hoy mismo! Iremos a=C3=B1adiendo m=C3=A1s ofertas exclusivas as=C3=AD=
+ que
+no te olvides de echarle un vistazo de vez en cuando.
+
+Visitar Mis Promociones=20
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYU=
+JifhbYOMHw2GEKRRDwwnQEYKq-2Flv7XxQex3S4u5Cm5QtmFVHxJic5ZYR-2BBttu9-2BpupMxw=
+VqaG-2FY-2Frqe7uzvGI-3DCxYU_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2=
+DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeM=
+SEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY=
+3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt=
+9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1l=
+zmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2Fnvw=
+O6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt=
+6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltQRu4JHpU-2BNGNi4ByQLQRfwuATu=
+nZERgb8JlNeklG1HfAm-2BK0ve-2FprOMIREbTe0lwLPBeHLiK11-2Bf-2FLRGXJIzgHKW8C1h9=
+CCs8l0I-2FHzz3K6KTlH49SVe5NkBP7OP5kSMc4EO0Rgo49msMENUUADHgwK1VojtSst7oXZ5Hs=
+6agXc-3D )
+Un saludo,
+Equipo BlaBlaCar
+
+BlaBlaCar=20
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYW=
+rD-2F0-2B8teaRd-2Bc48q-2BZ5oC3NjI78MIgENoeCzUtYn4XYrqfP43BG0dtCk6QfizEBYhgq=
+Fmot8waduNTbSTJbcU-3DuAQ0_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2Dr=
+Qzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSE=
+l9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x=
+9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9k=
+mzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzm=
+LuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6=
+AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6l=
+Ai4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltUR2kwCpXvMkjFCOOhqvkZ8-2BHnPym=
+DpgGNdd-2BjHvlVGYfQAunG-2B8adJznu7kBkk8238x3SphYUDxyEb5EJXZLVI8KPzkjkRALNTv=
+aDkBtNTZVpodCdbpk6DWFT14XWCCtB2g3-2BGQBDuTz4W-2BCjRcOpdUe8CxhXD-2BhYt2RqG9b=
+76I-3D )
+
+Desc=C3=A1rgate la app
+=20
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYd=
+I-2BKUJVgDXd1gtk0387CmwCB-2FA2wT10lCZ6kvj0ZHXoxMfXuY1CpTU5xk9SSn8a2NEhfm1pu=
+IvTbdKNmyiSOUqwo-2BDOuWDsOiThBkkdOwATcqw5ACJA3XhD1ZVVnDvFNg-3D-3Dz27p_766DH=
+T2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7Ew=
+wtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0=
+nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWil=
+jC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2Bjk=
+T1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVeP=
+gLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1=
+JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2=
+PgQ6hChhfavGlthT8KzIGQPsguNHOHI8N6vav9QAYdkEsEBPdaxF08FsikH0Sez48ihYCKoVgu7=
+6qRkCkM4bSZlQ2AKPEZ2hcil-2Fi-2FkCGa0WUEw4BiulXpnYAjQ8iZxoSvnrQzgTRhfYweYBlf=
+qPYzHwtKNmjpAIiem21aCZm5wn-2BCHC-2FnD8bmNR4-3D )
+ |  FAQ
+
+
+( http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYU=
+JifhbYOMHw2GEKRRDwwnT4KVX1BJ-2F1pcwrKcyBZo8IOrcq_766DHT2JTcTEhp-2Bkuq1nN-2F=
+zxktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJII=
+eLgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FUR=
+JTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2=
+FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE=
+9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQ=
+f5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJM=
+Xwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltvss-2BS=
+j6inDDIwQFqRn3TzmWuQecorboYwfvO44ecS0-2BLkW2CCPanShDnWtWUFGHb5jZJOfDaCgvAdy=
+x9I-2FFOLQOzcfiAOG3KCkTqEh7XBECIdoPrVgF-2FWt-2FRebAfmjrfLysnM2njNp-2Bsp-2FU=
+SVzN7Oom-2Bu4qk5i0aZYXTOnIUfjU-3D )
+
+
+Este e-mail fue enviado por
+Comuto SA, 84 Avenue de la R=C3=A9publique 75011, Par=C3=ADs, Francia. Para
+no recibir m=C3=A1s correos nuestros date de baja aqu=C3=AD (
+http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYYHf=
+IavDR-2Ft0Gc4Bq42wHW6OCvkU-2BEMqX52NEao7enAW9otcsqbI23QEuw2WVqzw-2Bxyl6PPBA=
+JtvCZPCzjnC7CnEn-2Fy0JezSP-2FPS8axbgaN75AxlgHxEU5DpkUrQmEEmzX212hpnvM4bhqva=
+JAO9-2BXMRzMwmmDNLYpr-2FDWdIoNLONCyl0Mj534vydZwaQkVZXSIv-2FOzZTA7Md-2FxFKWN=
+5GUQE9h5HJY4p1pAqnRQBIg-2BzaLS7Otd7pyXgNzJRnEjcEPzkxt7BA7JwE6lsDS3rNaFOQwD7=
+IFHT3aX7FH3p0jqirR6ibeVtMy4SaJEFXfbMnn9qA9t8Ej88tLVCXO2CylVspP-2BJuQrkarmll=
+UlLWW5Mlfhg-2BFRlQL-2Bg-2FXNs4grS9ARzOSfk7lCYCdtob7tx7GMBiuaISmVwc-2Fxk6jbz=
+y6rhGDHw92FopKxvbPfCvunY7-2BTxa5NH0x-2FsRKqdy4oxZ7WtMSyfWcnia8ZPkLytQi2z07p=
+dJTJZrWJxTmT4yAx-2FxKSQU-2BlMM5TjCVdq0PWKu-2FS6me564gFrzRdKIQet93fJyF6vbnHK=
+wmLhz0ViB4wq8ji487vIro-2BN2QOj-2BbsQdcE-3D9feI_766DHT2JTcTEhp-2Bkuq1nN-2Fzx=
+ktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeL=
+gwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJT=
+bnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FV=
+ckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q=
+1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5=
+K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXw=
+nn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltd8-2FcZdl=
+fJ-2BwdviWTDI7jzFdn086Z2eUffXln8AfiTro1QWR9xk-2BTJUvruSfvWM2cB5xnOKxpxPsfwG=
+Vue-2BXwvN996twUM9XnCddJFMTMQ-2Fs5FP87mq1nLpcZEvsH7jJ8R4UguAv3dvkzwPQWOybqv=
+B7hTaJoBVOu7p04qMhtsSk-3D ).
+
+--3737969c5d1eba666caca2d3cae7f0181d78598607cd542b78cefa28beae
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html>
+<!-- DO NOT MODIFY THE WHOLE <head> -->
+<head>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0, maximum-scale=3D1.0, user-scalable=3Dno">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+	<title>BlaBlaNews</title>
+=09
+<style>@media only screen and (max-width: 500px) {
+  img[class=3Dfluid] {
+    width: 100% !important; height: auto;
+  }
+  span[class=3Dkey-number] {
+    font-size: 130% !important;
+  }
+  span[class=3Dadress] {
+    color: #727272 !important; text-decoration: none !important;
+  }
+  span[class=3Demail-link] {
+    color: #0086bf !important; text-decoration: underline !important;
+  }
+  table[class=3Dbtn] {
+    width: 100% !important;
+  }
+  table[class=3Dprice-offer] {
+    width: 100% !important;
+  }
+  table[class=3Demail-subject] {
+    width: 100% !important;
+  }
+  table[class=3Dlogo] {
+    width: 100% !important;
+  }
+  table[class=3Dintro-img] {
+    width: 100% !important;
+  }
+  table[class=3Dintro-text] {
+    width: 100% !important;
+  }
+  table[class=3Dcontent-img] {
+    width: 100% !important;
+  }
+  table[class=3Dtrip-to] {
+    width: 100% !important;
+  }
+  table[class=3Dtrip-to-btn] {
+    width: 100% !important;
+  }
+  table[class=3Dcolumn] {
+    width: 100% !important;
+  }
+  table[class=3Dfooter-container] {
+    width: 100% !important;
+  }
+  table[class=3Dcontent-text] {
+    width: 100% !important;
+  }
+  td[class=3Dcolumns] {
+    text-align: center !important;
+  }
+  td[class=3Dcontainer-wrap] {
+    width: 100% !important;
+  }
+  td[class=3D"header container"] {
+    width: 100% !important;
+  }
+  table[class=3D"head-wrap"] {
+    width: 100% !important;
+  }
+  td[class=3Dsubject-text] {
+    text-align: center !important;
+  }
+}
+@font-face {
+font-family: "gt-eesti"; src: url("https://www.blablacar.fr/fonts/gt-eesti/=
+GT-Eesti-Pro-Display-Regular.woff") format("woff"); font-weight: 400; font-=
+style: normal;
+}
+@font-face {
+font-family: "gt-eesti"; src: url("https://www.blablacar.fr/fonts/gt-eesti/=
+GT-Eesti-Pro-Display-Regular-Italic.woff") format("woff"); font-weight: 400=
+; font-style: italic;
+}
+@font-face {
+font-family: "gt-eesti"; src: url("https://www.blablacar.fr/fonts/gt-eesti/=
+GT-Eesti-Pro-Display-Medium.woff") format("woff"); font-weight: 700; font-s=
+tyle: normal;
+}
+@font-face {
+font-family: "gt-eesti"; src: url("https://www.blablacar.fr/fonts/gt-eesti/=
+GT-Eesti-Pro-Display-Medium-Italic.woff") format("woff"); font-weight: 700;=
+ font-style: italic;
+}
+body {
+font-family: gt-eesti, Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body bgcolor=3D"#ffffff" style=3D"font-family: gt-eesti, Helvetica, Arial,=
+ sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust:=
+ none; height: 100%; width: 100%; font-size: 100%; margin: 0; padding: 0;">
+<center>
+<div style=3D"background-color: #ffffff !important;">
+<!-- Start of MAIN CONTENT SECTION -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body-wrap"=
+ style=3D"font-family: gt-eesti, Helvetica, Arial, sans-serif; margin: 0; p=
+adding: 0;">
+	<tbody>
+		<tr>
+			<td align=3D"center" bgcolor=3D"#ffffff" class=3D"container-wrap" style=
+=3D"font-family: gt-eesti, Helvetica, Arial, sans-serif; display: block; ma=
+x-width: 500px; clear: both; margin: 0 auto; padding: 0;" width=3D"500">
+=09=09=09
+			<!-- START OF LOGO -->
+			<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"white-c=
+ontainer" style=3D"font-family: gt-eesti, Helvetica, Arial, sans-serif; bor=
+der: none;" width=3D"500" bgcolor=3D"#ffffff">
+				<tbody>
+					<tr>
+						<td>
+						<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"20" class=3D"email-subject" style=3D"max-width: 500px=
+; border-radius: 0px 0px 0 0;" width=3D"500">
+							<tbody>
+								<tr>
+									<td align=3D"left" class=3D"edit_link_img" valign=3D"top" width=3D=
+"100%"><a href=3D"http://link.community.blablacar.com/ls/click?upn=3D9v58Y9=
+3UoKfVdq3QfqorYWrD-2F0-2B8teaRd-2Bc48q-2BZ5oC3NjI78MIgENoeCzUtYn4XYrqfP43BG=
+0dtCk6QfizEBYhgqFmot8waduNTbSTJbcU-3DAOd4_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZ=
+wJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2=
+m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkY=
+Jktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnC=
+DJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDS=
+hiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2Bi=
+KOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2F=
+nv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltRG-2FMuFSXM-2B=
+FY0dW-2FqGcYfir1vmeiHHfDYPF5hVDgGqv-2FyYWKreDN5Ys12N-2F6z-2BDJTOWWeYLbFORdv=
+JvcVcNNdvooaca21PFPEo779VPyVyIuAeggypbSKAbT99V3WIdA6b0Y42KYl0Ga2rkzow7BqgVq=
+-2F9jj0-2F27QKWz4yqSF-2B8-3D" title=3D"BlaBlaCar"><img alt=3D"- BlaBlaCar -=
+" src=3D"https://cdn.braze.eu/appboy/communication/assets/image_assets/imag=
+es/5a05712d18dd6f657ee89044/original.?1510306093" style=3D"color: rgb(65, 6=
+1, 53); background-color: rgb(255, 255, 255); font-family: Helvetica, Arial=
+, sans-serif; width: 120px; height: 27px; border: none;" title=3D"BlaBlaCar=
+"></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- END OF LOGO -->
+=09=09=09
+			<!--START OF TOP BANNER IMAGE -->
+
+			<table bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"white-container" style=3D"font-family: gt-eesti, Helvetica, Ar=
+ial, sans-serif; border: none;" width=3D"100%">
+				<tbody>
+					<tr>
+						<td>
+						<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"content-img" style=3D"max-width: 500px;">
+							<tbody>
+								<tr>
+									<td align=3D"center" class=3D"edit_link_img" valign=3D"top" width=
+=3D"100%"><a href=3D"http://link.community.blablacar.com/ls/click?upn=3D9v5=
+8Y93UoKfVdq3QfqorYUJifhbYOMHw2GEKRRDwwnQ-3D9hYy_766DHT2JTcTEhp-2Bkuq1nN-2Fz=
+xktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIe=
+LgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJ=
+TbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2F=
+VckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9=
+q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf=
+5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMX=
+wnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGlt4i2O2nz6=
+-2F2QOgLAstLiGPSX6CW9QKChwOulLsNtmTgbIMGvNwsBwV-2BS8-2BgMX1ywlkYHFqAZy5Ohdr=
+Dbg7AK8jx17AVF8si9emOWs3fLP5LVLHg55WWklcEXhXKLt6KCJejHMD0SomDjk6XylR4n1vTTz=
+iD32DWuog-2FBn0H-2FOaiY-3D" title=3D"BlaBlaCar"><img alt=3D"BlaBlaCar" src=
+=3D"https://cdn.braze.eu/appboy/communication/assets/image_assets/images/5f=
+0c4bdc1ef1ee027026fefb/original.png?1594641372" style=3D"max-width: 500px; =
+width: 500px; height: 250px;" title=3D"BlaBlaCar"></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- END OF TOP BANNER IMAGE -->
+=09=09=09
+			<!-- START OF FIRST PARAGRAPH -->
+
+			<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"white-container" style=3D"font-family: gt-ees=
+ti, Helvetica, Arial, sans-serif; padding-left: 24px; padding-right: 24px;"=
+ width=3D"500px">
+				<tbody>
+					<tr>
+						<td style=3D"font-size: 16px; line-height: 22px; color: #708c91;">
+						<br>
+						<p>
+						Estimado Albert,<br><br>
+						Nos preguntamos por qu=C3=A9 hace ya m=C3=A1s de un a=C3=B1o que no v=
+iajas con nosotros y esperamos verte de nuevo en la carretera.  <br>Quer=C3=
+=ADamos contarte que hemos aprovechado estos meses de par=C3=B3n para pensa=
+r qu=C3=A9 m=C3=A1s pod=C3=ADamos hacer por ti, para que seguir publicando =
+todos tus viajes en BlaBlaCar te aporte una recompensa extra a tu bolsillo:=
+ <strong>hemos creado una nueva secci=C3=B3n en la que podr=C3=A1s disfruta=
+r de descuentos exclusivos en servicios para tu viaje.</strong> Adem=C3=A1s=
+, a medida que vayas subiendo de nivel, tendr=C3=A1s acceso a mayores benef=
+icios.=20
+<br><br><br>
+
+<strong>=C2=BFC=C3=B3mo empezar a disfrutar de tus promociones?</strong><br=
+><br>
+1. Inicia sesi=C3=B3n en la <a style=3D"color: #2DBEFF !important; text-dec=
+oration: underline !important;" href=3D"http://link.community.blablacar.com=
+/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYUJifhbYOMHw2GEKRRDwwnQ-3Dqlcp_766DHT2J=
+TcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtL=
+zt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDB=
+Lay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4=
+jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-=
+2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLz=
+xEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJ=
+YiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ=
+6hChhfavGltbqtcwDJpe7T9s0XtB-2BliEXgOWGky6csHAv0-2F-2Bgimep2py2BTAWe0-2FQQl=
+KUZZMJb0c0-2Bp6sf2S3fjJtU1lB3TNeL1l6hBR2U4E8PXoMnq4N5Whuf7-2FlDjTh9Ucg9sZxd=
+KQUI37V-2BUCz34y5dbAvMNac55M0JUcy5VbyO7O3SnhXk-3D">
+web de BlaBlaCar.</a><br><br>
+2. Dentro de tu perfil, en la secci=C3=B3n de tu cuenta, ver=C3=A1s que hem=
+os a=C3=B1adido un nuevo apartado: <strong><i>Mis promociones.</i></strong>=
+<br><br>
+3. Dentro de =E2=80=9CMis promociones=E2=80=9D, podr=C3=A1s acceder a las v=
+entajas que ofrecemos junto con nuestros primeros partners, seg=C3=BAn tu n=
+ivel de experiencia en BlaBlaCar. Est=C3=A1te atento, =C2=A1iremos incluyen=
+do nuevos partners y mejorando las condiciones!<br><br>
+ =C2=A1Esperamos que puedas empezar a disfrutar de estos beneficios desde h=
+oy mismo!=20
+Iremos a=C3=B1adiendo m=C3=A1s ofertas exclusivas as=C3=AD que no te olvide=
+s de echarle un vistazo de vez en cuando.
+</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- END Of FIRST PARAGRAPH -->
+=09=09=09
+				<!-- START OF CTA -->
+
+			<table align=3D"center" bgcolor=3D"#FFFFFF" border=3D"0" cellpadding=3D"=
+36" cellspacing=3D"0" class=3D"template-columns" style=3D"border-right-widt=
+h: 0px; border-bottom-width: 0px; border-bottom-color: #dfdddf; border-bott=
+om-style: solid; font-family: gt-eesti, Helvetica, Arial, sans-serif;" widt=
+h=3D"500">
+				<tbody>
+					<tr>
+						<td align=3D"center" valign=3D"top">
+						<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+							<tbody>
+								<tr>
+									<td valign=3D"top">
+									<div style=3D"width: 100%;"><a class=3D"edit_link" href=3D"http://=
+link.community.blablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYUJifhbYOMH=
+w2GEKRRDwwnQEYKq-2Flv7XxQex3S4u5Cm5QtmFVHxJic5ZYR-2BBttu9-2BpupMxwVqaG-2FY-=
+2Frqe7uzvGI-3D7fKp_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2F=
+X4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c=
+0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBB=
+WvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3=
+FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80=
+Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG=
+1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqP=
+i5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltupZI8OmLEfe5bPZ6tGCY40rtsRcZuqg0mkHXn=
+9I4SimFX8rUiZsw5LGdtHLzAtU0W65-2BTdv-2FagM8BWxZiyZbMk44KMJTBJUfD51vSBkD0YVz=
+7C-2BxHvv-2BXX5Zmhr-2Bc-2Bs6Ax5FWvEYPSoLqp6nEpt-2FzO6WbGy7B5NwV7-2BfPexBWT0=
+-3D" style=3D"text-decoration: none; border-radius: 43px; font-size: 16px; =
+color: #ffffff; background-color: #2DBEFF; display: block; font-family: gt-=
+eesti, Helvetica, Arial, sans-serif; box-sizing: border-box; padding: 14px =
+24px;" title=3D"Visitar Mis Promociones"><strong>Visitar <i>Mis Promociones=
+</i></strong></a></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- END OF CTA -->
+				<!-- START OF MAIN PARAGRAPH -->
+
+			<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"white-container" style=3D"font-family: gt-ees=
+ti, Helvetica, Arial, sans-serif; padding-left: 24px; padding-right: 24px;"=
+ width=3D"500px">
+				<tbody>
+					<tr>
+						<td style=3D"font-size: 16px; line-height: 22px; color: #708c91;">
+						<p>Un saludo,<br>
+Equipo BlaBlaCar
+					</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- END Of MAIN PARAGRAPH -->=09=09=09
+=09=09=09
+=09=09=09
+				<!-- START OF LINE / BOTTOM -->
+
+			<hr color=3D"#dddddd" size=3D"1" width=3D"452">
+			<table style=3D"padding-bottom: 36px;">
+			</table>
+			<!-- END OF LINE / BOTTOM --><!-- End of Main Content top text --><!-- i=
+nstead of the footer -->
+<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"email-subject" style=3D"max-width: 500px; border=
+-radius: 0px 0px 0 0;" width=3D"500">
+	<tbody>
+		<tr>
+			<td align=3D"center" class=3D"edit_link_img" valign=3D"top" width=3D"100=
+%"><a href=3D"http://link.community.blablacar.com/ls/click?upn=3D9v58Y93UoK=
+fVdq3QfqorYWrD-2F0-2B8teaRd-2Bc48q-2BZ5oC3NjI78MIgENoeCzUtYn4XYrqfP43BG0dtC=
+k6QfizEBYhgqFmot8waduNTbSTJbcU-3DMMTy_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9M=
+pamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X=
+33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv=
+0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7=
+b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZ=
+cWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4=
+GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y=
+-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltwqYjiLpPEQU-2F2WgW=
+Ymy4kOjfNm0AxVGz3jbJipt9l-2B-2B62CN2ErhEdCgXY26IoaVIhuw4YNpKPYr4ZRW2DXlHcN2=
+fUaGliFFl-2FDMxpChtPyG5wTyWmaO3B17xbq1zIdVT92q6lyTnZmO6u6ws85XtAesYbPZUZvaA=
+QFdUQKzvVS4-3D" title=3D"BlaBlaCar"><img alt=3D"BlaBlaCar" src=3D"https://c=
+dn.appboy.eu/appboy/communication/assets/image_assets/images/5a057b2b18dd6f=
+50afe88e32/original.?1510308651" style=3D"color: rgb(65, 61, 53); backgroun=
+d-color: rgb(255, 255, 255); font-family: Helvetica, Arial, sans-serif; bor=
+der: none;" title=3D"BlaBlaCar"></a></td>
+		</tr>
+	</tbody>
+</table>
+
+<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"24"=
+ cellspacing=3D"0" class=3D"email-subject" width=3D"500px">
+	<tbody>
+		<tr>
+			<td align=3D"center" class=3D"edit_link" valign=3D"middle">
+<!-- APP DOWNLOAD TITLE -->
+			<p style=3D"color: #708c91; font-family: Helvetica, Arial, sans-serif; t=
+ext-decoration: none; font-size: 16px;"><a href=3D"http://link.community.bl=
+ablacar.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYdI-2BKUJVgDXd1gtk0387CmwCB-=
+2FA2wT10lCZ6kvj0ZHXoxMfXuY1CpTU5xk9SSn8a2NEhfm1puIvTbdKNmyiSOUqwo-2BDOuWDsO=
+iThBkkdOwATcqw5ACJA3XhD1ZVVnDvFNg-3D-3DsJsG_766DHT2JTcTEhp-2Bkuq1nN-2Fzxkte=
+dZwJ9MpamgSQpwb2DrQzlc-2FX4bMEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwG=
+q2m83X33HBBqnAeMSEl9WEo7c0aAyOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnl=
+kYJktv0x-2B-2FgY3x9YN4iBBWvVMqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckP=
+nCDJx7b1p5Rqvspt9kmzlq2w3FWE6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1Jg=
+DShiRZcWFGRWWw1lzmLuKcg80Up5WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2=
+BiKOw4GCLJ-2FnvwO6AsKeBJG1H9MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-=
+2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltJjmHaCPDFB2u=
+T6UhbPU9mVsxzCNPy4pVh6fCG7r9TXN62qhq23YdN2tVdmulmXXJUYc1t2d8it3CD4-2BD-2F-2=
+BLtC-2FTRuaSkulfYVEIe005YCc-2BrQp4lKG60d-2B-2BOz6E-2Bot-2BO5FwGVBb5yOiHjSAj=
+Lucpn-2FWzDYLP2KN3AIciaU4G-2Fag-3D" style=3D"text-decoration: none; color: =
+#2DBEFF;" title=3D"
+						Desc=C3=A1rgate la app
+						"><!-- APP DOWNLOAD TEXT CONTENT --> Desc=C3=A1rgate la app </a> | <!=
+-- FAQ URL FOLLOWED BY TITLE --> <a href=3D"http://link.community.blablacar=
+.com/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYUJifhbYOMHw2GEKRRDwwnT4KVX1BJ-2F1p=
+cwrKcyBZo8Ifv0j_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2FX4b=
+MEtQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c0aA=
+yOOYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvV=
+MqKJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE=
+6kxLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5=
+WezLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9=
+MvEgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g=
+6Iim5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltZd7oRKMo6cztAjTx6ydgaK8jCcpFOxtmusHpeetG=
+blOsp3kdFxhkHO9dsaoOwWJoEuyHHyrvW6HVnWL8DODIyPCc71z-2F1hUY36qALuxRszEzzGSNM=
+cbdWIYF1TI6qCb5X1eZLHjLy1SA-2Fw8Qxh3AoLa28ns2k6Bx2uWYV-2B7u6OQ-3D" style=3D=
+"text-decoration: none; color: #2DBEFF;" title=3D"
+						FAQ
+						"> FAQ </a></p>
+
+			<p style=3D"color: #708c91; font-family: Helvetica, Arial, sans-serif; t=
+ext-decoration: none; font-size: 12px;">Este e-mail fue enviado por Comuto =
+SA, 84 Avenue de la R=C3=A9publique 75011, Par=C3=ADs, Francia. Para no rec=
+ibir m=C3=A1s correos nuestros <a href=3D"http://link.community.blablacar.c=
+om/ls/click?upn=3D9v58Y93UoKfVdq3QfqorYYHfIavDR-2Ft0Gc4Bq42wHW6OCvkU-2BEMqX=
+52NEao7enAW9otcsqbI23QEuw2WVqzw-2Bxyl6PPBAJtvCZPCzjnC7CnEn-2Fy0JezSP-2FPS8a=
+xbgaN75AxlgHxEU5DpkUrQmEEmzX212hpnvM4bhqvaJAO9-2BXMRzMwmmDNLYpr-2FDWdIoNLON=
+Cyl0Mj534vydZwaQkVZXSIv-2FOzZTA7Md-2FxFKWN5GUQE9h5HJY4p1pAqnRQBIg-2BzaLS7Ot=
+d7pyXgNzJRnEjcEPzkxt7BA7JwE6lsDS3rNaFOQwD7IFHT3aX7FH3p0jqirR6ibeVtMy4SaJEFX=
+fbMnn9qA9t8Ej88tLVCXO2CylVspP-2BJuQrkarmllUlLWW5Mlfhg-2BFRlQL-2Bg-2FXNs4grS=
+9ARzOSfk7lCYCdtob7tx7GMBiuaISmVwc-2Fxk6jbzy6rhGDHw92FopKxvbPfCvunY7-2BTxa5N=
+H0x-2FsRKqdy4oxZ7WtMSyfWcnia8ZPkLytQi2z07pdJTJZrWJxTmT4yAx-2FxKSQU-2BlMM5Tj=
+CVdq0PWKu-2FS6me564gFrzRdKIQet93fJyF6vbnHKwmLhz0ViB4wq8ji487vIro-2BN2QOj-2B=
+bsQdcE-3DR5qL_766DHT2JTcTEhp-2Bkuq1nN-2FzxktedZwJ9MpamgSQpwb2DrQzlc-2FX4bME=
+tQxm90hLrjWS9LUk7EwwtLzt0W79FOh0qML1RJIIeLgwGq2m83X33HBBqnAeMSEl9WEo7c0aAyO=
+OYiLZppY4LSamQE5AB0nDBLay5P257ZWwuN-2FURJTbnlkYJktv0x-2B-2FgY3x9YN4iBBWvVMq=
+KJdDxxHJ003KmLPjWiljC4jSS9BHrE3VnDAEe2-2FVckPnCDJx7b1p5Rqvspt9kmzlq2w3FWE6k=
+xLPFWMFED8fRWc-2BjkT1-2FAKp1BiTnDeE1nizE9q1JgDShiRZcWFGRWWw1lzmLuKcg80Up5We=
+zLPCUn9MY5RUOQpRVePgLzxEhcim7QnhgGGzVWXQf5K-2BiKOw4GCLJ-2FnvwO6AsKeBJG1H9Mv=
+EgkdArWouAo2-2FbDT1JwJYiASXD2wd4-2FhCCJMXwnn-2Fnv4y-2FzuRfXmt6lAi4wqqPi5g6I=
+im5O7t5xS7p-2FK5Sq2PgQ6hChhfavGltki9lYKIoKD-2BcPRS-2BusHi5O5HorH51ctvgFAJFM=
+h9OpmBK-2FDJH5p7CrXtmUPPrLbSNp-2BcFIIrtVq8IW7zCF44aeEvYePrLVk92gkLZ16UX8VG4=
+-2FlNdbUUcBSn-2FqOGmiLH6bPEXq94z0nYTjJ7gMGJ2anpdKAgbybHgVnqxben3cs-3D" styl=
+e=3D"text-decoration: none; color: #2DBEFF;" title=3D"date de baja aqu=C3=
+=AD">date de baja aqu=C3=AD</a>. </p>
+			<!-- End of Email Subject Link -->
+</td>
+		</tr>
+	</tbody>
+</table>
+</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</center>
+
+<img src=3D"http://link.community.blablacar.com/wf/open?upn=3DO7JS31qQEQogG=
+EHQrcHAKKW-2F0Qyje1-2BmRSwAKLrj90uH4s9syQ57ANkDSR7FUOTlsmqZ7zp5g6dOfqqbLEss=
+Lbi5SHVwXzgvJiXL6zrDanL52J4Yyy5t5gNVTZZBhpBdf3VLVVr8dbrOAcQM3n9BpI6SuVGqIju=
+wNtLazUDLvPuNYDsUK32jPfi7F21-2Fc0bkr0u0i1GVc4LpRHBknZYIGFXoTipTLSpzBsBBhmVP=
+xW9Ru3EVho-2Fdqn96JMmMuvSuEV3eVspwoqcfceF-2ByoL0kzDh-2FCl-2FL5hE6fYzCpJ73aZ=
+vWGSa66mhKJz6lWzz5AYIIJD87DtV7jEwn-2BPuB04ZUXnsOn5YFpfesRek2ZOO-2Fju1Yr5qU5=
+6ZUAuffHFOScqPxfO7z54-2F61Mfc6tLYb-2FkxkKQ0jzInU0GILitATpBlHocjxEuM4Zi-2B1J=
+wfvAuI-2FrQwk-2F8OVmXYpH4zg2eNMu4OBF-2BxUoa7ncvl5sz-2BdjOuzM9UnY1sl4Odzf9TU=
+Cirylcv0fs8SQMZEhXrBn3bboL7MWdFp8PswZY1rxRIyVuUKXEY5Zo13ZLVOi-2F5LzunEW4jGX=
+w1jlXTeoXzyUthXUv73htDOw0lr8rgK4OGOA-2Fs08IExXJgXLN88oIyRdBPPfaZDgOOa52sc4U=
+bhjdaQGKxXZc-2BM99nBLoh34tFEY9Dqc-3D" alt=3D"" width=3D"1" height=3D"1" bor=
+der=3D"0" style=3D"height:1px !important;width:1px !important;border-width:=
+0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-righ=
+t:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bo=
+ttom:0 !important;padding-right:0 !important;padding-left:0 !important;"/>
+</body>
+</html>
+
+
+--3737969c5d1eba666caca2d3cae7f0181d78598607cd542b78cefa28beae--

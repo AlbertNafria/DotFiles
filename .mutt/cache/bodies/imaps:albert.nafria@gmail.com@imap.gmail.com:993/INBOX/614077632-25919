@@ -1,0 +1,249 @@
+Delivered-To: albertnafria@gmail.com
+Received: by 2002:a17:906:9a02:0:0:0:0 with SMTP id ai2csp97865ejc;
+        Tue, 24 Nov 2020 19:14:04 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyYmfyhaUukJrqrWkNv/TxQ5jYO37MIVPmwAljrYjHw/1tbrtQ6mOWItvqf/SlgutkkM5nk
+X-Received: by 2002:a1c:230b:: with SMTP id j11mr1394444wmj.12.1606274044527;
+        Tue, 24 Nov 2020 19:14:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606274044; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gsdf9mmZHe7wJQ3tN696QgRuMRtJBbScf/STtHHDcErOM6/K6VA1iURum2S2PvtFyJ
+         UCI5J+uKLVP2IYgYq/InnKYatGA1ClytGm7yLMqfO7E48e+Hte8a73K3G6zYIuBAEsrG
+         pZ8XmAHvxE/R2Od6CivL/eeWoVyyiTLjq0NIvkI8WSniYeoOKGtrQy78IPrOHbkbjpPH
+         S5Y6MfLGkCz4CNdJ+522LdlsMR0TcH60GTvJjtM0RoPSDJfbXVxBKl5XC+q+Ol/ZvFg6
+         hRRfZ/VNnXN9LiwebVRx3W64alkI4seuqYJU/bRL5+OM/8hwWTRrh+YrEc8p/nOsdBAe
+         631Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:mime-version:date:reply-to:from:subject:to
+         :dkim-signature;
+        bh=lCnkvSv+JJPBPYvInVJQqxsfHLjRFxE/k5tBfWIgcfs=;
+        b=cPKyDHTAjtBmn1sJqceJElq6iL0HloZV/K/x1ndFwXYk7G5dow0/zQ2iUIs9uRoYxD
+         vdrJQR9zh7J2T6VSoP8XcWKleX5MILq7viK0IhJX/SWX/aUREmQvbjaxPOnQ8izFEnK+
+         YtKkCAYyWMUYqsyBovRmumCY1am1/qjqHinxBD7n4CIt3KeqzIVhJ7TKa4tvHnfZ8cEY
+         xm9gFXHF/xFDX6QgIMjGprFhzYvbJLeNKBgh/iM8egMwJQeaJ6yLSEgFO0CpnwD9Bf0g
+         UbwASpcWTMDP2w0OR17vI7qYog4yq7UYlX91zmKxrkPP2w9S+gN0I3tvdCTyeNzKUR65
+         46BA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mobifriends.com header.s=furanet header.b=A+F02q+M;
+       spf=pass (google.com: domain of mobifriends@mobifriends.com designates 91.192.108.166 as permitted sender) smtp.mailfrom=mobifriends@mobifriends.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mobifriends.com
+Return-Path: <mobifriends@mobifriends.com>
+Received: from mail.s168244.furanet.com (mail.s168244.furanet.com. [91.192.108.166])
+        by mx.google.com with ESMTPS id q18si1081363wra.317.2020.11.24.19.14.04
+        for <albertnafria@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2020 19:14:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of mobifriends@mobifriends.com designates 91.192.108.166 as permitted sender) client-ip=91.192.108.166;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mobifriends.com header.s=furanet header.b=A+F02q+M;
+       spf=pass (google.com: domain of mobifriends@mobifriends.com designates 91.192.108.166 as permitted sender) smtp.mailfrom=mobifriends@mobifriends.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mobifriends.com
+Received: by mail.s168244.furanet.com (Postfix, from userid 0)
+	id 4CgmFR64FNzJxXs; Wed, 25 Nov 2020 04:14:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mobifriends.com;
+	s=furanet; t=1606274043;
+	bh=+fgh+s2+9QLn+jdQ4n6T/MLZ+d5riy6SdaJrCxpCLg0=;
+	h=To:Subject:From:Reply-To:Date;
+	b=A+F02q+Mud9jdpNc6T53jd58/rhi8wsrfoAAGaKcTgCxI9VYgAHQ8dzb9eIxMURB3
+	 i+pW0ahOaQnCHr2lNkquWu4NhVI1XjOrDjLfr60K8iNBvyqUZButo/fzgx/ES0H9Ay
+	 GviTBby/09vxsbLOCQtEllgqYaqal3mq286jJV6Q=
+To: albertnafria@gmail.com
+Subject: =?utf-8?Q?=E2=9C=89=20Ewelina=20te=20ha=20enviado=20un=20mensaje=20?=  =?utf-8?Q?en=20mobifriends.?=
+X-PHP-Originating-Script: 20002:Sendmail.php
+From: mobifriends <mobifriends@mobifriends.com>
+Reply-To: mobifriends <mobifriends@mobifriends.com>
+Date: Wed, 25 Nov 2020 04:14:02 +0100
+Content-Type: multipart/alternative; charset=utf-8;
+ boundary="=_084a9dd3642aae41c572eeedb1be8e6d"
+MIME-Version: 1.0
+Message-Id: <4CgmFR64FNzJxXs@mail.s168244.furanet.com>
+
+--=_084a9dd3642aae41c572eeedb1be8e6d
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+=0A=0A=0A    =0A    =0A    Ewelina te ha enviado un mensaje.=0A    =0A =
+       a{=0A            color:#FA7C19;=0A        }=0A        @media only=
+ screen and (max-width: 480px){=0A            table[class=3D"flexibleCon=
+tainer"]{width:100% !important;}=0A        }=0A    =0A=0A=0A=0A    =0A =
+   =0A        =0A            =0A                =0A                =0A =
+                   =C2=A0=0A                =0A                =0A=09=09=
+    =0A=09=09=09=0A                    =0A=09=09    =0A                =
+     Mensaje recibido =0A                =0A                =0A        =
+            =C2=A0=0A                =0A                =0A           =
+ =0A            =0A                =0A                =0A              =
+      =0A                    =0A                =0A                =0A =
+           =0A            =0A=0A                =0A                =0A =
+                   =0A                        =0A                      =
+      =0A                            =0A                               =
+ =0A                                    =0A                            =
+            =0A                                        =0A             =
+                               Hola Albertgn,=0A                       =
+                 =0A                                        =0A        =
+                                    =0A                                =
+                =0AEwelina te ha enviado un mensaje en mobifriends.=0A=
+=0A                                                =0A=0A=0A           =
+                                     =0A                               =
+                     Ver mensajes=0A                                   =
+             =0A                                                =0A=0A=
+=0A                                        =0A                         =
+               =0A                                            En caso de=
+ que el bot=C3=B3n no funcione, usa este enlace:=0Ahttps://www.mobifrien=
+ds.com/links/messages/255546169=0A                                     =
+   =0A                                        =0A                      =
+                      &nbsp;=0A                                       =
+ =0A                                        =0A                        =
+                    =0A                                               =
+ =0A                                                    =0A            =
+                                        =0A                            =
+                            =0A                                        =
+            =0A                                                    =0A =
+                                               =0A                     =
+                       =0A                                        =0A  =
+                                      =0A                              =
+              &nbsp;=0A                                        =0A     =
+                                   =0A                                 =
+   =0A                                    =0A                          =
+          =0A                                        Para no volver a re=
+cibir este email, entra en mobifriends, ve al apartado  Mis Opciones=0A=
+                                            en tu perfil, y desactiva la=
+ opci=C3=B3n correspondiente.=0A=0A                                    =
+    Por favor, no respondas a este correo: tu mensaje no ser=C3=A1 le=C3=
+=ADdo. Si tienes una pregunta, ponte en contacto con nosotros desde el a=
+partado  contactar =0A                                    =0A          =
+                          =0A=0A                                =0A    =
+                        =0A                            =0A             =
+           =0A                    =0A                =0A               =
+ =0A            =0A        =0A    =0A    =0A=0A=0A=0A
+
+--=_084a9dd3642aae41c572eeedb1be8e6d
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w=
+ww.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html xmlns=3D"http:=
+//www.w3.org/1999/xhtml">=0A<head>=0A    <meta http-equiv=3D"Content-Typ=
+e" content=3D"text/html; charset=3Dutf-8" />=0A    <meta name=3D"viewpor=
+t" content=3D"width=3Ddevice-width"/>=0A    <title>Ewelina te ha enviado=
+ un mensaje.</title>=0A    <style type=3D"text/css">=0A        a{=0A   =
+         color:#FA7C19;=0A        }=0A        @media only screen and (ma=
+x-width: 480px){=0A            table[class=3D"flexibleContainer"]{width:=
+100% !important;}=0A        }=0A    </style>=0A</head>=0A<body>=0A<table=
+ height=3D"auto" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"=0A       style=3D"font-family:'Helvetica Neue',Helvetica,Arial,=
+sans-serif;border:1px solid #dfdfdf">=0A    <tbody>=0A    <tr>=0A      =
+  <td align=3D"left">=0A            <table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%"=0A                   style=3D"width:1=
+00%;padding:0;margin:0;line-height:1px;font-size:1px">=0A              =
+  <tbody>=0A                <tr>=0A                    <td height=3D"10"=
+ style=3D"height:10px;padding:0;margin:0;line-height:1px;font-size:1px">=
+=C2=A0</td>=0A                </tr>=0A                <tr>=0A=09=09    <=
+td align=3D"left" width=3D"55" style=3D"padding:0;margin:0;line-height:1=
+px;font-size:1px">=0A=09=09=09<a href=3D"https://www.mobifriends.com/"=
+=0A                            style=3D"text-decoration:none;border: 0 n=
+one;padding:0;margin:0"=0A                            target=3D"_blank">=
+<img align=3D"right" width=3D"32" alt=3D"mobifriends"=0A               =
+                                  src=3D"https://www.mobifriends.com/ima=
+ges/common/logos/mobifriends-i55x42.png"=0A                            =
+                     style=3D"width:32px;margin:0;padding:0;display:bloc=
+k;border:none;outline:none"></a>=0A                    </td>=0A=09=09  =
+  <td align=3D"left" width=3D"8" style=3D"padding:0;margin:0;line-height=
+:1px;font-size:1px"></td>=0A                    <td align=3D"left" class=
+=3D"title" style=3D"line-height:1px;font-size:1px;font-family:'Helvetica=
+ Neue Light', Helvetica, Arial, sans-serif;-webkit-font-smoothing:antial=
+iased;-webkit-text-size-adjust:none;color:#FF6600;font-size:18px;padding=
+:0;margin:0;font-weight:300;text-align:left;"> Mensaje recibido </td>=0A=
+                </tr>=0A                <tr>=0A                    <td h=
+eight=3D"10" style=3D"height:10px;padding:0;margin:0;line-height:1px;fon=
+t-size:1px">=C2=A0</td>=0A                </tr>=0A                </tbod=
+y>=0A            </table>=0A            <table width=3D"100%" align=3D"c=
+enter" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffff=
+ff"=0A                   style=3D"font-family:'Helvetica Neue',Helvetica=
+,Arial,sans-serif;border-top:1px solid #dfdfdf">=0A                <tbod=
+y>=0A                <tr>=0A                    <td align=3D"left" style=
+=3D"padding:8px 20px">=0A                    </td>=0A                </t=
+r>=0A                </tbody>=0A            </table>=0A            <tabl=
+e width=3D"100%" align=3D"center" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" bgcolor=3D"#ffffff">=0A=0A                <tbody>=0A        =
+        <tr>=0A                    <td valign=3D"top" style=3D"font-size=
+:14px;line-height:21px;color:#444444">=0A                        <table=
+ width=3D"100%" align=3D"center" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" bgcolor=3D"#ffffff">=0A                            <tbody>=0A=
+                            <tr>=0A                                <td s=
+tyle=3D"padding:0 20px">=0A                                    <table wi=
+dth=3D"100%" border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0">=0A                                        <tbody>=0A           =
+                             <tr>=0A                                   =
+         <td>Hola Albertgn,</td>=0A                                    =
+    </tr>=0A                                        <tr>=0A            =
+                                <td>=0A                                =
+                <br><strong><a href=3D'https://www.mobifriends.com/links=
+/profile/sclzc?token=3DVwoA4uLRWDbogIMseiWR19LPWsoHueicWJsDb7Ytj35P2MYGl=
+VYdII838YgoqNYO' title=3D'Ewelina' style=3D'color: rgb(247,148,29);'>Ewe=
+lina</a></strong> te ha enviado un mensaje en mobifriends.<br>=0A      =
+                                          <br><br>=0A                  =
+                              <p style=3D"margin:0 0 14px 0;padding:0;te=
+xt-align:left;margin-bottom:0">=0A                                     =
+               <a href=3D"https://www.mobifriends.com/links/messages/255=
+546169?token=3DVwoA4uLRWDbogIMseiWR19LPWsoHueicWJsDb7Ytj35P2MYGlVYdII838=
+YgoqNYO"=0A                                                       style=
+=3D"color:#fff;font-size:16px;font-weight:bold;background-color:#FF6600;=
+background-image:-moz-linear-gradient(center top,#FF6600 10%,#FF6600 90%=
+);border:1px solid #FF6600;border-radius:3px;padding:8px;text-decoration=
+:none"=0A                                                       target=
+=3D"_blank">Ver mensajes</a>=0A                                        =
+        </p>=0A                                                <br><br><=
+/td>=0A                                        </tr>=0A                =
+                        <tr>=0A                                        =
+    <td>En caso de que el bot=C3=B3n no funcione, usa este enlace:<br><a=
+ style=3D'word-break:break-all;' href=3D'https://www.mobifriends.com/lin=
+ks/messages/255546169?token=3DVwoA4uLRWDbogIMseiWR19LPWsoHueicWJsDb7Ytj3=
+5P2MYGlVYdII838YgoqNYO' style=3D'color: rgb(247,148,29);'>https://www.mo=
+bifriends.com/links/messages/255546169</a></td>=0A                     =
+                   </tr>=0A                                        <tr>=
+=0A                                            <td>&nbsp;</td>=0A      =
+                                  </tr>=0A                             =
+           <tr>=0A                                            <td>=0A  =
+                                              <table width=3D"173" borde=
+r=3D"0" align=3D"center" cellpadding=3D"0"=0A                          =
+                             cellspacing=3D"0">=0A                     =
+                               <tbody>=0A                              =
+                      <tr>=0A                                          =
+              <td><a href=3D"https://www.mobifriends.com/?token=3DVwoA4u=
+LRWDbogIMseiWR19LPWsoHueicWJsDb7Ytj35P2MYGlVYdII838YgoqNYO" target=3D"_b=
+lank"><img=0A                                                          =
+      src=3D"https://www.mobifriends.com/images/common/logos/mobifriends=
+-firma.png"=0A                                                         =
+       width=3D"173" height=3D"33" alt=3D"mobifriends"=0A              =
+                                                  title=3D"mobifriends">=
+</a></td>=0A                                                    </tr>=0A=
+                                                    </tbody>=0A        =
+                                        </table>=0A                    =
+                        </td>=0A                                       =
+ </tr>=0A                                        <tr>=0A               =
+                             <td>&nbsp;</td>=0A                        =
+                </tr>=0A                                        </tbody>=
+=0A                                    </table>=0A                     =
+               <hr style=3D"border:0;border-top:1px solid #ccc">=0A    =
+                                <div style=3D"font-size:11px;color:#ccc"=
+>=0A                                        <p>Para no volver a recibir=
+ este email, entra en mobifriends, ve al apartado <a href=3D"https://www=
+.mobifriends.com/user.php#!/settings/newsletters?token=3DVwoA4uLRWDbogIM=
+seiWR19LPWsoHueicWJsDb7Ytj35P2MYGlVYdII838YgoqNYO" target=3D"_blank" sty=
+le=3D"color:rgb(247,148,29)"> Mis Opciones</a>=0A                      =
+                      en tu perfil, y desactiva la opci=C3=B3n correspon=
+diente.</p>=0A=0A                                        <p>Por favor, n=
+o respondas a este correo: tu mensaje no ser=C3=A1 le=C3=ADdo. Si tienes=
+ una pregunta, ponte en contacto con nosotros desde el apartado  <a href=
+=3D"https://www.mobifriends.com/web/contactext?token=3DVwoA4uLRWDbogIMse=
+iWR19LPWsoHueicWJsDb7Ytj35P2MYGlVYdII838YgoqNYO" target=3D"_blank" style=
+=3D"color:rgb(247,148,29)">contactar</a> <img src=3D'https://www.mobifri=
+ends.com/tp.php?t=3D862d8296ea1c9c2347ef09a5c555a092' /></p>=0A        =
+                            </div>=0A                                  =
+  <br><img src=3D"https://www.mobifriends.com/tp.php?t=3D#TRACKING_CODE#=
+"/>=0A                                </td>=0A                         =
+   </tr>=0A                            </tbody>=0A                     =
+   </table>=0A                    </td>=0A                </tr>=0A     =
+           </tbody>=0A            </table>=0A        </td>=0A    </tr>=
+=0A    </tbody>=0A</table>=0A</body>=0A</html>=0A
+
+--=_084a9dd3642aae41c572eeedb1be8e6d--

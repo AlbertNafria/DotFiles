@@ -1,0 +1,1511 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:209a:0:0:0:0 with SMTP id pv26csp511663ejb;
+        Thu, 11 Feb 2021 09:40:13 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwskS6sonZ7E4FPa+xzl0KLmtEmaS2Yqcab9dc0I+DBvTESiW3xoNGb2VPDsOPGdJsqZZ9l
+X-Received: by 2002:adf:ea8a:: with SMTP id s10mr6680855wrm.424.1613065213337;
+        Thu, 11 Feb 2021 09:40:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613065213; cv=none;
+        d=google.com; s=arc-20160816;
+        b=V9KyaUi1rU4cAv7SQHZTuNHjEbXrQiMSYNg/jG6+mKE7cUPJdGsFsgSuhJMXTxJO7u
+         9SbAJq+LxKUf3qUYjCGSZdxnLREiwov7Z+izsYr9NLpExQJjfDk3uQYYsoH5CMOQkb8l
+         BCWBDjI6uID76/tL3hICMvlktaxt7wLm++7gRZmEV4Tr5nMOaNG63N3wUpRUcCmOiIbd
+         UOLaP3r+fnuFIVZc0Z+V/nnqlbMZOvzFVzhXGgVRdEG3RsnQ+rf5Do8wMpkOS4YY9InX
+         fQCwBwSIaLiFpaIbmpUIPPCpZCjZW0z846QUbFvWo0ZWwprGvxYjDWpSOHuraNA9WO4p
+         D/Ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:from:dkim-signature;
+        bh=d8sU0YiU/z8i68BMNcdN2u8X+qZDi1UbBU0Uy9xfOPo=;
+        b=o6V2ZXnQNIVWwgzvt3rD70ZYwrOsnpgfml2xO7H2Vkbp8FA5RMs0tFe6/X9KyyV5Uj
+         bXaQYayPDlgxZBwRCv0zw/Zv06+5LBW7UXKnRLzVfAzT4slgWN6wXRnzsH6zfO1rzMLt
+         MsOU1p9uGUIBnBhhiy8KVk5IfVLGskolBRsOCqAjwRDquB6gZ0C3XCN2Gh2M7iM8nX3Y
+         G7Z1CD+i7SfNtMLdksNLJrGR1Yy1H/ChptjX9Wh2y2QviDkPYKhSfjvwJWEqxvou7lKB
+         m9Z2iZDdKBDZiPpOigbJkgN8a7/9u8ktFxfhYK6jixg8HZgDd0swFzcT5vjYsABQyjCt
+         7jTQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=WAE5kfWS;
+       spf=pass (google.com: domain of 01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com designates 54.240.6.106 as permitted sender) smtp.mailfrom=01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com
+Return-Path: <01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com>
+Received: from a6-106.smtp-out.eu-west-1.amazonses.com (a6-106.smtp-out.eu-west-1.amazonses.com. [54.240.6.106])
+        by mx.google.com with ESMTPS id a5si2992031wrt.339.2021.02.11.09.40.12
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 11 Feb 2021 09:40:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com designates 54.240.6.106 as permitted sender) client-ip=54.240.6.106;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=WAE5kfWS;
+       spf=pass (google.com: domain of 01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com designates 54.240.6.106 as permitted sender) smtp.mailfrom=01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1613065212;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=E5m9BkUMQ8XYiFCFhwnYmD/S8G+IH7lUEuaFZDoNQKE=;
+	b=WAE5kfWSujBzaNQHgmTlGtNjGkZwHMr12Q5+x5TV7sek+VVGkppt9FKzPqNprirF
+	HCISVBatZ3M3haYvyP0H+8UmefZBiSB6ovdZyttYpf4+6OjTqJXoUwcl44by2+FBqTl
+	UhJr7A61yB1HRFuwB/LnrleX0LYWUTsBlSLec4mw=
+From: simyo <simyo@soydesimyo.es>
+To: albert.nafria@gmail.com
+Subject: =?UTF-8?Q?Fibra_&_m=C3=B3vil_=C2=A1Toma_equipazo!?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <01020177922dd029-a4bda2fa-16e2-4726-8fbc-6fcf93be9f2d-000000@eu-west-1.amazonses.com>
+Date: Thu, 11 Feb 2021 17:40:11 +0000
+X-SES-Outgoing: 2021.02.11-54.240.6.106
+Feedback-ID: 1.eu-west-1./RTHO8LIT1dx3Zf1HCh8y+a6+l3NcmRwcKM2+0GaZ+I=:AmazonSES
+
+<!DOCTYPE html>
+<html>
+<head>
+=09<title>Estrena m&oacute;vil</title>
+=09<meta charset=3D"utf-8"><meta name=3D"viewport" content=3D"width=3Ddevic=
+e-width, initial-scale=3D1"><meta http-equiv=3D"X-UA-Compatible" content=3D=
+"IE=3Dedge"/><meta name=3D"x-apple-disable-message-reformating"/>
+=09<style type=3D"text/css">/* CLIENT-SPECIFIC STYLES */
+            a,
+            body,
+            table,
+            td {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+            /* Prevent WebKit and Windows mobile changing default text size=
+s */
+            table,
+            td {
+                mso-table-lspace: 0;
+                mso-table-rspace: 0;
+            }
+            /* Remove spacing between tables in Outlook 2007 and up */
+            img {
+                -ms-interpolation-mode: bicubic;
+            }
+            /* Allow smoother rendering of resized image in Internet Explor=
+er */
+
+            /* RESET STYLES */
+            img {
+                border: 0;
+                height: auto;
+                line-height: 100%;
+                outline: none;
+                text-decoration: none;
+            }
+            table {
+                border-collapse: collapse !important;
+            }
+            body {
+                height: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            /* iOS BLUE LINKS */
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+
+            /* MOBILE STYLES */
+            @media screen and (max-width: 600px) {
+
+                /* ALLOWS FOR FLUID TABLES */
+                .wrapper {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+                /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+                .mobile-hide {
+                    display: none !important;
+                }
+
+                .img-max {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                .subtitle {
+                    padding-bottom: 20px !important;
+                }
+                /* FULL-WIDTH TABLES */
+                .responsive-table {
+                    width: 100% !important;
+                }
+
+                /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+                .padding {
+                    padding: 10px 5% 15px 5% !important;
+                }
+
+                .padding-meta {
+                    padding: 30px 5% 0 5% !important;
+                    text-align: center;
+                }
+
+                .no-padding {
+                    padding: 0 !important;
+                }
+
+                /* ADJUST BUTTONS ON MOBILE */
+                .mobile-button-container {
+                    margin: 0 auto;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+            }
+
+            /* ANDROID CENTER FIX */
+            div[style*=3D"margin: 16px 0;"] {
+                margin: 0 !important;
+            }
+=09</style>
+</head>
+<body style=3D"margin: 0 !important; padding: 0 !important;">
+<p id=3D"onlineViewParagraph" style=3D"font-size:10px; color:#999; max-widt=
+h:661px; margin:0 auto; text-align:center; font-family: Arial, Helvetica, s=
+ans-serif;"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked=
+?idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://simyo.=
+zippingcare.com/onlineView?id=3D60256bfb3bf6ae00012c70ba&amp;bannerId=3D602=
+3a74c37093da23f5f79ff" mappingid=3D"6023a74c37093da23f5f79ff" originalsrc=
+=3D"https://simyo.zippingcare.com/onlineView?id=3D60256bfb3bf6ae00012c70ba"=
+ redirect=3D"false" redirected=3D"">Si no puedes ver este email pincha aqu&=
+iacute;</a></p>
+
+<p style=3D"font-size:10px; color:#999; max-width:661px; margin:0 auto; tex=
+t-align:center; font-family: Arial, Helvetica, sans-serif;">&nbsp;</p>
+<!-- HEADER -->
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center" bgcolor=3D"#ffffff"><!--[if (gte mso 9)|(IE)]=
+>
+            <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"600">
+            <tr>
+            <td align=3D"center" valign=3D"top" width=3D"600">
+            <![endif]-->
+=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"w=
+rapper" style=3D"max-width: 600px;" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"left" bgcolor=3D"#c2c1c1" class=3D"logo" sty=
+le=3D"padding: 15px 20px;" valign=3D"top"><a href=3D"https://simyo.zippingc=
+are.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae00012c70ba&amp;zippin=
+gCareRedirect=3Dhttp://www.simyo.es&amp;bannerId=3D6023a74c37093da23f5f7a00=
+" mappingid=3D"6023a74c37093da23f5f7a00" originalsrc=3D"http://www.simyo.es=
+" redirected=3D"" target=3D"_blank"><img alt=3D"Logo Simyo" border=3D"0" he=
+ight=3D"39" src=3D"https://www.simyo.es/img/logo-email.png" style=3D"displa=
+y: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-s=
+ize: 16px;" width=3D"125" /> </a></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- HERO IMAGE -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center"><img alt=3D"Imagen de cabecera" bord=
+er=3D"0" class=3D"img-max" height=3D"auto" src=3D"https://simyo.es/img/mail=
+ings/cabecera_terminales_feb2021.jpg" style=3D"display: block; color: #6666=
+66;  font-family: Helvetica, arial, sans-serif; font-size: 16px;" width=3D"=
+100%" /></td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]--></td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td align=3D"center" bgcolor=3D"#ffffff" class=3D"section-padding"=
+ style=3D"padding: 10px 10px;"><!--[if (gte mso 9)|(IE)]>
+            <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"560">
+            <tr>
+            <td align=3D"center" valign=3D"top" width=3D"560">
+            <![endif]-->
+=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"r=
+esponsive-table" style=3D"max-width:560px;" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td>
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"padding"><!-- COPY -->
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"subtitle"=
+ style=3D"font-family:Arial, Helvetica, sans-serif;font-size: 25px;;padding=
+-top:18px; padding-bottom: 8px;color: #FF5900; ">AQU&Iacute; TIENES LOS FIC=
+HAJES DEL MES</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D" padding-=
+top:0px;font-size: 25px; font-family: Helvetica, Arial, sans-serif; color:#=
+333333;line-height: 100%!important;">MONTAR EL EQUIPAZO YA ES COSA TUYA ;)<=
+/td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"padding: 40=
+px 0 0 0; font-size: 18px; line-height: 10px; font-family: Helvetica, Arial=
+, sans-serif; color: #333333;">EL FICHAJE DE LA TEMPORADA</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"padding: 0 =
+0 0 0; font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, s=
+ans-serif; color: #333333;">
+=09=09=09=09=09=09=09=09=09=09=09=09<p>Seguro que ya conoces al fichaje rev=
+elaci&oacute;n de esta temporada: &iexcl;La fibra!<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Consulta la cobertura sin compromiso y =
+ap&uacute;ntate a una fibra sin l&iacute;os, sin extras y sin sorpresas.</p=
+>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td height=3D"43">
+=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"330">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"wrapperButton">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+bgcolor=3D"#ff5900" class=3D"button" height=3D"43" style=3D" font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#ffffff=
+;" width=3D"330"><a href=3D"https://simyo.zippingcare.com/statistics/linkCl=
+icked?idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://w=
+ww.simyo.es/simyo%2Fcoverage%3Fexecution%3De1s1%26utm_medium%3Demail%26utm_=
+source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-fibra%26utm_content=
+%3Dfibra-3%26utm_term%3D00-02-21&amp;bannerId=3D6023a74c37093da23f5f7a01" m=
+appingid=3D"6023a74c37093da23f5f7a01" originalsrc=3D"https://www.simyo.es/s=
+imyo/coverage?execution=3De1s1&amp;utm_medium=3Demail&amp;utm_source=3Dwyre=
+d/zipping&amp;utm_campaign=3Dnews/promos-fibra&amp;utm_content=3Dfibra-3&am=
+p;utm_term=3D00-02-21" redirected=3D"" style=3D"text-decoration:none; color=
+:#ffffff;" target=3D"_blank">&nbsp;&nbsp;&nbsp;COMPRUEBA COBERTURA FIBRA&nb=
+sp;&nbsp;&nbsp;</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"padding: 20=
+px 0 0 0; font-size: 18px; line-height: 0px; font-family: Helvetica, Arial,=
+ sans-serif; color: #333333;">
+=09=09=09=09=09=09=09=09=09=09=09=09<p>&Uacute;LTIMOS FICHAJES DE LA TIENDA=
+</p>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"padding: 0 =
+0 0 0; font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, s=
+ans-serif; color: #333333;">Febrero llega cargado de novedades en <a href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3=
+bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftele=
+fonia-movil%2Ftelefonos-libres.htm%3Futm_medium%3Demail%26utm_source%3Dwyre=
+d%2Fzipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_content%3Dene%26ut=
+m_term%3D11-02-21&amp;bannerId=3D6023a74c37093da23f5f7a02" mappingid=3D"602=
+3a74c37093da23f5f7a02" originalsrc=3D"https://www.simyo.es/simyo/telefonia-=
+movil/telefonos-libres.htm?utm_medium=3Demail&amp;utm_source=3Dwyred/zippin=
+g&amp;utm_campaign=3Dnews/promos-moviles&amp;utm_content=3Dene&amp;utm_term=
+=3D11-02-21" redirected=3D"" style=3D"color:#02c2fd;">la tienda de m&oacute=
+;viles</a>. Este mes tenemos tres Samsung Galaxy con &quot;A&quot; de &quot=
+;Alucinantes&quot; y un el LG K42 en color verde, que igual hace juego con =
+tus ojos... o no, pero es un color muy mol&oacute;n ;)<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Seguro que con este resumen ya te hemos=
+ convencido y no necesitas saber nada m&aacute;s, pero por si acaso, aqu&ia=
+cute; tienes toda la informaci&oacute;n:</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]--></td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td align=3D"center" bgcolor=3D"#ffffff" class=3D"section-padding"=
+ style=3D"padding: 10px 10px;"><!--[if (gte mso 9)|(IE)]>
+            <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"300">
+            <tr>
+            <td align=3D"center" valign=3D"top" width=3D"600">
+            <![endif]-->
+=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"r=
+esponsive-table" style=3D"max-width:600px;" width=3D"100%"><!-- TERMINAL 1 =
+-->
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" colspan=3D"2" height=3D"100%" valign=
+=3D"top" width=3D"100%"><!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"300">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"300">
+                        <![endif]-->
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"max-width:300px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-size:0;" vali=
+gn=3D"top"><!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"300">
+                                    <tr>
+                                    <td align=3D"right" valign=3D"top" widt=
+h=3D"115">
+                                    <![endif]-->
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:115px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"115">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 20px 0 0 0;" vali=
+gn=3D"top"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?=
+idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.sim=
+yo.es/simyo%2Ftelefonia-movil%2Fcomprar%2Ftcl-10l%3Futm_medium%3Demail%26ut=
+m_source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_con=
+tent%3Dene%26utm_term%3D06-07-20&amp;bannerId=3D6023a74c37093da23f5f7a03" m=
+appingid=3D"6023a74c37093da23f5f7a03" originalsrc=3D"https://www.simyo.es/s=
+imyo/telefonia-movil/comprar/tcl-10l?utm_medium=3Demail&amp;utm_source=3Dwy=
+red/zipping&amp;utm_campaign=3Dnews/promos-moviles&amp;utm_content=3Dene&am=
+p;utm_term=3D06-07-20" redirected=3D"" target=3D"_blank"><img alt=3D"TCL 10=
+L" border=3D"0" height=3D"auto" src=3D"https://www.simyo.es/backoffice/port=
+al/resources/4028f364773680600177498dcf721132.image?cache=3Dtrue" style=3D"=
+display: block; font-family: Arial; color: #666666; font-size: 14px; width:=
+ 115px; height: auto;" width=3D"115" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"183">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:183px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 20px 0 0 0;"><!--=
+ ARTICLE -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">SAMSUNG</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">GALAXY A02s</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; color: #333333;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding:10px 0 15px 15px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">=
+<!-- DESCUENTO -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table bgcolor=3D"#99=
+9999" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"left">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+ align=3D"center" style=3D"font-size: 14px; font-family: Helvetica, Arial, =
+sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-dec=
+oration: none; padding: 5px 0; display: block;">&iexcl;NOVEDAD!</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO PLAZOS:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">4,5<span style=3D"font-size: 12px=
+; font-family:  Arial, Helvetica, sans-serif;">&euro;/mes</span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 15px 15px; font-size: 12px; font-family: Helvetica, Arial, sans-=
+serif; color: #333333;">x 24 meses + 7<span style=3D"font-family:  Arial, H=
+elvetica, sans-serif;">&euro;</span> pago inicial</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO &Uacute;NICO:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;"><span style=3D"color:#ff5900;">11=
+5<span style=3D"font-size: 12px; font-family: Arial, Helvetica, sans-serif;=
+">&euro;</span></span>&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding:20px 0 0px=
+;">
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center"><!-- BULLETPROOF B=
+UTTON -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"mobile-button-container" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+bgcolor=3D"#FF5900" style=3D" width: 100%;"><a class=3D"mobile-button" href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3=
+bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftele=
+fonia-movil%2Fcomprar%2Fsamsung-galaxy-a02s%3Futm_medium%3Demail%26utm_sour=
+ce%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_content%3=
+Dene%26utm_term%3D11-02-21&amp;bannerId=3D6023a74c37093da23f5f7a04" mapping=
+id=3D"6023a74c37093da23f5f7a04" originalsrc=3D"https://www.simyo.es/simyo/t=
+elefonia-movil/comprar/samsung-galaxy-a02s?utm_medium=3Demail&amp;utm_sourc=
+e=3Dwyred/zipping&amp;utm_campaign=3Dnews/promos-moviles&amp;utm_content=3D=
+ene&amp;utm_term=3D11-02-21" redirected=3D"" style=3D"font-size: 14px; font=
+-family: Helvetica, Arial, sans-serif; color: #ffffff; padding: 10px; text-=
+decoration: none; color: #ffffff; text-decoration: none; border: 1px solid =
+#FF5900; display: block;" target=3D"_blank">LO QUIERO</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- FIN TERMINAL 1 --><!-- TERMINAL 2 -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" colspan=3D"2" height=3D"100%" valign=
+=3D"top" width=3D"100%"><!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"300">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"300">
+                        <![endif]-->
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"max-width:300px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-size:0;" vali=
+gn=3D"top"><!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"300">
+                                    <tr>
+                                    <td align=3D"right" valign=3D"top" widt=
+h=3D"115">
+                                    <![endif]-->
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:115px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"115">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;" vali=
+gn=3D"top"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?=
+idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.sim=
+yo.es/simyo%2Ftelefonia-movil%2Fcomprar%2Fsamsung-galaxy-a21s%3Futm_medium%=
+3Demail%26utm_source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-movil=
+es%26utm_content%3Dene%26utm_term%3D06-10-20&amp;bannerId=3D6023a74c37093da=
+23f5f7a05" mappingid=3D"6023a74c37093da23f5f7a05" originalsrc=3D"https://ww=
+w.simyo.es/simyo/telefonia-movil/comprar/samsung-galaxy-a21s?utm_medium=3De=
+mail&amp;utm_source=3Dwyred/zipping&amp;utm_campaign=3Dnews/promos-moviles&=
+amp;utm_content=3Dene&amp;utm_term=3D06-10-20" redirected=3D"" target=3D"_b=
+lank"><img alt=3D"TCL 10L" border=3D"0" height=3D"auto" src=3D"https://www.=
+simyo.es/backoffice/portal/resources/4028f36477368060017749a29bab1161.image=
+?cache=3Dtrue" style=3D"display: block; font-family: Arial; color: #666666;=
+ font-size: 14px; width: 115px; height: auto;" width=3D"115" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"183">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:183px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;"><!--=
+ ARTICLE -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">SAMSUNG</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">GALAXY A12 64GB</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; color: #333333;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; color: #333333;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding:10px 0 15px 15px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">=
+<!-- DESCUENTO -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table bgcolor=3D"#99=
+9999" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"left">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+ align=3D"center" style=3D"font-size: 14px; font-family: Helvetica, Arial, =
+sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-dec=
+oration: none; padding: 5px 0; display: block;">&iexcl;NOVEDAD!</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO PLAZOS:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">5<span style=3D"font-size: 12px;"=
+> <span style=3D"font-family: Arial, Helvetica, sans-serif;">&euro;</span>/=
+mes</span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 15px 15px; font-size: 12px; font-family: Helvetica, Arial, sans-=
+serif; color: #333333;">x 24 meses + 9<span style=3D"font-size: 12px; font-=
+family: Arial, Helvetica, sans-serif;">&euro;</span> pago inicial</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO &Uacute;NICO:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;"><span style=3D"color:#ff5900;">12=
+9<span style=3D"font-family: Arial, Helvetica, sans-serif;">&euro;</span></=
+span>&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding:25px 0 0px=
+;">
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center"><!-- BULLETPROOF B=
+UTTON -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"mobile-button-container" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+bgcolor=3D"#FF5900" style=3D"width: 100%;"><a class=3D"mobile-button" href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3=
+bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftele=
+fonia-movil%2Fcomprar%2Fsamsung-galaxy-a12%3Futm_medium%3Demail%26utm_sourc=
+e%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_content%3D=
+ene%26utm_term%3D11-02-21&amp;bannerId=3D6023a74c37093da23f5f7a06" mappingi=
+d=3D"6023a74c37093da23f5f7a06" originalsrc=3D"https://www.simyo.es/simyo/te=
+lefonia-movil/comprar/samsung-galaxy-a12?utm_medium=3Demail&amp;utm_source=
+=3Dwyred/zipping&amp;utm_campaign=3Dnews/promos-moviles&amp;utm_content=3De=
+ne&amp;utm_term=3D11-02-21" redirected=3D"" style=3D"font-size: 14px; font-=
+family: Helvetica, Arial, sans-serif; padding: 10px; color: #ffffff; text-d=
+ecoration: none; color: #ffffff; text-decoration: none; border: 1px solid #=
+FF5900;border: 1px solid #FF5900; display: block;" target=3D"_blank">LO QUI=
+ERO</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- FIN TERMINAL 2 --><!-- TERMINAL 3 -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" colspan=3D"2" height=3D"100%" valign=
+=3D"top" width=3D"100%"><!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"300">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"300">
+                        <![endif]-->
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"max-width:300px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-size:0;" vali=
+gn=3D"top"><!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"300">
+                                    <tr>
+                                    <td align=3D"right" valign=3D"top" widt=
+h=3D"115">
+                                    <![endif]-->
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:115px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"115">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;" vali=
+gn=3D"top"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?=
+idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.sim=
+yo.es/simyo%2Ftelefonia-movil%2Fcomprar%2Fxiaomi-redmi-note9-pro-128gb%3Fut=
+m_medium%3Demail%26utm_source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpro=
+mos-moviles%26utm_content%3Dene%26utm_term%3D06-10-20&amp;bannerId=3D6023a7=
+4c37093da23f5f7a07" mappingid=3D"6023a74c37093da23f5f7a07" originalsrc=3D"h=
+ttps://www.simyo.es/simyo/telefonia-movil/comprar/xiaomi-redmi-note9-pro-12=
+8gb?utm_medium=3Demail&amp;utm_source=3Dwyred/zipping&amp;utm_campaign=3Dne=
+ws/promos-moviles&amp;utm_content=3Dene&amp;utm_term=3D06-10-20" redirected=
+=3D"" target=3D"_blank"><img alt=3D"Xiaomi Redmi Note 9 PRO 128gb" border=
+=3D"0" height=3D"auto" src=3D"https://www.simyo.es/backoffice/portal/resour=
+ces/4028f3647736806001773eb4de0a0472.image?cache=3Dtrue" style=3D"display: =
+block; font-family: Arial; color: #666666; font-size: 14px; width: 115px; h=
+eight: auto;" width=3D"115" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"183">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:183px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;"><!--=
+ ARTICLE -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">SAMSUNG</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">GALAXY A21s 128 GB</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; color: #333333;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding:10px 0 15px 15px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">=
+<!-- DESCUENTO -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table bgcolor=3D"#99=
+9999" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"left">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+ align=3D"center" style=3D"font-size: 14px; font-family: Helvetica, Arial, =
+sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-dec=
+oration: none; padding: 5px 0; display: block;">&iexcl;NOVEDAD!</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO PLAZOS:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">5,5<span style=3D"font-size: 12px=
+;"> <span style=3D"font-family: Arial, Helvetica, sans-serif;">&euro;</span=
+>/mes</span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 15px 15px; font-size: 12px; font-family: Helvetica, Arial, sans-=
+serif; color: #333333;">x 24 meses + 23<span style=3D"font-family:  Arial, =
+Helvetica, sans-serif;">&euro;</span> pago inicial</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO &Uacute;NICO:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;"><span style=3D"color:#ff5900;">15=
+5<span style=3D"font-family:  Arial, Helvetica, sans-serif;">&euro;</span><=
+/span>&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding:25px 0 0px=
+;">
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center"><!-- BULLETPROOF B=
+UTTON -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"mobile-button-container" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+bgcolor=3D"#FF5900" style=3D"width: 100%;"><a class=3D"mobile-button" href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3=
+bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftele=
+fonia-movil%2Fcomprar%2Fsamsung-galaxy-a21s-128gb%3Futm_medium%3Demail%26ut=
+m_source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_con=
+tent%3Dene%26utm_term%3D11-02-21&amp;bannerId=3D6023a74c37093da23f5f7a08" m=
+appingid=3D"6023a74c37093da23f5f7a08" originalsrc=3D"https://www.simyo.es/s=
+imyo/telefonia-movil/comprar/samsung-galaxy-a21s-128gb?utm_medium=3Demail&a=
+mp;utm_source=3Dwyred/zipping&amp;utm_campaign=3Dnews/promos-moviles&amp;ut=
+m_content=3Dene&amp;utm_term=3D11-02-21" redirected=3D"" style=3D"font-size=
+: 14px; font-family: Helvetica, Arial, sans-serif; padding: 10px; color: #f=
+fffff; text-decoration: none; color: #ffffff; text-decoration: none; border=
+: 1px solid #FF5900;border: 1px solid #FF5900; display: block;" target=3D"_=
+blank">LO QUIERO</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- FIN TERMINAL 3 --><!-- TERMINAL 4 -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" colspan=3D"2" height=3D"100%" valign=
+=3D"top" width=3D"100%"><!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"300">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"300">
+                        <![endif]-->
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"max-width:300px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-size:0;" vali=
+gn=3D"top"><!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"300">
+                                    <tr>
+                                    <td align=3D"right" valign=3D"top" widt=
+h=3D"115">
+                                    <![endif]-->
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:115px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"115">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;" vali=
+gn=3D"top"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?=
+idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.sim=
+yo.es/simyo%2Ftelefonia-movil%2Fcomprar%2Fsamsung-galaxy-s20-5g%3Futm_mediu=
+m%3Demail%26utm_source%3Dwyred%2Fzipping%26utm_campaign%3Dnews%2Fpromos-mov=
+iles%26utm_content%3Dene%26utm_term%3D06-10-20&amp;bannerId=3D6023a74c37093=
+da23f5f7a09" mappingid=3D"6023a74c37093da23f5f7a09" originalsrc=3D"https://=
+www.simyo.es/simyo/telefonia-movil/comprar/samsung-galaxy-s20-5g?utm_medium=
+=3Demail&amp;utm_source=3Dwyred/zipping&amp;utm_campaign=3Dnews/promos-movi=
+les&amp;utm_content=3Dene&amp;utm_term=3D06-10-20" redirected=3D"" target=
+=3D"_blank"><img alt=3D"Samsung Galaxy S20 5G" border=3D"0" height=3D"auto"=
+ src=3D"https://www.simyo.es/backoffice/portal/resources/4028f3647736806001=
+775d91d01f17e8.image?cache=3Dtrue" style=3D"display: block; font-family: Ar=
+ial; color: #666666; font-size: 14px; width: 115px; height: auto;" width=3D=
+"115" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"183">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div style=3D"display:inline-block; margin: 0 -2=
+px; max-width:183px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 40px 0 0 0;"><!--=
+ ARTICLE -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">LG</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">K42</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; color: #333333;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding:10px 0 15px 15px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">=
+<!-- DESCUENTO -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table bgcolor=3D"#99=
+9999" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"left">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+ align=3D"center" style=3D"font-size: 14px; font-family: Helvetica, Arial, =
+sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-dec=
+oration: none; padding: 5px 0; display: block;">&iexcl;NOVEDAD!</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO PLAZOS:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #FF5900;">5<span style=3D"font-size: 12px;"=
+> <span style=3D"font-family:  Arial, Helvetica, sans-serif;">&euro;</span>=
+/mes</span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 15px 15px; font-size: 12px; font-family: Helvetica, Arial, sans-=
+serif; color: #333333;">x 24 meses + 9<span style=3D"font-family:  Arial, H=
+elvetica, sans-serif;">&euro;</span> pago inicial</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;">PAGO &Uacute;NICO:</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 0 0 15px; font-size: 16px; font-family: Helvetica, Arial, sans-ser=
+if; font-weight: normal; color: #333333;"><span style=3D"color:#ff5900;">12=
+9<span style=3D"font-family:  Arial, Helvetica, sans-serif;">&euro;</span><=
+/span>&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding:25px 0;">
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center"><!-- BULLETPROOF B=
+UTTON -->
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"mobile-button-container" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+bgcolor=3D"#FF5900" style=3D"width: 100%;"><a class=3D"mobile-button" href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3=
+bf6ae00012c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftele=
+fonia-movil%2Fcomprar%2Flg-k42%3Futm_medium%3Demail%26utm_source%3Dwyred%2F=
+zipping%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_content%3Dene%26utm_te=
+rm%3D11-02-21&amp;bannerId=3D6023a74c37093da23f5f7a0a" mappingid=3D"6023a74=
+c37093da23f5f7a0a" originalsrc=3D"https://www.simyo.es/simyo/telefonia-movi=
+l/comprar/lg-k42?utm_medium=3Demail&amp;utm_source=3Dwyred/zipping&amp;utm_=
+campaign=3Dnews/promos-moviles&amp;utm_content=3Dene&amp;utm_term=3D11-02-2=
+1" redirected=3D"" style=3D"font-size: 14px; font-family: Helvetica, Arial,=
+ sans-serif; color: #ffffff; padding: 10px; text-decoration: none; color: #=
+ffffff; text-decoration: none; border: 1px solid #FF5900;border: 1px solid =
+#FF5900; display: block;" target=3D"_blank">LO QUIERO</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- FIN TERMINAL 4 -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td>
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"padding" style=3D"padding: 25px 0 0=
+ 0;"><!-- COPY -->
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#c2c1c1=
+" style=3D"padding: 5px 0; font-size: 14px; line-height: 20px; font-family:=
+ Helvetica, Arial, sans-serif; text-transform: uppercase;"><a href=3D"https=
+://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae0001=
+2c70ba&amp;zippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftelefonia-mov=
+il%2Ftelefonos-libres.htm%3Futm_medium%3Demail%26utm_source%3Dwyred%2Fzippi=
+ng%26utm_campaign%3Dnews%2Fpromos-moviles%26utm_content%3Dene%26utm_term%3D=
+06-10-20&amp;bannerId=3D6023a74c37093da23f5f7a0b" mappingid=3D"6023a74c3709=
+3da23f5f7a0b" originalsrc=3D"https://www.simyo.es/simyo/telefonia-movil/tel=
+efonos-libres.htm?utm_medium=3Demail&amp;utm_source=3Dwyred/zipping&amp;utm=
+_campaign=3Dnews/promos-moviles&amp;utm_content=3Dene&amp;utm_term=3D06-10-=
+20" redirected=3D"" style=3D"color: #333333; text-decoration: none;" target=
+=3D"_blank">Y muchos m&aacute;s modelos</a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"padding: 10=
+px 0 20px; font-size: 14px; line-height: 20px; font-family: Helvetica, Aria=
+l, sans-serif; color: #333333;">
+=09=09=09=09=09=09=09=09=09=09=09=09<p><u><a href=3D"https://simyo.zippingc=
+are.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae00012c70ba&amp;zippin=
+gCareRedirect=3Dhttps://www.simyo.es/simyo%2Ftelefonia-movil%2Ftelefonos-li=
+bres.htm%3Futm_medium%3Demail%26utm_source%3Dwyred%2Fzipping%26utm_campaign=
+%3Dnews%2Fpromos-moviles%26utm_content%3Dene%26utm_term%3D11-02-21&amp;bann=
+erId=3D6023a74c37093da23f5f7a0c" mappingid=3D"6023a74c37093da23f5f7a0c" ori=
+ginalsrc=3D"https://www.simyo.es/simyo/telefonia-movil/telefonos-libres.htm=
+?utm_medium=3Demail&amp;utm_source=3Dwyred/zipping&amp;utm_campaign=3Dnews/=
+promos-moviles&amp;utm_content=3Dene&amp;utm_term=3D11-02-21" redirected=3D=
+"" style=3D"color:#02c2fd;">Entra ahora en la tienda</a></u> para ver el re=
+sto de m&oacute;viles disponibles y acu&eacute;rdate tambi&eacute;n de echa=
+r un vistazo de vez en cuando, que vendr&aacute;n m&aacute;s novedades pr&o=
+acute;ximamente ;)</p>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<p>Precios v&aacute;lidos hasta el 28/0=
+2/2021 o hasta fin de existencias (M&aacute;x. 500 unidades por modelo).</p=
+>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr bgcolor=3D"#19c0e8">
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"font-size: =
+14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: =
+#FFFFFF; padding: 20px">&iexcl;Pssst! Calabria, recuerda que tienes un desc=
+uento sobre estos precios por haber invitado a tus amigos a venir a simyo ;=
+)</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr bgcolor=3D"#19c0e8">
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"font-size: =
+14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: =
+#FFFFFF; padding: 0 20px 20px 20px">10&nbsp;euros de descuento sobre el pre=
+cio marcado por aplicaci&oacute;n de la promoci&oacute;n &quot;Invita a un =
+amigo&quot; al comprarlo desde la tienda de m&oacute;viles en tu &aacute;re=
+a personal. Este descuento consiste en la aplicaci&oacute;n del saldo promo=
+cional que tengas acumulado a la fecha de compra.<br />
+=09=09=09=09=09=09=09=09=09=09=09=09El saldo promocional aqu&iacute; indica=
+do es a d&iacute;a 10/02/2021. Para conocer tu saldo exacto al momento de l=
+a compra, consulta el apartado &quot;Invita a un amigo&quot; de tu &aacute;=
+rea personal</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding: =
+20px 0 0 0; font-size: 14px; line-height: 20px; font-family: Helvetica, Ari=
+al, sans-serif; color: #333333;">Recuerda que si tienes cualquier duda o ne=
+cesitas ayuda para actualizarte,<br />
+=09=09=09=09=09=09=09=09=09=09=09=09puedes llamarnos al 1644 gratis</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" height=3D"100%" valign=3D"top" width=
+=3D"100%"><!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"600">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"600">
+                        <![endif]-->
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"max-width:600px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-size:0; paddi=
+ng: 20px 0 0 0;" valign=3D"top"><!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"500">
+                                    <tr>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"150">
+                                    <![endif]-->
+=09=09=09=09=09=09=09=09=09<div class=3D"wrapper" style=3D"display:inline-b=
+lock; margin: 0 -2px; max-width:185px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"185">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding: =
+0 0 5px 0; font-size: 13px; font-family: Helvetica, Arial, sans-serif; font=
+-weight: normal; color: #333333;" valign=3D"top">SMARTPHONE LIBRE</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"350">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div class=3D"wrapper" style=3D"display:inline-b=
+lock; margin: 0 -2px; max-width:185px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"wrapper" style=3D"max-width: 185px; float=
+: left;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding: =
+0 0 5px 0; font-size: 13px; font-family: Helvetica, Arial, sans-serif; font=
+-weight: normal; color: #333333;">SIN PERMANENCIA</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"350">
+                                    <![endif]-->
+
+=09=09=09=09=09=09=09=09=09<div class=3D"wrapper" style=3D"display:inline-b=
+lock; margin: 0 -2px; max-width:185px; vertical-align:top; width:100%;">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"wrapper" style=3D"max-width: 185px; float=
+: left;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"padding: =
+0 0 5px 0; font-size: 13px; font-family: Helvetica, Arial, sans-serif; font=
+-weight: normal; color: #333333;">SIN PENALIZACI&Oacute;N</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]--></td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td align=3D"center" bgcolor=3D"#ffffff" class=3D"padding" style=
+=3D"padding: 15px;"><!--[if (gte mso 9)|(IE)]>
+            <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"600">
+            <tr>
+            <td align=3D"center" valign=3D"top" width=3D"600">
+            <![endif]-->
+=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"r=
+esponsive-table" style=3D"max-width: 600px;" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"padding: 10px 0 0 0;"><!-- TWO COLUMNS -->
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"mobile-wrapper" valign=3D"top"><!--=
+ LEFT COLUMN -->
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width: 47%;" width=3D"47%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 10px 0;">
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left"><a href=3D"=
+https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3bf6a=
+e00012c70ba&amp;zippingCareRedirect=3Dhttp://www.simyo.es&amp;bannerId=3D60=
+23a74c37093da23f5f7a0d" mappingid=3D"6023a74c37093da23f5f7a0d" originalsrc=
+=3D"http://www.simyo.es" redirected=3D"" target=3D"_blank"><img alt=3D"Logo=
+ Simyo" border=3D"0" height=3D"39" src=3D"https://www.simyo.es/img/logo-ema=
+il-gris.jpg" style=3D"display:block;" width=3D"125" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09<!-- RIGHT COLUMN -->
+
+=09=09=09=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width: 100px;" width=3D"100">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 10px 0;">
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr><!-- FACEBOOK -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td width=3D"26"><a href=3D"ht=
+tps://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae0=
+0012c70ba&amp;zippingCareRedirect=3Dhttps://www.facebook.com/simyo&amp;bann=
+erId=3D6023a74c37093da23f5f7a0e" mappingid=3D"6023a74c37093da23f5f7a0e" ori=
+ginalsrc=3D"https://www.facebook.com/simyo" redirected=3D"" target=3D"_blan=
+k"><img alt=3D"Facebook" border=3D"0" height=3D"26" src=3D"http://www.simyo=
+.es/templates/img/facebook-mail.jpg" style=3D"display:block;" width=3D"26" =
+/></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- TWITTER -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td width=3D"26"><a href=3D"ht=
+tps://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae0=
+0012c70ba&amp;zippingCareRedirect=3Dhttps://twitter.com/simyo_es&amp;banner=
+Id=3D6023a74c37093da23f5f7a0f" mappingid=3D"6023a74c37093da23f5f7a0f" origi=
+nalsrc=3D"https://twitter.com/simyo_es" redirected=3D"" target=3D"_blank"><=
+img alt=3D"Twitter" border=3D"0" height=3D"26" src=3D"http://www.simyo.es/t=
+emplates/img/twitter-mail.jpg" style=3D"display:block;" width=3D"26" /></a>=
+</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- BLOG -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td width=3D"26"><a href=3D"ht=
+tps://simyo.zippingcare.com/statistics/linkClicked?idSent=3D60256bfb3bf6ae0=
+0012c70ba&amp;zippingCareRedirect=3Dhttp://blog.simyo.es/&amp;bannerId=3D60=
+23a74c37093da23f5f7a10" mappingid=3D"6023a74c37093da23f5f7a10" originalsrc=
+=3D"http://blog.simyo.es/" redirected=3D"" target=3D"_blank"><img alt=3D"Bl=
+og simyo" border=3D"0" height=3D"26" src=3D"http://www.simyo.es/templates/i=
+mg/blog-mail.jpg" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]--></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<table align=3D"center" style=3D"font-size:10px; color:#999; max-width:650p=
+x; margin:0 auto; text-align:center">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td id=3D"unsusbscribeParagraph"><span style=3D"font-family: Arial=
+, Helvetica, sans-serif;">Si deseas dejar de recibir comunicaciones comerci=
+ales de simyo por email, pulsa&nbsp;<a href=3D"https://simyo.zippingcare.co=
+m/statistics/linkClicked?idSent=3D60256bfb3bf6ae00012c70ba&amp;zippingCareR=
+edirect=3D/marketing/unsubscribe?email=3Dalbert.nafria@gmail.com&amp;newsle=
+tterId=3D6023a74b37093da23f5f79fe&amp;bannerId=3D6023a74c37093da23f5f7a11" =
+mappingid=3D"6023a74c37093da23f5f7a11" originalsrc=3D"/marketing/unsubscrib=
+e?email=3Dalbert.nafria@gmail.com&amp;newsletterId=3D6023a74b37093da23f5f79=
+fe" redirected=3D"" target=3D"_blank">aqu&iacute;</a> Orange Espa&ntilde;a =
+Virtual, S.L.U. CIF: B-85057974. Paseo del Club Deportivo n&deg;1 Edif. 8, =
+Parque Empresarial &quot;LA FINCA&quot;, 28223 Pozuelo de Alarc&oacute;n, M=
+adrid. </span></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<div id=3D"webBeaconDiv" style=3D"display: none"><img src=3D"https://simyo.=
+zippingcare.com/beacon/60256bfb3bf6ae00012c70ba.gif" /></div>
+</body>
+</html>

@@ -1,0 +1,722 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:cb93:0:0:0:0 with SMTP id mf19csp1037222ejb;
+        Thu, 28 Jan 2021 12:01:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyjK7U7ezOMRzFMUgqIJTq9YGbKcCaafz6lEIL4Z5m5xzbORNxnjAd84ZM86tZ2gaPS4wEe
+X-Received: by 2002:a05:6402:2683:: with SMTP id w3mr1418528edd.378.1611864099107;
+        Thu, 28 Jan 2021 12:01:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611864099; cv=none;
+        d=google.com; s=arc-20160816;
+        b=VqJ2p0SJYl4zPomCVyEugaG4EecQUfcqgyRJ6SDhhgwDItXwSn1leMKjRiiuBR7ASc
+         EcmM1SQ/jJ3/kyiY+Gt69q1SpN4Rg3rsK42q1epaL65N+22IikZ2+yTebJ32PUvHO1id
+         4TeyADoEXs+FbfO+2OnStKJB6myWWypjSbrq6xfd2i/uAdpq4d4cTPa8Bpdu01HXv/uS
+         G8tTobNs/QWgN2yfJ89HZH8mhSTeGapXTv+37YUF2CCT77LUC5vPR+3bCY8zBiz2ts3r
+         mw88JybbHQGpyKgHKa2GaK8tdu5IZJ8E5Pl0n/RfexMYV5yeKWMb6g0jWRItfMvP1dnV
+         yk/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:to:subject:reply-to:mime-version:list-unsubscribe:from
+         :feedback-id:date:dkim-signature:dkim-signature;
+        bh=eFuof/QRnhW+IB8PC5FhFiUME0ZZlMR+TA2UJhLQBVc=;
+        b=bDjhvCR2l5uG/c1OSEVi66TmPZte8tKiLkr3u7/bTnUKboVG1GbUpX0oMOaJFUE2m2
+         M7EYteemeLGdLrZGX5vtaKYfIoC0awYAUb2ycraCxgE9LKkEiIu9y7IsocO9BIj9KoBt
+         7+PNBdtC1+OkzEXnr6c7jvj9rMmEy1oH5ScFCge7HwEm2PfRaQWFpXCPlS/eJwpJ0ByQ
+         lopyvt2Lw3ZsaNYlL/tbIWh4tiryv8eHPYKcmNklD6PG+4EbSsVryX9Xlv5gdaNVUXTk
+         Em2qpwKKKOs4rHvw6Iu7aQj4J/BGli7abWVwdOeALlwn4cKwK/WdR8HealMH7vxdhoqg
+         tj6g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@stackoverflow.email header.s=s1 header.b=p2rAzKNg;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rEOz8xwv;
+       spf=pass (google.com: domain of bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email designates 168.245.32.199 as permitted sender) smtp.mailfrom="bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stackoverflow.email
+Return-Path: <bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email>
+Received: from o16824532x199.outbound-mail.sendgrid.net (o16824532x199.outbound-mail.sendgrid.net. [168.245.32.199])
+        by mx.google.com with ESMTPS id y5si3864401eds.374.2021.01.28.12.01.37
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 Jan 2021 12:01:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email designates 168.245.32.199 as permitted sender) client-ip=168.245.32.199;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@stackoverflow.email header.s=s1 header.b=p2rAzKNg;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rEOz8xwv;
+       spf=pass (google.com: domain of bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email designates 168.245.32.199 as permitted sender) smtp.mailfrom="bounces+5841141-7ce0-albert.nafria=gmail.com@em.stackoverflow.email";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stackoverflow.email
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=stackoverflow.email; 
+	h=content-type:from:list-unsubscribe:mime-version:reply-to:subject:to; 
+	s=s1; bh=eFuof/QRnhW+IB8PC5FhFiUME0ZZlMR+TA2UJhLQBVc=; b=p2rAzKN
+	g1+gBgVKgFZ9ZbXDucd9R4WgqAJxelVkCVwbvx0487xCHuYI3M56Wiulvk0rClFx
+	B/w5m0xUhVXjpTlX0c4cfOSKTQ1xd7yAPR4ApZVqhZncEKfKba9nImdA+e6efHCK
+	+X3sLeZaNvFo2w1APw7TV64aW+hSNZ2tEl98=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:from:list-unsubscribe:mime-version:reply-to:subject:to:x-feedback-id; 
+	s=smtpapi; bh=eFuof/QRnhW+IB8PC5FhFiUME0ZZlMR+TA2UJhLQBVc=; b=rE
+	Oz8xwvFxblaTN7CYClJR4edNKl/RDg/DDNyzwBy+VPVwsEBGqC9NSaBNBgyASyEo
+	am6KaHJFUV8nHZJav1k/0Il/KNeOAQZmQ2UY+LgsT8YLrbbyc5g7QJfSBl72BCy3
+	SYVtQPdvj+z/MKT1JWiJeIwHQr3idpVL10q+iHgMk=
+Received: by filter1676p1iad2.sendgrid.net with SMTP id filter1676p1iad2-9085-6013181F-6
+        2021-01-28 20:01:35.03812193 +0000 UTC m=+68065.033512924
+Received: from NTg0MTE0MQ (unknown)
+	by ismtpd0027p1iad2.sendgrid.net (SG) with HTTP id DlEvGmkdSl-jTS8E38ko_A
+	for <albert.nafria@gmail.com>; Thu, 28 Jan 2021 20:01:34.985 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f4b32f1894fba7ec1998ce151a63d0a411ef1a9c2c5078c27ee74c06be09
+Date: Thu, 28 Jan 2021 20:01:35 +0000 (UTC)
+Feedback-ID: 2646882:1927697:7013:iterable
+From: "Stack Overflow" <do-not-reply@stackoverflow.email>
+List-Unsubscribe: <https://itr-links.stackoverflow.email/e/encryptedUnsubscribe?_r=3603a3d8f3104ca5bd7015a5845f7fb7&_s=e6fdedb0579b4c32b72fdd2893b86b06&_t=BzdwlGpd_kW1QBgG_BTRWbQXF4RFK-HYp6rv8UEYdQvuB1vUiNUt3cYIaj-yXNAdtLo7H2Qf_r138yoRDC9LxaljYO8RTIuVdyrsUNo2h3H_zdm_PKt2UEXDB8fW00oFan7wZdQ5u4c7cJMyETmUWahjOx8wGxLgS_vSTOJcwhiryYQp5nYWwsPkO3EeBMku>,<mailto:unsubscribe+1927697+2646882@unsubscribe.iterable.com>
+Mime-Version: 1.0
+Reply-To: do-not-reply@stackoverflow.email
+Subject: The Overflow #58: The ecological cost of #cryptoart
+To: albert.nafria@gmail.com
+X-Campaign-ID: 1927697
+X-Message-ID: e6fdedb0579b4c32b72fdd2893b86b06
+Message-ID: <DlEvGmkdSl-jTS8E38ko_A@ismtpd0027p1iad2.sendgrid.net>
+X-SG-EID: 3+/B6g1AUGNvFLKbKm2GGSYIVXbRpcw5+734I5PBeeyekqWiuXVKnNrHg5AJ4KQI+4Wqn9sWsHJn0+
+ sFqswZh0/CzxyLHsjgp7/XVs/kqERB5qH67CUZ1TAb7zsu+P7QRdA0uGkJ3DGivS+qxmSjeTIJ0yry
+ 3rfwojxI7WmOrbRawv+T8cMrpur8liFXpqsi682F0c3gg+uAdU/xVKsk4ftWxzdOltE3ZVWLHVSNcc
+ MbxlB7MihrhXBr+ioVVM/1
+X-SG-ID: SmDFk6fVVFXrSNgMN4Q94fomGRv/orfIYz9lCECFTmQxk3WLYFnusMAn4GX+NJdrARplyHmrZdyyhh
+ ZNB3MVWmUbGM/S7tNbkdIlvMjQZc2U2RZNYB85WMhR2TT1N3T0zrlZWQp63QbTompvOQiDeugJLJGm
+ KjMazFF1sE+Q5r0=
+X-Entity-ID: PNJDrTxzvfKKRANhDkbhyw==
+X-Feedback-ID: 5841141:Cam037aKOWMAbKDhFi8w9ovNChQcWTWVFlPwYkN6sc0=:Cam037aKOWMAbKDhFi8w9ovNChQcWTWVFlPwYkN6sc0=:SG
+
+--f4b32f1894fba7ec1998ce151a63d0a411ef1a9c2c5078c27ee74c06be09
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+This week, the return of spacer GIFs, continuous deployment, and personaliz=
+ed=20
+feeds =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=20
+ <https://stackoverflow.com/>=20
+
+
+
+
+ January 2021=20
+
+ Welcome to ISSUE #58 of the Overflow! This newsletter is by developers, fo=
+r=20
+developers, written and curated by the Stack Overflow team andCassidy Willi=
+ams=20
+<https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a=
+5845f7fb7&_m=3DEoL62DB0PIGuXz8jH5uBuQ84lXlHlps2&_e=3D_QiVw4xkxL6Kq_I-OU4afB=
+nKfI77FjoIfX88HTVRZxPuTd2bnAMrrH9rcbsb0dWeVEF1qnpHf4xYVNc9DjG8B3SxoCwGD7YNw=
+E1j5XUlAoVN5IWubZGRkJQZDmmaOZBv48jI4i91xWdFCil-LQ1NSRFjmqF5DoNWqj0-C-Jd-e6B=
+G04-YOMtUtGjjvW4FlO4SiDdPs_9w2phRLlieyDSowbBJXd8neaip9JCBAeEhORiLVYGsioAE1W=
+0vQlkjGKF>
+ atNetlify=20
+<https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a=
+5845f7fb7&_m=3DEoL62DB0PIGuXz8jH5uBuQ84lXlHlps2&_e=3D_QiVw4xkxL6Kq_I-OU4afO=
+ZOM0oCqsuuy0jKIrvb1QwkHWIZOMWNPCK6iuSTMOLeVDuTWeKOcbbyBczybLGtoNQkE84uGWTIE=
+gGhFcxEULL45YJLR4857Ii-0ehWwRpRtjVPtwUxxOtY9-B2oCRv3dmx-KEES0t57P4_TNE4xFT-=
+W5TGiXBreKWRyHfSL-Ozr796X8rmwbKE4P01pm8iSRIwfptm3apXxzvS_usQlDNLQGeGDgkjk55=
+n1OBtvYt6oHij-wFSi5PdDR16hvrYr7E3MKhupgD-zGOVEWxRdxJ-RcBKrj9bAExDUmk948bZeT=
+hbs8xuJpwrwNDQkq5QPw%3D%3D>
+. This week, the unreasonable ecological cost of #cryptoart, why nobody is=
+=20
+practicing continuous deployment, and our new feature: personalized feeds o=
+n=20
+Stack Overflow for Teams.
+
+
+
+ From the blog=20
+
+Personalized feeds now available on Teams=20
+<https://stackoverflow.blog/2021/01/12/want-to-teach-your-kids-to-code-here=
+-are-three-apps-that-can-help/?utm_source=3DIterable&utm_medium=3Demail&utm=
+_campaign=3Dthe_overflow_newsletter>
+stackoverflow.blog=20
+ For You is a personalized feed that displays in every Team user=E2=80=99s =
+instance.=20
+It offers actions and alerts to keep your knowledge base up-to-date. This n=
+ew=20
+feed replaces the current inbox with the goal of enabling users to get task=
+s=20
+done more efficiently.=C2=A0
+
+Fulfilling the promise of CI/CD=20
+<https://stackoverflow.blog/2021/01/19/fulfilling-the-promise-of-ci-cd/?utm=
+_source=3DIterable&utm_medium=3Demail&utm_campaign=3Dthe_overflow_newslette=
+r>
+stackoverflow.blog=20
+ Often, when people say =E2=80=9CCI/CD,=E2=80=9D they are only talking abou=
+t continuous=20
+integration. Nobody is talking about (or practicing) continuous deployment.=
+ AT=20
+ALL. It=E2=80=99s like we have all forgotten it exists. It=E2=80=99s time t=
+o change that.
+
+Podcast 305: What does it mean to be a =E2=80=9Csenior=E2=80=9D software en=
+gineer=20
+<https://stackoverflow.blog/2021/01/19/podcast-305-what-does-it-mean-to-be-=
+a-senior-software-engineer/?utm_source=3DIterable&utm_medium=3Demail&utm_ca=
+mpaign=3Dthe_overflow_newsletter>
+stackoverflow.blog=20
+ A chat with Jocelyn Harper about the journey from office manager at a=20
+construction company to Java programmer at a major tech firm. Plus, the hid=
+den=20
+roles and responsibilities of =E2=80=9Csenior=E2=80=9D engineers.
+
+Lost control of your cloud costs?=20
+<https://www.netapp.com/cloud-storage-solutions/public-cloud-spending-ebook=
+/?utm_source=3Dstackoverflow&utm_medium=3Dnewsletter&utm_campaign=3Dbrand-r=
+evenue_rep_ww_optimize_ebook&utm_content=3D01272021-newsletter>
+promotion=20
+ Whether you=E2=80=99re seeking to optimize cloud storage or searching for =
+better ways=20
+to expand cloud use, you=E2=80=99ll be constrained by your company=E2=80=99=
+s mandate to lower=20
+costs. In this e-book, we show you 10 ways to optimize cloud storage costs =
+and=20
+efficiency.
+
+
+
+ Interesting questions=20
+
+ Found a good question or answer? Tweet us with the hashtag=20
+#StackOverflowKnows or email us at stackoverflowknows@stackoverflow.com. We=
+=E2=80=99ll=20
+include our favorites in the future.
+
+Fixing blurry text in a PDF=20
+<https://superuser.com/questions/1613121/blurry-text-in-pdf?utm_source=3DIt=
+erable&utm_medium=3Demail&utm_campaign=3Dthe_overflow_newsletter>
+superuser.com=20
+ Optical Character Recognition to the rescue!=C2=A0=C2=A0=20
+
+When benchmarking, why discard the lowest time?=20
+<https://softwareengineering.stackexchange.com/questions/420520/benchmarkin=
+g-why-discard-lowest-time?utm_source=3DIterable&utm_medium=3Demail&utm_camp=
+aign=3Dthe_overflow_newsletter>
+softwareengineering.stackexchange.com=20
+ Outliers are interesting to investigate, but bad for benchmarking.=C2=A0=
+=20
+
+Should the helicopter be washed after any sea mission?=20
+<https://aviation.stackexchange.com/questions/83258/should-the-helicopter-b=
+e-washed-after-any-sea-mission?utm_source=3DIterable&utm_medium=3Demail&utm=
+_campaign=3Dthe_overflow_newsletter>
+aviation.stackexchange.com=20
+ Working at the heli-wash =F0=9F=8E=B5=20
+
+What=E2=80=99s a way to safely test run untrusted JavaScript code?=20
+<https://security.stackexchange.com/questions/242617/whats-a-way-to-safely-=
+test-run-untrusted-javascript-code?utm_source=3DIterable&utm_medium=3Demail=
+&utm_campaign=3Dthe_overflow_newsletter>
+security.stackexchange.com=20
+ It depends on how safe you want to get.=20
+
+
+
+ Links from around the web=20
+
+Bringing spacer GIFs back to handle spacing elements in React and CSS=20
+<https://www.joshwcomeau.com/react/modern-spacer-gif/> www.joshwcomeau.com=
+=20
+ Blast from the past: =E2=80=9Cspacer=E2=80=9D GIF images were used to get =
+page layouts to be=20
+pixel perfect. Here=E2=80=99s an interesting idea around bringing those bac=
+k.
+
+Why the iPhone Timer app displays a fake time=20
+<https://lukashermann.dev/writing/why-the-iphone-timer-displays-fake-time/>=
+=20
+lukashermann.dev=20
+ While building a timer app, this developer came across a peculiarity with=
+=20
+displaying time. He found out that the iPhone timer addresses that peculiar=
+ity=20
+by showing you a fake time!
+
+The unreasonable ecological cost of #cryptoArt. Part 1=20
+<https://memoakten.medium.com/the-unreasonable-ecological-cost-of-cryptoart=
+-2221d3eb2053>
+memoakten.medium.com=20
+ The world of #CryptoArt is fascinating in how it redefines digital art=20
+ownership. But what is the cost of its growing popularity?
+
+A centralized system for displaying and stylizing focus indicators anywhere=
+ on=20
+a webpage <https://github.com/discord/focus-rings> github.com=20
+ The team behind Discord built a clean, accessibility-focused system for fo=
+cus=20
+indicators when implementing keyboard navigation for your projects.=C2=A0
+
+ Spend less time in Slack. Try Stack Overflow for Teams=20
+<https://stackoverflow.com/teams/tour?utm_source=3Dso-owned&utm_medium=3Dth=
+eoverflow&utm_campaign=3Dbiz-self-serve&utm_content=3Dsts>
+.
+
+
+
+ You=E2=80=99re receiving this email because you are subscribed to The Over=
+flow=20
+Newsletter from Stack Overflow.=20
+Unsubscribe from emails like this=20
+<https://itr-links.stackoverflow.email/e/eh?_t=3D3603a3d8f3104ca5bd7015a584=
+5f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB0SXV=
+Hw2r1w_TXnhd_FHvMoW6vH9w-PnTe2t2BKFf0MsWg8ZZ-dxPN5rfsNDPUB4Q0iqLAnOEY_IS-bQ=
+1n-6Ke9BuX3QTDa3pvl3T0KSSne_VH8tq9rGgbw5IA2OP4_9wt4x9mD4MkdG8F3MlmY9yaedCqp=
+-Yq3-rBY4643jQhgo22osLFP5d0UPC59zcIK6KKNF3iGUFZakzJ5fHx7lpZJ3RyzqrXwLo7R4Gr=
+ucM5xampxHEGSTP2-m-orsTmpt4z_bpXO7bZo2GjkrnMcfhwEDCPgCtrX0OzHeIGP1VyeGifhG9=
+GgqleV98YsxlFPFgeMq36581jkmmuHSEeTznqwKBOHOxyepL41KVUU_LoZwS7v_4VEvv2nabGsK=
+rsvEGA%3D%3D>
+=C2=A0=C2=A0=C2=A0=C2=A0Edit email settings=20
+<https://stackoverflow.email/subscriptions/manage?iterable=3D1&id=3D1768934=
+7&auth=3D3b09510acffd8cdbb8ffe1fd8890128170a2ebdb25bf779d49c299f4ed5de81f&b=
+ucketId=3D1024&campaignId=3D1927697&templateId=3D2646882&messageId=3De6fded=
+b0579b4c32b72fdd2893b86b06&email=3Dalbert.nafria%40gmail.com>
+=C2=A0=C2=A0=C2=A0=C2=A0Contact us <https://stackoverflow.com/company/conta=
+ct>=C2=A0=C2=A0=C2=A0=C2=A0 Privacy=20
+<https://stackoverflow.com/legal/privacy-policy>=20
+
+=C2=A0=20
+
+Stack=C2=A0Overflow, 110 William Street, 28th Floor, New York, NY 10038=20
+
+<3=20=
+
+--f4b32f1894fba7ec1998ce151a63d0a411ef1a9c2c5078c27ee74c06be09
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:v=3D"urn:schemas-mic=
+rosoft-com:vml"><head> <title></title> <!-- The title tag shows in email no=
+tifications, like Android 4.4. --> <meta charset=3D"utf-8"/> <!-- utf-8 wor=
+ks for most cases --> <meta name=3D"viewport" content=3D"width=3Ddevice-wid=
+th"/> <!-- Forcing initial-scale shouldn't be necessary --> <meta http-equi=
+v=3D"X-UA-Compatible" content=3D"IE=3Dedge"/> <!-- Use the latest (edge) ve=
+rsion of IE rendering engine --> <meta name=3D"x-apple-disable-message-refo=
+rmatting"/> <!-- Disable auto-scale in iOS 10 Mail entirely --> <meta name=
+=3D"format-detection" content=3D"telephone=3Dno,address=3Dno,email=3Dno,dat=
+e=3Dno,url=3Dno"/> <!-- Tell iOS not to automatically link certain text str=
+ings. --> <!-- Desktop Outlook on Windows sometimes chokes on web font refe=
+rences and defaults to Times New Roman, so we force a safe system font fall=
+back. --> <!--[if mso]><style>*{font-family:arial,sans-serif!important}</st=
+yle><![endif]--> <!-- All other clients get the webfont reference; some wil=
+l render the font and others will silently fail to the fallbacks. More on t=
+hat here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -=
+-> <!--[if !mso]><!--> <link href=3D"https://fonts.googleapis.com/css?famil=
+y=3DRoboto+Slab:700" rel=3D"stylesheet"/> <!--<![endif]--> <!-- CSS Reset :=
+ BEGIN --> <style>html,body{margin:0!important;padding:0!important;height:1=
+00%!important;width:100%!important}*{-ms-text-size-adjust:100%;-webkit-text=
+-size-adjust:100%}div[style*=3D"margin: 16px 0"]{margin:0!important}table,t=
+d{mso-table-lspace:0!important;mso-table-rspace:0!important}table{border:0;=
+border-spacing:0;border-collapse:collapse}img{-ms-interpolation-mode:bicubi=
+c}a{text-decoration:none}a[x-apple-data-detectors],.unstyle-auto-detected-l=
+inks a,.aBn{border-bottom:0!important;cursor:default!important;color:inheri=
+t!important;text-decoration:none!important;font-size:inherit!important;font=
+-family:inherit!important;font-weight:inherit!important;line-height:inherit=
+!important}u+#body a,#MessageViewBody a{color:inherit;text-decoration:none;=
+font-size:inherit;font-family:inherit;font-weight:inherit;line-height:inher=
+it}.im{color:inherit!important}.a6S{display:none!important;opacity:.01!impo=
+rtant}img.g-img+div{display:none!important}@media only screen and (min-devi=
+ce-width:320px) and (max-device-width:374px){u ~ div .email-container{min-w=
+idth:320px!important}}@media only screen and (min-device-width:375px) and (=
+max-device-width:413px){u ~ div .email-container{min-width:375px!important}=
+}@media only screen and (min-device-width:414px){u ~ div .email-container{m=
+in-width:414px!important}}</style> <!-- What it does: Helps DPI scaling in =
+Outlook 2007-2013 --> <!--[if gte mso 9]><xml> <o:OfficeDocumentSettings> <=
+o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettin=
+gs> </xml><![endif]--> <!-- CSS Reset : END --> <!-- Progressive Enhancemen=
+ts : BEGIN --> <style>.s-btn__primary:hover{background:#07c!important;borde=
+r-color:#07c!important}.s-btn__white:hover{background:#eff0f1!important;bor=
+der-color:#eff0f1!important}.s-btn__outlined:hover{background:rgba(0,119,20=
+4,.05)!important;color:#005999!important}.s-tag:hover,.post-tag:hover{borde=
+r-color:#cee0ed!important;background:#cee0ed!important}.has-markdown a,.has=
+-markdown a:visited{color:#07c!important;text-decoration:none!important}cod=
+e{padding:1px 5px;background-color:#eff0f1;color:#242729;font-size:13px;lin=
+e-height:inherit;font-family:'Roboto Slab',arial,sans}pre{margin:0 0 15px;l=
+ine-height:17px;background-color:#eff0f1;padding:4px 8px;border-radius:3px;=
+overflow-x:auto}pre code{margin:0 0 15px;padding:0;line-height:17px;backgro=
+und-color:none}blockquote{margin:0 0 15px;padding:4px 10px;background-color=
+:#fff8dc;border-left:2px solid #ffeb8e}blockquote p{padding:4px 0;margin:0;=
+overflow-wrap:break-word}.bar{border-radius:5px}.btr{border-top-left-radius=
+:5px;border-top-right-radius:5px}.bbr{border-bottom-left-radius:5px;border-=
+bottom-right-radius:5px}.adjust-logo{padding-left:15px}@media screen and (m=
+ax-width:680px){.stack-column,.stack-column-center{display:block!important;=
+width:100%!important;max-width:100%!important;direction:ltr!important}.stac=
+k-column-center{text-align:center!important}.hide-on-mobile{display:none!im=
+portant;max-height:0!important;overflow:hidden!important;visibility:hidden!=
+important}.sm-p-none{padding:0!important}.sm-pt-none{padding-top:0!importan=
+t}.sm-pb-none{padding-bottom:0!important}.sm-pr-none{padding-right:0!import=
+ant}.sm-pl-none{padding-left:0!important}.sm-px-none{padding-left:0!importa=
+nt;padding-right:0!important}.sm-py-none{padding-top:0!important;padding-bo=
+ttom:0!important}.sm-p{padding:20px!important}.sm-pt{padding-top:20px!impor=
+tant}.sm-pb{padding-bottom:20px!important}.sm-pr{padding-right:20px!importa=
+nt}.sm-pl{padding-left:20px!important}.sm-px{padding-left:20px!important;pa=
+dding-right:20px!important}.sm-py{padding-top:20px!important;padding-bottom=
+:20px!important}.sm-mb{margin-bottom:20px!important}.bar,.btr,.bbr{border-t=
+op-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;bord=
+er-bottom-right-radius:0}.adjust-logo{padding-left:0}}</style> <!-- Progres=
+sive Enhancements : END --> <!-- Hubspot data-hse-inline-css --> <style typ=
+e=3D"text/css" data-hse-inline-css=3D"true">.has-markdown a,.has-markdown a=
+:visited{color:#07c!important;text-decoration:none!important}</style> </hea=
+d> <body width=3D"100%" style=3D"margin: 0; padding: 0 !important; backgrou=
+nd: #f3f3f5; mso-line-height-rule: exactly;"><span style=3D"color:transpare=
+nt;visibility:hidden;display:none;opacity:0;height:0;width:0;font-size:0;">=
+This week, the return of spacer GIFs, continuous deployment, and personaliz=
+ed feeds &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+</span><img src=3D"https://itr-links.stackoverflow.email/e/eo?_t=3D3603a3d8=
+f3104ca5bd7015a5845f7fb7&amp;_m=3De6fdedb0579b4c32b72fdd2893b86b06&amp;_e=
+=3DBzdwlGpd_kW1QBgG_BTRWbQXF4RFK-HYp6rv8UEYdQvuB1vUiNUt3cYIaj-yXNAdtLo7H2Qf=
+_r138yoRDC9LxaljYO8RTIuVdyrsUNo2h3H_zdm_PKt2UEXDB8fW00oFan7wZdQ5u4c7cJMyETm=
+UWahjOx8wGxLgS_vSTOJcwhiryYQp5nYWwsPkO3EeBMku" style=3D"border:0;width:1px;=
+height:1px;border-width:0px!important;display:none!important;line-height:0!=
+important;" width=3D"1" height=3D"1"/> <center style=3D"width: 100%; backgr=
+ound: #f3f3f5;"> <!--[if mso | IE]><table role=3D"presentation" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-co=
+lor: #f3f3f5;"> <tr> <td><![endif]--> <div class=3D"email-container" style=
+=3D"max-width: 680px; margin: 0 auto;"> <!--[if mso]><table role=3D"present=
+ation" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"680" align=
+=3D"center"> <tr> <td><![endif]--> <table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"max-width: 680px; width:100%=
+"> <!-- Logo : BEGIN --> <tbody><tr> <td style=3D"padding: 20px 30px; text-=
+align: left;" class=3D"sm-px"> <a href=3D"https://itr-links.stackoverflow.e=
+mail/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72=
+fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcBzvZjwFgTbQMkfnL-ICM4hTsisAEsVNTEa1-=
+mLSGDX7ILwkpPyf-0TIN1y0quikHMKJekkosb6uPMPbupy0Q9JiTl4VvmHv2jxoYkZXl9iIJZpa=
+Rqdy4R7vIJmfupRUYPXuWl9lIWi8HC3OPG4_8H6bPFGQZ2UWrLYjj7uyeeoMMMfuB3uhz73pMze=
+S_pFB9OKhYEje0nkva0gHwsCElHT-N5vJSVHd6op3IjPA51SeFVXd9US61gGiBpQNVEc8XDA%3D=
+%3D"> <img src=3D"https://itr-images.stackoverflow.email/d384f0e6-eceb-4813=
+-8d1f-44971ffe1c6a/logostackoverflow.png" alt=3D"" border=3D"0" height=3D"3=
+6" width=3D"146" style=3D"display: block; font-family: arial, sans-serif; f=
+ont-size: 15px; line-height: 15px; color: #3C3F44; margin: 0;"/> </a> </td>=
+ </tr> <!-- Logo : END --> <!----------------------------- EMAIL BODY : BEG=
+IN ------------------------------> <tr> <td style=3D"padding: 0 30px; backg=
+round-color: #ffffff;" class=3D"sm-px bar"> <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%; font-fa=
+mily: arial, sans-serif; font-size: 15px; line-height: 21px; color: #3C3F44=
+; text-align: left;"> <!-- Header : BEGIN --> <tbody><tr> <td style=3D"padd=
+ing-top: 20px; text-align: center;" class=3D"adjust-logo"> <h1 style=3D"tex=
+t-align: center; margin: 0; line-height: 1;"> <img src=3D"https://itr-image=
+s.stackoverflow.email/5a861290-bdcc-4f59-af25-6c5bc0b9eb29/logotheoverflow.=
+png" alt=3D"The Overflow." height=3D"" width=3D"354" border=3D"0" style=3D"=
+width: 100%; max-width: 354px; height: auto; display: block; margin: 0 auto=
+; font-weight: normal; font-family: arial, sans-serif; font-size: 15px; col=
+or: #3C3F44;"/> </h1> </td> </tr> <tr> <td style=3D"padding-bottom: 10px; f=
+ont-family: 'Roboto Slab', arial, sans; font-size: 12px; line-height: 15px;=
+ color: #848D95; text-align: center; text-transform: uppercase; letter-spac=
+ing: .1em;" class=3D"unstyle-auto-detected-links"> January 2021 </td> </tr>=
+ <!-- Header : END --> <!-- Intro : BEGIN --> <tr> <td style=3D"padding-top=
+: 20px;"> <p style=3D"margin: 0 0 30px;"> Welcome to ISSUE #58 of the Overf=
+low! This newsletter is by developers, for developers, written and curated =
+by the Stack Overflow team and <a style=3D"color: #0077cc; text-decoration:=
+ none;" href=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8=
+f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzz=
+yVAoZ0KWoWvZcB62HJnC0YN669l9KJIPpUWpfV9Ugz_7FOEAVjS4WLQEmzvh2CrlHjKupmHNrBx=
+5I26PgyF3bqfHgTuKtvFxfaVFzWxO-GaEy2Ema6F5In7YtfiKZClXuurXNMJhl7xak7aoe0KZN5=
+clo3tNFInPT1FCepmENAbiKhuMfutTer25lmFyLLd85lVOGeAGOfN6Cj6wrNPJRL-0Lhzel9rLN=
+xKvX-ON7ZKwb4wQ4eZR7dioEkjXOBhjFz3V25Ywt_mzA11eiunjGqr_eV7lYR93rG8zYrV6tfGR=
+ZWwvR_5i6w0wtj5FIud5kXTXn_Z429iMqwYLOQ_-GkJwmO639tx2JFcCELdErSQDUySOirQvsl1=
+NEdK4UKhlMQqXfqfGngxZ3RZ361TrZXriuUHVT5p1aOL-aXQiqJYNDoR-pezYKhSXlKOuOS0NYO=
+vIKSA_xozESDLuSS9hE305d4HIfrGAS71j1iFW4qVgeaBmtuKt33sE3eq-n3g52jp_hdLKDp6RQ=
+VFxnwHc2fPDOr6iIm7U_dLRdZ-lIalQSH3QeQvvWkbN_aYd8B9oucWzoBEx9KjUONArzPfny-i6=
+Thl69XoM0v3K9Xh7t_Jns32cHatYqr9cvrhhP6xCQIOrGda-NY1AX1kDutYXrGBu3CmoWdSlSHi=
+xeLSa3gXVocvLJ9cr5n0yzZED7WoUuyMzFUO6kP6etqHB9Yks42nl1qU_0uLzfqj0%3D">Cassi=
+dy Williams</a> at <a style=3D"color: #0077cc; text-decoration: none;" href=
+=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd70=
+15a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZ=
+cB62HJnC0YN669l9KJIPpUWpfV9Ugz_7FOEAVjS4WLQEmzvh2CrlHjKupmHNrBx5I26PgyF3bqf=
+HgTuKtvFxfaVFzWxO-GaEy2Ema6F5In7YtfiKZClXuurXNMJhl7xak7aoe0KZN5clo3tNFInPT1=
+FCepmENAbiKhuMfutTer25lYhCr2Vscaz3HcGvJTOh0EanspOdjinzcHtRH_vmy4nLjvRyQ-OQD=
+i-3zzL15jTNSrNaOn6FR0CkHyES-ieSmnpUJKBylbe26Lx3pAXd-mA9C8hG42oVHFoylBYbm03y=
+IfX8K6rjkSP8UWvXLoSgTd22TInxqU_Bn7ei-Gi5BVcXqjvfVu387xqkYSdQipcPQQElC87in_9=
+peZwJ8L0HIjp6VDhJiMdTLHUS1gyhKV8JNp6pn2LrwPOF3ETwLl_QjDhSoXtNRseHQpUsBeCdwY=
+5wcfAnyPvPy71JP4Cdv_T9_RlVBEhu-O4JPnDIDj12-tCfyp6WxqyI9uoi-B8lRZb08c0Ei70c_=
+2J4cXqEPoHMlRg3Fx67ij3rsps-vTjuzQVv29NCw2eotaW_sH8Gza8MvqhsBuz3dM6lxN8LvKZP=
+mVagdiaiXlEmSnRO_T3x7fNRxLhFks1a40IQy-H74t8GUuaaV1B5T-cC0uUZM9tixkSU8_IK4CD=
+yhIalu1gXOa-jD2N37iJuZD9v6iXaqqLb-v5gNrUvo6qDjuPHJVRek_9B1A8RP8GCoMW-zf2R1o=
+HNgOjm0Ag9aZXpb7mNQx-mwElP9zao03bnawjO3-SOInQ82uIUY0xsognSL6RzygNm-r4FuMqW8=
+iUAf5u_RrI07oaN6OFmAskijqtrKVNc%3D">Netlify</a>. This week, the unreasonabl=
+e ecological cost of #cryptoart, why nobody is practicing continuous deploy=
+ment, and our new feature: personalized feeds on Stack Overflow for Teams. =
+</p> </td> </tr> <!-- Intro : END --> <!-- Section : BEGIN --> <tr> <td sty=
+le=3D"padding: 30px 0 0; border-top: 1px solid #D6D8DB;" class=3D"sm-pt"> <=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+"> <tbody><tr> <td style=3D"vertical-align: middle; padding: 0 10px 20px 0;=
+"> <img src=3D"https://itr-images.stackoverflow.email/d7aaecb9-5ebc-493a-be=
+56-59637e03b531/iconblog2x.png" height=3D"26" width=3D"26" border=3D"0" alt=
+=3D"" style=3D"display: block; font-family: arial, sans-serif; font-size: 1=
+5px; line-height: 15px; color: #3C3F44;"/> </td> <td style=3D"vertical-alig=
+n: middle; padding-bottom: 20px;"> <h2 style=3D"margin: 0; font-family: 'Ro=
+boto Slab', arial, sans; font-size: 19px; line-height: 19px; font-weight: b=
+old; color: #3C3F44;"> From the blog </h2> </td> </tr> </tbody></table> <p =
+style=3D"margin: 0 0 30px;"> <a href=3D"https://itr-links.stackoverflow.ema=
+il/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fd=
+d2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB3hcp-KTGfWtnQxRyKoRGrtD2Y4ApZxxRXQ7Y_=
+f1KVvC3V5iFaZiPXMtvPe_vSgVFVSAeDwC7mgcJLbEecvv3w-LAfJqOZEGlYxLnZT7QlNzefm_w=
+RvznKBgFQf5T1UGKjlrWce8WSPMF4MdbovXAFugrm2XKIyyiauktR-WxoQUpa4SYSEFUfW4N1R-=
+1CalmoLROp4wfJZcTiJtmvKcV-KRwwNhEOAgmm_gnft7c09tg6LhSYwOrTao2Qusdp4wAtuBpGw=
+VhISmhrPSJaaEGQFrZPw_kY51ykH4XeU9cyhw686qPNFTVyzB8Qo6zUnfguB4ysaJGqeEIDNhvY=
+LGhbbeWrb7qgE19dk2ywlm5R8G3FF1gshorhDl8k4qusSmfb3N0jqMp3tH776xNLtlAUSi1ZEeF=
+FsoPaTjDrHxUJYpr5UEMkuMhJpK24pHRLm6mw%3D%3D" style=3D"font-weight: bold; co=
+lor: #0077cc; text-decoration: none;">Personalized feeds now available on T=
+eams</a> <span style=3D"color: #6A737C; font-size: 12px;" class=3D"unstyle-=
+auto-detected-links">stackoverflow.blog</span> <br/> For You is a personali=
+zed feed that displays in every Team user=E2=80=99s instance. It offers act=
+ions and alerts to keep your knowledge base up-to-date. This new feed repla=
+ces the current inbox with the goal of enabling users to get tasks done mor=
+e efficiently.=C2=A0 </p> <p style=3D"margin: 0 0 30px;"> <a href=3D"https:=
+//itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7f=
+b7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB3hcp-KTG=
+fWtnQxRyKoRGrsS9rfivMECisa4rQNBuDDY1AXyzecoCxpXMJbk8S8cCrdnJ1Ck1UBzZEbEzvt_=
+goQyKOZmMufqy4bzxJvGu2MaRNjXe54d8YN2Y_ujauHQYtQVy45HGvkepwncZfwyDkoT0LljarE=
+7C5iBLsHn6xI_aF5ml5qCtGXE8TNeO9ufvngGhloHhS5YHsiBZlR1tQVl4wdRt-f9rjw_-WVQD5=
+0onpSUNxH81A8pFEP7yB71QIQJua3JOkl90l4r7huqSxcnxdsitzKkWkWIe8z_6WGLYPZwB7vfm=
+ErvCzgTIhySLkcAb9p20YxLXSOzCuzmUH4Lel2w_1m2JcTw-POODdEueN__zlYb65iQsS_ItdwH=
+aTpkpx_2L-I2GlNA-MGuzJs%3D" style=3D"font-weight: bold; color: #0077cc; tex=
+t-decoration: none;">Fulfilling the promise of CI/CD</a> <span style=3D"col=
+or: #6A737C; font-size: 12px;" class=3D"unstyle-auto-detected-links">stacko=
+verflow.blog</span> <br/> Often, when people say =E2=80=9CCI/CD,=E2=80=9D t=
+hey are only talking about continuous integration. Nobody is talking about =
+(or practicing) continuous deployment. AT ALL. It=E2=80=99s like we have al=
+l forgotten it exists. It=E2=80=99s time to change that. </p> <p style=3D"m=
+argin: 0 0 30px;"> <a href=3D"https://itr-links.stackoverflow.email/u/click=
+?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b0=
+6&_e=3DoUkjRzzyVAoZ0KWoWvZcB3hcp-KTGfWtnQxRyKoRGrvi9Gj8JRci-tkBxO93RBzHz6ZQ=
+GD42tjzD6mx8HTglYOOE13Zjr88Uvs62kbnpMLT1Uio-DyaZdv6tB8-ueWPuthY9ux2a_bgNltG=
+95Ug3mOdfRq0Th9vAjWAd6tSDs7tYEFFtsL3w7x03YnO75PbZ6DxCyb3vtdoiCHWMTXxoXTkTL4=
+oM6OJDPYGsGqRQ2BWJldQMXLg46aBDQxuKK3YWX9mBa1NcF7wdB25fTpcwTAajwzomh4V3wP4ZB=
+sNCeJrQEsT1T9Z5CxDGTvo_6AO9T-e7-ukpJo3PPbQ6VlFz6h8QyPnZ4pgr_bgjclkR5tjNp4B4=
+pSz_SYtWVo-qSGbgSlgtz2-8gD5V7wQ19Dd0qEcpESf6ivfn2_2A47Aminv_bSH9U8u1Gq-8Z4I=
+HlEBnBAnzca11n8yd9vKeSLDDAQ%3D%3D" style=3D"font-weight: bold; color: #0077=
+cc; text-decoration: none;">Podcast 305: What does it mean to be a =E2=80=
+=9Csenior=E2=80=9D software engineer</a> <span style=3D"color: #6A737C; fon=
+t-size: 12px;" class=3D"unstyle-auto-detected-links">stackoverflow.blog</sp=
+an> <br/> A chat with Jocelyn Harper about the journey from office manager =
+at a construction company to Java programmer at a major tech firm. Plus, th=
+e hidden roles and responsibilities of =E2=80=9Csenior=E2=80=9D engineers. =
+</p> <p style=3D"margin: 0 0 30px;"> <a href=3D"https://itr-links.stackover=
+flow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4=
+c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB_lDPp1oO3sykT46xvuDftOrye_lEp=
+RzPtY5BH_0aslV1w-Ilwk3At8x6eiUZnnQVK1UMR4uNjPfMasi_EElM1YPkSV82Cdz-Ejzv2E1M=
+QUnlLSCuVKpeKLc6caJ6OiIhYQcjWIWB_Kgi22dB_MZj7he-VgHozXjrrEHQtnxvGctgibvphNF=
+7p2SGXnggkM3gefssuRa0LM62YYb_Fpf8xxvDIHPnUc31lj3VgxfGJhVEMhtFKBAZe9HDaDte8z=
+XI3KmGyCDTcBdA-4OGzn_Ia3Dig3lRUcC2X4wlZ7nIFjd_rY27ByqEWEJcPQIAABkElClBCLM4U=
+v7Qr0HMNaUoiIqeB9JVzSb1cOGmBubfGJ_wYnd9Yn7fJwZmeh1WAL47QsnsF4i3jf1pxF-Dq2Eo=
+1SpnDY29hv_610BQFr204beIK2Ar1wBSI57qPzvNtI4RuaasMV4na81MwZ4O2kftyhuATD0WA7_=
+VxuOVqMzECSW" style=3D"font-weight: bold; color: #0077cc; text-decoration: =
+none;">Lost control of your cloud costs?</a> <span style=3D"color: #6A737C;=
+ font-size: 12px; line-height: 12px; border: 3px solid #FFEEA9; background-=
+color: #FFEEA9; display: inline-block; border-radius: 3px;">promotion</span=
+> <br/> Whether you=E2=80=99re seeking to optimize cloud storage or searchi=
+ng for better ways to expand cloud use, you=E2=80=99ll be constrained by yo=
+ur company=E2=80=99s mandate to lower costs. In this e-book, we show you 10=
+ ways to optimize cloud storage costs and efficiency. </p> </td> </tr> <!--=
+ Section : END --> <!-- Section : BEGIN --> <tr> <td style=3D"padding: 30px=
+ 0 0; border-top: 1px solid #D6D8DB;" class=3D"sm-pt"> <table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"> <tbody><tr> <td =
+style=3D"vertical-align: middle; padding: 0 10px 20px 0;"> <img src=3D"http=
+s://itr-images.stackoverflow.email/8da5bcb5-7dbe-4415-88a5-476c819ff156/ico=
+nqa2x.png" height=3D"26" width=3D"26" border=3D"0" alt=3D"" style=3D"displa=
+y: block; font-family: arial, sans-serif; font-size: 15px; line-height: 15p=
+x; color: #3C3F44;"/> </td> <td style=3D"vertical-align: middle; padding-bo=
+ttom: 20px;"> <h2 style=3D"margin: 0; font-family: 'Roboto Slab', arial, sa=
+ns; font-size: 19px; line-height: 19px; font-weight: bold; color: #3C3F44;"=
+> Interesting questions </h2> </td> </tr> </tbody></table> <p style=3D"marg=
+in: 0 0 30px;"><i> Found a good question or answer? Tweet us with the hasht=
+ag #StackOverflowKnows or email us at stackoverflowknows@stackoverflow.com.=
+ We=E2=80=99ll include our favorites in the future. </i></p> <p style=3D"ma=
+rgin: 0 0 30px;"> <a href=3D"https://itr-links.stackoverflow.email/u/click?=
+_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06=
+&_e=3DoUkjRzzyVAoZ0KWoWvZcBxrqBnr6HL34CYWRIVEDo66aWYcmyDwyGpkIakhAlebDqxB57=
+ol0PspRO-FavKXAl8RWFDXarYtpyAIdXqmaecGt_4H715zGy43blkBXVMRxYw7FCuan9z5ZVBdi=
+IixDHzGRb7-vw_F8iEWjbCrGMmb4o3pi8N2pNiCDvrStbu7x6P7fh6JgBcRoWpzOvV_HxJixe-i=
+pAtLGHsKX5CrUFXYNMQ1v6rnZWjy4Yult_F35u3KLHhTOatcRCpui7VoNyCcH08jaFd5-AwiMDO=
+YCiXP8PxKjRWPyzxAW6jps9FV29TjMuF7tLdpZpncUqyhT-4lYDyHj4EXR-NGyi4YKRsP0O0RR5=
+UjY8C2Lo_NCr4LXqiiaeINHQvd5JxzUU1aEksM_HJd2sJbAPPT6q3K7IGM%3D" style=3D"fon=
+t-weight: bold; color: #0077cc; text-decoration: none;">Fixing blurry text =
+in a PDF</a> <span style=3D"color: #6A737C; font-size: 12px;" class=3D"unst=
+yle-auto-detected-links">superuser.com</span> <br/> Optical Character Recog=
+nition to the rescue!=C2=A0=C2=A0 </p> <p style=3D"margin: 0 0 30px;"> <a h=
+ref=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5b=
+d7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWo=
+WvZcB783eMRhcMtFEtJNNw_tlVZBTWZ16R07cUKQhODHIZBAm1tKpxM5vXeyRB1Z5thz5-ZgpHW=
+bDZiDMcuW01Zc25B4el2gWN6_HBO6llebRn6d3etZm4cH8lPAEL0EPmRst7yuzZaLelZofXBqGn=
+JWHFqL1Ev0k1GTKwZRxU2lzZE9W-qL3WjwBloqc7h6Vxsr5ldUkHvLx2JlxpAeYgGxWdYJhvyX3=
+yDTuk9sGHt4_pQjIURFfTjX9TzJTrdgLBhzT41q3Lzqyeq665DRBwFXCckXSVXeO1fDKzLwRuiq=
+PRS4FD-fNDvPv6wuf6EBnRCO1UbZ3BL9YJAaDV5BM4B44BsD-bHPQgj198hcjOyaDAjaxevPHJd=
+vyL__zYz9aEgJ5ExwuZzkLXPbbhiL6LpyRrNKQ8znw9l-hPY_rtf8auCE3R2VlGnn6Q43UGUH8L=
+Nvlw%3D%3D" style=3D"font-weight: bold; color: #0077cc; text-decoration: no=
+ne;">When benchmarking, why discard the lowest time?</a> <span style=3D"col=
+or: #6A737C; font-size: 12px;" class=3D"unstyle-auto-detected-links">softwa=
+reengineering.stackexchange.com</span> <br/> Outliers are interesting to in=
+vestigate, but bad for benchmarking.=C2=A0 </p> <p style=3D"margin: 0 0 30p=
+x;"> <a href=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8=
+f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzz=
+yVAoZ0KWoWvZcBxPb7h4MUhG-O5j4uaIcJaLymQ_mNBcl4jXKIXnnHaf3bsn7sg5BeRU4bm7Eer=
+gYUuq5POxoHbVLIE3GMO32idUU26-O5wrGPie-iZj_MdspBBSHQttk8Ur9CfvXjGSKAxa6uI9x8=
+f3qp8OxQc4WURtVKZJXvh7gZk3Hpxx7hg1Ms_eQ6Il_1EybfUGlnE20wZg2PMlj2rBoc4GVEU8w=
+NUA48wgpfnr6UpzKaCNSqTcASENHLM4WcQJfLN984_DRb63pbAJWBEetlfRn3VI6YJ13L86vO7X=
+nSzpc5JuWfkSMQzO5dj323Cldixw1qdTqTmka_AD1I7yeJQ8a3HzNHQk-zzi-ChhYs0fsNG_CZA=
+rOZCQOdD5T_CxbW6lvQiQLCJhn2QTO6XOBZcdxW9N243bHlfk93X5VDjOi25s4w6n02VkVwgYYB=
+lzN88h2-qOlGg%3D%3D" style=3D"font-weight: bold; color: #0077cc; text-decor=
+ation: none;">Should the helicopter be washed after any sea mission?</a> <s=
+pan style=3D"color: #6A737C; font-size: 12px;" class=3D"unstyle-auto-detect=
+ed-links">aviation.stackexchange.com</span> <br/> Working at the heli-wash =
+=F0=9F=8E=B5 </p> <p style=3D"margin: 0 0 30px;"> <a href=3D"https://itr-li=
+nks.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3D=
+e6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB3koxk9kMgAG3WIg-=
+qH9qVm1vkrPlxNaQ0clHPSGuql7SNNQFyq0uZnZyaCVjHVfSLXeduca0vy8-1PYtuCZ2LrJPLE_=
+u9WrWgv5IiBiZiacG65qM043eW75-KPg4tA_SIogNDs-0yh4zIKctSSwPJo5ECnfKQ7QmDtqL-N=
+uNRYb5FkT-x9jUy7HL684gISagqeV3nURJ62zw01PAx-jOJ2wEv7YBgvd3P465kD9IToXX5fsn8=
+JL0VtMrwAhj6CwkOjk7ob5z9kW7h21veYOj9L3b6Qj2Gqdr7pHLzZVhKQxDaOtgq003YQAsvnJJ=
+6Qx1e3LZ1VSZeNRAnSqRJ3LZCrp4G4fnAqY2AoHWLwB-wVP1CvGJdeTiXK71NkjJB3jZ0yvvBSk=
+wagRE5zDES9MZJ41TBEb2y_reD1uxxzEQJRCaFbHWx2KI0Al0e__y_AZ6YLm6SiX1DK-H77McdY=
+et5g%3D" style=3D"font-weight: bold; color: #0077cc; text-decoration: none;=
+">What=E2=80=99s a way to safely test run untrusted JavaScript code?</a> <s=
+pan style=3D"color: #6A737C; font-size: 12px;" class=3D"unstyle-auto-detect=
+ed-links">security.stackexchange.com</span> <br/> It depends on how safe yo=
+u want to get. </p> </td> </tr> <!-- Section : END --> <!-- Section : BEGIN=
+ --> <tr> <td style=3D"padding: 30px 0 0; border-top: 1px solid #D6D8DB;" c=
+lass=3D"sm-pt"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation"> <tbody><tr> <td style=3D"vertical-align: middle; paddin=
+g: 0 10px 20px 0;"> <img src=3D"https://itr-images.stackoverflow.email/fae1=
+8822-12a0-46de-bab8-ddb30242697d/iconlinks2x.png" height=3D"26" width=3D"26=
+" border=3D"0" alt=3D"" style=3D"display: block; font-family: arial, sans-s=
+erif; font-size: 15px; line-height: 15px; color: #3C3F44;"/> </td> <td styl=
+e=3D"vertical-align: middle; padding-bottom: 20px;"> <h2 style=3D"margin: 0=
+; font-family: 'Roboto Slab', arial, sans; font-size: 19px; line-height: 19=
+px; font-weight: bold; color: #3C3F44;"> Links from around the web </h2> </=
+td> </tr> </tbody></table> <p style=3D"margin: 0 0 30px;"> <a href=3D"https=
+://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7=
+fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB3pf6TeO=
+Beg9lczmpiz4XiQa2t6VepYLFNcZivpN4EfCXlfqLIfglMOfpcoSeFP4viVcCdeG4uf2WiX4xhM=
+pKv7N2DHBZdGarRtl9jJ21_e-5eAtpB7-jVnvAdRqNnMz14WRrwAIs00cSxEah2PpiZLZI1cnuv=
+vVSQDmhbMuwOUeySy2UHpyoRjd-3hJek12PloDwSILagdAnKmlv65tVtHDpkgRW6AjIJGTA5nxc=
+93I3egBPIudiSq1hBod19rfS7Z-ybzB7QsjVV-wigrwd6Bsqe6koRL2oqWPMqQJolm1" style=
+=3D"font-weight: bold; color: #0077cc; text-decoration: none;">Bringing spa=
+cer GIFs back to handle spacing elements in React and CSS</a> <span style=
+=3D"color: #6A737C; font-size: 12px;" class=3D"unstyle-auto-detected-links"=
+>www.joshwcomeau.com</span> <br/> Blast from the past: =E2=80=9Cspacer=E2=
+=80=9D GIF images were used to get page layouts to be pixel perfect. Here=
+=E2=80=99s an interesting idea around bringing those back. </p> <p style=3D=
+"margin: 0 0 30px;"> <a href=3D"https://itr-links.stackoverflow.email/u/cli=
+ck?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86=
+b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB3xHj9U5_tmmmcYwheyQfZt5tklQXCQOtCkAUJ3Q4tYcU4=
+ZjRjRvF9oDaqEidHVfoXUVwz936VcAYfXfGwzRgt6FZYd05WraHpNVz7JyuJj7cpmkxbRHOYbeP=
+SVgzFaxxv3A8wBGrp4nufnv17SUfa6ONo0KltTZ5YBGKY9d3P-ArwE2-fOCoocn6iXg3HYMwVD-=
+M4TPdKVbQBULXuAFW1IdaJBCj45KO-FpGAtkQxUlcz3CVgonHsssTNDG9zB0a5Ng-Z5jkTO6RNI=
+04Ut--3erOlwomyQ4ICxQk812kLmlgdLt5CGt827QKU_uDlnJcg%3D%3D" style=3D"font-we=
+ight: bold; color: #0077cc; text-decoration: none;">Why the iPhone Timer ap=
+p displays a fake time</a> <span style=3D"color: #6A737C; font-size: 12px;"=
+ class=3D"unstyle-auto-detected-links">lukashermann.dev</span> <br/> While =
+building a timer app, this developer came across a peculiarity with display=
+ing time. He found out that the iPhone timer addresses that peculiarity by =
+showing you a fake time! </p> <p style=3D"margin: 0 0 30px;"> <a href=3D"ht=
+tps://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd7015a584=
+5f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcB7xOd=
+O_db06duHpu9to-ftWqJVlaC_fOpaQzrIHUMJuJ7kb8y0b9EZadkF-sLJ6MjMEMlYyY4PlJ9BOi=
+MyKa32IwFwHB089pVxgHD3_dKnafXTiAY17iheLtVZY5U7w9Kk8DEx47-rT-38d0V1lUx9b_7OH=
+1AMZF1rU7BKJsYdFhBerzsz2FlIHZCQSax5c6VNlAltRDUNK6NIYYB8x21NRTDCXEqq8lbsrUw1=
+Vd6TJ_bUFgID9OsBScLgsO9FurCSLxWksa3IVLZ_9g8UE18XYE65pcq3c7lDcce6YQxGzCdb6Nf=
+9aY9icEA9NrKKZfw2cE7FgRQGqqyRUOismuY4w%3D" style=3D"font-weight: bold; colo=
+r: #0077cc; text-decoration: none;">The unreasonable ecological cost of #cr=
+yptoArt. Part 1</a> <span style=3D"color: #6A737C; font-size: 12px;" class=
+=3D"unstyle-auto-detected-links">memoakten.medium.com</span> <br/> The worl=
+d of #CryptoArt is fascinating in how it redefines digital art ownership. B=
+ut what is the cost of its growing popularity? </p> <p style=3D"margin: 0 0=
+ 30px;"> <a href=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603=
+a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUk=
+jRzzyVAoZ0KWoWvZcB27qr6_HmFetNvlDjCBk8wwFSshXexvNTnAp1dyTDWHXdnKq9ywn49erlB=
+jydJiDltjpQF4Jn42jaRFkNEVDtSSz6dXqUXUJhnnEOM9hlbpezQRU8ai1HnDOa0z5pxAZHFk7d=
+C_CqF3TTYvjM3wCwiJvV_715BxLarZalqnKlY8FZWQWTPDOpsoCpIFzQEoBMjq2l3X1nFLl3_Gr=
+8UcSh9jBXaBgjpBMostXY865QIEuL02qw4QWq3stfPwlBVfQf9WAddMy2PvGv4GGfnS0YSU%3D"=
+ style=3D"font-weight: bold; color: #0077cc; text-decoration: none;">A cent=
+ralized system for displaying and stylizing focus indicators anywhere on a =
+webpage</a> <span style=3D"color: #6A737C; font-size: 12px;" class=3D"unsty=
+le-auto-detected-links">github.com</span> <br/> The team behind Discord bui=
+lt a clean, accessibility-focused system for focus indicators when implemen=
+ting keyboard navigation for your projects.=C2=A0 </p> <p style=3D"margin: =
+0 0 30px;"> Spend less time in Slack. Try <a style=3D"color: #0077cc; text-=
+decoration: none;" href=3D"https://itr-links.stackoverflow.email/u/click?_t=
+=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_=
+e=3DoUkjRzzyVAoZ0KWoWvZcBzvZjwFgTbQMkfnL-ICM4hQhgCEplUi6J2lEMLPYqf8Wu1KGf7K=
+gxIJJUegve_Jym0MY8POqY2Kk1iL9VgzXm2YzTeUwAugfEAgMtVDz7R8eh-_hNLQsJHT_RK2SGy=
+R13nxZ6gng-7-4re5EMXjxlZ0PCgJwMV06ZUpMRjQ4Ee7MTXp0MAAd12YpIPMvbLdrvMR0I9XQh=
+r7EUkWhowVLALHOjWeXuDCG0a56bmaVcnZ37BctbLW_AWUtUP9S_Mt37Ix_OboqmmWcf-ogad6L=
+_sw8368yukvyNM7_xusSpJNwcwjktBVaoKiYRQ-mgyQtXyC8hLfVqy3Sm90uyTE2r-KTZQGzEbY=
+_AE8FFGDWUy1g-j55N5hMkvAn0X3kNRSyxg%3D%3D">Stack Overflow for Teams</a>. </=
+p> </td> </tr> <!-- Section : END --> <!-- Bumper : BEGIN --> <tr> <td styl=
+e=3D"text-align: center; line-height: 1;"> <img src=3D"https://itr-images.s=
+tackoverflow.email/62687153-bbaa-4c83-bd65-6047d51b261a/footer2x.png" alt=
+=3D"" height=3D"" width=3D"581" border=3D"0" style=3D"width: 100%; max-widt=
+h: 581px; height: auto; display: block; margin: 0 auto; font-weight: normal=
+; font-family: arial, sans-serif; font-size: 15px; color: #3C3F44;"/> </td>=
+ </tr> <!-- Bumper : BEGIN --> </tbody></table> </td> </tr> <!-------------=
+---------------- EMAIL BODY : END ------------------------------> <!-- Foot=
+er : BEGIN --> <tr> <td style=3D"padding: 30px;" class=3D"sm-p"> <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" width=3D"100%"> <!-- Subscription Info : BEGIN --> <tbody><tr> <td =
+style=3D"padding-bottom: 10px; font-size: 12px; line-height: 15px; font-fam=
+ily: arial, sans-serif; color: #9199A1; text-align: left;"> You=E2=80=99re =
+receiving this email because you are subscribed to The Overflow Newsletter =
+from Stack Overflow. </td> </tr> <tr> <td style=3D"font-size: 12px; line-he=
+ight: 15px; font-family: arial, sans-serif; color: #9199A1; text-align: lef=
+t;"> <a href=3D"https://itr-links.stackoverflow.email/e/eh?_t=3D3603a3d8f31=
+04ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVA=
+oZ0KWoWvZcB0SXVHw2r1w_TXnhd_FHvMoW6vH9w-PnTe2t2BKFf0MsWg8ZZ-dxPN5rfsNDPUB4Q=
+0iqLAnOEY_IS-bQ1n-6Ke9BuX3QTDa3pvl3T0KSSne_VH8tq9rGgbw5IA2OP4_9wt4x9mD4MkdG=
+8F3MlmY9yaedCqp-Yq3-rBY4643jQhgo22osLFP5d0UPC59zcIK6KKNF3iGUFZakzJ5fHx7lpZJ=
+3RyzqrXwLo7R4GrucM5xampxHEGSTP2-m-orsTmpt4z_bpXO7bZo2GjkrnMcfhwEDCPgCtrX0Oz=
+HeIGP1VyeGifhG9GgqleV98YsxlFPFgeMq36581jkmmuHSEeTznqwKBOHOxyepL41KVUU_LoZwS=
+7v_4VEvv2nabGsKrsvEGA%3D%3D" style=3D"color: #9199A1; text-decoration: unde=
+rline;">Unsubscribe from emails like this</a>=C2=A0=C2=A0=C2=A0=C2=A0 <a hr=
+ef=3D"https://itr-links.stackoverflow.email/u/click?_t=3D3603a3d8f3104ca5bd=
+7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_e=3DoUkjRzzyVAoZ0KWoW=
+vZcB0SXVHw2r1w_TXnhd_FHvMoW6vH9w-PnTe2t2BKFf0MsDyMqd_wNwfpKAEHS5jG7P6ThCcHF=
+akvD6C0P7pHY5QKHVnGQN6EY8FYrb-g0qL6s0OauVxiScB3LHe6XXo3CZDJGX-uNrBM0yTwDeze=
+Jm1wU0B0YrcR72n1Vp3ba1FXQARYBfDDl7ab3Y7ZY3XuboFiABaRAb1nYWvsiVJobaOW7Rnj-b0=
+e4ShzEko2ErozLdarggxr_kpWVgloP0xatl52EBw4GIeNZ4Crraw89xGtbqvLFMYQlYkWDh3i8H=
+QSFaYqbl77iQae8T9ULuKg1tMRY2b7o482TgGgccSueA3GLw0jFi3E7P4JofbElxuKxI7pvdfbB=
+GBmaBNHEp9ievKjXMbmrcIWf_BMyqe_pyT1wPsuBAQwxwJ07LMn3xaT1PbNuoqePXU7PyrQRsk_=
+e25h-J54Behe33-WGvEv_-O3ii4QsX8CcEQtwQ7-V23h0DfTTf15qnzChM7Vs2Cwu3EADph2fDt=
+FsbRXj_afjtJCeZeq9FHQV7aPeD0abJEtvJEevc5bitMXqdo2FNhULzg%3D%3D" style=3D"co=
+lor: #9199A1; text-decoration: underline;">Edit email settings</a>=C2=A0=C2=
+=A0=C2=A0=C2=A0 <a href=3D"https://itr-links.stackoverflow.email/u/click?_t=
+=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd2893b86b06&_=
+e=3DoUkjRzzyVAoZ0KWoWvZcBzvZjwFgTbQMkfnL-ICM4hTnwxITYFBz_kjn7AXAz_5eJPs7nyD=
+iuO3k0wcrEf19EdxVWe9aWraX5EwEl3Ab3U_JQ9K3zDtDsBYCXbRBHfJNUyx1pP1n_m2HpiDTAw=
+GJ0XMnrCF0EbIkBBI-YCiJJD8nicu8HSqH8L-l9aeoXwatZqYo6krBiwA0ABhNa8g_8wDJqQLGO=
+Hz-6MZqk1PN5dAEtum9SPztEIzLpAAIRzoFzOaf3_3UinLyYS0m-qcxWBEJpm0J5CuJo1Lfyi4V=
+hVg%3D" style=3D"color: #9199A1; text-decoration: underline;">Contact us</a=
+>=C2=A0=C2=A0=C2=A0=C2=A0 <a href=3D"https://itr-links.stackoverflow.email/=
+u/click?_t=3D3603a3d8f3104ca5bd7015a5845f7fb7&_m=3De6fdedb0579b4c32b72fdd28=
+93b86b06&_e=3DoUkjRzzyVAoZ0KWoWvZcBzvZjwFgTbQMkfnL-ICM4hTdHYmkY1pn39J_T7mX6=
+lypg10UsryqGP3m-GhmiS3k0LjIutJq68m7Gp8wEDTb7qqrH4SneSxWZERXP2jZuHut2L5BJ36T=
+txFJQDbZl36TV8GSi30c7LveoQ0pk6CiLSJxD6tsYGqjCn1owosyvhNtPNtl8JbwqpwW2w7CnTq=
+F89ujkhecMqCQCnK8OWJi6F2OoeleIaVZYzuCCFYLslLM5m1ULmTEY1N6xWmSPJtPRAMjX4Okbr=
+YGG6dLHR53vXs%3D" style=3D"color: #9199A1; text-decoration: underline;">Pri=
+vacy</a> </td> </tr> <!-- Subscription Info : BEGIN --> <!-- HR line : BEGI=
+N --> <tr> <td style=3D"padding: 30px 0;" width=3D"100%" class=3D"sm-py"> <=
+table aria-hidden=3D"true" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:100%"> <tbody><tr> <td height=3D"1" w=
+idth=3D"100%" style=3D"font-size: 0; line-height: 0; border-top: 1px solid =
+#D6D8DB;">=C2=A0</td> </tr> </tbody></table> </td> </tr> <!-- HR line : END=
+ --> <!-- Sender Info : BEGIN --> <tr> <td style=3D"padding-bottom: 5px; te=
+xt-align: left;"> <img src=3D"https://itr-images.stackoverflow.email/2db77f=
+e4-9aa8-4d7d-b911-56ee9412d3cc/LogoSm2x.png" align=3D"left" alt=3D"" border=
+=3D"0" width=3D"111" height=3D"22" style=3D"display: block; font-family: ar=
+ial, sans-serif; font-size: 12px; line-height: 12px; color: #3C3F44;"/> </t=
+d> </tr> <tr> <td style=3D"padding-bottom: 5px; font-size: 12px; line-heigh=
+t: 15px; font-family: arial, sans-serif; color: #9199A1; text-align: left;"=
+><strong>Stack=C2=A0Overflow</strong>, <span class=3D"unstyle-auto-detected=
+-links">110 William Street, 28th Floor, New York, NY 10038</span></td> <!--=
+ Sender Info : END --> <!-- Heart : BEGIN --> </tr><tr> <td> <table align=
+=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"background:#ffffff; border-radius:1px; line-height:0px"> <tb=
+ody><tr> <td> <div style=3D"border-radius: 1px; border: 1px solid #D6D9DC; =
+padding: 4px 6px 3px 6px; font-size: 11px; line-height: 11px; font-family: =
+Consolas, monospace; color: #E06C77;" title=3D"because we care"><3</div> </=
+td> </tr> </tbody></table> </td> </tr> <!-- Heart : END --> </tbody></table=
+> </td> </tr> <!-- Footer : END --> </tbody></table> </div> <!--[if mso | I=
+E]></td> </tr> </table><![endif]--> </center> </body></html>=
+
+--f4b32f1894fba7ec1998ce151a63d0a411ef1a9c2c5078c27ee74c06be09--

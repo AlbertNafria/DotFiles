@@ -1,0 +1,173 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:858c:0:0:0:0 with SMTP id v12csp1526343ejx;
+        Thu, 8 Oct 2020 10:11:54 -0700 (PDT)
+X-Received: by 2002:a17:906:b1c3:: with SMTP id bv3mr3527610ejb.445.1602177114256;
+        Thu, 08 Oct 2020 10:11:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602177114; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QHz9cFtl9z1U5xRuDrZLdAVvZ9wisYC0ZyHUWIJ1uCn3g7aAeqIwNKXYJfktmOlhq+
+         Yl+cFdX86hT9Mub6xU60NrfJMMNM6Whhx58erG+CqAllxLJvdpLuCNkjQFx+w2Oe2Klb
+         IcDII9T9E4GuGnPYg2/AcS89bWwlFBQQ5+XbKvnzVFEBodwQmRhRgZ2YsdfexK5flTni
+         za0rujHz+C19lrTWwb4mFQkI5HzEl7QEd2DAEw5EI0Ux/2908Fkxnn2u7R3gk7ZuKo3A
+         Hb//pFEWduMemtNep0gF1hCuzJgF8KF9mC8NdSmRlQ1vXA/kbKzHdS5fi3qyd7fROktP
+         F29A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=xKVnLLWZAGGmyAlzgS3CHtOGKu3jxxwwHI7PNKMlUHw=;
+        b=TmtcD+lQ0MpmvpYhLDpYqF2sLB9Ni/zkKGnOLW8lHuZjkx5n7qmEoH2NPNXemgDkz0
+         VgpVzq3Bmmb/4Fm5ZQLMTcHQpFBfhbwFz3MsU6/sNa8kPdkN3/JcIL7IFtHHU4LVnzZZ
+         iJORR8D5wdYK5XjwKHyq0Ntv28WaKsn379Ajp5ZjDRo/bw66MipxGQUkZ+ogTnMza6V9
+         eCjb3cHid/KLr8IhBwW6d9zB/10r5e2Y2+oMzJ1Io9oVAnP3mvz+IKoYpYaZCkaBOWxY
+         7wjfeLjVTC0p25gdR6WU3wDqfkn/WoEH0xTgKBHC3al2nOlHLzRc3Q+OH292olSEBvWv
+         pKOw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=dLJtexil;
+       spf=pass (google.com: domain of manuelbarzi@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=manuelbarzi@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <manuelbarzi@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id v18sor5574385edt.29.2020.10.08.10.11.53
+        for <albert.nafria@gmail.com>
+        (Google Transport Security);
+        Thu, 08 Oct 2020 10:11:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of manuelbarzi@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=dLJtexil;
+       spf=pass (google.com: domain of manuelbarzi@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=manuelbarzi@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=xKVnLLWZAGGmyAlzgS3CHtOGKu3jxxwwHI7PNKMlUHw=;
+        b=dLJtexilSxzjjYmSXeQ2GfeoCXIbBXiAv5R7FiaRRaSwQmB0K8Aq+9ufncBcFDYXIf
+         dsDb8J3rtHa/vGnly4c+5k3L//T3FUVOZrRRvXMzB7l6fMv60Rt28rjgSz+zv0zGfq7M
+         RFnUg3Bbikl1w+ZIpXiF+j2UrwPQ10jCC4BX7CogZtp118qNkeJSeagx9HElATqlNAUE
+         MxS7amNsHl5pD2CNgtQblqADpkqHlFZcTIjhr0HqOxTCP/TwvXZfBOrA9tgCd4aC2C9o
+         Jyh2jB10iVQvUzbRWm86xin1KXYfc1G1bMqg4QnMhQYm4OzQ+31YmHGDlKYwxAApFXun
+         KsfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=xKVnLLWZAGGmyAlzgS3CHtOGKu3jxxwwHI7PNKMlUHw=;
+        b=mD4iylI7nPgmnpRnTURn3TfTIcxv0bMwhWL0rUvcLVFhfAEpHGqG8eNaa4ejahRui6
+         3mpaYcRO6zujwmUr86OuylkFt/3yHbBXH/vPzoRcnwFMrZjaj1utt7bhAb95kPxfPZt/
+         oyOCGqYgoqeTJU62z//rv88/I2+3R49gqanaSTKE9XRcGGKhFo0eeflzIuQtU1ba2A0W
+         IiBIVC/szevoj9x9E7L7rGaYLyyxcpTTCR20zTPT/V9+BbfP9hkRW1O5eoQ7JjIcL6rZ
+         Ojzwl7ptNqyOksS9CJvrnRIhg+ol9448ACYaJ7xe477Jht/MyHAktqjSE3NgKe3k4VEc
+         kewA==
+X-Gm-Message-State: AOAM533KdUnyuyRoVLtK5Npy7Es2k5+drVnjbd94o00/Hi2lgiY5n5Tl
+	uHyPpoYeqSesu7m8d/8+YitIxfvxtuzQ2ILS+fwMtI9Lh8M=
+X-Google-Smtp-Source: ABdhPJzIWy8P+9iBLgTYnyT87gHI2HJUtY9T4NMnwg5pleCS2JPnP1iwVaLcisZ9R01fYhU4E1QnuzB41yrPcnfCmWk=
+X-Received: by 2002:aa7:d352:: with SMTP id m18mr9899468edr.287.1602177113266;
+ Thu, 08 Oct 2020 10:11:53 -0700 (PDT)
+MIME-Version: 1.0
+References: <CALLRck=m0ACfouKw7NfofdhKN8EQ7_j2EmQzHZ8c9-NU_NVJYg@mail.gmail.com>
+ <CALLRckmNTzzreZRyBQ+EjgZUG4G6hq7By3DMcacrJnw++WrEsQ@mail.gmail.com>
+ <CALLRckkykonbJ6EN37NH7bADnELbBdHuo=urY74Qx7-rSyXJmA@mail.gmail.com>
+ <CALLRcknM25cjWHCVb7tm7uRx7vmyuvAYyu7E1RyD15YqTHRYnQ@mail.gmail.com>
+ <CALLRckmEOmS-v_a0ckiecoVL6DNo5HRWcdjPV=8U8-d4t=ut8A@mail.gmail.com>
+ <CALLRckm28rCvYsEoVp09Fmn6SCDR_8FF8=Ovm0AOQM_4dWhpVA@mail.gmail.com>
+ <CALLRckmGmdsS-YtqRmCG4KqhB7S8twp+mtMVnUOeFVRbnz-0+w@mail.gmail.com>
+ <CALLRck=R+t1=MGkN5jSPGsgU6LB5HVmS6nH-G9C+hefQ21xOUw@mail.gmail.com>
+ <CALLRckm=_EwfCiq2USt+Qic1+HYU7fK3-SC5J3vFhqRx9504_w@mail.gmail.com>
+ <CALLRckkJn6dOzX9ODBG6buHSykfpLj9bCWCxAShCGRjsVmSTsw@mail.gmail.com>
+ <CALLRckkANU=9VUr0mbAFSWHg_mAoZjM+W_5ECPUhZnH+DB9AYw@mail.gmail.com>
+ <CALLRckm3wa2_RZiiuc_4aaHrO73bgECwir+SdOGOm7VG0hMH+Q@mail.gmail.com> <CALLRckkcVZvU1H+bG7X60wGyNUtQF1_GvR-h4jWe7Aa4Et5C-g@mail.gmail.com>
+In-Reply-To: <CALLRckkcVZvU1H+bG7X60wGyNUtQF1_GvR-h4jWe7Aa4Et5C-g@mail.gmail.com>
+From: manuelbarzi <manuelbarzi@gmail.com>
+Date: Thu, 8 Oct 2020 19:11:15 +0200
+Message-ID: <CALLRck=XkjOz0quVJNJpNdGCyoh+79C3n-woDehqodXfzgu-xg@mail.gmail.com>
+Subject: hola Albert! soy Manu, de Let's Coder .)
+To: albert.nafria@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000b41e0e05b12bed44"
+
+--000000000000b41e0e05b12bed44
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Te comparto el link al discord donde puedes encontrarme online y donde me
+reuno con mis ex-alumnos para compartir distintos asuntos sobre
+programaci=C3=B3n, https://pluscoders.com (es el primer link de la p=C3=A1g=
+ina).
+Tambi=C3=A9n est=C3=A1 mi e-mail y mi tel=C3=A9fono ah=C3=AD, si quieres co=
+ntactarme
+directamente.
+
+Te comparto otro link donde puedes ver los proyectos de mis ex-alumnos en
+los dos =C3=BAltimos bootcamps que impart=C3=AD en la escuela anterior
+https://b00tc4mp.com/proyectos-finales-bootcamp-fullstack/. Se trata de
+aplicaciones reales que han desarrollado mis alumnos en las =C3=BAltimas 3
+semanas del bootcamp, asentando conocimiento.
+
+Te comparto el link al webinar que impart=C3=AD hace unos d=C3=ADas, por si=
+ lo
+quieres mirar. Hicimos un ejemplo en live coding de un calculador, y luego
+compart=C3=AD 2 demos jugando con el personaje Deapool caricaturizado, a mo=
+do de
+ejemplo, para ver m=C3=A1s sobre HTML, CSS, y JS. Aqu=C3=AD lo tienes
+https://manu.engineer/los-3-pilares-de-una-aplicacion-web/
+
+Por =C3=BAltimo, te comparto el link del bootcamp donde imparto clases ahor=
+a
+https://letscoder.com
+
+Cualquier duda que tengas, aqu=C3=AD estoy ,)
+
+--000000000000b41e0e05b12bed44
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:arial,he=
+lvetica,sans-serif;color:#000000">Te comparto el link al discord donde pued=
+es encontrarme online y donde me reuno con mis ex-alumnos para compartir di=
+stintos asuntos sobre programaci=C3=B3n, <a href=3D"https://pluscoders.com"=
+ target=3D"_blank">https://pluscoders.com</a> (es el primer link de la p=C3=
+=A1gina). Tambi=C3=A9n est=C3=A1 mi e-mail y mi tel=C3=A9fono ah=C3=AD, si =
+quieres contactarme directamente.<br></div><div class=3D"gmail_quote"><div =
+dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail=
+_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div c=
+lass=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=
+=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_qu=
+ote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div clas=
+s=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"l=
+tr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote">=
+<div dir=3D"ltr"><div style=3D"font-family:arial,helvetica,sans-serif;color=
+:#000000"><br>Te comparto otro link donde puedes ver los proyectos de mis e=
+x-alumnos en los dos =C3=BAltimos bootcamps que impart=C3=AD en la escuela =
+anterior <a href=3D"https://b00tc4mp.com/proyectos-finales-bootcamp-fullsta=
+ck/" target=3D"_blank">https://b00tc4mp.com/proyectos-finales-bootcamp-full=
+stack/</a>. Se trata de aplicaciones reales que han desarrollado mis alumno=
+s en las =C3=BAltimas 3 semanas del bootcamp, asentando conocimiento. <br><=
+br><span class=3D"gmail_default" style=3D"font-family:arial,helvetica,sans-=
+serif;color:rgb(0,0,0)">T</span>e comparto el link al webinar que impart=C3=
+=AD<span class=3D"gmail_default" style=3D"font-family:arial,helvetica,sans-=
+serif;color:rgb(0,0,0)"> hace unos d=C3=ADas</span>, por si lo quieres mira=
+r. Hicimos un ejemplo en live coding<span class=3D"gmail_default" style=3D"=
+font-family:arial,helvetica,sans-serif;color:rgb(0,0,0)"> de un calculador<=
+/span>, y luego compart=C3=AD 2 <span class=3D"gmail_default" style=3D"font=
+-family:arial,helvetica,sans-serif;color:rgb(0,0,0)">demos</span>=C2=A0juga=
+ndo con el personaje Deapool caricaturizado, a modo de ejemplo, para ver m=
+=C3=A1s sobre HTML, CSS, y JS. Aqu=C3=AD lo tienes=C2=A0<a href=3D"https://=
+manu.engineer/los-3-pilares-de-una-aplicacion-web/" target=3D"_blank">https=
+://manu.engineer/los-3-pilares-de-una-aplicacion-web/</a><br><br><div class=
+=3D"gmail_default" style=3D"font-family:arial,helvetica,sans-serif;color:rg=
+b(0,0,0)">Por =C3=BAltimo, te comparto el link del bootcamp donde imparto c=
+lases ahora <a href=3D"https://letscoder.com">https://letscoder.com</a>=C2=
+=A0</div><br>Cualquier duda que tengas, aqu=C3=AD estoy ,)<br></div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+
+--000000000000b41e0e05b12bed44--

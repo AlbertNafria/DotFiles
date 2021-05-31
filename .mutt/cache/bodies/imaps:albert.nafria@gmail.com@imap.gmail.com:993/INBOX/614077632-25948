@@ -1,0 +1,784 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:9a02:0:0:0:0 with SMTP id ai2csp2468709ejc;
+        Fri, 27 Nov 2020 11:23:07 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw4Sg2O9YuV7759p31OqLl9ad800d/rWXba/e6gJnPgPqIgi/0rAZV8Hac58HIXuk6XaN70
+X-Received: by 2002:a7b:cb8f:: with SMTP id m15mr10789558wmi.95.1606504987498;
+        Fri, 27 Nov 2020 11:23:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606504987; cv=none;
+        d=google.com; s=arc-20160816;
+        b=W+PZS/DvAHDoa7aRo0ucRUjS9p/Oi6vJ4GIBaBUgSz9O8L7kUPli+GHdXOBp4jCyQI
+         01EegCVYlzeYpn2+3sAKDyweFZfWqKdlFoG2VTaXYKb44VupCbsJddbCOpZKZ8t3D8o7
+         Nz9Ox76jTJOZPQoT7guLl2/1fHZFJcWQx7Kg6BXgPtnT194edVPByjVlaFWkEe13rh6c
+         z4L+qKGpzQ3yY7Fj+T88WFGBGcI3HxbiwBeUp2g2QtasvtORULgFyMZHJQFGz9G9vgvh
+         7fLbh+GHXjGY6Z25P3jG7cQTKFeYRcXuGf39Ttx7d/2frDDyexPVA1UcwcsGmRRFlkTp
+         AHIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:from:dkim-signature;
+        bh=cKJZoLdErB4AXzYoEQId7rTbKrayE/mjxIR4hUt4xPE=;
+        b=XufWSr0lOzU/6K8j9r0l/fnzeVwvfn3LhMuGXdocRbAD0GICa8eGboeZt07OG+8miX
+         sRvs/LdJv2u97vB4I3EJJ5sMqI1RxkwfFDgL1UcEQraMdmcMtbF2k6nAClOCbQQQyd/X
+         JHjPlfPv/kYw1hATNJjV9stFkx3KTcNTtiQ9+rPPCmqTj9nvy3CQNTgcFvKnmY15lBId
+         kk69Mlinw3YhOehzFP2ekXrZ/7S05wOIuWMwtjc+ZJG9m1P4UFGwXsbFAlXwRCtTWB08
+         NxZdicsSPsDMgoI9kvfx80z2mxIbdI7+A0gDTqT8qEA53nWTfamoVSZaumoALpev2gOv
+         zEvQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=scq7WY29;
+       spf=pass (google.com: domain of 010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com designates 54.240.6.61 as permitted sender) smtp.mailfrom=010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com
+Return-Path: <010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com>
+Received: from a6-61.smtp-out.eu-west-1.amazonses.com (a6-61.smtp-out.eu-west-1.amazonses.com. [54.240.6.61])
+        by mx.google.com with ESMTPS id a11si9104111wrp.294.2020.11.27.11.23.07
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Fri, 27 Nov 2020 11:23:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of 010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com designates 54.240.6.61 as permitted sender) client-ip=54.240.6.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=scq7WY29;
+       spf=pass (google.com: domain of 010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com designates 54.240.6.61 as permitted sender) smtp.mailfrom=010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1606504987;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=pdqj+fPZdMJLuFjkB4Dnv+qZuQKlPhId7ZQ10TKUPT4=;
+	b=scq7WY298zbava8JcWCWbkcK7Tw2v+YbC3ixNjxqq/I0HySexRDG/htQl7I1eBpv
+	HLrtnWn2sycQxRb4USKorDt6j+p3f1dcfsnFBQxY+d5yMGygzxC2pzZ4hWoXlYPWIXh
+	IaAdHHsxAJC2rMZE0ppVxjA2SShR+mb6nvKKfqMU=
+From: simyo <simyo@soydesimyo.es>
+To: albert.nafria@gmail.com
+Subject: simyo trucos: descubre lo principal de simyo
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010201760b28b912-f1d09d7e-a72c-405b-a9f0-13670f2cf76d-000000@eu-west-1.amazonses.com>
+Date: Fri, 27 Nov 2020 19:23:06 +0000
+X-SES-Outgoing: 2020.11.27-54.240.6.61
+Feedback-ID: 1.eu-west-1./RTHO8LIT1dx3Zf1HCh8y+a6+l3NcmRwcKM2+0GaZ+I=:AmazonSES
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8"><meta content=3D"telephone=3Dno" name=3D"format-detection"><meta name=
+=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0, maximum=
+-scale=3D1.0"><meta name=3D"x-apple-disable-message-reformatting"><meta htt=
+p-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+=09<title>A4_NL_NEWACT -&gt; SIMYOTRUCOS_V3</title>
+=09<style type=3D"text/css">/* estilos comunes */
+       body { margin: 0px !important; padding: 0px !important; -webkit-text=
+-size-adjust: 100% !important; -ms-text-size-adjust: 100% !important; -webk=
+it-font-smoothing: antialiased !important; color: #7e7e7e;}
+      .button{background-color: #ff5900 !important; color: #ffffff !importa=
+nt;}
+      .button a {background-color: #ff5900; text-align:center; padding: 15p=
+x 15px 13px!important; display: block!important; color: #ffffff !important;=
+}
+      img {border: 0 !important; outline: none !important; display: block !=
+important;}
+      table {border-collapse: collapse; mso-table-lspace: 0px; mso-table-rs=
+pace: 0px;}
+      td {border-collapse: collapse; mso-line-height-rule: exactly;}
+      a, span {mso-line-height-rule: exactly;}
+      a{color: #00a8ff;}
+      td[class=3Dtext], .text{ font-size: 12px;}
+      td[class=3Dbold]{font-weight: bold;}
+      td[class=3Ditalic]{font-style: italic;}
+
+      @media only screen and (min-width:481px) and (max-width:599px) { /* d=
+e 481px hasta 599px */
+        table[class=3Dwrapper] {width: 100% !important;}
+        td[class=3Dpad_side] {padding-left: 14px !important; padding-right:=
+ 14px !important;}
+        td[class=3Dhide], br[class=3Dhide] {display: none !important;}
+        img[class=3Dfull_img] {width: 100% !important;height: auto !importa=
+nt;}
+        td[class=3Dorange], td[class=3Dgray] {text-align: center !important=
+;}
+        td[class=3Dpad_bottom] {padding-bottom: 20px !important;}
+        td[class=3Dfix_height] {height: 20px !important;}
+      }
+
+      @media only screen and (max-width:480px) { /* para 480px o menos  (mo=
+vil)*/
+        table[class=3Dwrapper], table[class=3DwrapperButton] {width: 100% !=
+important;}
+        td[class=3Dpad_side] {padding-left: 14px !important;padding-right: =
+14px !important;}
+        td[class=3Dhide], br[class=3Dhide] {display: none !important;}
+        img[class=3Dfull_img] {width: 100% !important;height: auto !importa=
+nt;}
+        td[class=3Dorange], td[class=3Dgray]{ text-align: center !important=
+;}
+        td[class=3Dpad_bottom] {padding-bottom: 20px !important;}
+        td[class=3Dfix_height] {height: 20px !important;}
+        td[class=3Dtext], .text{font-size: 14px !important;}
+        td[class=3Dorange], td[class=3Dgray]{font-size: 22px !important;lin=
+e-height: 22px !important;}
+      }
+=09</style>
+</head>
+<body bgcolor=3D"#ffffff" leftmargin=3D"0" marginheight=3D"0" marginwidth=
+=3D"0" offset=3D"0" topmargin=3D"0">
+<p id=3D"onlineViewParagraph" style=3D"font-size:10px; color:#999; width:au=
+to; margin:0 auto; text-align:center; font-family: Arial, Helvetica, sans-s=
+erif;"><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSe=
+nt=3D5fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhttps://simyo.zippi=
+ngcare.com/onlineView?id=3D5fc1521a128f320001491d1a&amp;bannerId=3D5be44680=
+704182ad2cc3d368" mappingid=3D"5be44680704182ad2cc3d368" originalsrc=3D"htt=
+ps://simyo.zippingcare.com/onlineView?id=3D5fc1521a128f320001491d1a" redire=
+ct=3D"false" redirected=3D"">Si no puedes ver este email pincha aqu&iacute;=
+</a></p>
+
+<p id=3D"onlineViewParagraph" style=3D"font-size:10px; color:#999; width:au=
+to; margin:0 auto; text-align:center; font-family: Arial, Helvetica, sans-s=
+erif;"></p>
+<!-- HEADER NO TOCAR //////////////////////////////////////////////////////=
+//////////////////////////////////////////////////////////////////// -->
+
+<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center">
+=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td valign=3D"top">
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"wrapper" style=3D"table-layout:auto;" width=3D"650=
+">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td bgcolor=3D"#c2c1c1" class=3D"pad_si=
+de">
+=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td height=3D"10" sty=
+le=3D"line-height:1px; font-size:1px;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"hide" wi=
+dth=3D"25">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><!-- LOG=
+O -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=
+=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"101">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+><a href=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D5=
+fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhttp://www.simyo.es&amp;b=
+annerId=3D5be444d3704182ddd3fc3750" mappingid=3D"5be444d3704182ddd3fc3750" =
+originalsrc=3D"http://www.simyo.es" redirected=3D"" target=3D"_blank"><img =
+alt=3D"Logo Simyo" border=3D"0" height=3D"39" src=3D"https://www.simyo.es/i=
+mg/logo-email.png" style=3D"display:block;" width=3D"125" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- @FIN LO=
+GO //--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><!-- RRS=
+S -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=
+=3D"right" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"92">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td height=3D"7" style=3D"line-height:1px; font-size:1px;">&=
+nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09<tr><!-- FACEBOOK -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/st=
+atistics/linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedir=
+ect=3Dhttps://www.facebook.com/simyo&amp;bannerId=3D5be444d3704182ddd3fc375=
+1" mappingid=3D"5be444d3704182ddd3fc3751" originalsrc=3D"https://www.facebo=
+ok.com/simyo" redirected=3D"" target=3D"_blank"><img alt=3D"Facebook" borde=
+r=3D"0" height=3D"26" mc:edit=3D"fab1" src=3D"http://www.simyo.es/templates=
+/img/facebook1.png" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td width=3D"7">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<!-- TWITTER -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/st=
+atistics/linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedir=
+ect=3Dhttps://twitter.com/simyo_es&amp;bannerId=3D5be444d3704182ddd3fc3752"=
+ mappingid=3D"5be444d3704182ddd3fc3752" originalsrc=3D"https://twitter.com/=
+simyo_es" redirected=3D"" target=3D"_blank"><img alt=3D"Twitter" border=3D"=
+0" height=3D"26" mc:edit=3D"twit1" src=3D"http://www.simyo.es/templates/img=
+/twitter1.png" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td width=3D"7">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<!-- BLOG -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/st=
+atistics/linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedir=
+ect=3Dhttp://blog.simyo.es/&amp;bannerId=3D5be444d3704182ddd3fc3753" mappin=
+gid=3D"5be444d3704182ddd3fc3753" originalsrc=3D"http://blog.simyo.es/" redi=
+rected=3D"" target=3D"_blank"><img alt=3D"Blog simyo" border=3D"0" height=
+=3D"26" mc:edit=3D"link1" src=3D"http://www.simyo.es/templates/img/blog1.pn=
+g" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+able>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+d>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- @FIN RR=
+SS //--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"hide" wi=
+dth=3D"15">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td height=3D"10" style=3D"lin=
+e-height:1px; font-size:1px;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+<!-- @FIN HEADER //////////////////////////////////////////////////////////=
+//////////////////////////////////////////////////////////////// --><!-- BL=
+OQUE IMAGEN PRINCIPAL /////////////////////////////////////////////////////=
+///////////////////////////////////////////////////////////////////// -->
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center" valign=3D"top"><!-- CAMBIAR SRC Y ALT IMAGEN =
+PRINCIPAL --><a href=3D"https://simyo.zippingcare.com/statistics/linkClicke=
+d?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhttps://www.s=
+imyo.es/simyo%2Fcontacto&amp;bannerId=3D5be444d3704182ddd3fc3754" mappingid=
+=3D"5be444d3704182ddd3fc3754" originalsrc=3D"https://www.simyo.es/simyo/con=
+tacto" redirected=3D"" target=3D"_blank"><img border=3D"0" class=3D"full_im=
+g" height=3D"261" src=3D"http://www.simyo.es/img/mailings/cab_simyotrucos.p=
+ng" width=3D"650" /></a></td>
+=09=09</tr>
+=09</tbody>
+</table>
+<!-- @FIN IMAGEN PRINCIPAL ////////////////////////////////////////////////=
+////////////////////////////////////////////////////////////////////////// =
+--><!-- BLOQUE TITULAR CON MARGEN A LOS LADOS /////////////////////////////=
+///////////////////////////////////////////////////////////////////////////=
+ --><!--  @FIN TITULAR ////////////////////////////////////////////////////=
+////////////////////////////////////////////////////////////////////// --><=
+!-- CUERPO DEL EMAIL CON MARGEN A LOS LADOS (3 columnas (td) =3D 1 margen i=
+zq + 1 cuerpo central + 1 margen dcha /////////////////////////////////////=
+//////////////// -->
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"left" valign=3D"top">
+=09=09=09<table align=3D"left" bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr><!-- MARGEN IZQUIERDA NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09<!-- CONTENIDO CUERPO DEL EMAIL -->
+=09=09=09=09=09=09<td align=3D"left" class=3D"pad_side" valign=3D"top">
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%"><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR --><=
+!-- @FIN DOBLE SALTO DE L=C3=8DNEA //--><!-- TEXTO NEGRITA --><!-- @FIN TEX=
+TO NEGRITA //--><!-- SALTO DE L=C3=8DNEA NO TOCAR --><!-- @FIN SALTO DE L=
+=C3=8DNEA //--><!-- TEXTO -->
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"text" style=3D"font-family:Arial, H=
+elvetica, sans-serif;font-size:12px; line-height:16px;"><br />
+=09=09=09=09=09=09=09=09=09Hola Calabria:<br />
+=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09Est&aacute;s estrenando tu l&iacute;nea&nbsp;688=
+634387 de simyo y antes de nada, queremos darte las gracias por confiar en =
+nosotros.&nbsp;<br />
+=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09En simyo nos gusta que est&eacute; todo claro y =
+que tengas toda la informaci&oacute;n que necesitas, as&iacute; que este ma=
+il es para que le cojas el truquillo a tu l&iacute;nea en un periquete. Es =
+muy f&aacute;cil usar simyo, pero es todav&iacute;a m&aacute;s f&aacute;cil=
+ si te echamos una mano al principio.<br />
+=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09M&eacute;tete en <u><a href=3D"https://simyo.zip=
+pingcare.com/statistics/linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;z=
+ippingCareRedirect=3Dhttps://www.simyo.es/simyo%2Fcontacto&amp;bannerId=3D5=
+be444d3704182ddd3fc3755" mappingid=3D"5be444d3704182ddd3fc3755" originalsrc=
+=3D"https://www.simyo.es/simyo/contacto" redirected=3D"" style=3D"color:#09=
+F; text-decoration:underline;">simyo.es/trucos</a></u> ahora y ver&aacute;s=
+ todo lo que puedes hacer con tu l&iacute;nea: poner l&iacute;mites de cons=
+umo, entrar en el &aacute;rea personal, la App, cambiar de tarifa&hellip;<b=
+r />
+=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09&Eacute;chale un vistazo, merece la pena ;)<br /=
+>
+=09=09=09=09=09=09=09=09=09&nbsp;</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- @FIN TEXTO //--><!-- SALTO DE L=C3=8DNEA NO TO=
+CAR --><!-- @FIN SALTO DE L=C3=8DNEA //--><!-- TEXTO --><!-- @FIN TEXTO //-=
+-><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN DOBLE SALTO DE L=C3=
+=8DNEA //--><!--  BOT=C3=93N //////////////////////////////////////////////=
+/////// --><!-- FIN BOT=C3=93N //--><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR=
+--><!-- @FIN DOBLE SALTO DE L=C3=8DNEA //--><!--  DOS BOTONES /////////////=
+//////////////////////////////////////// --><!-- FIN BOT=C3=93N //--><!-- S=
+ALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA //--><!-- TEXTO=
+ NEGRITA --><!-- @FIN TEXTO NEGRITA //--><!-- TEXTO --><!-- @FIN TEXTO //--=
+><!-- SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA //--><!-=
+- TEXTO NEGRITA --><!-- @FIN TEXTO NEGRITA //--><!-- TEXTO --><!-- @FIN TEX=
+TO //--><!-- SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA /=
+/--><!-- TEXTO CON ENLACE (<a href=3D""></a>)--><!-- @FIN TEXTO CON ENLACE/=
+/--><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN DOBLE SALTO DE L=C3=
+=8DNEA //--><!-- TEXTO NEGRITA Y CURSIVA --><!-- @FIN TEXTO NEGRITA Y CURSI=
+VA//--><!-- TEXTO CURSIVA --><!-- @FIN TEXTO CURSIVA //-->
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09=09<!-- @FIN DEL CONTENIDO DEL CUERPO DEL EMAIL --><!-- MARG=
+EN DERECHO NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td align=3D"left" valign=3D"top">
+=09=09=09<table align=3D"left" bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr><!-- MARGEN IZQUIERDA NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09<!-- CONTENIDO CUERPO DEL EMAIL -->
+=09=09=09=09=09=09<td align=3D"left" class=3D"pad_side" valign=3D"top">
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%"><!-- TEXTO -->
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" valign=3D"top"><!-- CAMBIAR=
+ SRC Y ALT IMAGEN PRINCIPAL --><a href=3D"https://simyo.zippingcare.com/sta=
+tistics/linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedire=
+ct=3Dhttp://www.simyo.es/que-es-simyo.html&amp;bannerId=3D5be444d3704182ddd=
+3fc3756" mappingid=3D"5be444d3704182ddd3fc3756" originalsrc=3D"http://www.s=
+imyo.es/que-es-simyo.html" redirected=3D"" target=3D"_blank"><img border=3D=
+"0" class=3D"full_img" height=3D"307" src=3D"http://www.simyo.es/img/mailin=
+gs/cajas02.png" usemap=3D"#Map" width=3D"650" /></a></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- @FIN TEXTO //--><!-- SALTO DE L=C3=8DNEA NO TO=
+CAR --><!-- @FIN SALTO DE L=C3=8DNEA //--><!-- TEXTO --><!-- @FIN TEXTO //-=
+-><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN DOBLE SALTO DE L=C3=
+=8DNEA //--><!--  BOT=C3=93N //////////////////////////////////////////////=
+/////// --><!-- FIN BOT=C3=93N //--><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR=
+--><!-- @FIN DOBLE SALTO DE L=C3=8DNEA //--><!--  DOS BOTONES /////////////=
+//////////////////////////////////////// --><!-- FIN BOT=C3=93N //--><!-- S=
+ALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA //--><!-- TEXTO=
+ NEGRITA --><!-- @FIN TEXTO NEGRITA //--><!-- TEXTO --><!-- @FIN TEXTO //--=
+><!-- SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA //--><!-=
+- TEXTO NEGRITA --><!-- @FIN TEXTO NEGRITA //--><!-- TEXTO --><!-- @FIN TEX=
+TO //--><!-- SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN SALTO DE L=C3=8DNEA /=
+/--><!-- TEXTO CON ENLACE (<a href=3D""></a>)--><!-- @FIN TEXTO CON ENLACE/=
+/--><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR--><!-- @FIN DOBLE SALTO DE L=C3=
+=8DNEA //--><!-- TEXTO NEGRITA Y CURSIVA --><!-- @FIN TEXTO NEGRITA Y CURSI=
+VA//--><!-- TEXTO CURSIVA --><!-- @FIN TEXTO CURSIVA //-->
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09=09<!-- @FIN DEL CONTENIDO DEL CUERPO DEL EMAIL --><!-- MARG=
+EN DERECHO NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<tr><!-- MARGEN IZQUIERDA NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09<!-- CONTENIDO CUERPO DEL EMAIL -->
+=09=09=09=09=09=09<td align=3D"left" class=3D"pad_side" valign=3D"top">&nbs=
+p;</td>
+=09=09=09=09=09=09<!-- @FIN DEL CONTENIDO DEL CUERPO DEL EMAIL --><!-- MARG=
+EN DERECHO NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"left" valign=3D"top">
+=09=09=09<table align=3D"left" bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr><!-- MARGEN IZQUIERDA NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09<!-- CONTENIDO CUERPO DEL EMAIL -->
+=09=09=09=09=09=09<td align=3D"left" class=3D"pad_side" valign=3D"top">
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%"><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR --><=
+!-- @FIN DOBLE SALTO DE L=C3=8DNEA //--><!-- TEXTO PARRAFO 1--><!-- @FIN TE=
+XTO //--><!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR -->
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"fix_height" height=3D"30">&nbsp;</t=
+d>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- @FIN DOBLE SALTO DE L=C3=8DNEA //-->
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"text" style=3D"fon=
+t-family:Arial, Helvetica, sans-serif;font-size:12px; line-height:16px; col=
+or:#F60"><span style=3D"font-size:15px; color:#000;">Recuerda que si tienes=
+ cualquier duda o necesitas ayuda para actualizarte,<br />
+=09=09=09=09=09=09=09=09=09puedes llamarnos al <span style=3D"color:#ff5900=
+;">1644 gratis</span> desde tu m&oacute;vil de simyo</span></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR -->
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"fix_height" height=3D"30">&nbsp;</t=
+d>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- @FIN DOBLE SALTO DE L=C3=8DNEA //--><!-- TRIPL=
+ETE FINAL DEL EMAIL -->
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"triplete"=
+ style=3D"font-family:Arial, Helvetica, sans-serif;font-size:15px; line-hei=
+ght:16px; color:#000;">SMARTPHONE LIBRE</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"triplete"=
+ style=3D"font-family:Arial, Helvetica, sans-serif;font-size:15px; line-hei=
+ght:16px; color:#000;">SIN PERMANENCIA</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"triplete"=
+ style=3D"font-family:Arial, Helvetica, sans-serif;font-size:15px; line-hei=
+ght:16px; color:#000;">SIN PENALIZACI&Oacute;N</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- @FIN DEL TRIPLETE FINAL DEL EMAIL -->
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09=09<!-- @FIN CONTENIDO CUERPO DEL EMAIL --><!-- MARGEN DEREC=
+HO NO TOCAR-->
+=09=09=09=09=09=09<td class=3D"hide" width=3D"30">&nbsp;</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09=09<!-- DOBLE SALTO DE L=C3=8DNEA NO TOCAR-->
+=09=09<tr>
+=09=09=09<td class=3D"fix_height" height=3D"30">&nbsp;</td>
+=09=09</tr>
+=09=09<!-- @FIN DOBLE SALTO DE L=C3=8DNEA //-->
+=09</tbody>
+</table>
+<!-- @FIN CUERPO DEL EMAIL ////////////////////////////////////////////////=
+////////////////////////////////////////////////////////////////////////// =
+--><!-- BLOQUE IMAGEN PRINCIPAL ///////////////////////////////////////////=
+///////////////////////////////////////////////////////////////////////////=
+//// -->
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center" valign=3D"top"><!-- CAMBIAR SRC Y ALT IMAGEN =
+PRINCIPAL --></td>
+=09=09</tr>
+=09=09<!-- DOBLE SALTO DE L=C3=8DNEA --><!-- @FIN DOBLE SALTO DE L=C3=8DNEA=
+ //-->
+=09</tbody>
+</table>
+<!-- @FIN IMAGEN PRINCIPAL ////////////////////////////////////////////////=
+////////////////////////////////////////////////////////////////////////// =
+--><!-- CUERPO DEL EMAIL SIN MARGEN A LOS LADOS ///////////////////////////=
+////////////////////////// ////////////////////////////////////////////////=
+///// -->
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper" style=3D"table-layout:fixed;" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"left" valign=3D"top">
+=09=09=09<table align=3D"left" bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+<!-- @FIN CUERPO DEL EMAIL ////////////////////////////////////////////////=
+////////////////////////////////////////////////////////////////////////// =
+--><!-- CUERPO DEL EMAIL CON MARGEN A LOS LADOS (3 columnas (td) =3D 1 marg=
+en izq + 1 cuerpo central + 1 margen dcha /////////////////////////////////=
+//////////////////// --><!-- @FIN CUERPO DEL EMAIL ////////////////////////=
+///////////////////////////////////////////////////////////////////////////=
+/////////////////////// --><!-- FOOTER NO TOCAR ///////////////////////////=
+///////////////////////////////////////////////////////////////////////////=
+//////////////////// -->
+
+<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center">
+=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td>
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"wrapper" mc:repeatable=3D"" mc:variant=3D"Footer 1=
+" width=3D"650">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td bgcolor=3D"#c2c1c1" class=3D"pad_side">
+=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td height=3D"10" style=3D"line-height:=
+1px; font-size:1px;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"wrapper" width=3D"650">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"hide" width=3D"25=
+">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><!-- LOGO -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"left"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"101">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><a href=
+=3D"https://simyo.zippingcare.com/statistics/linkClicked?idSent=3D5fc1521a1=
+28f320001491d1a&amp;zippingCareRedirect=3Dhttp://www.simyo.es&amp;bannerId=
+=3D5be444d3704182ddd3fc3757" mappingid=3D"5be444d3704182ddd3fc3757" origina=
+lsrc=3D"http://www.simyo.es" redirected=3D"" target=3D"_blank"><img alt=3D"=
+Logo Simyo" border=3D"0" height=3D"39" src=3D"https://www.simyo.es/img/logo=
+-email.png" style=3D"display:block;" width=3D"125" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- @FIN LOGO //--><=
+/td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><!-- RRSS -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"right=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td=
+ width=3D"100">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"92">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td height=3D"7" style=3D"line-height:1px; font-size:1px;">&nbsp;</td=
+>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tr><!-- FACEBOOK -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/statistics/=
+linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhtt=
+ps://www.facebook.com/simyo&amp;bannerId=3D5be444d3704182ddd3fc3758" mappin=
+gid=3D"5be444d3704182ddd3fc3758" originalsrc=3D"https://www.facebook.com/si=
+myo" redirected=3D"" target=3D"_blank"><img alt=3D"Facebook" border=3D"0" h=
+eight=3D"26" mc:edit=3D"fab1" src=3D"http://www.simyo.es/templates/img/face=
+book1.png" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"7">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<!-- TWITTER -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/statistics/=
+linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhtt=
+ps://twitter.com/simyo_es&amp;bannerId=3D5be444d3704182ddd3fc3759" mappingi=
+d=3D"5be444d3704182ddd3fc3759" originalsrc=3D"https://twitter.com/simyo_es"=
+ redirected=3D"" target=3D"_blank"><img alt=3D"Twitter" border=3D"0" height=
+=3D"26" mc:edit=3D"twit1" src=3D"http://www.simyo.es/templates/img/twitter1=
+.png" style=3D"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"7">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<!-- BLOG -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<td width=3D"26"><a href=3D"https://simyo.zippingcare.com/statistics/=
+linkClicked?idSent=3D5fc1521a128f320001491d1a&amp;zippingCareRedirect=3Dhtt=
+p://blog.simyo.es/&amp;bannerId=3D5be444d3704182ddd3fc375a" mappingid=3D"5b=
+e444d3704182ddd3fc375a" originalsrc=3D"http://blog.simyo.es/" redirected=3D=
+"" target=3D"_blank"><img alt=3D"Blog simyo" border=3D"0" height=3D"26" mc:=
+edit=3D"link1" src=3D"http://www.simyo.es/templates/img/blog1.png" style=3D=
+"display:block;" width=3D"26" /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+able>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+d>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- @FIN RRSS //--><=
+/td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"hide" width=3D"15=
+">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td height=3D"10" style=3D"line-height:=
+1px; font-size:1px;">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+<!-- @FIN FOOTER //////////////////////////////////////////////////////////=
+//////////////////////////////////////////////////////////////// -->
+
+<div id=3D"webBeaconDiv" style=3D"display: none"><img src=3D"https://simyo.=
+zippingcare.com/beacon/5fc1521a128f320001491d1a.gif" /></div>
+
+<table align=3D"center" class=3D"wrapper" style=3D"font-size:10px; color:#9=
+99; margin:0 auto; text-align:center" width=3D"650">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td id=3D"unsusbscribeParagraph"><br />
+=09=09=09<span style=3D"font-family: Arial, Helvetica, sans-serif;">Este em=
+ail ha sido enviado por un sistema autom&aacute;tico. Por favor no responda=
+s a este mensaje. Orange Espa&ntilde;a Virtual, S.L.U. CIF: B-85057974. Pas=
+eo del Club Deportivo n&deg;1 Edif. 8, Parque Empresarial &quot;LA FINCA&qu=
+ot;, 28223 Pozuelo de Alarc&oacute;n, Madrid. </span></td>
+=09=09</tr>
+=09</tbody>
+</table>
+</body>
+</html>

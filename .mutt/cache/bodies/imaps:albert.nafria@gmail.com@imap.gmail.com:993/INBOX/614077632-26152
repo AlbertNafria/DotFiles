@@ -1,0 +1,1370 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:3e5b:0:0:0:0 with SMTP id t27csp10414499eji;
+        Tue, 29 Dec 2020 10:57:53 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwiMRtDVm8cZKXTKn6g0IU0Az5EjAHgm0oMMZYYp7XzYpkyC5+asYPyWwkeGvdlJUQHSnbj
+X-Received: by 2002:a63:5843:: with SMTP id i3mr44608927pgm.209.1609268273298;
+        Tue, 29 Dec 2020 10:57:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609268273; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QRp7CfphueWjoKSlg4MQhoYtMjdYVAFMw/WVFHAFL5mRy5y6McE8OhF1n9hM/zB2tx
+         ypJhArP3ffFPWhXObXf2+Sf2RZP81WY0i1W0ejvkJk/Rw91oDd6QEK4on7Kfrj439mfq
+         MAFP0nehS9z8tYN+ptmDbMyOBFTrt9ppO0w4wHmK08t+5pPkIDDBigeBWHBjh9XhhB8M
+         WJA8A/Rr5J2UPaq1V4vXkLZ8wPJmz07HixjmBn41AxKeRZKEBiTxEFudMGLzMPLl3cC+
+         6AguNj3c+2Isca/itSs0PNnDwr0SkB9gekPxsStjngusik0qKkoYweR0eoYlYCM2thd6
+         gqrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=cvsr9gdSz9JyCXmYsO1DIjUjcASgZsAhDimwEl+ALgQ=;
+        b=K8/Aq1zw27wU272IcPQe/chMoUMvQFDbAS/xrHTSLrl77mPrW8NjrccFVNUhkpWqQh
+         nhoyAFMlyU1CrqfgGDN6VuOdO1IJY6zO1lAJdx5W3MBEd7z3+TWEXkgg1fuXj8PFK5hK
+         26tI4x5todi3sOSMQg7UpEQf7DMz+NDjGoj2C4B6z5+cgaCyg7R+a2PFVQ2z49WICP29
+         vE33c+DvzIeSAJj5sdAsejdkowD/mzyxmzNwsXvETlN4H8ez7/b5NLxvy6kh01+R5BIX
+         Q/1fR3bk/DB0Dqr1nxZHZ+8wTlm1KLE1AbIXvrAuAWwOGvUEuYs60MRBL+MFki8HXGcn
+         y1DA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mcc.mcsv.net header.s=k1 header.b=S5aX9zr5;
+       dkim=pass header.i=@dev.to header.s=k1 header.b=ps1bY0lb;
+       spf=pass (google.com: domain of bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net designates 198.2.181.106 as permitted sender) smtp.mailfrom=bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dev.to
+Return-Path: <bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net>
+Received: from mail106.suw17.mcsv.net (mail106.suw17.mcsv.net. [198.2.181.106])
+        by mx.google.com with ESMTPS id p3si3407257pjn.75.2020.12.29.10.57.52
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 29 Dec 2020 10:57:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net designates 198.2.181.106 as permitted sender) client-ip=198.2.181.106;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mcc.mcsv.net header.s=k1 header.b=S5aX9zr5;
+       dkim=pass header.i=@dev.to header.s=k1 header.b=ps1bY0lb;
+       spf=pass (google.com: domain of bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net designates 198.2.181.106 as permitted sender) smtp.mailfrom=bounce-mc.us12_51275053.975845-81bd0e68aa@mail106.suw17.mcsv.net;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dev.to
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mcc.mcsv.net; s=k1;
+	t=1609268060; bh=cvsr9gdSz9JyCXmYsO1DIjUjcASgZsAhDimwEl+ALgQ=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+	 List-Unsubscribe:Content-Type:MIME-Version;
+	b=S5aX9zr5wqYMj08v2v0M0oMqM/K0Qsz2YxxM+xUuXWJo72Ile/PLmyEQyQz4IlMdV
+	 K/83O3WyvOMk+YJub3QDGT4bBZlqavR8/Ekk31RquRofW/aOtWEikY4lNShk5u0sT6
+	 VYYQJUdR+Ru4mOuzyRuroIG0Vk6XUBZSES0IVMfxBNXoRYTcrdsFYquwH1mfZL0Gmk
+	 Rh6vAF2O0PeUths7P48NKnhH/sbYb83rDHzVov5A0EhlhuxBseEoAa6JpgwxTzJN71
+	 ELVcVT37kN1zZau6Z4SmDrdQRPVEjzLZI5KWcRMlF+XretN0iLhA0GTdPiaUT9/ZZS
+	 HGusDJjR11uJg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.to; s=k1;
+	t=1609268060; i=jess@dev.to;
+	bh=cvsr9gdSz9JyCXmYsO1DIjUjcASgZsAhDimwEl+ALgQ=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+	 Content-Type:MIME-Version;
+	b=ps1bY0lb+i59Znv1XD4BUa2+G+CxsuKP7RgFAhgYXb8I0yxzp14rmeThKTEQ+1sAA
+	 R2N1x15/IafYsRLG1QGGifTqA3phAnq9Rb31zQ0ARCawh6kAmu8Mh1VGUxUmVqgexp
+	 fvKGRVo6X9d1IXHXheLdJM8BFlzqbV9JeD8FDwm8=
+Received: from localhost (localhost [127.0.0.1])
+	by mail106.suw17.mcsv.net (Mailchimp) with ESMTP id 4D53Vh1pN4zK5wV9M
+	for <albert.nafria@gmail.com>; Tue, 29 Dec 2020 18:54:20 +0000 (GMT)
+Subject: =?utf-8?Q?=22You=20don=27t=20need=20classes=22=20+=206=20more=20Top=207=20articles=20from=20last=20week?=
+From: =?utf-8?Q?Jess=20=28from=20DEV=29?= <jess@dev.to>
+Reply-To: =?utf-8?Q?Jess=20=28from=20DEV=29?= <jess@dev.to>
+To: <albert.nafria@gmail.com>
+Date: Tue, 29 Dec 2020 18:54:03 +0000
+Message-ID: <85076d6fb7eea423ec9b0de34.81bd0e68aa.20201229185355.871992b2b5.24a6b03e@mail106.suw17.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID871992b2b581bd0e68aa**
+X-Campaign: mailchimp85076d6fb7eea423ec9b0de34.871992b2b5
+X-campaignid: mailchimp85076d6fb7eea423ec9b0de34.871992b2b5
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=85076d6fb7eea423ec9b0de34&id=871992b2b5&e=81bd0e68aa
+X-MC-User: 85076d6fb7eea423ec9b0de34
+Feedback-ID: 51275053:51275053.975845:us12:mc
+List-ID: 85076d6fb7eea423ec9b0de34mc list <85076d6fb7eea423ec9b0de34.95253.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://dev.us12.list-manage.com/unsubscribe?u=85076d6fb7eea423ec9b0de34&id=d8f11d5d1e&e=81bd0e68aa&c=871992b2b5>, <mailto:unsubscribe-mc.us12_85076d6fb7eea423ec9b0de34.871992b2b5-81bd0e68aa@mailin.mcsv.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_2130367286"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_2130367286
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+Podcasts=2C Discussions=2C Shout Outs=2C and more!
+
+Hey hey!
+
+Hope you're enjoying the last week of 2020. I'm spending these couple of d=
+ays working on all the 'important but not urgent' tasks that have fallen t=
+o the end of my to do list=2C and appreciating how quiet it is online.
+
+For those of you who enjoy working on projects during this time of year=2C=
+ don't forget to submit to the DigitalOcean App Platform Hackathon (https:=
+//dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D=
+83099e8e91&e=3D81bd0e68aa) on DEV! One of the categories is for pers=
+onal sites/portfolios so a potential win-win if you were thinking about re=
+vamping your site for the New Year. =F0=9F=8E=89
+
+=F0=9F=93=9A Top 7 Posts From Last Week =F0=9F=93=9A
+
+1. Developer Portfolios as Inspiration =E2=9C=A8 (https://dev.us12.list-ma=
+nage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Da49d652cee&e=3D81bd0e68aa) : here are some portfolios that you can take inspiration fr=
+om.
+
+2. Create Reusable Web Components in HTML (https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Dcc79c70323&e=3D81bd0e68aa) : how to create custom HTML elements with the Shadow DOM.
+
+3. toast.log=2C a browser extension to see JS errors right on your page (w=
+ithout opening the console) (https://dev.us12.list-manage.com/track/click?=
+u=3D85076d6fb7eea423ec9b0de34&id=3D47a937eb4d&e=3D81bd0e68aa) : a su=
+ccessful expansion of a proof of concept.
+
+4. Be brave and build in public (https://dev.us12.list-manage.com/track/cl=
+ick?u=3D85076d6fb7eea423ec9b0de34&id=3D36b4ec0669&e=3D81bd0e68aa) :=
+ how small=2C constant=2C incremental improvements can be more valuable th=
+an big changes.
+
+5. =F0=9F=A6=80 Rust Reviewed: Is the hype justified? =F0=9F=A6=80 (https:=
+//dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D=
+1957dd3445&e=3D81bd0e68aa) : a reflection on golden moments and pain=
+ points with Rust in the past year.
+
+6. You don't need classes (https://dev.us12.list-manage.com/track/click?u=
+=3D85076d6fb7eea423ec9b0de34&id=3D48f8e11af3&e=3D81bd0e68aa) : how c=
+lasses work and why you don't need them.
+
+7. How I removed google analytics and still have good data to analyze (htt=
+ps://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=
+=3Dbec7baf1e3&e=3D81bd0e68aa) : two approaches to collecting analyti=
+cs information from the client.
+
+=F0=9F=8E=99Listen =F0=9F=8E=99
+* DevDiscuss: What makes a good designer? (https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D109a5a3ec2&e=3D81bd0e68aa)
+* CodeNewbie: How to build tech for social justice (https://dev.us12.list-=
+manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D7f0ebadbdc&e=3D81bd0e68aa)
+
+Want to get some FREE laptop stickers full of DEV flair? We'll send you a=
+ pack if you reviewDevDiscuss (https://dev.us12.list-manage.com/track/clic=
+k?u=3D85076d6fb7eea423ec9b0de34&id=3Da0b43883ef&e=3D81bd0e68aa) (DEV=
+'s first original podcast) orDevNews (https://dev.us12.list-manage.com/tra=
+ck/click?u=3D85076d6fb7eea423ec9b0de34&id=3D45f77e7f8c&e=3D81bd0e68aa) (our latest original series)! Detailshere (https://dev.us12.list-manage=
+=2Ecom/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D88f1b9eab4&e=3D81bd0e68aa) .
+
+=F0=9F=8E=89Congrats to...=F0=9F=8E=89
+* Maeling (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea4=
+23ec9b0de34&id=3Db67de31a6f&e=3D81bd0e68aa) for completing her first=
+ code challenge!
+* Ryan (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423e=
+c9b0de34&id=3D08597df8e2&e=3D81bd0e68aa) for giving a talk about ser=
+verless!
+* Adam (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423e=
+c9b0de34&id=3Dac85580471&e=3D81bd0e68aa) for publishing their first=
+ article!
+
+=F0=9F=97=A3 Discuss =F0=9F=97=A3
+* What Tech Stacks are Folks Using for New Projects? (https://dev.us12.lis=
+t-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D41cabc4998&e=
+=3D81bd0e68aa)
+* Besides VC=2C what else do you use GitHub for? (https://dev.us12.list-ma=
+nage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D1d920099a6&e=3D81bd0e68aa)
+* What are the things to consider while buying a computer chair? (https://=
+dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Dc2=
+8d4e8d42&e=3D81bd0e68aa)
+
+=F0=9F=93=9D Listings =F0=9F=93=9D
+* Senior/Principal Site Reliability Engineer (https://dev.us12.list-manage=
+=2Ecom/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Ddd8f7a94f4&e=3D81bd0e68aa)
+* Community Associate at Forem (https://dev.us12.list-manage.com/track/cli=
+ck?u=3D85076d6fb7eea423ec9b0de34&id=3Dbddb30f014&e=3D81bd0e68aa)
+* Cyber Security Competition "Cyberthon 2021" (https://dev.us12.list-manag=
+e.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D2df87f7f59&e=3D81bd0e68aa)
+
+Happy Coding!
+
+Jess
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+** Twitter (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea=
+423ec9b0de34&id=3D1ec6ca2353&e=3D81bd0e68aa)
+** Instagram (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7e=
+ea423ec9b0de34&id=3De5ac2d2934&e=3D81bd0e68aa)
+** Facebook (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7ee=
+a423ec9b0de34&id=3D4a96b32aa6&e=3D81bd0e68aa)
+** LinkedIn (https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7ee=
+a423ec9b0de34&id=3D2d565b6e97&e=3D81bd0e68aa)
+You can ** update your preferences (https://dev.us12.list-manage.com/track=
+/click?u=3D85076d6fb7eea423ec9b0de34&id=3D816279fc3d&e=3D81bd0e68aa)
+or ** unsubscribe from this list (https://dev.us12.list-manage.com/unsubsc=
+ribe?u=3D85076d6fb7eea423ec9b0de34&id=3Dd8f11d5d1e&e=3D81bd0e68aa&c=3D871992=
+b2b5)
+=2E
+--_----------=_MCPart_2130367286
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: 1 COLUMN -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1">
+        <title>"You don't need classes" + 6 more Top 7 articles from last=
+ week</title>
+
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cblockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel]=2Ca[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cbody=2Ctable=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass td=2C.ExternalCla=
+ss div=2C.ExternalClass span=2C.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:10px;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#FAFAFA;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09.templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:22px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:20px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#fafafa;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0px;
+=09=09=09padding-bottom:0px;
+=09=09}
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09color:#656565;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader .mcnTextContent a=2C#templatePreheader .mcnTextCo=
+ntent p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:top;
+=09=09=09background-size:auto;
+=09=09=09border-top:0;
+=09=09=09border-bottom:1px none ;
+=09=09=09padding-top:30px;
+=09=09=09padding-bottom:30px;
+=09=09}
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09color:#202020;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateHeader .mcnTextContent a=2C#templateHeader .mcnTextContent=
+ p a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:2px solid #EAEAEA;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateBody .mcnTextContent a=2C#templateBody .mcnTextContent p a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#000000;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09color:#656565;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:center;
+=09=09}
+=09=09#templateFooter .mcnTextContent a=2C#templateFooter .mcnTextContent=
+ p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer=2C.mcnCaptionTopContent=2C.mcnRecContentContainer=
+=2C.mcnCaptionBottomContent=2C.mcnTextContentContainer=2C.mcnBoxedTextCont=
+entContainer=2C.mcnImageGroupContentContainer=2C.mcnCaptionLeftTextContent=
+Container=2C.mcnCaptionRightTextContentContainer=2C.mcnCaptionLeftImageCon=
+tentContainer=2C.mcnCaptionRightImageContentContainer=2C.mcnImageCardLeftT=
+extContentContainer=2C.mcnImageCardRightTextContentContainer=2C.mcnImageCa=
+rdLeftImageContentContainer=2C.mcnImageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent=2C.mcnCaptionRightConten=
+tOuter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent=2C.mcnCaptionBottomContent:last-child .=
+mcnCaptionBottomImageContent=2C.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent=2C.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent=2C.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:22px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer .mcnTextContent=2C.mcnBoxedTextContent=
+Container .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}</style></head>
+    <body style=3D"height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FAFAFA=
+;">
+        <!--
+-->
+        <!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=
+=3D"display:none; font-size:0px; line-height:0px; max-height:0px; max-widt=
+h:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">Podca=
+sts=2C Discussions=2C Shout Outs=2C and more!</span><!--<![endif]-->
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;pad=
+ding: 0;width: 100%;background-color: #FAFAFA;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;bord=
+er-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"600"=
+ style=3D"width:600px;">
+                        <![endif]-->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"templateContainer" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !importa=
+nt;">
+                            <tr>
+                                <td valign=3D"top" id=3D"templatePreheader=
+" style=3D"background:#fafafa none no-repeat center/cover;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;ba=
+ckground-color: #fafafa;background-image: none;background-repeat: no-repea=
+t;background-position: center;background-size: cover;border-top: 0;border-=
+bottom: 0;padding-top: 0px;padding-bottom: 0px;"></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateHeader" s=
+tyle=3D"background:#ffffff none no-repeat top/auto;mso-line-height-rule: e=
+xactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backgroun=
+d-color: #ffffff;background-image: none;background-repeat: no-repeat;backg=
+round-position: top;background-size: auto;border-top: 0;border-bottom: 1px=
+ none;padding-top: 30px;padding-bottom: 30px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnImageBlock" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom=
+: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+
+
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://mcusercontent.com/85076d6fb7eea423ec9b0de34/images/dd220aa9-be=
+9f-4e8d-81a9-66b5603fb253.png" width=3D"124.1" style=3D"max-width: 170px;p=
+adding-bottom: 0;display: inline !important;vertical-align: bottom;border:=
+ 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode=
+: bicubic;" class=3D"mcnImage">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateBody" sty=
+le=3D"background:#FFFFFF none no-repeat center/cover;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backgro=
+und-color: #FFFFFF;background-image: none;background-repeat: no-repeat;bac=
+kground-position: center;background-size: cover;border-top: 0;border-botto=
+m: 2px solid #EAEAEA;padding-top: 0;padding-bottom: 9px;"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlo=
+ck" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0=
+pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helve=
+tica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            Hey hey!<br>
+&nbsp;<br>
+Hope you're enjoying the last week of 2020. I'm spending these couple of d=
+ays working on all the 'important but not urgent' tasks that have fallen t=
+o the end of my to do list=2C and appreciating how quiet it is online.&nbs=
+p;<br>
+<br>
+For those of you who enjoy working on projects during this time of year=2C=
+ don't forget to submit to the&nbsp;<a href=3D"https://dev.us12.list-manag=
+e.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Dc263fef427&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight=
+: normal;text-decoration: underline;">DigitalOcean App Platform Hackathon<=
+/a> on DEV! One of the categories is for personal sites/portfolios so a po=
+tential win-win if you were thinking about revamping your site for the New=
+ Year. =F0=9F=8E=89<br>
+<br>
+<strong>=F0=9F=93=9A Top 7 Posts From Last Week =F0=9F=93=9A</strong><br>
+<br>
+1.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D31c4aa207f&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">Developer Portfolios as Inspiration =E2=9C=A8</a>:&nbsp;here are=
+ some portfolios that you can take inspiration from.<br>
+<br>
+2.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D0c41fdc008&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">Create Reusable Web Components in HTML</a>: how to create custom=
+ HTML elements with the Shadow DOM.<br>
+<br>
+3.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D9ceb4b97f6&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">toast.log=2C a browser extension to see JS errors right on your=
+ page (without opening the console)</a>: a successful expansion of a proof=
+ of concept.<br>
+<br>
+4.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D8ce0204e50&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">Be brave and build in public</a>: how small=2C constant=2C incre=
+mental improvements can be more valuable than big changes.&nbsp;<br>
+<br>
+5.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D2e07e4ffe8&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">=F0=9F=A6=80 Rust Reviewed: Is the hype justified? =F0=9F=A6=80<=
+/a>: a reflection on golden moments and pain points with Rust in the past=
+ year.<br>
+<br>
+6.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D22b7d0aa06&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">You don't need classes</a>: how classes work and why you don't n=
+eed them.<br>
+<br>
+7.&nbsp;<a href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d=
+6fb7eea423ec9b0de34&id=3Dc694e0afb6&e=3D81bd0e68aa" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: un=
+derline;">How I removed google analytics and still have good data to analy=
+ze</a>: two approaches to collecting analytics information from the client=
+=2E<br>
+<br>
+=F0=9F=8E=99<strong>Listen&nbsp;</strong>=F0=9F=8E=99
+
+<ul dir=3D"ltr">
+=09<li role=3D"presentation" style=3D"mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong id=3D"docs-i=
+nternal-guid-4908dfb2-7fff-5c5a-b23c-e71516a299fe">DevDiscuss: </strong><a=
+ href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423=
+ec9b0de34&id=3De68f99aead&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">=
+What makes a good designer?</a></li>
+=09<li role=3D"presentation" style=3D"mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong id=3D"docs-i=
+nternal-guid-4908dfb2-7fff-5c5a-b23c-e71516a299fe">CodeNewbie: </strong><a=
+ href=3D"https://dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423=
+ec9b0de34&id=3Dd82a3371ff&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">=
+How to build tech for social justice</a></li>
+</ul>
+<em>Want to get some FREE laptop stickers full of DEV flair? We'll send yo=
+u a pack if you review<a href=3D"https://dev.us12.list-manage.com/track/cl=
+ick?u=3D85076d6fb7eea423ec9b0de34&id=3Dd809147ac6&e=3D81bd0e68aa" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: unde=
+rline;"> DevDiscuss</a> (DEV's first original podcast) or<a href=3D"https:=
+//dev.us12.list-manage.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D=
+fa6961c60f&e=3D81bd0e68aa" style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-wei=
+ght: normal;text-decoration: underline;"> DevNews</a> (our latest original=
+ series)! Details<a href=3D"https://dev.us12.list-manage.com/track/click?u=
+=3D85076d6fb7eea423ec9b0de34&id=3D5fc17500cf&e=3D81bd0e68aa" style=3D"mso=
+-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;color: #007C89;font-weight: normal;text-decoration: underline;"=
+> here</a>.</em><br>
+<br>
+=F0=9F=8E=89<strong>Congrats to...</strong>=F0=9F=8E=89
+
+<ul>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D4689b85e67&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Maeling</a> for completing her first cod=
+e challenge!</li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Dd1f57f9d3a&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Ryan</a> for giving a talk about serverl=
+ess!</li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D8c84958649&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Adam</a> for publishing their first arti=
+cle!</li>
+</ul>
+=F0=9F=97=A3&nbsp;<strong>Discuss</strong>&nbsp;=F0=9F=97=A3
+
+<ul>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D998d65837e&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">What Tech Stacks are Folks Using for New=
+ Projects?</a></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D54796b76ab&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Besides VC=2C what else do you use GitHu=
+b for?</a></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Df7626cb180&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">What are the things to consider while bu=
+ying a computer chair?</a></li>
+</ul>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #20=
+2020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align:=
+ left;"><strong id=3D"docs-internal-guid-9a396d1d-7fff-2277-d501-28ae89302=
+f96">=F0=9F=93=9D Listings =F0=9F=93=9D</strong></p>
+
+<ul dir=3D"ltr">
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D3856f07615&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Senior/Principal Site Reliability Engine=
+er</a></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3D647108cf7c&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Community Associate at Forem</a></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><a href=3D"https://dev.us12.list-manage.co=
+m/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Df44b541b64&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: no=
+rmal;text-decoration: underline;">Cyber Security Competition "Cyberthon 20=
+21"</a></li>
+</ul>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helve=
+tica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            Happy Coding!<br>
+<br>
+Jess
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateFooter" s=
+tyle=3D"background:#000000 none no-repeat center/cover;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backg=
+round-color: #000000;background-image: none;background-repeat: no-repeat;b=
+ackground-position: center;background-size: cover;border-top: 0;border-bot=
+tom: 0;padding-top: 9px;padding-bottom: 9px;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowBlock" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+">
+    <tbody class=3D"mcnFollowBlockOuter">
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"padding: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" class=3D"mcnFollowBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" class=3D"mcnFollowContentContainer" style=3D"min-width: 100%;=
+border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"center" style=3D"padding-left: 9px;padding-right: 9px=
+;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lsp=
+ace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;" class=3D"mcnFollowContent">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top" style=3D"padding-t=
+op: 9px;padding-right: 9px;padding-left: 9px;mso-line-height-rule: exactly=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspa=
+ce: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;">
+                            <tbody><tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://dev.us12.list-manage.com/track/click?u=3D850=
+76d6fb7eea423ec9b0de34&id=3D3387af04fb&e=3D81bd0e68aa" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ico=
+ns/social-block-v2/light-twitter-48.png" alt=3D"Twitter" style=3D"display:=
+ block;border: 0;height: auto;outline: none;text-decoration: none;-ms-inte=
+rpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://dev.us12.list-manage.com/track/click?u=3D850=
+76d6fb7eea423ec9b0de34&id=3Db70e1a9653&e=3D81bd0e68aa" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ico=
+ns/social-block-v2/light-instagram-48.png" alt=3D"Instagram" style=3D"disp=
+lay: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-=
+interpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://dev.us12.list-manage.com/track/click?u=3D850=
+76d6fb7eea423ec9b0de34&id=3Df5439eb4fb&e=3D81bd0e68aa" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ico=
+ns/social-block-v2/light-facebook-48.png" alt=3D"Facebook" style=3D"displa=
+y: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-in=
+terpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFol=
+lowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://dev.us12.list-manage.com/track/click?u=3D850=
+76d6fb7eea423ec9b0de34&id=3D46668d1b4c&e=3D81bd0e68aa" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ico=
+ns/social-block-v2/light-linkedin-48.png" alt=3D"LinkedIn" style=3D"displa=
+y: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-in=
+terpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #656565;font-family: Helve=
+tica;font-size: 12px;line-height: 150%;text-align: center;">
+
+                            You can <a href=3D"https://dev.us12.list-manag=
+e.com/track/click?u=3D85076d6fb7eea423ec9b0de34&id=3Dbc0f1a9b53&e=3D81bd0e68aa" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565;font-weight=
+: normal;text-decoration: underline;">update your preferences</a> or <a hr=
+ef=3D"https://dev.us12.list-manage.com/unsubscribe?u=3D85076d6fb7eea423ec9=
+b0de34&id=3Dd8f11d5d1e&e=3D81bd0e68aa&c=3D871992b2b5" style=3D"mso-line-heig=
+ht-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;color: #656565;font-weight: normal;text-decoration: underline;">unsubscri=
+be from this list</a>.&nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://dev.us12.list-manage.com/track/open.php?u=3D85076d=
+6fb7eea423ec9b0de34&id=3D871992b2b5&e=3D81bd0e68aa" height=3D"1" width=3D=
+"1"></body>
+</html>
+--_----------=_MCPart_2130367286--

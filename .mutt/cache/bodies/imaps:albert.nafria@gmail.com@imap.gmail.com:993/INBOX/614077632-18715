@@ -1,0 +1,85 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 10.46.93.71 with SMTP id r68csp521331ljb;
+        Fri, 26 Jan 2018 09:56:10 -0800 (PST)
+X-Google-Smtp-Source: AH8x226L1uN4DV45DbR8oDLl7ZFOhpqJ2glPjQd/aqBIvQI/Emy1pWgA37TPbAg8aGiFBhjEWAJZ
+X-Received: by 10.36.123.9 with SMTP id q9mr16249024itc.21.1516989370488;
+        Fri, 26 Jan 2018 09:56:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1516989370; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TrAUcKpEb+wO9GVqZgQN07pp4B4l5opKtLo0ssfS7ImEXIRJYoJgHIWHz0dfGyt4YI
+         Euu97FaMDOZJ/+ODFNKJah9/m5kXArpM0pmoghcpmTUYQcQj7dZyCb9R/MXRxkye1xY3
+         7t5mvnFb33fdVkNc2YLAFRCeBYdLJpIHXuVpHgz1xipBtnDVpqiOW+u6ibwHb4DXLPOi
+         dVzJfgpycwXAu7VgkWtsiVSj8Td5IDdvogwBHD3e1fmCKWPSgY7uLonkpUFMvw01rmq3
+         3XyoYKjfmpUkWv/hCMWhUp4gdt6OtVTSW6LpUw4BaV4naJFxX5FYFq9u15rWeu62YIqI
+         DyBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:message-id:subject:reply-to:from:to:date
+         :dkim-signature:arc-authentication-results;
+        bh=Jz9xFXeQbthA3hMwxfr7vcfGzi5eBtVnRYPkXeGevV0=;
+        b=RXKMjPH4C1Gm+CY4TQghhFCjA3x3zEg2n2v1K3TyjwUOFmGW0yqQ9uPCyCZ+rRyLpY
+         oZ8JoDBEDeRo3RR9ZF6YFkOCeZ2xjcskt+oYvxFqyns1fASz1GQxsBRg4tthBoDwfQOU
+         knUkk394vzpOhfRaociSwrgToZyUEdfNVsIpgHzZuj4Nc/+Qu+Id7zOgbzk3iMWQeNld
+         VHrotASMTJPOstbhkWLVAdhm1CxKmmlEYQMwGlZpMBKfuehIk/MTgQB7NyT6cb/Mrf10
+         o0YQdmXHFwJBMycHzzBYvD9QQ6/78NyInd17jm8+ja7OmMUJNc0CQuwG9eF+GU1CIHNF
+         cQHA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=TCfXHIhk;
+       spf=pass (google.com: domain of 01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com designates 54.240.8.21 as permitted sender) smtp.mailfrom=01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com
+Return-Path: <01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com>
+Received: from a8-21.smtp-out.amazonses.com (a8-21.smtp-out.amazonses.com. [54.240.8.21])
+        by mx.google.com with ESMTPS id i69si1169350ioi.102.2018.01.26.09.56.10
+        for <albert.nafria@gmail.com>
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Fri, 26 Jan 2018 09:56:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com designates 54.240.8.21 as permitted sender) client-ip=54.240.8.21;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=TCfXHIhk;
+       spf=pass (google.com: domain of 01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com designates 54.240.8.21 as permitted sender) smtp.mailfrom=01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1516989369;
+	h=Date:To:From:Reply-To:Subject:Message-ID:MIME-Version:Content-Type:Feedback-ID;
+	bh=2Plx3DNtHnn/a2wj0CaJ2MXs+hxPuuF6eNK82uN2COU=;
+	b=TCfXHIhkxibhaqLTggexIe3Xl8TnD57RpT+4a7WoMvmWMcFvotuMEzUWY7Wd7z4v
+	V53IXNIidl+LTb93Huq/dmS5T5PqaF/P7ySDLQR/4dkJ0Teim6pxy54Ex+IlaMPPMud
+	hq05pBeA1Xd8Y+TD2K+LBgj0ZBcEoNPFm7CHROAc=
+Date: Fri, 26 Jan 2018 17:56:09 +0000
+To: "albert.nafria@gmail.com" <albert.nafria@gmail.com>
+From: Cursopedia <info@cursopedia.com>
+Reply-To: Cursopedia <info@cursopedia.com>
+Subject: =?utf-8?Q?Matr=C3=ADcula_en:_Curso_de_dibujo_a_l=C3=A1piz?=
+Message-ID: <01000161339ccade-bb3b09a8-1340-49ca-8c44-af878eb21585-000000@email.amazonses.com>
+X-Priority: 3
+X-Mailer: PHPMailer 5.2.1 (http://code.google.com/a/apache-extras.org/p/phpmailer/)
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="b1_4fe51017e9301cbec32f05e90cb105b7"
+X-SES-Outgoing: 2018.01.26-54.240.8.21
+Feedback-ID: 1.us-east-1.6YDUsKmhnPom0btkhit8OTwLgtJg7nBlNbemCKn4os8=:AmazonSES
+
+
+--b1_4fe51017e9301cbec32f05e90cb105b7
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Hola albert.nafria,Gracias por matricularte en Curso de dibujo a lápiz.A partir de ahora ya puedes ver los vídeos del curso seleccionado.Cursopedia.com¿Qué quieres aprender hoy?
+		
+		Síguenos en redes sociales:
+		facebook.com/cursopedia
+		twitter.com/cursopedia
+
+
+--b1_4fe51017e9301cbec32f05e90cb105b7
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<html><p><img src="http://www.cursopedia.com/css/images/logoMail.png" alt="Cursopedia.com" width="250px"/></p><p><span style="font-family:'Calibri','sans-serif'; ">Hola albert.nafria,</span></p><p><span style="font-family:'Calibri','sans-serif'; ">Gracias por matricularte en <b><a href="http://www.cursopedia.com/Panel-Curso-de-dibujo-a-lápiz">Curso de dibujo a lápiz</a></b>.</span></p><p><span style="font-family:'Calibri','sans-serif'; ">A partir de ahora ya puedes ver los vídeos del curso seleccionado.</span></p><p><strong><span style="font-family:'Myriad Pro','sans-serif'; font-size:11.0pt; color:#9ABB59; ">Cursopedia.com<br /><i>¿Qué quieres aprender hoy?</i></span></strong></p>
+		<p></p>
+		<p><span style="font-family:'Myriad Pro','sans-serif'; font-size:11.0pt; ">Síguenos en redes sociales:</span>
+		<br /><span style="font-family:'Myriad Pro','sans-serif'; font-size:11.0pt; color:#244061; "><a href="https://www.facebook.com/cursopedia" style="text-decoration:none">facebook.com/cursopedia</a></span>
+		<br /><span style="font-family:'Myriad Pro','sans-serif'; font-size:11.0pt; color:#244061; "><a href="https://twitter.com/cursopedia" style="text-decoration:none">twitter.com/cursopedia</a></span></p></body></html>
+
+
+
+--b1_4fe51017e9301cbec32f05e90cb105b7--
+
+

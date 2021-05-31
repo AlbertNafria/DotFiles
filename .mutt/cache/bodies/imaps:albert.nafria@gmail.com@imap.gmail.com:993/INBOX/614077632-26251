@@ -1,0 +1,161 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:7105:0:0:0:0 with SMTP id x5csp769873ejj;
+        Mon, 18 Jan 2021 03:32:47 -0800 (PST)
+X-Received: by 2002:a54:4711:: with SMTP id k17mr12305929oik.149.1610969567411;
+        Mon, 18 Jan 2021 03:32:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610969567; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dSVQf4qMqqZgOkT5wOr/HT8JEG6hZyMihR6TQWJhOy/6grMxc7Gf5Pdoiusv53z3kY
+         uaJy+lAwRJLwAvN1kBSqoCL9XvkGK7gIVUvIvNkr3/6+6WYzlVMA4C957Fwf1OcBY/aP
+         oHc+Jf4bcsHJiwEt+VPA2XkzyYV7en3zsQ6cADOZz0x6mBcOPqIUHGGj4jrbJ0gKJVGy
+         GLiCuSN5FU7Z/IYSUwLqImw1cWwgQywFpNgj/N1Q/+hgZx1Kwn0OfAMmXSv7y+o1aomz
+         vhOj7a3+oRDaLN+Gnif01zUiLMWMEPWqCcJxHgkCW0xgHo1tucSzqenTdXnpCDA7Nfrr
+         zRfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Iv+SvIqk8Gg3/fKkyZhmhePFn+qzEX22h3QbNAyQY34=;
+        b=xsEsV4cwWxYeuTjLBtt5MEf4msHZk/hsudI5TLsWLklqrWKqidzhTjSAgD/FxgsGWw
+         4W6biu8vw+fmA6zolSVzZvHAYKfRmOBiqx7aUOaGRY1iqolUNt4qHI6IZo8m3qAQKq7X
+         P0/OBRq40btgO8BnoaUlvNKEJoVO93+fXZdIBmtH3hHPtAvEWhVGWA1TqM3V7/YsC9Tj
+         1loNAeVVl1c9c/kaCM13BPaiRIFA0O8P9Are277k5KP84ddh+PMiv4SlzbRB8BvLMwDZ
+         DWNbgy4+a3J9NKyGxjVYLg68u5KHSZUQir585XkNqjYl/YmrII8aL9/lpyy8/LJymm9C
+         Mh+A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nWpXH3Vz;
+       spf=pass (google.com: domain of cnafriamitjans@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cnafriamitjans@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <cnafriamitjans@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id u7sor7441567ook.4.2021.01.18.03.32.46
+        (Google Transport Security);
+        Mon, 18 Jan 2021 03:32:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of cnafriamitjans@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nWpXH3Vz;
+       spf=pass (google.com: domain of cnafriamitjans@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cnafriamitjans@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=Iv+SvIqk8Gg3/fKkyZhmhePFn+qzEX22h3QbNAyQY34=;
+        b=nWpXH3VzNjKvc4HsLQkCiEt7W3jdLTUQ29m9uZU6HiwgJderk24dZ3hgRG6wOP9E9D
+         5msZD05r9JySvVTnA9STlIKKYQAlS7QzFtxkGvfq3qoFVnpKg5zdP8dEQ/0DbZCsXS69
+         K997AhsIi6n39rzsBFSa9xtaoYvvLGGoyQDCXjAC8o+X1jQD7kD9lBvOaiZ1zqJyCSl9
+         bI0JXjScUysMjPOwuHBwfDE5PYdHqXJdzSSs1PvKOYZsGFamUiTP79nf4OB4hxlGVzqQ
+         liJTToMI17g+1x97J2Qcj1ZqjWVqp585l0YIyjILboN6uHXHyuDWkYng/KdOkg8YTISF
+         TnCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=Iv+SvIqk8Gg3/fKkyZhmhePFn+qzEX22h3QbNAyQY34=;
+        b=Mbpe7cLQqGJQnsx9F2LRoDOO1ggoYKhsv5WR9QeFVkO7lMH8FM+uXJrsMQtuKVPjjI
+         XQoEJ0Mk7BFQGfkg3gbQfS/Uce0571OTNB/K6QQZg3ZK6mjT1JKl+i4Fwy+qH+pP5wUk
+         iu5JL20TKNBDJNRtIeeqU5HxWu6wfMTucIu7+rmoQua7eA9QMnGhHuuRS1g9JMbRBwRG
+         TZ//l9DNPPKNRx6XcHraf7F+wwB7ho9MAl0kQnOTUCjfvZ9y7H4fcf1XgrEFGb76JhKq
+         b/Rekti6XizR5SyAoZGrIUOAAhQ2OK05RPiuAzFF1Hg89IsdQ0gvjwwvRBpxoyLypN6R
+         IeMQ==
+X-Gm-Message-State: AOAM531VogIcLMjGE3X5napOO1kMkyM/zAKv5z28xgQMPfIVYmz/b59S
+	i2wBlZlKuEZEDyV0WYAi6z6uQClzmK6T+KxpvUiFZFHt
+X-Google-Smtp-Source: ABdhPJzXse9oPGVhBxsvMbc2Xjx8bAKTpTUUJZ+e8SFlAuV6SpiTPzeFu+WpYwwsWV0PF58osQD2kBvqs73J9WglmNk=
+X-Received: by 2002:a4a:646:: with SMTP id 67mr16698602ooj.33.1610969566421;
+ Mon, 18 Jan 2021 03:32:46 -0800 (PST)
+MIME-Version: 1.0
+References: <PR3P190MB092437F1945B9181110EA8B3D8A40@PR3P190MB0924.EURP190.PROD.OUTLOOK.COM>
+ <PA4P190MB1119269D26AAF7FCF72D1D1FB3A40@PA4P190MB1119.EURP190.PROD.OUTLOOK.COM>
+In-Reply-To: <PA4P190MB1119269D26AAF7FCF72D1D1FB3A40@PA4P190MB1119.EURP190.PROD.OUTLOOK.COM>
+From: =?UTF-8?Q?Carlos_Nafr=C3=ADa_Mitjans?= <cnafriamitjans@gmail.com>
+Date: Mon, 18 Jan 2021 12:33:38 +0100
+Message-ID: <CA+qRqRL7vq9VugYaoT9YW=KpNi_gApH57kWuG2sg=66P70epeA@mail.gmail.com>
+Subject: Fwd: Ataque de malware - adjunto comunicado del Instituto Nacional de
+ Ciberseguridad (INCIBE)
+To: Montserrat Febrer Ramo <montse.febrer.ramo@gmail.com>, albert.nafria@gmail.com, 
+	=?UTF-8?Q?Marta_Nafr=C3=ADa_Febrer?= <marta.nafria@gmail.com>, 
+	=?UTF-8?Q?Gemma_Nafr=C3=ADa?= <g.nafria.febrer@gmail.com>, 
+	=?UTF-8?Q?Olga_Nafr=C3=ADa_Febrer?= <olga.nafria@gmail.com>, 
+	=?UTF-8?B?SsO6bGlhIE5hZnLDrWE=?= <julia.nafria@gmail.com>, 
+	mireianafria@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000c026b105b92b14f6"
+
+--000000000000c026b105b92b14f6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+De: Nafria, Carlos <cnafria@muggioh.com>
+Date: lun, 18 ene 2021 a las 12:25
+Subject: RV: Ataque de malware - adjunto comunicado del Instituto Nacional
+de Ciberseguridad (INCIBE)
+To: Carlos Nafria (cnafriamitjans@gmail.com) <cnafriamitjans@gmail.com>
+
+
+
+
+
+
+*De:* Stampa, Jose Luis
+*Enviado el:* lunes, 18 de enero de 2021 12:20
+*Para:* M=C2=AA Rosa D=C3=ADaz (europtraalsl@gmail.com); Nafria, Carlos
+*Asunto:* Ataque de malware - adjunto comunicado del Instituto Nacional de
+Ciberseguridad (INCIBE)
+
+
+
+Detectadas campa=C3=B1as de distribuci=C3=B3n de malware mediante un .zip c=
+on
+contrase=C3=B1a | INCIBE
+<https://www.incibe.es/content/detectadas-campanas-distribucion-malware-med=
+iante-zip-contrasena>
+
+--000000000000c026b105b92b14f6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>De: <strong class=
+=3D"gmail_sendername" dir=3D"auto">Nafria, Carlos</strong> <span dir=3D"aut=
+o">&lt;<a href=3D"mailto:cnafria@muggioh.com" target=3D"_blank">cnafria@mug=
+gioh.com</a>&gt;</span><br>Date: lun, 18 ene 2021 a las 12:25<br>Subject: R=
+V: Ataque de malware - adjunto comunicado del Instituto Nacional de Ciberse=
+guridad (INCIBE)<br>To: Carlos Nafria (<a href=3D"mailto:cnafriamitjans@gma=
+il.com" target=3D"_blank">cnafriamitjans@gmail.com</a>) &lt;<a href=3D"mail=
+to:cnafriamitjans@gmail.com" target=3D"_blank">cnafriamitjans@gmail.com</a>=
+&gt;<br></div><br><br>
+
+
+
+
+
+<div lang=3D"ES" link=3D"#0563C1" vlink=3D"#954F72">
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:#1f497d"><u></u>=C2=A0<u></u></=
+span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div style=3D"border:none;border-top:solid #b5c4df 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:&quot=
+;Tahoma&quot;,&quot;sans-serif&quot;">De:</span></b><span style=3D"font-siz=
+e:10.0pt;font-family:&quot;Tahoma&quot;,&quot;sans-serif&quot;"> Stampa, Jo=
+se Luis
+<br>
+<b>Enviado el:</b> lunes, 18 de enero de 2021 12:20<br>
+<b>Para:</b> M=C2=AA Rosa D=C3=ADaz (<a href=3D"mailto:europtraalsl@gmail.c=
+om" target=3D"_blank">europtraalsl@gmail.com</a>); Nafria, Carlos<br>
+<b>Asunto:</b> Ataque de malware - adjunto comunicado del Instituto Naciona=
+l de Ciberseguridad (INCIBE)<u></u><u></u></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><a href=3D"https://www.incibe.es/content/detectadas-=
+campanas-distribucion-malware-mediante-zip-contrasena" target=3D"_blank"><s=
+pan style=3D"color:blue">Detectadas campa=C3=B1as de distribuci=C3=B3n de m=
+alware mediante un .zip con contrase=C3=B1a | INCIBE</span></a><u></u><u></=
+u></p>
+</div>
+</div>
+
+</div></div>
+
+--000000000000c026b105b92b14f6--

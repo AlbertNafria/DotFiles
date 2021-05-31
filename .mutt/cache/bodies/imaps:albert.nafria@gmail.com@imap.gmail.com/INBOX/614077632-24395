@@ -1,0 +1,1242 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:2056:0:0:0:0 with SMTP id pg22csp600064ejb;
+        Fri, 19 Jun 2020 09:52:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzC/dgbeyJD3WlqpZO0herrvJlqNrPmoWXWg9llYm3Dn6oAuB2+MgPuLup/GubXVhb/t2yx
+X-Received: by 2002:a05:6402:148d:: with SMTP id e13mr4343633edv.200.1592585572806;
+        Fri, 19 Jun 2020 09:52:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592585572; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FVpf14UQRb4zZEuH69MK9r1ktPLqEsEAyFJOm+7ErKMeu52c7GDJYMC/zw3lP8mJXP
+         AxHThnFIRXGCdnkwvDi1kcANcMtF+pPRAqUaX9JOmmRdM4/NDtHbDFDkg2P3FJIZxxJI
+         xBk8YQ2GjurEp7JIQEZYtCzEaaOogH2NJ0IZL7TO7UId//iSj9Dh6CAoYyyMF0nMvKDc
+         SkMXl7mgLXk7Wb5OpuBS7XewbjAusLuUHOjQTCPfz+yOOvsJd0DyltrTCYRxPPvXNUSV
+         9DRDmtNbgL5OYtUvW14CY3FTbNrFBqmPMCLMOfwlex98VRSr/mLBqApOhgJA/hvCFa+3
+         5ZXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:subject:message-id:to:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=ksO5Te+0JImBkZ/aqVnkr8s7EsLRMFAE2VNZwFjoD1I=;
+        b=Sk8C1fSqjnL7DIFCsPo5hNFc7dAdIuuEawbWHlqHmh3sBZS5topZZuXPjzau6rOJ8q
+         DiS55gfeFZz9dDueVrldYN+dWJ7BFxLZQqGRsVjO+zvAYk2S6OcZGWt0XRMHvKw8Ruhu
+         k3/ZEttKJqqpiszD7XO2hWPmRu1VyEWczdNQNLPiWvIu1ISbgeQpTX401vuNGE5RPenD
+         DhTwF3JSun3J4LE8cmQfovOfjTwEr55+P6I6AKIGu8KWyyu5vDwNhmFSSslQ3yp+6JLO
+         V8u+kj6mNEv2wST5vID1uv6L+iNdXQjctOTsHNzcFdgSL4k7CeKl288tHS1vN8p0KDmg
+         vw9w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@peterc.org header.s=s1 header.b=qamf6Hjr;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yLeGGtVt;
+       spf=pass (google.com: domain of bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org designates 149.72.211.250 as permitted sender) smtp.mailfrom="bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=peterc.org
+Return-Path: <bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org>
+Received: from o4.ptr3902.cooperpress.com (o4.ptr3902.cooperpress.com. [149.72.211.250])
+        by mx.google.com with ESMTPS id f3si4239481edw.282.2020.06.19.09.52.51
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 19 Jun 2020 09:52:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org designates 149.72.211.250 as permitted sender) client-ip=149.72.211.250;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@peterc.org header.s=s1 header.b=qamf6Hjr;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yLeGGtVt;
+       spf=pass (google.com: domain of bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org designates 149.72.211.250 as permitted sender) smtp.mailfrom="bounces+3465002-3fbf-albert.nafria=gmail.com@sg.peterc.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=peterc.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peterc.org; 
+	h=content-type:from:mime-version:to:subject:list-unsubscribe; 
+	s=s1; bh=ksO5Te+0JImBkZ/aqVnkr8s7EsLRMFAE2VNZwFjoD1I=; b=qamf6Hj
+	rn1ci6N41ch4s+HsDN7Prm1X47B2lpL3xdaow+uiNH0A0ngjlpA/abjxN2KVOlNb
+	O7s55XL+L2J0hZLXKgwAYlJ9i+0bdXDD4lrG8AHGQL678krwRtmRbRTeTo0ZQTGv
+	mObGogENBBI6e3qJ40ycoUa2moO4UeIsY5MM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:from:mime-version:to:subject:list-unsubscribe:x-feedback-id; 
+	s=smtpapi; bh=ksO5Te+0JImBkZ/aqVnkr8s7EsLRMFAE2VNZwFjoD1I=; b=yL
+	eGGtVtj73RybsrhXRLCf0fOg+X5gTQRmOQ/wGct8wcE4hw4Jtb4R2KmszXlPJY8F
+	tH0kUNA10SCwO/p1SCAYNHNPt3c0x8BpSYkN5f+dQpLMv817+nkvdmj5ROgmUsqC
+	bJSkbXEX+qcN5FnsiQH4eyEA55TUScjKaaJvDqYY4=
+Received: by filter1689p1mdw1.sendgrid.net with SMTP id filter1689p1mdw1-20745-5EECED5B-24
+        2020-06-19 16:52:43.858043075 +0000 UTC m=+174216.566811996
+Received: from MzQ2NTAwMg (unknown)
+	by ismtpd0005p1lon1.sendgrid.net (SG) with HTTP id deBOUH9JSgya8xwDMfv6uA
+	Fri, 19 Jun 2020 16:52:43.622 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=15950169f1950c67e0c99791e1c048681712da784b3e4ba0714d03d9d55e
+Date: Fri, 19 Jun 2020 16:52:43 +0000 (UTC)
+From: "JavaScript Weekly" <jsw@peterc.org>
+Mime-Version: 1.0
+To: albert.nafria@gmail.com
+Message-ID: <deBOUH9JSgya8xwDMfv6uA@ismtpd0005p1lon1.sendgrid.net>
+Subject: Creative coding, super linting, and a new JS podcast
+List-Unsubscribe: <mailto:unsub-7fbc861818@n2.cooperpress.com>
+X-SG-EID: 3+/B6g1AUGNvFLKbKm2GGSYIVXbRpcw5+734I5PBeexaeMjz7VcbA40HopI30F/WKJmhfMlC3k1MGJ
+ ewx8kir3nwAHgu7T2oN/GUgexJeDe2XcqyUDcSVsuBEQ6lg9HsQOUBzOFj0iw+uTG2aJ1HcVJfhLcN
+ fESUJtTr0wvi+y9+YUL75mWwRenA6TYUA8E4DmxuUbEE6m7e4p3dVzKachHf9MyEHyxMXRze8oFi1G
+ Y=
+X-Feedback-ID: 3465002:HRXkh4VeDw85yjYUQlbvjOL4WzbsF497d3I16NCZSWU=:HRXkh4VeDw85yjYUQlbvjOL4WzbsF497d3I16NCZSWU=:SG
+
+--15950169f1950c67e0c99791e1c048681712da784b3e4ba0714d03d9d55e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+Plus more JavaScript links, tutorials, and projects.
+
+#493 =E2=80=94 June 19, 2020
+
+Unsubscribe ( https://javascriptweekly.com/leave/7fbc861818 )  | Read on th=
+e Web ( https://javascriptweekly.com/issues/493 )
+
+=E2=9C=8D=EF=B8=8F It's been surprisingly quiet, we thought, out in JavaScr=
+ipt
+land this week, but we've been doing this for a while so we still
+have lots of neat bits and pieces for you to enjoy :-) Thanks for
+reading and continuing to support us! =F0=9F=98=81
+
+JavaScript Weekly
+
+GitHub Unveils Its 'Super Linter': One Linter to Rule Them All?
+
+( https://github.blog/2020-06-18-introducing-github-super-linter-one-linter=
+-to-rule-them-all/ )
+ =E2=80=94 Setting up the right linters for the various types of code in
+your projects can be=E2=80=A6 a bit of a pain. So GitHub has unveiled
+Super Linter ( https://github.com/github/super-linter ), a
+combination of linters you can use with your repos via GitHub
+Actions. And, yes, we get ESLint and StandardJS.. plus things
+like markdownlint too.
+
+GitHub
+
+keen-slider: An Agnostic Touch Slider ( https://keen-slider.io/ )  =E2=80=
+=94 Think =E2=80=98carousels=E2=80=99 but comfortable and smooth when using
+touch. They work with the mouse and touchpads as well, of course,
+and there are no dependencies. Live examples here=20
+( https://keen-slider.io/examples/#basic ).
+
+Eric Beyer
+
+Identify Front-End Issues Like JavaScript or Network Errors
+Fast=20
+( https://www.datadoghq.com/dg/apm/synthetics/ts-synthetic-monitoring/?utm_=
+source=3DAdvertisement&utm_medium=3DCooperPress&utm_campaign=3DCooperPress-=
+JavascriptWeeklyP )
+ =E2=80=94 Datadog=E2=80=99s algorithmic alerts will proactively alert on a=
+ny
+client-side issues such as JavaScript and network errors.
+Optimize the load time of your front-end resources, and detect
+any UI issues that affect critical user journeys. Try it free
+with Datadog Synthetics.
+
+Datadog sponsor
+
+=E2=96=B6 Compiler Compiler: A Video Series About Working on a
+JavaScript Engine=20
+( https://hacks.mozilla.org/2020/06/compiler-compiler-working-on-a-javascri=
+pt-engine/ )
+ =E2=80=94 This gets very technical fast :-) Follow a JavaScript
+engineer on Firefox=E2=80=99s SpiderMonkey team as she gives an inside
+look at SpiderMoney and the art of compilation.
+
+Yulia Startsev
+
+Puppeteer v4.0.0 Released: The Node API for Chrome=20
+( https://github.com/puppeteer/puppeteer/releases/tag/v4.0.0 ) =E2=80=94
+The popular way to remotely control a headless Chrome instance
+gets a major version bump with the main breaking change being
+that Puppeteer no longer uses Node=E2=80=99s EventEmitter library in
+order to make it more environment agnostic. It=E2=80=99s also now =E2=80=9C=
+much
+better at killing lingering browser processes.=E2=80=9D GitHub repo=20
+( https://github.com/puppeteer/puppeteer ).
+
+Puppeteer Team
+
+=E2=9A=A1=EF=B8=8F Quick bytes:
+
+* OpenHive.JS ( https://anchor.fm/openhivejs )
+is a new JavaScript podcast from James Snell and Matteo Collina =E2=80=93
+three episodes so far including an interview with Laurie Barth=20
+( https://anchor.fm/openhivejs/episodes/Laurie-Barth-on-Maintaining-Gatsby-=
+ef6p8i )
+ on maintaining Gatsby.
+* The first alpha release of Bootstrap 5=20
+( https://blog.getbootstrap.com/2020/06/16/bootstrap-5-alpha/ ) is
+out and  notably drops jQuery as a dependency in favor of vanilla
+JS.
+* First proposed 5 years ago, variadic tuple types are coming=20
+( https://github.com/microsoft/TypeScript/issues/5453#issuecomment-64498497=
+7 )
+ to TypeScript in TypeScript 4.0. Examples here=20
+( https://github.com/microsoft/TypeScript/pull/39094 ).
+* The V8 project has started a V8 Research Grant=20
+( https://v8.dev/grant ) to give up to $40k to academic programming
+language and research projects based around the V8 JavaScript
+engine.
+* What caused TypeScript to take off? Google announcing they were
+going to use it with Angular=20
+( https://www.zdnet.com/article/microsoft-lead-engineer-programming-languag=
+e-typescript-took-off-thanks-to-googles-angular/ )
+, claims Ryan Cavanaugh, Microsoft's engineering lead for
+TypeScript.
+* ThoughtWorks has written about 'Node Overload'=20
+( https://www.thoughtworks.com/radar/platforms?blipid=3D202005026 )
+and asserts "performance is no longer a reason to choose
+Node.js."
+
+=F0=9F=92=BB Jobs
+
+Find a Job Through Vettery=20
+( https://www.vettery.com/tech?utm_source=3Dnewsletter&utm_medium=3Dcooper-=
+javascriptweekly&utm_term=3Dtech&utm_content=3Dgrouped&utm_campaign=3Dad-77=
+584 )
+ =E2=80=94 Vettery specializes in tech roles and is completely free for
+job seekers. Create a profile to get started.
+
+Vettery
+
+JavaScript Developer at X-Team (Remote)=20
+( https://x-team.com/remote-javascript-developer-jobs/?utm_source=3Dcooperp=
+ress&utm_medium=3Demail-ad&utm_campaign=3Djs )
+ =E2=80=94 Join X-Team and work on projects for companies like Riot
+Games, FOX, Coinbase, and more. Work from anywhere.
+
+X-Team
+
+=F0=9F=93=9A Tutorials, Opinions and Stories
+
+Why We Switched From Yarn to pnpm=20
+( https://www.takeshape.io/articles/why-we-switched-from-yarn-to-pnpm/ )
+ =E2=80=94 Yarn ( https://yarnpkg.com/ ) and pnpm ( https://pnpm.js.org/ ) =
+ are both popular alternatives to npm but why would you switch
+from one to the other? Improved performance in a
+monorepo situation.
+
+Andrew Sprouse
+
+How to Run an Online Dev Conference / Event=20
+( https://stac.works/articles/how-to-run-an-online-conference ) =E2=80=94
+An experienced developer event organizer took their All Day Hey=20
+( https://alldayhey.com/ ) event online at a rapid pace this year
+due to the pandemic. This extensive writeup covers how all the
+main pieces came together.
+
+Josh Nesbitt
+
+Stop Mocking fetch=20
+( https://kentcdodds.com/blog/stop-mocking-fetch ) =E2=80=94 Why you
+shouldn=E2=80=99t mock fetch or your API clients in your tests and what
+to consider instead.
+
+Kent C Dodds
+
+=E2=96=B6 Creative Coding in p5.js=20
+( https://www.youtube.com/watch?v=3DsRLWIAPaiRI ) =E2=80=94 A practical talk
+from GitHub Satellite 2020 demonstrating using the
+Processing-influenced p5.js ( https://p5js.org/ ) creative coding
+library and editor ( https://editor.p5js.org/ ) for creating art
+with JavaScript.
+
+Cassie Tarakajian
+
+Top GitHub Best Practices for Developers - Expanded Guide=20
+( https://try.datree.io/github-best-practices-guide?utm_source=3Dcooperpres=
+s&utm_medium=3Djsweekly&utm_content=3Dgithub )
+ =E2=80=94 Implementing these best practices could save you time,
+improve code maintainability, and prevent security risks.
+
+Datree.io sponsor
+
+Tips for End to End Testing with Puppeteer=20
+( https://goodguydaniel.com/blog/tips-end-to-end-testing-puppeteer/ )
+ =E2=80=94 Some tips and tricks from someone who=E2=80=99s used Puppeteer a=
+ lot.
+
+Daniel Caldas
+
+Going Async in Vue 3 with Suspense=20
+( https://vuedose.tips/go-async-in-vue-3-with-suspense/ ) =E2=80=94 A
+practical example of a new feature coming to Vue 3 for rendering
+fallback content until a condition is met (e.g. the real
+component is ready).
+
+Vinicius Kiatkoski
+
+What JavaScript Developers Should Know About curl=20
+( http://thecodebarbarian.com/what-javascript-developers-should-know-about-=
+curl.html )
+ =E2=80=94 curl ( https://curl.haxx.se/ ) is a fantastic (and borderline
+universal) command line HTTP client that lets you test, tweak,
+and manipulate requests both targeting your own apps and APIs as
+well as those of others.
+
+Valeri Karpov
+
+Computing with Types in TypeScript=20
+( https://2ality.com/2020/06/computing-with-types.html )
+
+Dr. Axel Rauschmayer
+
+Several Ways to Clean Up Vue.js Components=20
+( https://michaelzanggl.com/articles/vue-cleaning-up-components/ )
+=E2=80=94 Opinionated, so don=E2=80=99t expect to agree with them all.
+
+Michael Zanggl
+
+=F0=9F=94=A7 Code & Tools
+
+Code Notes: A Gatsby Theme for Publishing Code-Related Notes
+and Snippets ( https://zander.wtf/blog/code-notes-release ) =E2=80=94 If
+you=E2=80=99ve got a bunch of code snippets you want to keep collected
+together and present in an attractive fashion, this is a neat
+Gatsby and Markdown/MDX powered approach. Here=E2=80=99s an example site
+( https://notes.zander.wtf/ ) (which has lots of great JavaScript
+snippets on it =E2=80=93 bonus!)
+
+Zander Martineau
+
+Breakpoints and console.log Is the Past, Time Travel Is
+the Future=20
+( https://wallabyjs.com/docs/intro/test-stories.html?utm_source=3Dcooperpre=
+ss&utm_campaign=3Djavascript&utm_content=3Djavascript )
+ =E2=80=94 15x faster JavaScript debugging than with breakpoints
+and console.log.
+
+Wallaby.js sponsor
+
+TOAST UI Grid: A Customizable Grid Control for the Web=20
+( https://github.com/nhn/tui.grid ) =E2=80=94 First featured a year ago,
+TUI Grid is a powerful grid control for the display, editing, and
+management of data. It comes from the same folks as TUI Editor=20
+( https://github.com/nhn/tui.editor ) and TUI Calendar=20
+( https://ui.toast.com/tui-calendar/ ).
+
+NHN
+
+DOCX: A Declarative API to Generate .docx Files=20
+( https://github.com/dolanmiu/docx ) =E2=80=94 .docx files being more
+commonly known as modern Microsoft Word documents. This library
+works in both Node and the browser and there=E2=80=99s a live demo here=20
+( https://jsfiddle.net/dolanmiu/kqxrj35u/1/ ).
+
+Dolan
+
+Midori: A Library for Animated Image Backgrounds=20
+( https://github.com/aeroheim/midori ) =E2=80=94 Built with three.js,
+provides support for animated transition, a configurable dynamic
+=E2=80=9Ccamera=E2=80=9D, and post-processing effects.
+
+Benjamin Pang
+
+=F0=9F=95=B0 Tzdb: A Simplified and Grouped List of Time Zones and Offsets
+( https://github.com/vvo/tzdb/ ) =E2=80=94 The official IANA time zone
+list has over 500 entries but you can simplify this
+substantially, as done here.
+
+Vincent Voyer
+
+Save Your Sprints. Build Tools 5x Faster=20
+( https://retool.com?utm_source=3Djsweekly&utm_medium=3Dnewsletter&utm_camp=
+aign=3Djune_19&utm_content=3Dsprints )
+
+
+Retool sponsor
+
+Helipopper: A Powerful Tooltip and Popover Library for Angular
+( https://github.com/ngneat/helipopper ) =E2=80=94 A lighweight wrapper
+for Tippy.js for use in Angular. Lots of examples demonstrating
+the flexibility of it on the demo page=20
+( https://ngneat.github.io/helipopper/ ).
+
+netanel basal
+
+Published by Cooperpress ( https://cooperpress.com/ ) and
+edited by Peter Cooper ( https://twitter.com/peterc )
+
+'JavaScript' is a trademark of Oracle Corporation in the US
+We are not endorsed by or affiliated with Oracle.
+
+Change your email address=20
+( https://javascriptweekly.com/edit_subscription/7fbc861818 ) or
+stop getting this newsletter=20
+( https://javascriptweekly.com/leave/7fbc861818 ).
+
+=C2=A9 Cooper Press Ltd =C2=B7 Fairfield Enterprise Centre, Louth,
+LN11 0LS, United Kingdom=
+
+--15950169f1950c67e0c99791e1c048681712da784b3e4ba0714d03d9d55e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+    <meta charset=3D"utf-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta name=3D"format-detection" content=3D"date=3Dno">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno">
+=20=20=20=20
+  <style>body {
+margin: 0; padding: 0; height: 100%; width: 100%; background-color: white; =
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering:=
+ optimizeLegibility; font-feature-settings: "kern" 1; direction: ltr;
+}
+body {
+font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-si=
+ze: 15px; line-height: 1.55em;
+}
+img {
+border: 0; outline: none; height: auto; text-decoration: none; max-width: 1=
+00%; line-height: 100%;
+}
+@media screen and (max-width: 600px) {
+  table[id=3D"main"] {
+    max-width: 600px !important; width: 100% !important; min-width: 100% !i=
+mportant;
+  }
+  .nomob {
+    display: none !important;
+  }
+  .onlymob {
+    display: inline-block !important;
+  }
+  .rightifmob {
+    text-align: right !important;
+  }
+  .som {
+    max-width: 33% !important;
+  }
+  div.footer p {
+    text-align: left !important;
+  }
+  div.footer td {
+    text-align: left !important;
+  }
+  .el-columns .column {
+    display: block; width: 100% !important;
+  }
+}
+</style>
+</head>
+<body style=3D'height: 100%; width: 100%; background-color: white; -webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimiz=
+eLegibility; font-feature-settings: "kern" 1; direction: ltr; font-family: =
+-apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+e-height: 1.55em; margin: 0; padding: 0;'>
+<div id=3D"preview" class=3D"noarchive" style=3D"display: none; color: #666=
+;">Plus more JavaScript links, tutorials, and projects.</div>
+<!--[if (gte mso 9)|(IE)]>
+<table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" bgcolor=3D"#fff=
+fff" width=3D"600"><tr><td valign=3D"top" style=3D"width: 600px;" bgcolor=
+=3D"#ffffff"><![endif]-->
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=
+=3D"main" width=3D"100%" style=3D"table-layout: fixed; font-family: -apple-=
+system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-heigh=
+t: 1.55em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: c=
+ollapse; max-width: 600px; height: 100% !important; direction: ltr; padding=
+: 0px;">
+  <tr><td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,=
+sans-serif; font-size: 15px; line-height: 1.55em; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt; border-collapse: collapse;">
+  <div id=3D"content">    <!-- left/right splitbar -->
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;"><tr>
+<td width=3D"50%" align=3D"left" style=3D"padding-left: 4px; font-family: -=
+apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line=
+-height: 1.55em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><p style=3D"font-size: 12px; color: #999999; text-transform=
+: uppercase; line-height: 1.0em; margin-top: 0.8em; margin-bottom: 0.8em;">=
+#493 =E2=80=94 June 19, 2020</p></td>
+<td width=3D"50%" align=3D"right" style=3D"padding-right: 4px; font-family:=
+ -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; li=
+ne-height: 1.55em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-col=
+lapse: collapse;"><p style=3D"font-size: 12px; text-transform: uppercase; l=
+ine-height: 1.0em; margin-top: 0.8em; margin-bottom: 0.8em;"><a href=3D"htt=
+ps://javascriptweekly.com/leave/7fbc861818" style=3D"text-decoration: none;=
+ color: #3366aa;">Unsubscribe</a>=C2=A0=C2=A0|=C2=A0=C2=A0<a href=3D"https:=
+//javascriptweekly.com/issues/493" style=3D"text-decoration: none; color: #=
+3366aa;">Read on the Web</a></p></td>
+</tr></table>
+<!-- normal content section -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+el-content top" style=3D"color: #444; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: collapse;"><tr><td style=3D"font-family: -apple-s=
+ystem,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height=
+: 1.55em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: co=
+llapse; padding: 0px 15px;"><p style=3D"margin-top: 0.8em; margin-bottom: 0=
+.8em; line-height: 1.4em; font-size: 0.9em;">=E2=9C=8D=EF=B8=8F It's been s=
+urprisingly quiet, we thought, out in JavaScript land this week, but we've =
+been doing this for a while so we still have lots of neat bits and pieces f=
+or you to enjoy :-) Thanks for reading and continuing to support us!=C2=A0=
+=F0=9F=98=81</p></td></tr></table>
+    <!-- masthead -->
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"back=
+ground-color: #f7df1e; text-align: center; color: #222222; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;" class=3D"el-masth=
+ead"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helveti=
+ca,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-lspace: 0pt;=
+ mso-table-rspace: 0pt; border-collapse: collapse; padding: 0 12px;"><p sty=
+le=3D"font-size: 1.8em; font-weight: 600; line-height: 1.0em; margin-top: 0=
+.8em; margin-bottom: 0.8em;">JavaScript Weekly</p></td></tr></table>
+<table width=3D"100%" class=3D"el-fullwidthimage" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-co=
+llapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSyst=
+emFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;">
+  <a href=3D"https://javascriptweekly.com/link/90546/7fbc861818" style=3D"t=
+ext-decoration: none; color: #3366aa;"><img src=3D"https://res.cloudinary.c=
+om/cpress/image/upload/w_1280,e_sharpen:60/v1592575693/frk49xqez8sadltshudv=
+.jpg" alt=3D"" width=3D"640" style=3D"outline: none; height: auto; text-dec=
+oration: none; max-width: 100%; line-height: 100%; width: 100%; border: 0;"=
+></a>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0; font-size: 1.05em;"><span style=3D"font-weight: 600; font-size: 1.1em; =
+color: #000;" class=3D"mainlink"><a href=3D"https://javascriptweekly.com/li=
+nk/90546/7fbc861818" title=3D"github.blog" style=3D"text-decoration: none; =
+color: #3366aa; border-bottom-width: 1px !important; border-bottom-color: #=
+ddd !important; border-bottom-style: solid !important; font-size: 1.1em; li=
+ne-height: 1.4em;">GitHub Unveils Its 'Super Linter': One Linter to Rule Th=
+em=C2=A0All?</a></span> =E2=80=94 Setting up the right linters for the vari=
+ous types of code in your projects can be=E2=80=A6 a bit of a pain. So GitH=
+ub has unveiled <a href=3D"https://javascriptweekly.com/link/90547/7fbc8618=
+18" style=3D"text-decoration: none; color: #3366aa; border-bottom-width: 1p=
+x !important; border-bottom-color: #ddd !important; border-bottom-style: so=
+lid !important;">Super Linter</a>, a combination of linters you can use wit=
+h your repos via GitHub Actions. And, yes, we get ESLint and StandardJS.. p=
+lus things like markdownlint=C2=A0too.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">G=
+itHub </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90548/7fbc861818=
+" title=3D"keen-slider.io" style=3D"text-decoration: none; color: #3366aa; =
+border-bottom-width: 1px !important; border-bottom-color: #ddd !important; =
+border-bottom-style: solid !important; font-size: 1.05em;">keen-slider: An =
+Agnostic Touch Slider</a></span> =E2=80=94 Think =E2=80=98carousels=E2=80=
+=99 but comfortable and smooth when using touch. They work with the mouse a=
+nd touchpads as well, of course, and there are no dependencies. <a href=3D"=
+https://javascriptweekly.com/link/90549/7fbc861818" style=3D"text-decoratio=
+n: none; color: #3366aa; border-bottom-width: 1px !important; border-bottom=
+-color: #ddd !important; border-bottom-style: solid !important;">Live examp=
+les=C2=A0here</a>.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">E=
+ric Beyer </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+  <a target=3D"_blank" href=3D"https://javascriptweekly.com/link/90550/7fbc=
+861818" style=3D"text-decoration: none; color: #3366aa; border-bottom-width=
+: 1px !important; border-bottom-color: #ddd !important; border-bottom-style=
+: solid !important;"><img src=3D"https://copm.s3.amazonaws.com/2867d39b.png=
+" width=3D"110" height=3D"110" style=3D"padding-top: 12px; padding-left: 12=
+px; outline: none; height: auto; text-decoration: none; max-width: 100%; li=
+ne-height: 100%; border: 0;" align=3D"right" alt=3D"" class=3D"som"></a>
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90550/7fbc861818=
+" title=3D"www.datadoghq.com" style=3D"text-decoration: none; color: #3366a=
+a; border-bottom-width: 1px !important; border-bottom-color: #ddd !importan=
+t; border-bottom-style: solid !important; font-size: 1.05em;">Identify Fron=
+t-End Issues Like JavaScript or Network Errors Fast</a></span> =E2=80=94 Da=
+tadog=E2=80=99s algorithmic alerts will proactively alert on any client-sid=
+e issues such as JavaScript and network errors. Optimize the load time of y=
+our front-end resources, and detect any UI issues that affect critical user=
+ journeys. Try it free with Datadog=C2=A0Synthetics.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">D=
+atadog <span style=3D"text-transform: uppercase; margin-left: 4px; font-siz=
+e: 0.9em; border-radius: 2px; background-color: #fffcaa; color: #993 !impor=
+tant; padding: 1px 4px; border: 1px solid #eee455;" class=3D"tag-sponsor">s=
+ponsor</span></p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  video" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-=
+collapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSy=
+stemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding:=
+ 0px 15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink">=E2=96=B6=C2=A0=C2=A0<a href=3D"https://javascriptweekly.com/=
+link/90551/7fbc861818" title=3D"hacks.mozilla.org" style=3D"text-decoration=
+: none; color: #3366aa; border-bottom-width: 1px !important; border-bottom-=
+color: #ddd !important; border-bottom-style: solid !important; font-size: 1=
+.05em;">Compiler Compiler: A Video Series About Working on a JavaScript=C2=
+=A0Engine</a></span> =E2=80=94 This gets very technical <em>fast</em> :-) F=
+ollow a JavaScript engineer on Firefox=E2=80=99s SpiderMonkey team as she g=
+ives an inside look at SpiderMoney and the art of=C2=A0compilation.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Y=
+ulia Startsev </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90552/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">Puppeteer v4.0.0 Rel=
+eased: The Node API for Chrome</a></span> =E2=80=94 The popular way to remo=
+tely control a headless Chrome instance gets a major version bump with the =
+main breaking change being that Puppeteer no longer uses Node=E2=80=99s Eve=
+ntEmitter library in order to make it more environment agnostic. It=E2=80=
+=99s also now <em>=E2=80=9Cmuch better at killing lingering browser process=
+es.=E2=80=9D</em> <a href=3D"https://javascriptweekly.com/link/90553/7fbc86=
+1818" style=3D"text-decoration: none; color: #3366aa; border-bottom-width: =
+1px !important; border-bottom-color: #ddd !important; border-bottom-style: =
+solid !important;">GitHub=C2=A0repo</a>.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">P=
+uppeteer Team </p>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-subta=
+ble " style=3D"background-color: #ffffff; margin-top: 15px; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;"><tr><td style=3D=
+"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-s=
+ize: 15px; line-height: 1.55em; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-collapse: collapse; padding: 0px;">
+<!-- normal content section -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+el-content briefs" style=3D"color: #444; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; border-collapse: collapse; margin-top: 0 !important;"><tr><td s=
+tyle=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif;=
+ font-size: 15px; line-height: 1.55em; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; border-collapse: collapse; padding: 0px 15px;">
+<p style=3D"line-height: 1.5em; margin-top: 0px; margin-bottom: 0.8em;"><st=
+rong style=3D"font-size: 1.1em; font-weight: 600;">=E2=9A=A1=EF=B8=8F Quick=
+ bytes:</strong></p>
+                  <ul>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;">
+<a href=3D"https://javascriptweekly.com/link/90554/7fbc861818" style=3D"tex=
+t-decoration: none; color: #3366aa; font-weight: 600;">OpenHive.JS</a> is a=
+ new JavaScript podcast from James Snell and Matteo Collina =E2=80=93 three=
+ episodes so far including <a href=3D"https://javascriptweekly.com/link/905=
+55/7fbc861818" style=3D"text-decoration: none; color: #3366aa; font-weight:=
+ 600;">an interview with Laurie Barth</a> on maintaining Gatsby.</li>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;"=
+>The <a href=3D"https://javascriptweekly.com/link/90556/7fbc861818" style=
+=3D"text-decoration: none; color: #3366aa; font-weight: 600;">first alpha r=
+elease of Bootstrap 5</a> is out and  notably drops jQuery as a dependency =
+in favor of vanilla JS.</li>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;"=
+>First proposed <em>5 years ago</em>, <a href=3D"https://javascriptweekly.c=
+om/link/90557/7fbc861818" style=3D"text-decoration: none; color: #3366aa; f=
+ont-weight: 600;">variadic tuple types are coming</a> to TypeScript in Type=
+Script 4.0. <a href=3D"https://javascriptweekly.com/link/90558/7fbc861818" =
+style=3D"text-decoration: none; color: #3366aa; font-weight: 600;">Examples=
+ here</a>.</li>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;"=
+>The V8 project has started a <a href=3D"https://javascriptweekly.com/link/=
+90559/7fbc861818" style=3D"text-decoration: none; color: #3366aa; font-weig=
+ht: 600;">V8 Research Grant</a> to give up to $40k to <em>academic</em> pro=
+gramming language and research projects based around the V8 JavaScript engi=
+ne.</li>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;"=
+>What caused TypeScript to take off? <a href=3D"https://javascriptweekly.co=
+m/link/90560/7fbc861818" style=3D"text-decoration: none; color: #3366aa; fo=
+nt-weight: 600;">Google announcing they were going to use it with Angular</=
+a>, claims Ryan Cavanaugh, Microsoft's engineering lead for TypeScript.</li>
+                    <li style=3D"margin-bottom: 1.0em; line-height: 1.4em;"=
+>ThoughtWorks has written about <a href=3D"https://javascriptweekly.com/lin=
+k/90561/7fbc861818" style=3D"text-decoration: none; color: #3366aa; font-we=
+ight: 600;">'Node Overload'</a> and asserts <em>"performance is no longer a=
+ reason to choose Node.js."</em>
+</li>
+                  </ul>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20
+  </td></tr></table>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-headi=
+ng" style=3D"background-color: none !important; text-align: left; margin-to=
+p: 15px; color: #333333; mso-table-lspace: 0pt; mso-table-rspace: 0pt; bord=
+er-collapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMa=
+cSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; paddi=
+ng: 0;"><p style=3D"font-size: 1.6em !important; font-weight: 400 !importan=
+t; text-transform: none !important; line-height: 1.4em; display: inline-blo=
+ck; border-bottom-width: 6px; border-bottom-style: solid; padding-bottom: 2=
+px; border-bottom-color: #f7df1e; margin: 0.5em 0;">=F0=9F=92=BB Jobs</p></=
+td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90562/7fbc861818=
+" title=3D"www.vettery.com" style=3D"text-decoration: none; color: #3366aa;=
+ border-bottom-width: 1px !important; border-bottom-color: #ddd !important;=
+ border-bottom-style: solid !important; font-size: 1.05em;">Find a Job Thro=
+ugh Vettery</a></span> =E2=80=94 Vettery specializes in tech roles and is c=
+ompletely free for job seekers. Create a profile to get=C2=A0started.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">V=
+ettery </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90594/7fbc861818=
+" title=3D"x-team.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">JavaScript Developer=
+ at X-Team (Remote)</a></span> =E2=80=94 Join X-Team and work on projects f=
+or companies like Riot Games, FOX, Coinbase, and more. Work from=C2=A0anywh=
+ere.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">X=
+-Team </p>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-headi=
+ng" style=3D"background-color: none !important; text-align: left; margin-to=
+p: 15px; color: #333333; mso-table-lspace: 0pt; mso-table-rspace: 0pt; bord=
+er-collapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMa=
+cSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; paddi=
+ng: 0;"><p style=3D"font-size: 1.6em !important; font-weight: 400 !importan=
+t; text-transform: none !important; line-height: 1.4em; display: inline-blo=
+ck; border-bottom-width: 6px; border-bottom-style: solid; padding-bottom: 2=
+px; border-bottom-color: #f7df1e; margin: 0.5em 0;">=F0=9F=93=9A Tutorials,=
+ Opinions and Stories</p></td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90563/7fbc861818=
+" title=3D"www.takeshape.io" style=3D"text-decoration: none; color: #3366aa=
+; border-bottom-width: 1px !important; border-bottom-color: #ddd !important=
+; border-bottom-style: solid !important; font-size: 1.05em;">Why We Switche=
+d From Yarn to <code style=3D'font-family: menlo, monaco, "Ubuntu Mono", co=
+urier, monospace; font-weight: normal; background-color: inherit;'>pnpm</co=
+de></a></span> =E2=80=94 <a href=3D"https://javascriptweekly.com/link/90564=
+/7fbc861818" style=3D"text-decoration: none; color: #3366aa; border-bottom-=
+width: 1px !important; border-bottom-color: #ddd !important; border-bottom-=
+style: solid !important;">Yarn</a> and <a href=3D"https://javascriptweekly.=
+com/link/90565/7fbc861818" style=3D"text-decoration: none; color: #3366aa; =
+border-bottom-width: 1px !important; border-bottom-color: #ddd !important; =
+border-bottom-style: solid !important;">pnpm</a> are both popular alternati=
+ves to <code style=3D"background-color: #efc;">npm</code> but why would you=
+ switch from one to the other? Improved performance in a monorepo=C2=A0situ=
+ation.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">A=
+ndrew Sprouse </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90566/7fbc861818=
+" title=3D"stac.works" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">How to Run an Online=
+ Dev Conference / Event</a></span> =E2=80=94 An experienced developer event=
+ organizer took their <a href=3D"https://javascriptweekly.com/link/90567/7f=
+bc861818" style=3D"text-decoration: none; color: #3366aa; border-bottom-wid=
+th: 1px !important; border-bottom-color: #ddd !important; border-bottom-sty=
+le: solid !important;">All Day Hey</a> event online at a rapid pace this ye=
+ar due to the pandemic. This extensive writeup covers how all the main piec=
+es came=C2=A0together.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">J=
+osh Nesbitt </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90568/7fbc861818=
+" title=3D"kentcdodds.com" style=3D"text-decoration: none; color: #3366aa; =
+border-bottom-width: 1px !important; border-bottom-color: #ddd !important; =
+border-bottom-style: solid !important; font-size: 1.05em;">Stop Mocking <co=
+de style=3D'font-family: menlo, monaco, "Ubuntu Mono", courier, monospace; =
+font-weight: normal; background-color: inherit;'>fetch</code></a></span> =
+=E2=80=94 Why you shouldn=E2=80=99t mock <code style=3D"background-color: #=
+efc;">fetch</code> or your API clients in your tests and what to consider=
+=C2=A0instead.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">K=
+ent C Dodds </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  video" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-=
+collapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSy=
+stemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding:=
+ 0px 15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink">=E2=96=B6=C2=A0=C2=A0<a href=3D"https://javascriptweekly.com/=
+link/90569/7fbc861818" title=3D"www.youtube.com" style=3D"text-decoration: =
+none; color: #3366aa; border-bottom-width: 1px !important; border-bottom-co=
+lor: #ddd !important; border-bottom-style: solid !important; font-size: 1.0=
+5em;">Creative Coding in p5.js</a></span> =E2=80=94 A practical talk from G=
+itHub Satellite 2020 demonstrating using the Processing-influenced <a href=
+=3D"https://javascriptweekly.com/link/90570/7fbc861818" style=3D"text-decor=
+ation: none; color: #3366aa; border-bottom-width: 1px !important; border-bo=
+ttom-color: #ddd !important; border-bottom-style: solid !important;">p5.js<=
+/a> creative coding library and <a href=3D"https://javascriptweekly.com/lin=
+k/90571/7fbc861818" style=3D"text-decoration: none; color: #3366aa; border-=
+bottom-width: 1px !important; border-bottom-color: #ddd !important; border-=
+bottom-style: solid !important;">editor</a> for creating art with=C2=A0Java=
+Script.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">C=
+assie Tarakajian </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90593/7fbc861818=
+" title=3D"try.datree.io" style=3D"text-decoration: none; color: #3366aa; b=
+order-bottom-width: 1px !important; border-bottom-color: #ddd !important; b=
+order-bottom-style: solid !important; font-size: 1.05em;">Top GitHub Best P=
+ractices for Developers - Expanded Guide</a></span> =E2=80=94 Implementing =
+these best practices could save you time, improve code maintainability, and=
+ prevent security=C2=A0risks.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">D=
+atree.io <span style=3D"text-transform: uppercase; margin-left: 4px; font-s=
+ize: 0.9em; border-radius: 2px; background-color: #fffcaa; color: #993 !imp=
+ortant; padding: 1px 4px; border: 1px solid #eee455;" class=3D"tag-sponsor"=
+>sponsor</span></p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90573/7fbc861818=
+" title=3D"goodguydaniel.com" style=3D"text-decoration: none; color: #3366a=
+a; border-bottom-width: 1px !important; border-bottom-color: #ddd !importan=
+t; border-bottom-style: solid !important; font-size: 1.05em;">Tips for End =
+to End Testing with Puppeteer</a></span> =E2=80=94 Some tips and tricks fro=
+m someone who=E2=80=99s used Puppeteer a=C2=A0lot.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">D=
+aniel Caldas </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90574/7fbc861818=
+" title=3D"vuedose.tips" style=3D"text-decoration: none; color: #3366aa; bo=
+rder-bottom-width: 1px !important; border-bottom-color: #ddd !important; bo=
+rder-bottom-style: solid !important; font-size: 1.05em;">Going Async in Vue=
+ 3 with Suspense</a></span> =E2=80=94 A practical example of a new feature =
+coming to Vue 3 for rendering fallback content until a condition is met (e.=
+g. the real component is=C2=A0ready).</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">V=
+inicius Kiatkoski </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90575/7fbc861818=
+" title=3D"thecodebarbarian.com" style=3D"text-decoration: none; color: #33=
+66aa; border-bottom-width: 1px !important; border-bottom-color: #ddd !impor=
+tant; border-bottom-style: solid !important; font-size: 1.05em;">What JavaS=
+cript Developers Should Know About <code style=3D'font-family: menlo, monac=
+o, "Ubuntu Mono", courier, monospace; font-weight: normal; background-color=
+: inherit;'>curl</code></a></span> =E2=80=94 <a href=3D"https://javascriptw=
+eekly.com/link/90576/7fbc861818" style=3D"text-decoration: none; color: #33=
+66aa; border-bottom-width: 1px !important; border-bottom-color: #ddd !impor=
+tant; border-bottom-style: solid !important;">curl</a> is a fantastic (and =
+borderline <em>universal</em>) command line HTTP client that lets you test,=
+ tweak, and manipulate requests both targeting your own apps and APIs as we=
+ll as those of=C2=A0others.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">V=
+aleri Karpov </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90577/7fbc861818=
+" title=3D"2ality.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">Computing with Types=
+ in TypeScript</a></span></p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">D=
+r. Axel Rauschmayer </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90578/7fbc861818=
+" title=3D"michaelzanggl.com" style=3D"text-decoration: none; color: #3366a=
+a; border-bottom-width: 1px !important; border-bottom-color: #ddd !importan=
+t; border-bottom-style: solid !important; font-size: 1.05em;">Several Ways =
+to Clean Up Vue.js Components</a></span> =E2=80=94 Opinionated, so don=E2=
+=80=99t expect to agree with them=C2=A0all.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">M=
+ichael Zanggl </p>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-headi=
+ng" style=3D"background-color: none !important; text-align: left; margin-to=
+p: 15px; color: #333333; mso-table-lspace: 0pt; mso-table-rspace: 0pt; bord=
+er-collapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMa=
+cSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; paddi=
+ng: 0;"><p style=3D"font-size: 1.6em !important; font-weight: 400 !importan=
+t; text-transform: none !important; line-height: 1.4em; display: inline-blo=
+ck; border-bottom-width: 6px; border-bottom-style: solid; padding-bottom: 2=
+px; border-bottom-color: #f7df1e; margin: 0.5em 0;">=F0=9F=94=A7 Code &amp;=
+ Tools</p></td></tr></table>
+<table width=3D"100%" class=3D"el-fullwidthimage" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-co=
+llapse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSyst=
+emFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;">
+  <a href=3D"https://javascriptweekly.com/link/90579/7fbc861818" style=3D"t=
+ext-decoration: none; color: #3366aa;"><img src=3D"https://res.cloudinary.c=
+om/cpress/image/upload/w_1280,e_sharpen:60/o2rh6zalve3hhvcb28ss.jpg" alt=3D=
+"" width=3D"640" style=3D"outline: none; height: auto; text-decoration: non=
+e; max-width: 100%; line-height: 100%; width: 100%; border: 0;"></a>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;"><tr><td s=
+tyle=3D"height: 4px; font-family: -apple-system,BlinkMacSystemFont,Helvetic=
+a,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt; border-collapse: collapse;"></td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90579/7fbc861818=
+" title=3D"zander.wtf" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">Code Notes: A Gatsby=
+ Theme for Publishing Code-Related Notes and Snippets</a></span> =E2=80=94 =
+If you=E2=80=99ve got a bunch of code snippets you want to keep collected t=
+ogether and present in an attractive fashion, this is a neat Gatsby and Mar=
+kdown/MDX powered approach. Here=E2=80=99s <a href=3D"https://javascriptwee=
+kly.com/link/90580/7fbc861818" style=3D"text-decoration: none; color: #3366=
+aa; border-bottom-width: 1px !important; border-bottom-color: #ddd !importa=
+nt; border-bottom-style: solid !important;">an example site</a> (which has =
+lots of great JavaScript snippets on it =E2=80=93 bonus!)</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Z=
+ander Martineau </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90581/7fbc861818=
+" title=3D"wallabyjs.com" style=3D"text-decoration: none; color: #3366aa; b=
+order-bottom-width: 1px !important; border-bottom-color: #ddd !important; b=
+order-bottom-style: solid !important; font-size: 1.05em;">Breakpoints and <=
+code style=3D'font-family: menlo, monaco, "Ubuntu Mono", courier, monospace=
+; font-weight: normal; background-color: inherit;'>console.log</code> Is th=
+e Past, Time Travel Is the=C2=A0Future</a></span> =E2=80=94 15x faster Java=
+Script debugging than with breakpoints and=C2=A0console.log.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">W=
+allaby.js <span style=3D"text-transform: uppercase; margin-left: 4px; font-=
+size: 0.9em; border-radius: 2px; background-color: #fffcaa; color: #993 !im=
+portant; padding: 1px 4px; border: 1px solid #eee455;" class=3D"tag-sponsor=
+">sponsor</span></p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90582/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">TOAST UI Grid: A Cus=
+tomizable Grid Control for the Web</a></span> =E2=80=94 First featured a ye=
+ar ago, TUI Grid is a powerful grid control for the display, editing, and m=
+anagement of data. It comes from the same folks as <a href=3D"https://javas=
+criptweekly.com/link/90583/7fbc861818" style=3D"text-decoration: none; colo=
+r: #3366aa; border-bottom-width: 1px !important; border-bottom-color: #ddd =
+!important; border-bottom-style: solid !important;">TUI Editor</a> and <a h=
+ref=3D"https://javascriptweekly.com/link/90584/7fbc861818" style=3D"text-de=
+coration: none; color: #3366aa; border-bottom-width: 1px !important; border=
+-bottom-color: #ddd !important; border-bottom-style: solid !important;">TUI=
+=C2=A0Calendar</a>.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">N=
+HN </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90585/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">DOCX: A Declarative =
+API to Generate .docx Files</a></span> =E2=80=94 <code style=3D"background-=
+color: #efc;">.docx</code> files being more commonly known as modern Micros=
+oft Word documents. This library works in both Node and the browser and the=
+re=E2=80=99s a <a href=3D"https://javascriptweekly.com/link/90586/7fbc86181=
+8" style=3D"text-decoration: none; color: #3366aa; border-bottom-width: 1px=
+ !important; border-bottom-color: #ddd !important; border-bottom-style: sol=
+id !important;">live demo=C2=A0here</a>.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">D=
+olan </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90587/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">Midori: A Library fo=
+r Animated Image Backgrounds</a></span> =E2=80=94 Built with three.js, prov=
+ides support for animated transition, a configurable dynamic =E2=80=9Ccamer=
+a=E2=80=9D, and post-processing=C2=A0effects.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">B=
+enjamin Pang </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90588/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">=F0=9F=95=B0 Tzdb: A=
+ Simplified and Grouped List of Time Zones and Offsets</a></span> =E2=80=94=
+ The official IANA time zone list has over 500 entries but you can simplify=
+ this substantially, as done=C2=A0here.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">V=
+incent Voyer </p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90589/7fbc861818=
+" title=3D"" style=3D"text-decoration: none; color: #3366aa; border-bottom-=
+width: 1px !important; border-bottom-color: #ddd !important; border-bottom-=
+style: solid !important; font-size: 1.05em;">Save Your Sprints. Build Tools=
+ 5x Faster</a></span></p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">R=
+etool <span style=3D"text-transform: uppercase; margin-left: 4px; font-size=
+: 0.9em; border-radius: 2px; background-color: #fffcaa; color: #993 !import=
+ant; padding: 1px 4px; border: 1px solid #eee455;" class=3D"tag-sponsor">sp=
+onsor</span></p>
+</td></tr></table>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+item  " style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-colla=
+pse: collapse;"><tr><td style=3D"font-family: -apple-system,BlinkMacSystemF=
+ont,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 0px =
+15px;">
+=20=20
+  <p class=3D"desc" style=3D"color: #444; margin-top: 0.8em; margin-bottom:=
+ 0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+=3D"mainlink"><a href=3D"https://javascriptweekly.com/link/90590/7fbc861818=
+" title=3D"github.com" style=3D"text-decoration: none; color: #3366aa; bord=
+er-bottom-width: 1px !important; border-bottom-color: #ddd !important; bord=
+er-bottom-style: solid !important; font-size: 1.05em;">Helipopper: A Powerf=
+ul Tooltip and Popover Library for Angular</a></span> =E2=80=94 A lighweigh=
+t wrapper for Tippy.js for use in Angular. Lots of examples demonstrating t=
+he flexibility of it on <a href=3D"https://javascriptweekly.com/link/90591/=
+7fbc861818" style=3D"text-decoration: none; color: #3366aa; border-bottom-w=
+idth: 1px !important; border-bottom-color: #ddd !important; border-bottom-s=
+tyle: solid !important;">the demo=C2=A0page</a>.</p>
+  <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">n=
+etanel basal </p>
+</td></tr></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;"><tr><td s=
+tyle=3D"height: 14px; font-family: -apple-system,BlinkMacSystemFont,Helveti=
+ca,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-lspace: 0pt;=
+ mso-table-rspace: 0pt; border-collapse: collapse;"></td></tr></table>
+</div>
+  </td></tr>
+</table>
+<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+<div id=3D"footer" class=3D"noarchive">
+=20=20=20=20
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-top-width: 1px; border-top-color: #dddddd; border-top-style: solid; ms=
+o-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;"><tr=
+><td style=3D"text-align: center; font-family: -apple-system,BlinkMacSystem=
+Font,Helvetica,sans-serif; font-size: 15px; line-height: 1.55em; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; padding: 20p=
+x 15px;">
+      <p style=3D"font-size: 12px; line-height: 1.5em; margin-top: 0.8em; m=
+argin-bottom: 0.8em;">Published by <a href=3D"https://cooperpress.com/" sty=
+le=3D"text-decoration: none; color: #3366aa;">Cooperpress</a> and edited by=
+ <a href=3D"https://javascriptweekly.com/link/90592/7fbc861818" style=3D"te=
+xt-decoration: none; color: #3366aa;">Peter Cooper</a></p>
+      <p style=3D"font-size: 12px; line-height: 1.5em; margin-top: 0.8em; m=
+argin-bottom: 0.8em;">'JavaScript' is a trademark of Oracle Corporation in =
+the US<br>We are not endorsed by or affiliated with Oracle.</p>
+      <p style=3D"font-size: 0.9em; margin-top: 0.8em; margin-bottom: 0.8em=
+;"><a href=3D"https://javascriptweekly.com/edit_subscription/7fbc861818" st=
+yle=3D"text-decoration: underline; color: #3366aa;">Change your email addre=
+ss</a> or <a href=3D"https://javascriptweekly.com/leave/7fbc861818" style=
+=3D"text-decoration: underline; color: #3366aa;">stop getting this newslett=
+er</a>.</p>
+      <p style=3D"font-size: 12px; margin-top: 0.8em; margin-bottom: 0.8em;=
+">=C2=A9 Cooper Press Ltd =C2=B7 Fairfield Enterprise Centre, Louth, LN11 0=
+LS, United Kingdom</p>
+      </td></tr></table>
+  </div>
+<!-- hey --><img src=3D"https://javascriptweekly.com/open/493/7fbc861818" w=
+idth=3D"3" height=3D"2" /><!-- hey --></body>
+</html>
+
+--15950169f1950c67e0c99791e1c048681712da784b3e4ba0714d03d9d55e--

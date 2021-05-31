@@ -14,7 +14,7 @@ call vundle#end()
 filetype plugin indent on
 
 "VimWiki settings
-let g:vimwiki_list = [{'path': '~/Nextcloud/vimwiki/', 'path_html': '~/Nextcloud/vimwiki_html', 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'path_html': '~/Documents/vimwiki_html', 'syntax': 'markdown', 'ext': 'md'}]
 let g:vimwiki_global_ext = 0
 
 "nerdtree conf
@@ -120,8 +120,7 @@ nnoremap <leader>gitig :-1read ~/.vim/.skeletons/skel.gitignore<CR>
 
 "autocompletado al programar en Java
 let java_highlight_functions = 1 "java highlight
-imap <leader>sout System.out.print();<ESC>hi
-imap <leader>soutln System.out.println();<ESC>hi
+imap <leader>sout System.out.println();<ESC>hi
 imap <leader>psvm public static void main(String[] args){}<ESC>i<CR><ESC>O
 imap <leader>scan Scanner scan = new Scanner(System.in);
 imap <leader>rnd Random rnd = new Random();

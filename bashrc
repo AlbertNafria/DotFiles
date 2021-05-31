@@ -19,7 +19,7 @@ export LANG="es_ES.UTF-8"
 
 
 export PATH="$PATH:~/bin/"
-export PATH="$PATH:~/usr/local/bin/"
+export PATH="$PATH:/usr/local/bin/"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Editor
@@ -50,7 +50,6 @@ export CLICOLOR=1
 	alias dw='cd ~/Downloads'
     alias icloud='cd /Users/albert/Library/Mobile\ Documents/com~apple~CloudDocs'
 	alias tmat='tmux attach' #abre la sesión de .tmux.conf
-	alias tfg='cd ~/Documents/TFG'
     alias tiempo='curl -s wttr.in/barcelona'
     alias mapscii='telnet mapscii.me'
     alias airpods='blueutil --connect "AirPods de Albert"'

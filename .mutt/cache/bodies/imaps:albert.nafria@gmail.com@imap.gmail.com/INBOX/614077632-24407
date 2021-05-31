@@ -1,0 +1,156 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:2056:0:0:0:0 with SMTP id pg22csp1539227ejb;
+        Sat, 20 Jun 2020 12:55:12 -0700 (PDT)
+X-Received: by 2002:a5e:9318:: with SMTP id k24mr9626861iom.115.1592682912465;
+        Sat, 20 Jun 2020 12:55:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592682912; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qISExGs2hqdcFmcGkJfn9wOc4HIuSXz8RMmKj7u5Tq+nFqkYV6fKUaZmwzr4XP4urV
+         YhkTXZLdYXpdf5DRxjHlc+Wj6Kn/iHdExwmzLtaFEVXri/kAC+GZtD+GTgrxXcnAUBKV
+         ke9M/JxY2/WOWpwGs6YOJDMOK+vCT1r/mxXShXHHj8lCExN2b6h59eTdPUJwBxpv2JYm
+         w3Ui2q91wl8DKGWIgOzZEq9ktyBTZBwj431uyb7wL1t8PwnencpWiDoxaVdntJa4zpvB
+         FgLRn/H1ZHDYeFBh9a29E1tF72qhNsVrnidG9PBqKlRCooc9Hx5r18YIV7VI40GSssSG
+         y57g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=rX2POEKhTfiqjLaKvQM0/cblmpeyORy6Rj8kK2PkaLk=;
+        b=BDlxSVFKYVq4Jcg61lDmgIP9F0EB4DeN7I3RTrjhBkW217Np5RqhcFSiCLsaS11rN0
+         4i/fNXGBHIimIfKzFQvBfvg+x15Yl6NxxQv8YPoBdWP/T83/F+7hSdv0Hgi89raojrFI
+         NgIpLaJ+inPY7DgVKqpwfJnLY41EU5rkkLhZlLAJl7oO+CWNwdPKW26M0o8SAO7YWt2p
+         6OU0INwRXtZ7NgbFoZtWZVI3GaN2nwmbV+cQrYG5mHooJucJWan8yuU+HweOLJLsg7q0
+         NkToeWQ82oH7uesA9AFupR17YL3fbChbUo+FyE6ntQQNve1iaF5Hp19Accf4gReb0TCf
+         Pu/A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20161025 header.b=zBWJG6o3;
+       spf=pass (google.com: domain of 3ognuxggtdssuv-ylwsfhjjvbuaz.nvvnsl.jvthsilya.uhmyphnthps.jvt@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3oGnuXggTDSsUV-YLWSfHJJVbUaZ.NVVNSL.JVTHSILYa.UHMYPHNTHPS.JVT@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com
+Return-Path: <3oGnuXggTDSsUV-YLWSfHJJVbUaZ.NVVNSL.JVTHSILYa.UHMYPHNTHPS.JVT@gaia.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id p4sor8541573iln.79.2020.06.20.12.55.12
+        for <albert.nafria@gmail.com>
+        (Google Transport Security);
+        Sat, 20 Jun 2020 12:55:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3ognuxggtdssuv-ylwsfhjjvbuaz.nvvnsl.jvthsilya.uhmyphnthps.jvt@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20161025 header.b=zBWJG6o3;
+       spf=pass (google.com: domain of 3ognuxggtdssuv-ylwsfhjjvbuaz.nvvnsl.jvthsilya.uhmyphnthps.jvt@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3oGnuXggTDSsUV-YLWSfHJJVbUaZ.NVVNSL.JVTHSILYa.UHMYPHNTHPS.JVT@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20161025;
+        h=mime-version:date:feedback-id:message-id:subject:from:to;
+        bh=rX2POEKhTfiqjLaKvQM0/cblmpeyORy6Rj8kK2PkaLk=;
+        b=zBWJG6o3yLaP4nSipD7igBgErOM3gR5yfeDmcH8Enq3V/LvB2KyHApooR1w8NUTDON
+         PIC+DRBTDWOoEYDdA9HlE+w75NXidKF36jBeQRzLVtN7cHW1ghbIbbPAiOW+A9kneZku
+         ZxUmWvCrUskPpT3RCjhMLKJofEbOzVuMgfW+o5ylb5gTDPEXWN4l+9mZk//s6PAR4zJ+
+         QTcbiS3J/Fjl+6sDTFqSlsxOIPtjAzdFGAV+u6zwq6Rb+WzA9kLoU1NBDqMZzJ3uzWZP
+         QYYqnATEJei3trzEXWQwg6nDMxDymohyTRaj4bFsvNWUSzsLPfsFPw6SSgA9v2HEfhi+
+         rvoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:feedback-id:message-id:subject
+         :from:to;
+        bh=rX2POEKhTfiqjLaKvQM0/cblmpeyORy6Rj8kK2PkaLk=;
+        b=VHgYpkESZ5W/2awlG/PtVhtULFWYNV7Z2XxhmvzADKDxTe6+x4qZ15yJygAuke4/r0
+         XepjvIb+qgZkU0wwhRTLEcc5sGciPS6e7phM8IksFjCoo6TF/Ck8NsO65NzQOi0jybEs
+         N5Wr72qeD1HHkvbEIFuou7jT0tDlP0QSVyR3e5C6IA965EqltCE5twOl4ULdXS/cXdlH
+         Hch7rua/zME+JN5cNnqOXFbkSVPllFYyLRx5h4vtSJMeR9lPyPucMHOAeZnufvDyXhVH
+         GrdFIiKHvnzYUbSSyMXDrvN2DDzqu+wjncoUZ2vR/FBVO//5ThvExcArrQEIusD/agPo
+         LxyQ==
+X-Gm-Message-State: AOAM530PPg25J5RBndc3hXX5Qj7Vo6hwZ7S44OgkuJvdTYaMwR1oyyVM
+	x2YOPSHwlGy2uC63vFqPaHZ4nXQfkt69
+X-Google-Smtp-Source: ABdhPJx34kD8rgS9fzrsThR7XrLNEikHwRFLFOsC6RoX/MH7/IJ/asWGSRybsstuO97ld/QfeZeU4H4S+r33xe9zC3QtaA==
+MIME-Version: 1.0
+X-Received: by 2002:a92:d0cc:: with SMTP id y12mr9494023ila.308.1592682912166;
+ Sat, 20 Jun 2020 12:55:12 -0700 (PDT)
+Date: Sat, 20 Jun 2020 19:55:11 GMT
+X-Account-Notification-Type: 18
+Feedback-ID: 18:account-notifier
+X-Notifications: 0e5e27892a400000
+Message-ID: <g8Hg8jOqL2W9kS4GrMFCyg.0@notifications.google.com>
+Subject: 2-Step Verification turned off
+From: Google <no-reply@accounts.google.com>
+To: albert.nafria@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000038338e05a88963b3"
+
+--00000000000038338e05a88963b3
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+W2ltYWdlOiBHb29nbGVdDQoyLVN0ZXAgVmVyaWZpY2F0aW9uIHR1cm5lZCBvZmYNCg0KDQphbGJl
+cnQubmFmcmlhQGdtYWlsLmNvbQ0KWW91ciBHb29nbGUgQWNjb3VudCBpcyBubyBsb25nZXIgcHJv
+dGVjdGVkIHdpdGggMi1TdGVwIFZlcmlmaWNhdGlvbi4gWW91DQpkb27igJl0IG5lZWQgeW91ciBz
+ZWNvbmQgZmFjdG9yIHRvIHNpZ24gaW4uDQpDaGVjayBhY3Rpdml0eQ0KPGh0dHBzOi8vYWNjb3Vu
+dHMuZ29vZ2xlLmNvbS9BY2NvdW50Q2hvb3Nlcj9FbWFpbD1hbGJlcnQubmFmcmlhQGdtYWlsLmNv
+bSZjb250aW51ZT1odHRwczovL215YWNjb3VudC5nb29nbGUuY29tL2RldmljZS1hY3Rpdml0eT9y
+Zm4lM0QxOCUyNnJmbmMlM0QxJTI2ZWlkJTNELTM2OTg0MTM0NzMzNDU4MzgwMzclMjZldCUzRDA+
+DQpZb3UgcmVjZWl2ZWQgdGhpcyBlbWFpbCB0byBsZXQgeW91IGtub3cgYWJvdXQgaW1wb3J0YW50
+IGNoYW5nZXMgdG8geW91cg0KR29vZ2xlIEFjY291bnQgYW5kIHNlcnZpY2VzLg0KwqkgMjAyMCBH
+b29nbGUgTExDLCAxNjAwIEFtcGhpdGhlYXRyZSBQYXJrd2F5LCBNb3VudGFpbiBWaWV3LCBDQSA5
+NDA0MywgVVNBDQo=
+--00000000000038338e05a88963b3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"uMziLLjSvZOu8p9MdkrtEQ">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css"/></h=
+ead><body style=3D"margin: 0; padding: 0;" bgcolor=3D"#FFFFFF"><table width=
+=3D"100%" height=3D"100%" style=3D"min-width: 348px;" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" lang=3D"en"><tr height=3D"32" style=3D"height: =
+32px;"><td></td></tr><tr align=3D"center"><td><div itemscope itemtype=3D"//=
+schema.org/EmailMessage"><div itemprop=3D"action" itemscope itemtype=3D"//s=
+chema.org/ViewAction"><link itemprop=3D"url" href=3D"https://accounts.googl=
+e.com/AccountChooser?Email=3Dalbert.nafria@gmail.com&amp;continue=3Dhttps:/=
+/myaccount.google.com/device-activity?rfn%3D18%26rfnc%3D1%26eid%3D-36984134=
+73345838037%26et%3D0"/><meta itemprop=3D"name" content=3D"Review Activity"/=
+></div></div><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"padding-bottom: 20px; max-width: 516px; min-width: 220px;"><tr><td widt=
+h=3D"8" style=3D"width: 8px;"></td><td><div style=3D"border-style: solid; b=
+order-width: thin; border-color:#dadce0; border-radius: 8px; padding: 40px =
+20px;" align=3D"center" class=3D"mdv2rw"><img src=3D"https://www.gstatic.co=
+m/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png" width=3D"74" =
+height=3D"24" aria-hidden=3D"true" style=3D"margin-bottom: 16px;" alt=3D"Go=
+ogle"><div style=3D"font-family: &#39;Google Sans&#39;,Roboto,RobotoDraft,H=
+elvetica,Arial,sans-serif;border-bottom: thin solid #dadce0; color: rgba(0,=
+0,0,0.87); line-height: 32px; padding-bottom: 24px;text-align: center; word=
+-break: break-word;"><div style=3D"font-size: 24px;">2-Step Verification tu=
+rned off</div><table align=3D"center" style=3D"margin-top:8px;"><tr style=
+=3D"line-height: normal;"><td align=3D"right" style=3D"padding-right:8px;">=
+<img width=3D"20" height=3D"20" style=3D"width: 20px; height: 20px; vertica=
+l-align: sub; border-radius: 50%;;" src=3D"https://lh3.googleusercontent.co=
+m/a-/AOh14Gh1Qi-kIwy65LLhrm3FyVgFb-XFfOV7h3O_Kr9KKA=3Ds96" alt=3D""></td><t=
+d><a style=3D"font-family: &#39;Google Sans&#39;,Roboto,RobotoDraft,Helveti=
+ca,Arial,sans-serif;color: rgba(0,0,0,0.87); font-size: 14px; line-height: =
+20px;">albert.nafria@gmail.com</a></td></tr></table></div><div style=3D"fon=
+t-family: Roboto-Regular,Helvetica,Arial,sans-serif; font-size: 14px; color=
+: rgba(0,0,0,0.87); line-height: 20px;padding-top: 20px; text-align: left;"=
+>Your Google Account is no longer protected with 2-Step Verification. You d=
+on=E2=80=99t need your second factor to sign in.<div style=3D"padding-top: =
+32px; text-align: center;"><a href=3D"https://accounts.google.com/AccountCh=
+ooser?Email=3Dalbert.nafria@gmail.com&amp;continue=3Dhttps://myaccount.goog=
+le.com/device-activity?rfn%3D18%26rfnc%3D1%26eid%3D-3698413473345838037%26e=
+t%3D0" target=3D"_blank" link-id=3D"main-button-link" style=3D"font-family:=
+ &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif; line-=
+height: 16px; color: #ffffff; font-weight: 400; text-decoration: none;font-=
+size: 14px;display:inline-block;padding: 10px 24px;background-color: #4184F=
+3; border-radius: 5px; min-width: 90px;">Check activity</a></div></div></di=
+v><div style=3D"text-align: left;"><div style=3D"font-family: Roboto-Regula=
+r,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; line=
+-height: 18px; padding-top: 12px; text-align: center;"><div>You received th=
+is email to let you know about important changes to your Google Account and=
+ services.</div><div style=3D"direction: ltr;">&copy; 2020 Google LLC, <a c=
+lass=3D"afal" style=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-ser=
+if;color: rgba(0,0,0,0.54); font-size: 11px; line-height: 18px; padding-top=
+: 12px; text-align: center;">1600 Amphitheatre Parkway, Mountain View, CA 9=
+4043, USA</a></div></div></div></td><td width=3D"8" style=3D"width: 8px;"><=
+/td></tr></table></td></tr><tr height=3D"32" style=3D"height: 32px;"><td></=
+td></tr></table></body></html>
+--00000000000038338e05a88963b3--

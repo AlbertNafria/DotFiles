@@ -1,0 +1,173 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:2056:0:0:0:0 with SMTP id pg22csp634516ejb;
+        Fri, 19 Jun 2020 10:38:24 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJywQUZPd+hKV+KvWFwVfXTlMtnCemcHRKdjwbhwOwBYz+KCXfK+QtU83B62JVnzaFZ774EH
+X-Received: by 2002:a1c:188:: with SMTP id 130mr4885645wmb.93.1592588304234;
+        Fri, 19 Jun 2020 10:38:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592588304; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ROVu9JvJXhIFecTJH4uCwbnYU+YcAZYkxBjpCDW/1Wpm37XMNsYWbmT0U6iE79lYxb
+         tWyVpU00ITGDw+d1GPCnOIK4lzRzZCbfiO9jOOOc29jWOHkFdCyalsscbti976y5BGl7
+         2papuyGYdmmg4aDnE6PtYE7aFKGbrim+UvxZhZekJqffpzGFnbX6NjUBhjaRLwNqgzIz
+         zqzNxFAvamFwVzVjy/vSXLmkKTigejVT3MvtVkBhEU5OKXr2RgIXy8ckkmvwznAqju8P
+         0vvlOC/f/8gO4SKQhd0qsKqwOG7gv8rR7ZY+de3VgDllCBXv9ZxIPnRJBHC8IKeBvUn/
+         6mOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=lgtmail-info:lgtmail-request-id:lgtmail-guid:lgtmail-service
+         :lgtmail-process:mime-version:subject:message-id:to:from:date
+         :dkim-signature;
+        bh=Zl/4DGefB5A2Jd4YgwVpBdRZSuQwbsJr6rWPo8dW4Hg=;
+        b=TKRwLuBgqMBNo133MLbn2LI2arBfY0mcHYS0L5oD12gLTlQ0E5ULMmr50KgUGcJwNp
+         3eMIbLqIKa+f+/xqm9Rf9Jw4kyBxqTBf1kj+0lGLZw3+9M9CgUt9lpVhEwUSl6JVE2b9
+         sijMcQYiUDlde8ED6IzoCoa5nYgJ4Ox/+BWBfzdc7On2MaTMyjAXnTR9Uie/EQqSzXS/
+         ZAgJKJ4IH1UrYDgDE5x2toSk0AceyJiQ5ARNu8/FIIpUjezuIhJxRsa5foFV38nCu6j3
+         EJznTaPiccLCHWX20iE3mUOCzOHFIAmsrrkzBd3IG6XbmyBxsDycRZEr7TnFKQgqCV86
+         ECcw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@logalty.es header.s=dklog header.b=IeO9mfpg;
+       spf=pass (google.com: domain of noreply@logalty.es designates 194.140.17.70 as permitted sender) smtp.mailfrom=noreply@logalty.es
+Return-Path: <noreply@logalty.es>
+Received: from smtp2.logalty.es (smtp2.logalty.es. [194.140.17.70])
+        by mx.google.com with ESMTPS id g72si6656346wme.94.2020.06.19.10.38.23
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 19 Jun 2020 10:38:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@logalty.es designates 194.140.17.70 as permitted sender) client-ip=194.140.17.70;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@logalty.es header.s=dklog header.b=IeO9mfpg;
+       spf=pass (google.com: domain of noreply@logalty.es designates 194.140.17.70 as permitted sender) smtp.mailfrom=noreply@logalty.es
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=logalty.es; i=@logalty.es; l=6971; q=dns/txt;
+  s=dklog; t=1592588304; x=1624124304;
+  h=received:from:to:message-id:subject:mime-version:
+   content-type:lgtmail-process:lgtmail-service:lgtmail-guid:
+   lgtmail-request-id:lgtmail-info:date:x-ironport-av;
+  bh=jc8y7y1kG6OFiiIeLExx6eKtDRMja0FOfcWD21hY3Ug=;
+  b=IeO9mfpgQUEwx5OvWVNZ9OROkvPonnLUF8uMIZgjIQCB4Q4KB0Sti0RL
+   x6RZK9zmgg8WvH4Ta6t6RXjU4MYqPRUlnTTfBIFjCu400P2kKZ8C36EtR
+   yT2qjh6vYdnh3/PoWgurynzCWkU/fyUAwwC0HoHrSJUexoHizmOcwAAp4
+   4=;
+Date: 19 Jun 2020 19:38:20 +0200
+X-IronPort-AV: E=Sophos;i="5.75,256,1589234400"; 
+   d="scan'208,217";a="43769543"
+Received: from unknown (HELO pesixback02.logalty.local) ([172.31.5.137])
+  by smtp2.logalty.es with ESMTP; 19 Jun 2020 19:38:20 +0200
+From: "noreply@logalty.es" <noreply@logalty.es>
+To: NAFRIA FEBRER ALBERT   <albert.nafria@gmail.com>
+Message-ID: <2074335294.4524685.1592588300278.JavaMail.jboss@pesixback02.logalty.local>
+Subject: =?ISO-8859-1?Q?_Notificaci=F3n_de_GRUPO_ZENA_PIZZA,_S.COM.P.A_enviad?=
+ =?ISO-8859-1?Q?a_mediante_Logalty_(001001-0001-000000046893863.par)?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_4524684_100859422.1592588300278"
+Lgtmail-Process: accRec
+Lgtmail-Service: PT0001_NOTIFICATION
+Lgtmail-Guid: 001001-0001-000000046893863.par
+Lgtmail-Request-Id: 51625027
+Lgtmail-Info: 51625027
+
+------=_Part_4524684_100859422.1592588300278
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<table style=3D"width: 100%; background-color:#FFFFFF;" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr><td height=3D"45">&nbsp;</td></tr><tr><td width=
+=3D"710"><table width=3D"560px" style=3D"width:560px; font-family: Arial, H=
+elvetica, sans-serif; font-size:12px; color:#505050;" cellspacing=3D"0" cel=
+lpadding=3D"0" align=3D"center"><tbody><tr><td height=3D"20px"><table style=
+=3D"width: 100%; font-family: Arial, Helvetica, sans-serif;" cellspacing=3D=
+"0" cellpadding=3D"0"><tbody><tr><td style=3D"text-align: left; font-size: =
+11px; color: #a8a8a9;">Viernes, 19 de junio de 2020 19:38:20</td><td style=
+=3D"text-align: right;font-size: 13px; color: #505050; text-transform: uppe=
+rcase; line-height: 1.1em;">NOTIFICACI&Oacute;N ELECTR&Oacute;NICA</td></tr=
+></tbody></table></td></tr><tr><td height=3D"18px" style=3D"border-bottom: =
+1px solid #d1d4d7">&nbsp;</td></tr><tr><td height=3D"20px"><table style=3D"=
+width: 100%" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"text-alig=
+n: left;"><img style=3D"display: block;" src=3D"https://www.logalty.es/lgt/=
+logteca/staticrcpt/email/sender/0/7002.png" alt=3D"GRUPO ZENA PIZZA, S.COM.=
+P.A" height=3D"82" width=3D"223" /></td><td style=3D"text-align: right;"><i=
+mg style=3D"display: block;" src=3D"https://www.logalty.es/lgt/logteca/stat=
+icrcpt/email/sender/0/log-logalty.gif" alt=3D"logalty" height=3D"72" /></td=
+></tr></table></td></tr><tr><td height=3D"20px">&nbsp;</td></tr><tr><td><b>=
+<span style=3D"font-size:14px; color:#505050; line-height: 1.1em;">A la ate=
+nci&oacute;n de </span><span style=3D"color:#4d7eba;"> NAFRIA FEBRER, ALBER=
+T  :</span></b></td></tr><tr><td height=3D"20px">&nbsp;</td></tr><tr><td al=
+ign=3D"left"><span style=3D"color:#757575; font-size:12px; line-height: 1.5=
+em;"> Le informamos que tiene disponible una notificaci&oacute;n electr&oac=
+ute;nica certificada a su nombre enviada por GRUPO ZENA PIZZA, S.COM.P.A. E=
+sta notificaci&oacute;n est&aacute; fechada y custodiada por Logalty, y una=
+ funci&oacute;n resumen del contenido ha sido depositada notarialmente: </s=
+pan></td></tr><tr><td height=3D"20px">&nbsp;</td></tr><tr><td><table width=
+=3D100%; style=3D"width:100%; background-color:#FFFFFF; border: 1px solid #=
+d1d4d7; font-size:12px; font-family: Arial, Helvetica, sans-serif; color:#5=
+05050;" cellspacing=3D"0" cellpadding=3D"0"><tr><td colspan=3D"3" style=3D"=
+border-bottom: 1px solid #d1d4d7;  font-size:14px; color:#505050; line-heig=
+ht: 1.1em; font-weight: bold; padding: 10px;"> Datos de la notificaci&oacut=
+e;n electr&oacute;nica:</td></tr><tr><td colspan=3D"3" height=3D"20px">&nbs=
+p;</td></tr><tr><td style=3D"width: 255px;text-align: right; color:#757575;=
+ line-height: 1.5em;">Enviado por:</td><td style=3D"width: 25px;">&nbsp;</t=
+d><td style=3D"width: 255px;text-align: left; line-height: 1.5em;">GRUPO ZE=
+NA PIZZA, S.COM.P.A</td></tr><tr><td style=3D"width: 255px;text-align: righ=
+t; color:#757575; line-height: 1.5em;">Fecha de env&iacute;o:</td><td style=
+=3D"width: 25px;">&nbsp;</td><td style=3D"width: 255px;text-align: left; li=
+ne-height: 1.5em;">Viernes, 19 de junio de 2020 19:38:20</td></tr><tr><td s=
+tyle=3D"width: 255px;text-align: right; color:#757575; line-height: 1.5em;"=
+>Documento enviado:</td><td style=3D"width: 25px;">&nbsp;</td><td style=3D"=
+width: 255px;text-align: left; line-height: 1.5em;">cartas combinadas-34.pd=
+f</td></tr><tr><td style=3D"width: 255px;text-align: right; color:#757575; =
+line-height: 1.5em;">C&oacute;digo de env&iacute;o:</td><td style=3D"width:=
+ 25px;">&nbsp;</td><td style=3D"width: 255px;text-align: left; line-height:=
+ 1.5em;">001001-0001-000000046893863.par</td></tr><tr><td colspan=3D"3" hei=
+ght=3D"35px">&nbsp;</td></tr><tr><td colspan=3D"3" align=3D"center"><table =
+align=3D"center" width=3D"173px" height=3D"35px" style=3D"background-color:=
+#2971ca; width: 173px; height: 35px; text-align: center;"><tr><td valign=3D=
+"middle"><a style=3D"font-family: Arial, Helvetica, sans-serif; font-size:2=
+2px; color:#FFFFFF;" title=3D"Consultar" href=3D"https://www.logalty.es/lgt=
+/lgtfrontend/ticket/captcha/captcha.html?cap=3D0uPjjLo%2FZ9ZoV1qUNY113z4GPf=
+RoIoveQLNO7NtT6YBoMm96n5ftpYOU4EP5TaCD0Eyvw9j2mwJnD1ELUOW0ShsRcd%2BYeBVqgwS=
+UnXw0kLW3%2FSwnTMsMYXxSAnFS0SzrsH48DbMVU1jsal5uWvLl4MJR3z0AGmvbfWe7z1PyFogQ=
+gqjSBq0A4hQvUaSqJi7djvb2r9MzHrngRhomCRlhEtZ4ZbiHCu6fuF5z0ttlrvo%3D"> Accede=
+r</a></td></tr></table></td></tr><tr><td colspan=3D"3" style=3D"padding: 30=
+px 20px 20px 30px;"><span style=3D"color:#757575; line-height: 1.5em;"> Par=
+a acceder a la notificaci&oacute;n, pulse el bot&oacute;n y siga las instru=
+cciones.<br/> Necesitar&aacute; su m&oacute;vil para poder recibir el c&oac=
+ute;digo de acceso.</span></td></tr></table></td></tr><tr><td  style=3D"pad=
+ding: 20px"><p style=3D"font-size:10px; color:#757575; text-align: justify;=
+"></br>Logalty le ha remitido este correo electr&oacute;nico por encargo de=
+l remitente identificado en el cuerpo del mensaje para generar prueba por i=
+nterposici&oacute;n electr&oacute;nica del env&iacute;o, recepci&oacute;n o=
+ formalizaci&oacute;n de concretos documentos. Le informamos de que Logalty=
+ act&uacute;a como Prestador de Servicios de Confianza, generando prueba po=
+r interposici&oacute;n de acuerdo con las condiciones establecidas en https=
+://www.logalty.com/terms/es/. Logalty no le cobrar&aacute; cantidad alguna =
+por el servicio referido en esta comunicaci&oacute;n, ni por ning&uacute;n =
+otro que usted no contrate directamente con Logalty.=20
+
+
+=09
+
+=09
+
+=09
+
+=09
+
+
+
+=09=09Si desea ejercer sus derechos de protecci&oacute;n de datos (acceso, =
+rectificaci&oacute;n o supresi&oacute;n entre otros) puede ponerse en conta=
+cto con el Responsable del Tratamiento o emisor.
+ <span style=3D"color:#4d7eba;"><a style=3D"color:#4d7eba;" href=3D"http://=
+www.logalty.com/terms/es"> http://www.logalty.com/terms/es</a></span></p></=
+td></tr><tr><td height=3D"10">&nbsp;</td></tr><tr><td align=3D"center"><tab=
+le style=3D"width: 100%;" cellspacing=3D"0" cellpadding=3D"0"><tr><td valig=
+n=3D"bottom" width=3D"103;"><span style=3D" font-size: 11px; line-height: 1=
+.1em;color:;"> &copy; Logalty</span></td><td>&nbsp;</td><td align=3D"right"=
+ width=3D"152"><a style=3D"text-decoration: none;" title=3D"S&iacute;guenos=
+ en LinkedIn" href=3D"http://www.linkedin.com/company/logalty"><img style=
+=3D"display: block;" src=3D"https://www.logalty.es/lgt/logteca/staticrcpt/e=
+mail/sender/0/ico-linkedin.gif.png" alt=3D"S&iacute;guenos en LinkedIn" wid=
+th=3D"24" height=3D"24" border=3D"0" /></a></td></tr></table></td></tr></tb=
+ody></table></td></tr><tr><td height=3D"70">&nbsp;</td></tr></tbody></table=
+><p>&nbsp;</p>
+------=_Part_4524684_100859422.1592588300278--

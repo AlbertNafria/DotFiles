@@ -1,0 +1,1595 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:907:209a:0:0:0:0 with SMTP id pv26csp337979ejb;
+        Thu, 11 Feb 2021 05:56:37 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy28b8MJ0M3q8DO49Jlg6g818G6upED02d9X9N8aGAiWXwDHvXZznRR1ARnULi/mz5sOyGy
+X-Received: by 2002:a65:57cd:: with SMTP id q13mr8087289pgr.367.1613051797532;
+        Thu, 11 Feb 2021 05:56:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613051797; cv=none;
+        d=google.com; s=arc-20160816;
+        b=IzFpj5/kAQdFYa8nt8ZOR4guCUqn2kInAYM6Z49tYE6KJZBo40HRidEVYtCKu8P50x
+         EpcOZI4QmBPAGPzPGe3Cymdmh2r6Du0UmfwHCNABWStqtKyAcU2SREh8ZQSIiabk+CPN
+         XwjBp+/DW0foVwRNebQP0YcnW32yxGtmqOHX5wqOSYeyQGdO0Q8Ex9IFZ8xjensyhInD
+         smFCXdOeMCfmZWXNUBHzRPBhTmVJIR05kqLh++41U0T62CXL8MDfONDCWThYMWSNoB6y
+         XiwnMG39FoStiVtX5jIgx+lM/X5nO8tn+CzG5ajU/nMkdpRkyALAxQOAT/7sxHRH2Qii
+         TE2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:list-unsubscribe:mime-version:date:reply-to:to:from
+         :subject:dkim-signature:dkim-signature;
+        bh=AdSSVPWdOgCMDlu8yz7+8UzRfLea3F472hU/NfiwAFo=;
+        b=U/QdP+xV4jXFUKL0pVn5bCrAwlQMwMmhY5tJut4t/2Etm1fXvP+9ep8xIKJgDcQySN
+         JGyfQs+iYe5FrHhav5yA9KIPY/swqT9CDjwE1PVSOUavSxtaMt0Ur31TwoFJ88Mn72IH
+         tkbIQdcz60C7TbnOz4xRdIo0bK1Y+6fKc2kz41qNrZBNVPXQTnA6E1zAVRrPQypB5DBe
+         crS6FPP1S/xLtIXKxkx7p3IIMWU0jzXllgjQpTpbQz7zX8dqZ3MDoYS+EEinGHkx5tDR
+         6x5t8RKDsLTVq6KlRSU0ZqMjM+SWDTkH9D66EK5WVSCGobEDWKdDQYMz2kDvDluILDsV
+         KlgA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sofrologia.com header.s=cm header.b=VvYogNhc;
+       dkim=pass header.i=@cmail2.com header.s=cs2013 header.b=YY3HvlqI;
+       spf=pass (google.com: domain of sofrocay-akydyo1itklfvuj1j@cmail19.com designates 203.55.21.98 as permitted sender) smtp.mailfrom=Sofrocay-akydyo1itklfvuj1j@cmail19.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=sofrologia.com
+Return-Path: <Sofrocay-akydyo1itklfvuj1j@cmail19.com>
+Received: from mx98.a.outbound.createsend.com (mx98.a.outbound.createsend.com. [203.55.21.98])
+        by mx.google.com with ESMTPS id o17si5056181plg.324.2021.02.11.05.56.33
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 11 Feb 2021 05:56:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of sofrocay-akydyo1itklfvuj1j@cmail19.com designates 203.55.21.98 as permitted sender) client-ip=203.55.21.98;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sofrologia.com header.s=cm header.b=VvYogNhc;
+       dkim=pass header.i=@cmail2.com header.s=cs2013 header.b=YY3HvlqI;
+       spf=pass (google.com: domain of sofrocay-akydyo1itklfvuj1j@cmail19.com designates 203.55.21.98 as permitted sender) smtp.mailfrom=Sofrocay-akydyo1itklfvuj1j@cmail19.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=sofrologia.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=cm; d=sofrologia.com;
+ h=Subject:From:To:Reply-To:Date:MIME-Version:Content-Type:X-Feedback-ID:List-Unsubscribe:Message-ID; i=info@sofrologia.com;
+ bh=M8wSVlfLrgHMfZmUcE5H91hgmZo=;
+ b=VvYogNhcxZCPesnpj7guVRwJGIjkyJDf9EIN0QsCogzPCdhRulNttn+2mCJptOAXVJVlBIxZq2Sh
+   vhLSPBX8EPT8K/70ZRZphhSapESQrsG0qr6ql3xRzvWKlHH+wc8AJGbMe0HF1IOME3s7GYE0lW0E
+   C5fq22xXyDl5o3c9Rrk=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=cs2013; d=cmail2.com;
+ h=Subject:From:To:Reply-To:Date:MIME-Version:Content-Type:X-Feedback-ID:List-Unsubscribe:Message-ID;
+ bh=M8wSVlfLrgHMfZmUcE5H91hgmZo=;
+ b=YY3HvlqI39JQDxNjRxnbxtHcpUYBecPU+2QULviVl11lLhb0BlpTvUvKhH80R0wt6m/nPNfWHE0B
+   7+8tCFB7hCc9Yf+H2vyOILtHWmgtKUTvyD0sV08mhnIEpnNa6J8CdYoAWsuSDg7yncGXGbJk91Bh
+   CGPUatwlOyXuDjxbjhg=
+Subject: Curso online: Recursos para gestionar la incertidumbre y el miedo en tiempos de crisis
+From: "Sofrocay" <info@sofrologia.com> 
+To: "albert.nafria@gmail.com" <albert.nafria@gmail.com>
+Reply-To: info@sofrologia.com
+Date: Fri, 12 Feb 2021 00:55:36 +1100
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_1b3a58e0-7abb-4695-a33f-b86761ef4614_"; charset=utf-8
+X-Mailer: Create Send
+X-Complaints-To: abuse@cmail19.com
+X-Feedback-ID: CA1-j-akydyo:LI1-j-jiiyjhl:CL1-j-jjjudu:createSEND
+List-Unsubscribe: <http://unsub.cmail19.com/t/j-u-akydyo-itklfvuj/>,
+ <mailto:unsubscribe-akydyo2itklfvuj2j-01573E9F@cmail19.com?subject=Unsubscribe>
+Message-ID: <cm.0055366006882.akydyo.itklfvuj.j@cmail19.com>
+
+--_1b3a58e0-7abb-4695-a33f-b86761ef4614_
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Actividades online 2021
+
+=C2=BFNo aparecen im=C3=A1genes?  Versi=C3=B3n web https://sofrocay.cmail=
+19.com/t/j-e-akydyo-itklfvuj-o/
+
+Sofrocay - Febrero 2021
+
+CURSO ONLINE     Recursos para gestionar la incertidumbre y
+
+el miedo en tiempos de crisis           Un precio solidario ante una situ=
+aci=C3=B3n excepcional [https://cursos.sofrologia.com/orientar-tu-vida-a=
+nte-la-crisis/]
+
+El coronavirus ha cambiado muchas cosas dentro y fuera de nosotros. Nos s=
+entimos desorientados ante la dificultad que tenemos para planificar nues=
+tras vidas cuando el futuro es incierto.
+
+Los imprevistos nos desorientan; incluso pueden llegar a angustiarnos y f=
+rustrarnos, pero tambi=C3=A9n existe la posibilidad de adaptarnos y pasar=
+ a la acci=C3=B3n planeando objetivos y actuaciones concretas, esto har=C3=
+=A1 que mejore nuestro sentimiento de eficacia y seguridad en nosotros mi=
+smos y en la vida.
+
+En este taller, a trav=C3=A9s de la pr=C3=A1ctica diaria de las t=C3=A9cn=
+icas sofrol=C3=B3gicas, iremos conoci=C3=A9ndonos mejor y desarrollando u=
+n estado de consciencia sereno, positivo y de mayor claridad mental. Desc=
+ubriremos nuestros propios recursos para gestionar los retos que esta nue=
+va situaci=C3=B3n nos ofrece y tener una vida m=C3=A1s satisfactoria.
+
+=C2=BFC=C3=B3mo superar los desaf=C3=ADos que encontramos en
+
+esta nueva normalidad?
+
+Objetivos del curso online
+
+Tomar consciencia de nuestro cuerpo y de c=C3=B3mo le afecta el confinami=
+ento. Aprender a eliminar las tensiones corporales.Iniciarnos en la obser=
+vaci=C3=B3n de  nuestros pensamientos, saber potenciar los que nos son be=
+neficiosos para superar nuestros retos y calmar los par=C3=A1sitos o irra=
+cionales.Desarrollar una actitud serena y constructiva ante lo que nos ac=
+ontece para aprender a aceptar lo que est=C3=A1 sucediendo y sacar el mej=
+or partido a lo que la vida nos ofrece, ayud=C3=A1ndonos as=C3=AD a orien=
+tar mejor nuestra existencia.Tomar consciencia de nuestras emociones y de=
+sarrollar la capacidad de generar emociones positivas que favorezcan en n=
+osotros una actitud mental abierta y dispuesta a encontrar soluciones a l=
+os problemas, no huyendo de la realidad, pero tampoco cayendo en una espi=
+ral negativa.
+
+Agenda del curso
+
+Inicio del curso: lunes 22 de febrero.
+
+Duraci=C3=B3n: ocho sesiones, lunes y jueves de 18:00 a 19:30h.
+
+Impartido por: Teresa Mart=C3=ADn Chicote; psic=C3=B3loga, sofr=C3=B3loga=
+ y coach.
+
+Precio actual: 80 =E2=82=AC - Precio anterior: 140 =E2=82=AC.
+
+Programa: contenidos del curso
+
+D=C3=ADa 1 - La relajaci=C3=B3n y la respiraci=C3=B3n. Tomar consciencia =
+de nuestra respiraci=C3=B3n y aprender a respirar correctamente.
+
+D=C3=ADa 2 - La crisis nos produce estr=C3=A9s que se manifiesta en el cu=
+erpo en forma de tensiones.
+
+D=C3=ADa 3 - Somatizar el positivo favorece tener una mente m=C3=A1s abie=
+rta y superar mejor los desaf=C3=ADos de la vida.
+
+D=C3=ADa 4 - Recursos naturales para gestionar el estr=C3=A9s. El ser con=
+sciente de que contamos con recursos para afrontar los retos diarios favo=
+rece la confianza en nosotros mismos.
+
+D=C3=ADa 5 - Una buena gesti=C3=B3n del tiempo empieza por tener claro lo=
+s objetivos que queremos lograr en las diferentes situaciones de la vida.=
+
+
+D=C3=ADa 6  - Los pensamientos dan forma a nuestra vida, donde se dirigen=
+ nuestros pensamientos all=C3=AD va nuestra energ=C3=ADa.
+
+D=C3=ADa 7 - Ser consciente de nuestras emociones y las de los dem=C3=A1s=
+ nos ayuda a tomar mejores decisiones.
+
+D=C3=ADa 8 - En los momentos de estr=C3=A9s e incertidumbre es normal que=
+ aparezca el miedo; podemos aprender a gestionarlo para evitar que nos pa=
+ralice.
+
+Algunas valoraciones sobre el curso
+
+Teresa, la profesora, es estupenda. Atiende a tod@s con tranquilidad, sab=
+e reconducir las dudas y cuestiones hacia el tema que se est=C3=A1 trabaj=
+ando. Transmite serenidad y sabidur=C3=ADa.
+
+Ha sido fant=C3=A1stico por la claridad de los contenidos y pr=C3=A1ctica=
+ impartidos por Teresa, y la participaci=C3=B3n de los alumnos.
+
+La profesora Teresa Mart=C3=ADn es excelente por sus grandes conocimiento=
+s y la manera perfecta de trasmitirlos, as=C3=AD como la gran empat=C3=AD=
+a con todos los alumnos.
+
+Bravo por la organizaci=C3=B3n y la atenci=C3=B3n recibida durante el cur=
+so. Me llevo una buena experiencia y unos conocimientos que sin duda pond=
+r=C3=A9 en pr=C3=A1ctica en mi vida personal.
+
+Inscripci=C3=B3n curso online [https://online.sofrocay.com/es/espacio-pr=
+ofesional/inscripcion/P-BS/curso/1599]
+
+Plataforma online
+
+Pensada para ti y para mejorar tu bienestar
+
+En esta plataforma encontrar=C3=A1s todo lo que necesitas para realizar u=
+n curso de calidad:
+
+Sesiones sofrol=C3=B3gicas a trav=C3=A9s de videoconferencia.T=C3=A9cnica=
+s de relajaci=C3=B3n que podr=C3=A1s escuchar y practicar en cualquier mo=
+mento.Chat para comunicarte con el profesor.Material pedag=C3=B3gico que =
+te puedes descargar a tu dispositivo e imprimirlo.
+
+Nos adaptamos a tu situaci=C3=B3n en esta nueva realidad
+
+El Instituto Internacional de Sofrolog=C3=ADa garantiza los mismos est=C3=
+=A1ndares de calidad en los cursos y visitas virtuales que en los presenc=
+iales. Un sofr=C3=B3logo profesional te guiar=C3=A1 en la pr=C3=A1ctica s=
+ofrol=C3=B3gica para que puedas conseguir un mayor bienestar contigo mism=
+o y con tu entorno actual.
+
+Para cualquier duda o m=C3=A1s informaci=C3=B3n estamos disponibles en el=
+ n=C3=BAmero
+
+669 28 63 00 o escribiendo a info@sofrologia.com.
+
+Visita individualizada [https://cursos.sofrologia.com/visita-online-indi=
+vidual/]
+
+Los momentos de crisis son una oportunidad para mirar hacia dentro, compr=
+obar que tenemos muchos recursos para superar este desaf=C3=ADo y emprend=
+er las acciones necesarias para adaptarnos y sacar el mejor partido de lo=
+ que nos ofrece la vida
+
+Academia Internacional de Sofrolog=C3=ADa  |  Tel. 93 451 16 36
+
+www.sofrologia.com  |  sofro@sofrologia.com
+
+Informaci=C3=B3n Protecci=C3=B3n de Datos de INSTITUTO INTERNACIONAL DE S=
+OFROLOGIA CAYCEDIANA SL (sofro@sofrologia.com):
+
+FINALIDAD: remitirle nuestra newsletter e informarle de nuestros producto=
+s y servicios formativos por medios electr=C3=B3nicos. LEGITIMACI=C3=93N:=
+ inter=C3=A9s leg=C3=ADtimo en mantenerle informado en su condici=C3=B3n =
+de alumno, o consentimiento del interesado y/o usuario.CESIONES:  no se  =
+contemplan. CONSERVACI=C3=93N: Durante la relaci=C3=B3n contractual y/o h=
+asta que nos solicite la baja comercial y, durante los plazos exigidos po=
+r ley para atender eventuales responsabilidades. DERECHOS: en cualquier  =
+momento puede revocar su consentimiento, as=C3=AD como ejercer su derecho=
+ de acceso, rectificaci=C3=B3n, supresi=C3=B3n, oposici=C3=B3n, limitaci=C3=
+=B3n y portabilidad de sus datos en el correo electr=C3=B3nico del respon=
+sable. En caso de divergencias, puede presentar una reclamaci=C3=B3n ante=
+ la Agencia de Protecci=C3=B3n de Datos (www.aepd.es).
+
+Sofrocay =C2=AE                  Actualizar preferencias https://sofrocay=
+=2Eupdatemyprofile.com/j-akydyo-01573E9F-itklfvuj-b  |=
+   Cancelar suscripci=C3=B3n https://sofrocay.cmail19.com/t/j-u-akydyo-=
+itklfvuj-p/
+
+--_1b3a58e0-7abb-4695-a33f-b86761ef4614_
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://w=
+ww.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE]><html xmlns=
+=3D"http://www.w3.org/1999/xhtml" class=3D"ie"><![endif]--><!--[if !IE]=
+><!--><html style=3D"margin: 0;padding: 0;" xmlns=3D"http://www.w3.org/19=
+99/xhtml"><!--<![endif]--><head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <title></title>
+    <!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"I=
+E=3Dedge"><!--<![endif]-->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width"><style type=3D=
+"text/css">
+@media only screen and (min-width: 620px){.wrapper{min-width:600px !impor=
+tant}.wrapper h1{}.wrapper h1{font-size:26px !important;line-height:34px =
+!important}.wrapper h2{}.wrapper h2{font-size:20px !important;line-height=
+:28px !important}.wrapper h3{}.column{}.wrapper .size-8{font-size:8px !im=
+portant;line-height:14px !important}.wrapper .size-9{font-size:9px !impor=
+tant;line-height:16px !important}.wrapper .size-10{font-size:10px !import=
+ant;line-height:18px !important}.wrapper .size-11{font-size:11px !importa=
+nt;line-height:19px !important}.wrapper .size-12{font-size:12px !importan=
+t;line-height:19px !important}.wrapper .size-13{font-size:13px !important=
+;line-height:21px !important}.wrapper .size-14{font-size:14px !important;=
+line-height:21px !important}.wrapper .size-15{font-size:15px !important;l=
+ine-height:23px !important}.wrapper .size-16{font-size:16px !important;li=
+ne-height:24px=20
+!important}.wrapper .size-17{font-size:17px !important;line-height:26px !=
+important}.wrapper .size-18{font-size:18px !important;line-height:26px !i=
+mportant}.wrapper .size-20{font-size:20px !important;line-height:28px !im=
+portant}.wrapper .size-22{font-size:22px !important;line-height:31px !imp=
+ortant}.wrapper .size-24{font-size:24px !important;line-height:32px !impo=
+rtant}.wrapper .size-26{font-size:26px !important;line-height:34px !impor=
+tant}.wrapper .size-28{font-size:28px !important;line-height:36px !import=
+ant}.wrapper .size-30{font-size:30px !important;line-height:38px !importa=
+nt}.wrapper .size-32{font-size:32px !important;line-height:40px !importan=
+t}.wrapper .size-34{font-size:34px !important;line-height:43px !important=
+}.wrapper .size-36{font-size:36px !important;line-height:43px !important}=
+=2Ewrapper .size-40{font-size:40px !important;line-height:47px !important}.=
+wrapper=20
+=2Esize-44{font-size:44px !important;line-height:50px !important}.wrapper .=
+size-48{font-size:48px !important;line-height:54px !important}.wrapper .s=
+ize-56{font-size:56px !important;line-height:60px !important}.wrapper .si=
+ze-64{font-size:64px !important;line-height:63px !important}}
+</style>
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <style type=3D"text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+* {
+  line-height: inherit;
+}
+[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+=2Ewrapper .footer__share-button a:hover,
+=2Ewrapper .footer__share-button a:focus {
+  color: #ffffff !important;
+}
+=2Ebtn a:hover,
+=2Ebtn a:focus,
+=2Efooter__share-button a:hover,
+=2Efooter__share-button a:focus,
+=2Eemail-footer__links a:hover,
+=2Eemail-footer__links a:focus {
+  opacity: 0.8;
+}
+=2Epreheader,
+=2Eheader,
+=2Elayout,
+=2Ecolumn {
+  transition: width 0.25s ease-in-out, max-width 0.25s ease-in-out;
+}
+=2Epreheader td {
+  padding-bottom: 8px;
+}
+=2Elayout,
+div.header {
+  max-width: 400px !important;
+  -fallback-width: 95% !important;
+  width: calc(100% - 20px) !important;
+}
+div.preheader {
+  max-width: 360px !important;
+  -fallback-width: 90% !important;
+  width: calc(100% - 60px) !important;
+}
+=2Esnippet,
+=2Ewebversion {
+  Float: none !important;
+}
+=2Estack .column {
+  max-width: 400px !important;
+  width: 100% !important;
+}
+=2Efixed-width.has-border {
+  max-width: 402px !important;
+}
+=2Efixed-width.has-border .layout__inner {
+  box-sizing: border-box;
+}
+=2Esnippet,
+=2Ewebversion {
+  width: 50% !important;
+}
+=2Eie .btn {
+  width: 100%;
+}
+=2Eie .stack .column,
+=2Eie .stack .gutter {
+  display: table-cell;
+  float: none !important;
+}
+=2Eie div.preheader,
+=2Eie .email-footer {
+  max-width: 560px !important;
+  width: 560px !important;
+}
+=2Eie .snippet,
+=2Eie .webversion {
+  width: 280px !important;
+}
+=2Eie div.header,
+=2Eie .layout {
+  max-width: 600px !important;
+  width: 600px !important;
+}
+=2Eie .two-col .column {
+  max-width: 300px !important;
+  width: 300px !important;
+}
+=2Eie .three-col .column,
+=2Eie .narrow {
+  max-width: 200px !important;
+  width: 200px !important;
+}
+=2Eie .wide {
+  width: 400px !important;
+}
+=2Eie .stack.fixed-width.has-border,
+=2Eie .stack.has-gutter.has-border {
+  max-width: 602px !important;
+  width: 602px !important;
+}
+=2Eie .stack.two-col.has-gutter .column {
+  max-width: 290px !important;
+  width: 290px !important;
+}
+=2Eie .stack.three-col.has-gutter .column,
+=2Eie .stack.has-gutter .narrow {
+  max-width: 188px !important;
+  width: 188px !important;
+}
+=2Eie .stack.has-gutter .wide {
+  max-width: 394px !important;
+  width: 394px !important;
+}
+=2Eie .stack.two-col.has-gutter.has-border .column {
+  max-width: 292px !important;
+  width: 292px !important;
+}
+=2Eie .stack.three-col.has-gutter.has-border .column,
+=2Eie .stack.has-gutter.has-border .narrow {
+  max-width: 190px !important;
+  width: 190px !important;
+}
+=2Eie .stack.has-gutter.has-border .wide {
+  max-width: 396px !important;
+  width: 396px !important;
+}
+=2Eie .fixed-width .layout__inner {
+  border-left: 0 none white !important;
+  border-right: 0 none white !important;
+}
+=2Eie .layout__edges {
+  display: none;
+}
+=2Emso .layout__edges {
+  font-size: 0;
+}
+=2Elayout-fixed-width,
+=2Emso .layout-full-width {
+  background-color: #ffffff;
+}
+@media only screen and (min-width: 620px) {
+  .column,
+  .gutter {
+    display: table-cell;
+    Float: none !important;
+    vertical-align: top;
+  }
+  div.preheader,
+  .email-footer {
+    max-width: 560px !important;
+    width: 560px !important;
+  }
+  .snippet,
+  .webversion {
+    width: 280px !important;
+  }
+  div.header,
+  .layout,
+  .one-col .column {
+    max-width: 600px !important;
+    width: 600px !important;
+  }
+  .fixed-width.has-border,
+  .fixed-width.x_has-border,
+  .has-gutter.has-border,
+  .has-gutter.x_has-border {
+    max-width: 602px !important;
+    width: 602px !important;
+  }
+  .two-col .column {
+    max-width: 300px !important;
+    width: 300px !important;
+  }
+  .three-col .column,
+  .column.narrow,
+  .column.x_narrow {
+    max-width: 200px !important;
+    width: 200px !important;
+  }
+  .column.wide,
+  .column.x_wide {
+    width: 400px !important;
+  }
+  .two-col.has-gutter .column,
+  .two-col.x_has-gutter .column {
+    max-width: 290px !important;
+    width: 290px !important;
+  }
+  .three-col.has-gutter .column,
+  .three-col.x_has-gutter .column,
+  .has-gutter .narrow {
+    max-width: 188px !important;
+    width: 188px !important;
+  }
+  .has-gutter .wide {
+    max-width: 394px !important;
+    width: 394px !important;
+  }
+  .two-col.has-gutter.has-border .column,
+  .two-col.x_has-gutter.x_has-border .column {
+    max-width: 292px !important;
+    width: 292px !important;
+  }
+  .three-col.has-gutter.has-border .column,
+  .three-col.x_has-gutter.x_has-border .column,
+  .has-gutter.has-border .narrow,
+  .has-gutter.x_has-border .narrow {
+    max-width: 190px !important;
+    width: 190px !important;
+  }
+  .has-gutter.has-border .wide,
+  .has-gutter.x_has-border .wide {
+    max-width: 396px !important;
+    width: 396px !important;
+  }
+}
+@supports (display: flex) {
+  @media only screen and (min-width: 620px) {
+    .fixed-width.has-border .layout__inner {
+      display: flex !important;
+    }
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen a=
+nd (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel=
+-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen an=
+d (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .fblike {
+    background-image: url(http://i7.cmail19.com/static/eb/master/13-the-b=
+lueprint-3/images/fblike@2x.png) !important;
+  }
+  .tweet {
+    background-image: url(http://i8.cmail19.com/static/eb/master/13-the-b=
+lueprint-3/images/tweet@2x.png) !important;
+  }
+  .linkedinshare {
+    background-image: url(http://i9.cmail19.com/static/eb/master/13-the-b=
+lueprint-3/images/lishare@2x.png) !important;
+  }
+  .forwardtoafriend {
+    background-image: url(http://i10.cmail19.com/static/eb/master/13-the-=
+blueprint-3/images/forward@2x.png) !important;
+  }
+}
+@media (max-width: 321px) {
+  .fixed-width.has-border .layout__inner {
+    border-width: 1px 0 !important;
+  }
+  .layout,
+  .stack .column {
+    min-width: 320px !important;
+    width: 320px !important;
+  }
+  .border {
+    display: none;
+  }
+  .has-gutter .border {
+    display: table-cell;
+  }
+}
+=2Emso div {
+  border: 0 none white !important;
+}
+=2Emso .w560 .divider {
+  Margin-left: 260px !important;
+  Margin-right: 260px !important;
+}
+=2Emso .w360 .divider {
+  Margin-left: 160px !important;
+  Margin-right: 160px !important;
+}
+=2Emso .w260 .divider {
+  Margin-left: 110px !important;
+  Margin-right: 110px !important;
+}
+=2Emso .w160 .divider {
+  Margin-left: 60px !important;
+  Margin-right: 60px !important;
+}
+=2Emso .w354 .divider {
+  Margin-left: 157px !important;
+  Margin-right: 157px !important;
+}
+=2Emso .w250 .divider {
+  Margin-left: 105px !important;
+  Margin-right: 105px !important;
+}
+=2Emso .w148 .divider {
+  Margin-left: 54px !important;
+  Margin-right: 54px !important;
+}
+=2Emso .size-8,
+=2Eie .size-8 {
+  font-size: 8px !important;
+  line-height: 14px !important;
+}
+=2Emso .size-9,
+=2Eie .size-9 {
+  font-size: 9px !important;
+  line-height: 16px !important;
+}
+=2Emso .size-10,
+=2Eie .size-10 {
+  font-size: 10px !important;
+  line-height: 18px !important;
+}
+=2Emso .size-11,
+=2Eie .size-11 {
+  font-size: 11px !important;
+  line-height: 19px !important;
+}
+=2Emso .size-12,
+=2Eie .size-12 {
+  font-size: 12px !important;
+  line-height: 19px !important;
+}
+=2Emso .size-13,
+=2Eie .size-13 {
+  font-size: 13px !important;
+  line-height: 21px !important;
+}
+=2Emso .size-14,
+=2Eie .size-14 {
+  font-size: 14px !important;
+  line-height: 21px !important;
+}
+=2Emso .size-15,
+=2Eie .size-15 {
+  font-size: 15px !important;
+  line-height: 23px !important;
+}
+=2Emso .size-16,
+=2Eie .size-16 {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+=2Emso .size-17,
+=2Eie .size-17 {
+  font-size: 17px !important;
+  line-height: 26px !important;
+}
+=2Emso .size-18,
+=2Eie .size-18 {
+  font-size: 18px !important;
+  line-height: 26px !important;
+}
+=2Emso .size-20,
+=2Eie .size-20 {
+  font-size: 20px !important;
+  line-height: 28px !important;
+}
+=2Emso .size-22,
+=2Eie .size-22 {
+  font-size: 22px !important;
+  line-height: 31px !important;
+}
+=2Emso .size-24,
+=2Eie .size-24 {
+  font-size: 24px !important;
+  line-height: 32px !important;
+}
+=2Emso .size-26,
+=2Eie .size-26 {
+  font-size: 26px !important;
+  line-height: 34px !important;
+}
+=2Emso .size-28,
+=2Eie .size-28 {
+  font-size: 28px !important;
+  line-height: 36px !important;
+}
+=2Emso .size-30,
+=2Eie .size-30 {
+  font-size: 30px !important;
+  line-height: 38px !important;
+}
+=2Emso .size-32,
+=2Eie .size-32 {
+  font-size: 32px !important;
+  line-height: 40px !important;
+}
+=2Emso .size-34,
+=2Eie .size-34 {
+  font-size: 34px !important;
+  line-height: 43px !important;
+}
+=2Emso .size-36,
+=2Eie .size-36 {
+  font-size: 36px !important;
+  line-height: 43px !important;
+}
+=2Emso .size-40,
+=2Eie .size-40 {
+  font-size: 40px !important;
+  line-height: 47px !important;
+}
+=2Emso .size-44,
+=2Eie .size-44 {
+  font-size: 44px !important;
+  line-height: 50px !important;
+}
+=2Emso .size-48,
+=2Eie .size-48 {
+  font-size: 48px !important;
+  line-height: 54px !important;
+}
+=2Emso .size-56,
+=2Eie .size-56 {
+  font-size: 56px !important;
+  line-height: 60px !important;
+}
+=2Emso .size-64,
+=2Eie .size-64 {
+  font-size: 64px !important;
+  line-height: 63px !important;
+}
+</style>
+   =20
+  <!--[if !mso]><!--><style type=3D"text/css">
+@import url(https://fonts.googleapis.com/css?family=3DBitter:400,700,400i=
+talic|Open+Sans:400italic,700italic,700,400);
+</style><link href=3D"https://fonts.googleapis.com/css?family=3DBitter:40=
+0,700,400italic|Open+Sans:400italic,700italic,700,400" rel=3D"stylesheet"=
+ type=3D"text/css"><!--<![endif]--><style type=3D"text/css">
+body{background-color:#f2f6f7}.logo a:hover,.logo a:focus{color:#859bb1 !=
+important}.mso .layout-has-border{border-top:1px solid #b3cad0;border-bot=
+tom:1px solid #b3cad0}.mso .layout-has-bottom-border{border-bottom:1px so=
+lid #b3cad0}.mso .border,.ie .border{background-color:#b3cad0}.mso h1,.ie=
+ h1{}.mso h1,.ie h1{font-size:26px !important;line-height:34px !important=
+}.mso h2,.ie h2{}.mso h2,.ie h2{font-size:20px !important;line-height:28p=
+x !important}.mso h3,.ie h3{}.mso .layout__inner,.ie .layout__inner{}.mso=
+ .footer__share-button p{}.mso .footer__share-button p{font-family:Open S=
+ans,sans-serif}
+</style></head>
+<!--[if mso]>
+  <body class=3D"mso">
+<![endif]-->
+<!--[if !mso]><!-->
+  <body class=3D"full-padding" style=3D"margin: 0;padding: 0;-webkit-text=
+-size-adjust: 100%;">
+<!--<![endif]-->
+    <table class=3D"wrapper" style=3D"border-collapse: collapse;table-lay=
+out: fixed;min-width: 320px;width: 100%;background-color: #f2f6f7;" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation"><tbody><tr><td>
+      <div role=3D"banner">
+        <div class=3D"preheader" style=3D"Margin: 0 auto;max-width: 560px=
+;min-width: 280px; width: 280px;width: calc(28000% - 167440px);">
+          <div style=3D"border-collapse: collapse;display: table;width: 1=
+00%;">
+          <!--[if (mso)|(IE)]><table align=3D"center" class=3D"preheader=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td style=
+=3D"width: 280px" valign=3D"top"><![endif]-->
+            <div class=3D"snippet" style=3D"display: table-cell;Float: le=
+ft;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; w=
+idth: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #9=
+9b0b8;font-family: Open Sans,sans-serif;">
+              <p style=3D"Margin-top: 0;Margin-bottom: 0;">Actividades on=
+line 2021<div style=3D"mso-hide:all;position:fixed;height:0;max-height:0;=
+overflow:hidden;font-size:0;"> &#8204; &#8204; &#8204; &#8204; &#8204; &#=
+8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8=
+204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#82=
+04; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#820=
+4; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204=
+; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204;=
+ &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; =
+&#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &=
+#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#=
+8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8=
+204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#82=
+04; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#820=
+4; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204=
+; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204;=
+ &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; =
+&#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &=
+#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#=
+8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8=
+204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#82=
+04; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#820=
+4; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204=
+; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204;=
+ &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; =
+&#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &=
+#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#=
+8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8=
+204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#82=
+04; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204; &#8204;</div></p>
+            </div>
+          <!--[if (mso)|(IE)]></td><td style=3D"width: 280px" valign=3D"=
+top"><![endif]-->
+            <div class=3D"webversion" style=3D"display: table-cell;Float:=
+ left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px=
+; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-a=
+lign: right;color: #99b0b8;font-family: Open Sans,sans-serif;">
+              <p style=3D"Margin-top: 0;Margin-bottom: 0;">&#191;No apare=
+cen im&#225;genes? <a style=3D"text-decoration: underline;transition: opa=
+city 0.1s ease-in;color: #99b0b8;" href=3D"https://sofrocay.cmail19.com/t=
+/j-e-akydyo-itklfvuj-k/">Versi&#243;n web</a></p>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+       =20
+      </div>
+      <div>
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 24px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p style=3D"Margin-top: 0;Margin-bottom: 20px;text-align: left;"><span st=
+yle=3D"color:#808b9c">Sofrocay - Febrero 2021</span></p></blockquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 1px;font-s=
+ize: 1px;">&nbsp;</div>
+    </div>
+       =20
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;" align=3D"center">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 206px;" alt=3D"" width=3D"206" src=3D"http://i1.cmail19.com/e=
+i/j/9E/20B/BDD/005300/csfinal/logo-insituto-Balmescopia1-38cab047f00fb73b=
+=2Epng">
+        </div>
+     =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 1px;font-s=
+ize: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 5px;font-s=
+ize: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <h1 class=3D"size-22" style=3D"Margin-top: 0;Margin-bottom: 20px;=
+font-style: normal;font-weight: normal;color: #58595b;font-size: 18px;lin=
+e-height: 26px;font-family: open sans,sans-serif;text-align: center;" lan=
+g=3D"x-size-22"><span class=3D"font-open-sans"><span style=3D"color:#ff9f=
+05">CURSO ONLINE</span></span></h1>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <h1 class=3D"size-24" style=3D"Margin-top: 0;Margin-bottom: 20px;=
+font-style: normal;font-weight: normal;color: #58595b;font-size: 20px;lin=
+e-height: 28px;font-family: open sans,sans-serif;text-align: center;" lan=
+g=3D"x-size-24"><span class=3D"font-open-sans"><span style=3D"color:#1931=
+59">Recursos para gestionar&nbsp;la incertidumbre y<br>
+el miedo en tiempos de crisis</span></span></h1>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;Margin-bottom: 20px;" align=3D"center">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 476px;" alt=3D"" width=3D"476" src=3D"http://i2.cmail19.com/e=
+i/j/9E/20B/BDD/005300/csfinal/sofrologia-e14a9a0b868880dd.jpg">
+        </div>
+      </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div class=3D"btn btn--ghost btn--large" style=3D"Margin-bottom: 20=
+px;text-align: center;">
+        <![if !mso]><a style=3D"border-radius: 4px;display: inline-block=
+;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;t=
+ext-align: center;text-decoration: none !important;transition: opacity 0.=
+1s ease-in;color: #1a5b94 !important;border: 1px solid #becdd1;font-famil=
+y: Open Sans, sans-serif;border-color: #1a5b94;" href=3D"https://sofrocay=
+=2Ecmail19.com/t/j-l-akydyo-itklfvuj-r/">Un precio solidario&nbsp=
+;ante una situaci&#243;n excepcional</a><![endif]>
+      <!--[if mso]><p style=3D"line-height:0;margin:0;">&nbsp;</p><v:rou=
+ndrect xmlns:v=3D"urn:schemas-microsoft-com:vml" href=3D"https://sofrocay=
+=2Ecmail19.com/t/j-l-akydyo-itklfvuj-r/" style=3D"width:386px" ar=
+csize=3D"8%" filled=3D"f" strokecolor=3D"#BECDD1" strokeweight=3D"1px"><v=
+:textbox style=3D"mso-fit-shape-to-text:t" inset=3D"0px,11px,0px,11px"><c=
+enter style=3D"font-size:14px;line-height:24px;color:#1A5B94;font-family:=
+Open Sans,sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-te=
+xt-raise:4px">Un precio solidario&nbsp;ante una situaci&#243;n excepciona=
+l</center></v:textbox></v:roundrect><![endif]--></div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;font=
+-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span style=3D"color:#=
+808b9c">El coronavirus ha cambiado muchas cosas dentro y fuera de nosotro=
+s. Nos sentimos desorientados ante la dificultad que tenemos para&nbsp;pl=
+anificar nuestras vidas cuando el futuro es incierto.</span></p><p class=3D=
+"size-16" style=3D"Margin-top: 20px;Margin-bottom: 0;font-size: 16px;line=
+-height: 24px;" lang=3D"x-size-16"><span style=3D"color:#808b9c">Los impr=
+evistos nos desorientan;&nbsp;incluso pueden llegar a angustiarnos y frus=
+trarnos, pero tambi&#233;n existe la posibilidad de&nbsp;adaptarnos y pas=
+ar a la acci&#243;n planeando objetivos y&nbsp;actuaciones&nbsp;concretas=
+, esto har&#225; que mejore nuestro sentimiento de eficacia y seguridad e=
+n nosotros mismos y en la vida.</span></p><p class=3D"size-16" style=3D"M=
+argin-top: 20px;Margin-bottom:=20
+20px;font-size: 16px;line-height: 24px;text-align: left;" lang=3D"x-size-=
+16"><span style=3D"color:#808b9c">En este taller, a trav&#233;s&nbsp;de&n=
+bsp;la pr&#225;ctica diaria de las t&#233;cnicas sofrol&#243;gicas, iremo=
+s conoci&#233;ndonos mejor&nbsp;y desarrollando un estado de consciencia =
+sereno, positivo y de mayor claridad mental. Descubriremos nuestros propi=
+os recursos para gestionar los retos que esta nueva situaci&#243;n nos of=
+rece y tener&nbsp;una vida m&#225;s satisfactoria.&nbsp;</span></p>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-20" style=3D"Margin-top: 0;Margin-bottom: 20px;f=
+ont-size: 17px;line-height: 26px;text-align: center;" lang=3D"x-size-20">=
+<span style=3D"color:#000000">&#191;C&#243;mo superar los desaf&#237;os q=
+ue encontramos en<br>
+esta nueva normalidad?&nbsp;</span></p>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 0;Margin-left: =
+0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;"><p =
+class=3D"size-18" style=3D"Margin-top: 0;Margin-bottom: 20px;font-size: 1=
+7px;line-height: 26px;text-align: left;" lang=3D"x-size-18"><span style=3D=
+"color:#ff9f05">Objetivos del curso online</span></p></blockquote><ul sty=
+le=3D"Margin-top: 20px;Margin-bottom: 20px;Margin-left: 24px;padding: 0;l=
+ist-style-type: disc;"><li class=3D"size-16" style=3D"Margin-top: 20px;Ma=
+rgin-bottom: 0;Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D=
+"x-size-16"><span style=3D"color:#808b9c">Tomar consciencia de nuestro cu=
+erpo y&nbsp;de c&#243;mo le afecta el confinamiento. Aprender a eliminar =
+las tensiones corporales.</span></li><li class=3D"size-16" style=3D"Margi=
+n-top: 0;Margin-bottom: 0;Margin-left: 0;font-size: 16px;line-height: 24p=
+x;" lang=3D"x-size-16"><span=20
+style=3D"color:#808b9c">Iniciarnos en la observaci&#243;n de &nbsp;nuestr=
+os pensamientos, saber potenciar los que nos son beneficiosos para supera=
+r nuestros retos y calmar los par&#225;sitos o irracionales.</span></li><=
+li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;Margin-left:=
+ 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span style=3D"=
+color:#808b9c">Desarrollar una actitud serena y constructiva ante lo que =
+nos acontece para aprender a aceptar lo que est&#225; sucediendo y sacar =
+el mejor partido a lo que la vida nos ofrece, ayud&#225;ndonos as&#237; a=
+ orientar mejor nuestra existencia.</span></li><li class=3D"size-16" styl=
+e=3D"Margin-top: 0;Margin-bottom: 0;Margin-left: 0;font-size: 16px;line-h=
+eight: 24px;" lang=3D"x-size-16"><span style=3D"color:#808b9c">Tomar cons=
+ciencia de nuestras emociones y desarrollar la capacidad de generar emoci=
+ones positivas que favorezcan en nosotros=20
+una actitud mental abierta y dispuesta a encontrar soluciones a los probl=
+emas, no huyendo de la realidad, pero tampoco cayendo en una espiral nega=
+tiva.&nbsp;</span></li></ul>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p class=3D"size-18" style=3D"Margin-top: 0;Margin-bottom: 20px;font-size=
+: 17px;line-height: 26px;text-align: left;" lang=3D"x-size-18"><span styl=
+e=3D"color:#ff9f05">Agenda del curso</span></p></blockquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <h1 class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 20px;=
+font-style: normal;font-weight: normal;color: #58595b;font-size: 16px;lin=
+e-height: 24px;font-family: open sans,sans-serif;text-align: left;" lang=3D=
+"x-size-16"><span class=3D"font-open-sans"><span style=3D"color:#808b9c">=
+<strong>Inicio del curso</strong>:&nbsp;lunes 22 de febrero.<br>
+<strong>Duraci&#243;n</strong>: ocho sesiones, lunes y jueves de&nbsp;18:=
+00 a 19:30h.<br>
+<strong>Impartido por:&nbsp;</strong>Teresa Mart&#237;n Chicote;&nbsp;psi=
+c&#243;loga, sofr&#243;loga y coach.<br>
+<strong>Precio&nbsp;actual</strong>: 80 &#8364; - <strong>Precio&nbsp;ant=
+erior</strong>: 140&nbsp;&#8364;.&nbsp;&nbsp;</span></span></h1>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p class=3D"size-18" style=3D"Margin-top: 0;Margin-bottom: 20px;font-size=
+: 17px;line-height: 26px;text-align: left;" lang=3D"x-size-18"><span styl=
+e=3D"color:#ff9f05">Programa: contenidos del curso</span></p></blockquote=
+>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <ul style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-left: 24px;=
+padding: 0;list-style-type: disc;"><li class=3D"size-16" style=3D"Margin-=
+top: 0;Margin-bottom: 0;Margin-left: 0;font-size: 16px;line-height: 24px;=
+" lang=3D"x-size-16"><span style=3D"color:#808b9c"><em>D&#237;a 1</em> - =
+<strong>La relajaci&#243;n y la respiraci&#243;n. </strong>Tomar conscien=
+cia de nuestra respiraci&#243;n y aprender a respirar correctamente.</spa=
+n><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 2</em> -&nbsp;La crisis nos produ=
+ce <strong>estr&#233;s</strong> que se manifiesta en el cuerpo en forma d=
+e <strong>tensiones.</strong></span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 3</em> - <strong>Somatizar el pos=
+itivo</strong>&nbsp;favorece tener una mente m&#225;s abierta y superar m=
+ejor los desaf&#237;os de la vida.<strong> </strong>&nbsp;</span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 4</em> -&nbsp;<strong>Recursos na=
+turales para gestionar el estr&#233;s.&nbsp;</strong>El ser consciente de=
+ que contamos con recursos para afrontar los retos diarios&nbsp;favorece =
+la confianza en nosotros mismos.</span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 5</em> - Una<strong>&nbsp;</stron=
+g>buena<strong> gesti&#243;n del tiempo</strong> empieza por tener claro =
+los <strong>objetivos que queremos lograr</strong> en las diferentes situ=
+aciones de la vida.</span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 6</em>&nbsp; - <strong>Los pensam=
+ientos dan forma a nuestra vida, </strong>donde se dirigen nuestros pensa=
+mientos all&#237; va nuestra energ&#237;a.</span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 7</em> - Ser consciente de nuestr=
+as <strong>emociones</strong> y las de los dem&#225;s nos ayuda a tomar m=
+ejores decisiones.</span><br>
+&nbsp;</li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;=
+Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><sp=
+an style=3D"color:#808b9c"><em>D&#237;a 8</em> - En los momentos de estr&=
+#233;s e incertidumbre es normal que aparezca <strong>el miedo; </strong>=
+podemos aprender a gestionarlo para evitar que nos paralice.</span><p sty=
+le=3D"Margin-top: 0;Margin-bottom: 20px;">&nbsp;</p></li></ul>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <h3 class=3D"size-20" style=3D"Margin-top: 0;Margin-bottom: 12px;=
+font-style: normal;font-weight: normal;color: #58595b;font-size: 17px;lin=
+e-height: 26px;font-family: open sans,sans-serif;text-align: center;" lan=
+g=3D"x-size-20"><span class=3D"font-open-sans"><span style=3D"color:#0000=
+00">Algunas valoraciones sobre el curso</span></span></h3>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 11px;font-=
+size: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p style=3D"Margin-top: 0;Margin-bottom: 20px;"><span style=3D"color:#808=
+b9c"><em>Teresa, la profesora, es estupenda. Atiende a tod@s con tranquil=
+idad, sabe reconducir las dudas y cuestiones hacia el tema que se est&#22=
+5; trabajando. Transmite serenidad y sabidur&#237;a.</em></span></p></blo=
+ckquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;Margin-bottom: 20px;" align=3D"left">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 86px;" alt=3D"" width=3D"86" src=3D"http://i3.cmail19.com/ei/=
+j/9E/20B/BDD/005300/csfinal/503-99079e0a283cf03c.png">
+        </div>
+      </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p style=3D"Margin-top: 0;Margin-bottom: 20px;"><span style=3D"color:#808=
+b9c"><em>Ha sido fant&#225;stico por la claridad de los contenidos y pr&#=
+225;ctica impartidos por Teresa, y la participaci&#243;n de los alumnos.<=
+/em></span></p></blockquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;Margin-bottom: 20px;" align=3D"left">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 86px;" alt=3D"" width=3D"86" src=3D"http://i4.cmail19.com/ei/=
+j/9E/20B/BDD/005300/csfinal/502-99079e0a283cf03c.png">
+        </div>
+      </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p style=3D"Margin-top: 0;Margin-bottom: 20px;"><span style=3D"color:#808=
+b9c"><em>La profesora Teresa Mart&#237;n es excelente por sus grandes con=
+ocimientos y la manera perfecta de trasmitirlos, as&#237; como la gran em=
+pat&#237;a con todos los alumnos.</em></span></p></blockquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;Margin-bottom: 20px;" align=3D"left">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 86px;" alt=3D"" width=3D"86" src=3D"http://i5.cmail19.com/ei/=
+j/9E/20B/BDD/005300/csfinal/501-99079e0a283cf03c.png">
+        </div>
+      </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <blockquote style=3D"Margin-top: 0;Margin-bottom: 20px;Margin-lef=
+t: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b3cad0;">=
+<p class=3D"size-15" style=3D"Margin-top: 0;Margin-bottom: 20px;font-size=
+: 15px;line-height: 23px;" lang=3D"x-size-15"><span style=3D"color:#808b9=
+c"><em>Bravo por la organizaci&#243;n y la atenci&#243;n recibida durante=
+ el curso. Me llevo una buena experiencia y unos conocimientos que sin du=
+da pondr&#233; en pr&#225;ctica en mi vida personal.&nbsp;</em></span></p=
+></blockquote>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-bot=
+tom: 24px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;" align=3D"left">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 86px;" alt=3D"" width=3D"86" src=3D"http://i6.cmail19.com/ei/=
+j/9E/20B/BDD/005300/csfinal/50-99079e0a283cf03c.png">
+        </div>
+      </div>
+       =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 24px;Margin-bottom: 24px;">
+      <div class=3D"btn btn--flat btn--large" style=3D"text-align:center;=
+">
+        <![if !mso]><a style=3D"border-radius: 4px;display: inline-block=
+;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;t=
+ext-align: center;text-decoration: none !important;transition: opacity 0.=
+1s ease-in;color: #ffffff !important;background-color: #1a5b94;font-famil=
+y: Open Sans, sans-serif;" href=3D"https://sofrocay.cmail19.com/t/j-l-aky=
+dyo-itklfvuj-y/">Inscripci&#243;n curso online</a><![endif]>
+      <!--[if mso]><p style=3D"line-height:0;margin:0;">&nbsp;</p><v:rou=
+ndrect xmlns:v=3D"urn:schemas-microsoft-com:vml" href=3D"https://sofrocay=
+=2Ecmail19.com/t/j-l-akydyo-itklfvuj-y/" style=3D"width:210px" ar=
+csize=3D"9%" fillcolor=3D"#1A5B94" stroke=3D"f"><v:textbox style=3D"mso-f=
+it-shape-to-text:t" inset=3D"0px,11px,0px,11px"><center style=3D"font-siz=
+e:14px;line-height:24px;color:#FFFFFF;font-family:Open Sans,sans-serif;fo=
+nt-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Inscripci=
+&#243;n curso online</center></v:textbox></v:roundrect><![endif]--></div=
+>
+    </div>
+       =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 24px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-20" style=3D"Margin-top: 0;Margin-bottom: 20px;f=
+ont-size: 17px;line-height: 26px;text-align: center;" lang=3D"x-size-20">=
+<span style=3D"color:#000000">Plataforma online<br>
+Pensada para ti y para mejorar tu bienestar</span></p>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;Margin-bottom: 20px;" align=3D"left">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 528px;" alt=3D"" width=3D"528" src=3D"http://i7.cmail19.com/e=
+i/j/9E/20B/BDD/005300/csfinal/Teressa1-990a28028a04513c.jpg">
+        </div>
+      </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;font=
+-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span style=3D"color:#=
+808b9c">En esta plataforma encontrar&#225;s todo lo que necesitas para re=
+alizar un curso de calidad:</span></p><ul style=3D"Margin-top: 20px;Margi=
+n-bottom: 20px;Margin-left: 24px;padding: 0;list-style-type: disc;"><li c=
+lass=3D"size-16" style=3D"Margin-top: 20px;Margin-bottom: 0;Margin-left: =
+0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span style=3D"c=
+olor:#808b9c">Sesiones sofrol&#243;gicas a trav&#233;s de videoconferenci=
+a.</span></li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom:=
+ 0;Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16">=
+<span style=3D"color:#808b9c">T&#233;cnicas de relajaci&#243;n que podr&#=
+225;s escuchar y practicar en cualquier momento.</span></li><li class=3D"=
+size-16" style=3D"Margin-top: 0;Margin-bottom:=20
+0;Margin-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><=
+span style=3D"color:#808b9c">Chat para comunicarte con el profesor.</span=
+></li><li class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;Margi=
+n-left: 0;font-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span st=
+yle=3D"color:#808b9c">Material pedag&#243;gico que te puedes descargar a =
+tu dispositivo e imprimirlo.</span></li></ul>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 1px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-20" style=3D"Margin-top: 0;Margin-bottom: 20px;f=
+ont-size: 17px;line-height: 26px;text-align: center;" lang=3D"x-size-20">=
+<span style=3D"color:#000000">Nos adaptamos a tu situaci&#243;n en esta n=
+ueva realidad</span></p>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 1px;">&nbsp;</div>
+    </div>
+       =20
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;" align=3D"center">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 900px;" alt=3D"" width=3D"600" src=3D"http://i8.cmail19.com/e=
+i/j/9E/20B/BDD/005300/csfinal/manager-having-online-conference-4APC8V8-99=
+00000000079e3c.jpg">
+        </div>
+     =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 20px;Margin-bottom: 24px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-16" style=3D"Margin-top: 0;Margin-bottom: 0;font=
+-size: 16px;line-height: 24px;" lang=3D"x-size-16"><span style=3D"color:#=
+808b9c">El Instituto Internacional de Sofrolog&#237;a garantiza los mismo=
+s est&#225;ndares de calidad en los&nbsp;cursos y visitas virtuales que e=
+n los presenciales. Un sofr&#243;logo profesional&nbsp;te guiar&#225;&nbs=
+p;en la pr&#225;ctica sofrol&#243;gica para que puedas conseguir&nbsp;un =
+mayor bienestar contigo mismo y con tu entorno actual.</span><br>
+<br>
+<span style=3D"color:#000000">Para cualquier duda o m&#225;s informaci&#2=
+43;n estamos disponibles en el n&#250;mero<br>
+669 28 63 00 o escribiendo a info@sofrologia.com.&nbsp;</span></p>
+      </div>
+    </div>
+       =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 24px;Margin-bottom: 24px;">
+      <div class=3D"btn btn--flat btn--large" style=3D"text-align:center;=
+">
+        <![if !mso]><a style=3D"border-radius: 4px;display: inline-block=
+;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;t=
+ext-align: center;text-decoration: none !important;transition: opacity 0.=
+1s ease-in;color: #ffffff !important;background-color: #1a5b94;font-famil=
+y: Open Sans, sans-serif;" href=3D"https://sofrocay.cmail19.com/t/j-l-aky=
+dyo-itklfvuj-j/">Visita individualizada</a><![endif]>
+      <!--[if mso]><p style=3D"line-height:0;margin:0;">&nbsp;</p><v:rou=
+ndrect xmlns:v=3D"urn:schemas-microsoft-com:vml" href=3D"https://sofrocay=
+=2Ecmail19.com/t/j-l-akydyo-itklfvuj-j/" style=3D"width:189px" ar=
+csize=3D"9%" fillcolor=3D"#1A5B94" stroke=3D"f"><v:textbox style=3D"mso-f=
+it-shape-to-text:t" inset=3D"0px,11px,0px,11px"><center style=3D"font-siz=
+e:14px;line-height:24px;color:#FFFFFF;font-family:Open Sans,sans-serif;fo=
+nt-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Visita in=
+dividualizada</center></v:textbox></v:roundrect><![endif]--></div>
+    </div>
+       =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+        <div style=3D"font-size: 12px;font-style: normal;font-weight: nor=
+mal;line-height: 19px;" align=3D"center">
+          <img style=3D"border: 0;display: block;height: auto;width: 100%=
+;max-width: 600px;" alt=3D"" width=3D"600" src=3D"http://i9.cmail19.com/e=
+i/j/9E/20B/BDD/005300/csfinal/msc-9900000000079e3c.png">
+        </div>
+     =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      <div class=3D"layout one-col fixed-width stack" style=3D"Margin: 0 =
+auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% -=
+ 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: br=
+eak-word;">
+        <div class=3D"layout__inner" style=3D"border-collapse: collapse;d=
+isplay: table;width: 100%;background-color: #ffffff;">
+        <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation"><tr class=3D"layout-fixed-width" st=
+yle=3D"background-color: #ffffff;"><td style=3D"width: 600px" class=3D"w5=
+60"><![endif]-->
+          <div class=3D"column" style=3D"text-align: left;color: #808285;=
+font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;">
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-top=
+: 24px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-15" style=3D"Margin-top: 0;Margin-bottom: 20px;f=
+ont-size: 15px;line-height: 23px;text-align: center;" lang=3D"x-size-15">=
+<span style=3D"color:#000000"><em>Los momentos de crisis son una oportuni=
+dad para mirar hacia dentro, comprobar que tenemos muchos recursos para s=
+uperar este desaf&#237;o y emprender las acciones necesarias para adaptar=
+nos y sacar el mejor partido de lo que nos ofrece la vida</em></span></p>=
+
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-12" style=3D"Margin-top: 0;Margin-bottom: 20px;f=
+ont-size: 12px;line-height: 19px;text-align: center;" lang=3D"x-size-12">=
+<span style=3D"color:#808b9c">Academia Internacional de Sofrolog&#237;a&n=
+bsp; |&nbsp; Tel. 93 451 16 36&nbsp;<br>
+&nbsp;www.sofrologia.com &nbsp;|&nbsp; sofro@sofrologia.com &nbsp;</span>=
+</p>
+      </div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;">
+      <div class=3D"divider" style=3D"display: block;font-size: 2px;line-=
+height: 2px;Margin-left: auto;Margin-right: auto;width: 40px;background-c=
+olor: #b3cad0;Margin-bottom: 20px;">&nbsp;</div>
+    </div>
+       =20
+            <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-bot=
+tom: 24px;">
+      <div style=3D"mso-line-height-rule: exactly;mso-text-raise: 11px;ve=
+rtical-align: middle;">
+        <p class=3D"size-11" style=3D"Margin-top: 0;Margin-bottom: 0;font=
+-size: 11px;line-height: 19px;" lang=3D"x-size-11"><span style=3D"color:#=
+808b9c"><strong>Informaci&#243;n Protecci&#243;n de Datos de INSTITUTO IN=
+TERNACIONAL DE SOFROLOGIA CAYCEDIANA SL (sofro@sofrologia.com):</strong><=
+/span><br>
+<span style=3D"color:#808b9c"><strong>FINALIDAD: </strong>remitirle nuest=
+ra newsletter e informarle de nuestros productos y servicios formativos p=
+or medios electr&#243;nicos.&nbsp;<strong>LEGITIMACI&#211;N:</strong>&nbs=
+p;inter&#233;s leg&#237;timo en mantenerle informado en su condici&#243;n=
+ de alumno, o consentimiento del interesado y/o usuario.<strong>CESIONES:=
+ </strong>&nbsp;no&nbsp;se&nbsp; contemplan.&nbsp;<strong>CONSERVACI&#211=
+;N:</strong>&nbsp;Durante la relaci&#243;n contractual y/o hasta que nos =
+solicite la baja comercial y, durante los plazos exigidos por ley para at=
+ender eventuales responsabilidades.&nbsp;<strong>DERECHOS:</strong>&nbsp;=
+en cualquier&nbsp; momento puede revocar su consentimiento, as&#237; como=
+ ejercer su derecho de acceso, rectificaci&#243;n, supresi&#243;n, oposic=
+i&#243;n, limitaci&#243;n y portabilidad de sus datos en el correo electr=
+&#243;nico del responsable.=20
+En caso de divergencias, puede presentar una reclamaci&#243;n ante la Age=
+ncia de Protecci&#243;n de Datos (www.aepd.es).</span></p>
+      </div>
+    </div>
+       =20
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+ =20
+      <div style=3D"mso-line-height-rule: exactly;line-height: 20px;font-=
+size: 20px;">&nbsp;</div>
+ =20
+      </div>
+      <div role=3D"contentinfo">
+        <div class=3D"layout email-footer stack" style=3D"Margin: 0 auto;=
+max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 1674=
+00px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-w=
+ord;">
+          <div class=3D"layout__inner" style=3D"border-collapse: collapse=
+;display: table;width: 100%;">
+          <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation"><tr class=3D"layout-email-footer"=
+><td style=3D"width: 400px;" valign=3D"top" class=3D"w360"><![endif]-->
+            <div class=3D"column wide" style=3D"text-align: left;font-siz=
+e: 12px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-seri=
+f;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc=
+(8000% - 47600px);">
+              <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-t=
+op: 10px;Margin-bottom: 10px;">
+                <table class=3D"email-footer__links" style=3D"border-coll=
+apse: collapse;table-layout: fixed;" role=3D"presentation" emb-web-links>=
+<tbody><tr role=3D"navigation">
+                <td style=3D"padding: 0;width: 26px;" emb-web-links><a st=
+yle=3D"text-decoration: underline;transition: opacity 0.1s ease-in;color:=
+ #99b0b8;" href=3D"https://sofrocay.cmail19.com/t/j-l-akydyo-=
+itklfvuj-t/"><img style=3D"border: 0;" src=3D"http://i2.cmail19.com/static/=
+eb/master/13-the-blueprint-3/images/facebook.png" width=3D"26" height=3D"=
+26" alt=3D"Facebook"></a></td><td style=3D"padding: 0 0 0 3px;width: 26px=
+;" emb-web-links><a style=3D"text-decoration: underline;transition: opaci=
+ty 0.1s ease-in;color: #99b0b8;" href=3D"https://sofrocay.cmail19.com/t/j=
+-l-akydyo-itklfvuj-i/"><img style=3D"border: 0;" src=3D"http://=
+i5.cmail19.com/static/eb/master/13-the-blueprint-3/images/youtube.png" wi=
+dth=3D"26" height=3D"26" alt=3D"YouTube"></a></td><td style=3D"padding: 0=
+ 0 0 3px;width: 26px;" emb-web-links><a=20
+style=3D"text-decoration: underline;transition: opacity 0.1s ease-in;colo=
+r: #99b0b8;" href=3D"https://sofrocay.cmail19.com/t/j-l-akydyo-=
+itklfvuj-d/"><img style=3D"border: 0;" src=3D"http://i4.cmail19.com/stati=
+c/eb/master/13-the-blueprint-3/images/instagram.png" width=3D"26" height=3D=
+"26" alt=3D"Instagram"></a></td><td style=3D"padding: 0 0 0 3px;width: 26=
+px;" emb-web-links><a style=3D"text-decoration: underline;transition: opa=
+city 0.1s ease-in;color: #99b0b8;" href=3D"https://sofrocay.cmail19.com/t=
+/j-l-akydyo-itklfvuj-h/"><img style=3D"border: 0;" src=3D"http:=
+//i6.cmail19.com/static/eb/master/13-the-blueprint-3/images/linkedin.png"=
+ width=3D"26" height=3D"26" alt=3D"LinkedIn"></a></td>
+                </tr></tbody></table>
+                <div style=3D"font-size: 12px;line-height: 19px;Margin-to=
+p: 20px;">
+                  <div>Sofrocay &#174;</div>
+                </div>
+                <div style=3D"font-size: 12px;line-height: 19px;Margin-to=
+p: 18px;">
+                 =20
+                </div>
+                <!--[if mso]>&nbsp;<![endif]-->
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td><td style=3D"width: 200px;" valign=3D=
+"top" class=3D"w160"><![endif]-->
+            <div class=3D"column narrow" style=3D"text-align: left;font-s=
+ize: 12px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-se=
+rif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: ca=
+lc(72200px - 12000%);">
+              <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-t=
+op: 10px;Margin-bottom: 10px;">
+               =20
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+        <div class=3D"layout one-col email-footer" style=3D"Margin: 0 aut=
+o;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 16=
+7400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break=
+-word;">
+          <div class=3D"layout__inner" style=3D"border-collapse: collapse=
+;display: table;width: 100%;">
+          <!--[if (mso)|(IE)]><table align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation"><tr class=3D"layout-email-footer"=
+><td style=3D"width: 600px;" class=3D"w560"><![endif]-->
+            <div class=3D"column" style=3D"text-align: left;font-size: 12=
+px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-serif;">
+              <div style=3D"Margin-left: 20px;Margin-right: 20px;Margin-t=
+op: 10px;Margin-bottom: 10px;">
+                <div style=3D"font-size: 12px;line-height: 19px;">
+                  <span><a style=3D"text-decoration: underline;transition=
+: opacity 0.1s ease-in;color: #99b0b8;" href=3D"https://sofrocay.updatemy=
+profile.com/j-akydyo-01573E9F-itklfvuj-u" lang=3D"es=
+-ES">Actualizar preferencias</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a style=3D=
+"text-decoration: underline;transition: opacity 0.1s ease-in;color: #99b0=
+b8;" href=3D"https://sofrocay.cmail19.com/t/j-u-akydyo-itklfvuj=
+-n/">Cancelar suscripci&#243;n</a>
+                </div>
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+      </div>
+      <div style=3D"line-height:40px;font-size:40px;">&nbsp;</div>
+    </td></tr></tbody></table>
+  <img style=3D"overflow: hidden;position: fixed;visibility: hidden !impo=
+rtant;display: block !important;height: 1px !important;width: 1px !import=
+ant;border: 0 !important;margin: 0 !important;padding: 0 !important;" src=
+=3D"https://sofrocay.cmail19.com/t/j-o-akydyo-itklfvuj/o.gif" w=
+idth=3D"1" height=3D"1" border=3D"0" alt=3D"">
+</body></html>=
+
+
+
+
+--_1b3a58e0-7abb-4695-a33f-b86761ef4614_--

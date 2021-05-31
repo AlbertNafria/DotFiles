@@ -1,0 +1,1553 @@
+Delivered-To: albert.nafria@gmail.com
+Received: by 2002:a17:906:b78c:0:0:0:0 with SMTP id dt12csp2876478ejb;
+        Tue, 9 Mar 2021 10:02:18 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxKbV8knhx7D86FkOPxluLKeTyLL42QpYRNQdShFp5RAVB34FtbADnfmO9VHJFzJvPfhBWN
+X-Received: by 2002:a5d:6290:: with SMTP id k16mr5889012wru.177.1615312938285;
+        Tue, 09 Mar 2021 10:02:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615312938; cv=none;
+        d=google.com; s=arc-20160816;
+        b=S3rucwbG507+OKhKEd8ZE7u2n+QOPWGSKOTJlgxXlS+Kk6JUQkyfOB8xx5HTqfiDfu
+         yUgoTpjLJZOmf+L02B7ljYaF7WiaxfsCEpwdZDQxGyGdhs9b9LZo1dGXFdhdgjB+qZWy
+         G1Jhl4su9yqpNcpT1v1K5+9FlyLojz1VNcCbQrtbbXuntzItzQujJ6vJKEafLVWCsxbc
+         1hQu06Pw/Ughm3s1HJ6XSDcnysfCkJ7OSrLb73yLEP1sGe2zEuO0/KAG9hMq3lcpC0uM
+         mw6joyFXfrrlcSu5vXziV6FUIoNAHNT0ZHAUdAPOVEdy55iRsaeBHH95w9YglcoY+R4F
+         sjrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=3KDXthd8jSSbQuZZyvS69kWOAGzLk8QNsmfBiniDwo4=;
+        b=JLfcWiv+bvc/LC8jdeivKWCzUC3CfBi0roQvvbNajwoVUL/teQuzYjRQIPiKQI7LX1
+         9FTNv7+4CBwBWNwXfYm44ZLzu+kkLaPAk0lHWEiYAvdoDJHoSRxVCCmc5CxXlZ6uahLE
+         xFtXU5Rw9j0J06SDgdNAos6muyqyGNWDNu77zKtZNDW7KA4OYOMPaWgQnY3UPu8Wk9KZ
+         DAADoqdCqbuIs4E+hTBpxlL23d7ok25F2HHOTJqn39UoBTvKtyZoD+ce261icFY+e7wC
+         0ndBLHULTYGmE8CvfOUn6mNYo6logC7axXm3Jf4Lc+iX/RpEe0sRItuUC4VbdJze3mPE
+         FQog==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.es header.s=6dl73uu7xucep4hg5vioyweb3vz3whte header.b=FUSjcKLR;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=Yv4NXtmu;
+       spf=pass (google.com: domain of 2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es designates 54.240.1.130 as permitted sender) smtp.mailfrom=2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.es
+Return-Path: <2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es>
+Received: from a1-130.smtp-out.eu-west-1.amazonses.com (a1-130.smtp-out.eu-west-1.amazonses.com. [54.240.1.130])
+        by mx.google.com with ESMTPS id v188si3085374wmb.106.2021.03.09.10.02.17
+        for <albert.nafria@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 09 Mar 2021 10:02:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of 2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es designates 54.240.1.130 as permitted sender) client-ip=54.240.1.130;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.es header.s=6dl73uu7xucep4hg5vioyweb3vz3whte header.b=FUSjcKLR;
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=Yv4NXtmu;
+       spf=pass (google.com: domain of 2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es designates 54.240.1.130 as permitted sender) smtp.mailfrom=2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.es
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6dl73uu7xucep4hg5vioyweb3vz3whte; d=amazon.es; t=1615312937;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=PK86SsFBd1v1ASzCOKdl9gdaH36MTUmfImUnx/ad9Nc=;
+	b=FUSjcKLRhMwCkscKKFTmEMsat4oXy1FL8fgXgG3vSTsk7RMKEGD89iRsfBYZJ2C7
+	m8PARhPlKvVOGYoJkCKzfnLEFDt62QTcIcOpK/eABbFIVUK/xILvsOEhSuQ9rtJOja0
+	hmaFQT2LHDTR3FTYd9+Ck9HpIiHTDER4qw1fKjQI=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1615312937;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=PK86SsFBd1v1ASzCOKdl9gdaH36MTUmfImUnx/ad9Nc=;
+	b=Yv4NXtmuDJW9NSc4thZjPCf0dHNL5nwulITYN//z0TQ3SavBlmwSEsp+afv2mjOK
+	UdL8k+LYms6fQMSR2DL0LH+Mc3X2AbZv2mZH3nFOUS/vZeGQCGpCVtsRH8K6YdBsJcT
+	NI4uMqPHY19uporyxIiQntxCz31VoPViS6WQVmt0=
+From: "Amazon.es" <confirmar-envio@amazon.es>
+Reply-To: confirmar-envio@amazon.es
+To: albert.nafria@gmail.com
+Message-ID: <01020178182762e9-1bbb89fb-2452-4725-8d1a-7acb63b8c88e-000000@eu-west-1.amazonses.com>
+Subject: =?UTF-8?B?U2UgaGEgZW52aWFkbyB0dSBwZWRpZG8gZGUgQW1hem9uLmVzIA==?=
+ =?UTF-8?B?bi7CuiA0MDctNDAwMzIwNy03OTQzNTAwIGRlIDEgcHJvZHVjdG8=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_51567641_590819032.1615312937694"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 2021030918021680becbd15df64679a21016a29cf0p0eu@bounces.amazon.es
+X-AMAZON-METADATA: CA=C3VO2LGZ3XBSG7-CU=A1GVDF3MGPS0NU
+X-Original-MessageID: <urn.rtn.msg.2021030918021680becbd15df64679a21016a29cf0p0eu@1615312937695.rtn-svc-eu-back-c42xl1a-72d2248b.eu-west-1.amazon.com>
+Date: Tue, 9 Mar 2021 18:02:17 +0000
+X-SES-Outgoing: 2021.03.09-54.240.1.130
+Feedback-ID: 1.eu-west-1.UIAUrMfbpGrxavqnRE0yoZrAUBI9C7GRNUx/kUDo6B4=:AmazonSES
+
+------=_Part_51567641_590819032.1615312937694
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Amazon.es Confirmaci=C3=B3n del env=C3=ADo
+Pedido n=C2=BA #407-4003207-7943500=20
+https://www.amazon.es/ref=3DTE_SCE_tex_g
+
+___________________________________________________________________________
+
+Hola:
+
+Te informamos de que ya hemos enviado tus productos. Dado que este pedido s=
+e encuentra en proceso de env=C3=ADo, ya no podr=C3=A1s realizar ninguna mo=
+dificaci=C3=B3n.
+Tu pedido est=C3=A1 en camino, y, por lo tanto, ya no se puede modificar.
+
+Entrega:
+            mi=C3=A9rcoles, marzo 10
+
+Localiza tus art=C3=ADculos:https://www.amazon.es/gp/css/shiptrack/view.htm=
+l/ref=3DTE_SCE_tex_typ?ie=3DUTF8&addressID=3Dkljinxknnilq&latestArrivalDate=
+=3D1615402800&orderID=3D407-4003207-7943500&shipmentDate=3D1615312570&order=
+ingShipmentId=3D30440886959302&packageId=3D1
+
+
+Tu pedido ha sido enviado a:
+   Albert
+   Barcelona, Barcelona
+
+
+La compa=C3=B1=C3=ADa de transportes responsable del env=C3=ADo de tu pedid=
+o es Amazon Logistics. El n=C3=BAmero de seguimiento de tu pedido es EA0182=
+990186.
+
+En funci=C3=B3n del m=C3=A9todo de env=C3=ADo que hayas seleccionado, es po=
+sible que la informaci=C3=B3n de seguimiento no se muestre de forma inmedia=
+ta.
+   Visita nuestras p=C3=A1ginas de ayuda para informaci=C3=B3n de contacto =
+del transportista:
+    https://www.amazon.es//help/en/carriers/ref=3DTE_SCE_encar
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+Resumen del pedido
+
+   Importe de los productos: EUR 27,99
+   Env=C3=ADo y manipulaci=C3=B3n:  EUR 0,00
+
+    =20
+Importe total del env=C3=ADo (IVA incluido si corresponde):  EUR 27,99
+   Pagado por Visa: EUR 27,99
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+Devolver un pedido es f=C3=A1cil. Visita nuestro Centro de devoluciones onl=
+ine:
+https://www.amazon.es/gp/css/returns/homepage.html/ref=3DTE_SCE_tex_or
+
+Obtenga m=C3=A1s informaci=C3=B3n sobre el reciclaje del embalaje con Amazo=
+n Second Chance(https://www.amazon.es/amsc?ref_=3Dascyorn).
+
+Si necesitas m=C3=A1s informaci=C3=B3n o ayuda acerca de tu pedido te suger=
+imos que contactes con nuestro Servicio de Atenci=C3=B3n al Cliente:
+https://www.amazon.es/contact-us?ref=3DTE_SCE_tex_encs=20
+
+Esperamos volver a verte pronto.Amazon.es
+
+___________________________________________________________________________
+
+
+
+
+Derecho de cancelaci=C3=B3n:
+
+Podr=C3=A1s cancelar este pedido en un plazo de 14 d=C3=ADas desde que reci=
+biste el producto, salvo ciertas excepciones como contenido digital o DVDs =
+desprecintados.
+
+Para ejercer el derecho de cancelaci=C3=B3n, debes informarnos de tu decisi=
+=C3=B3n de cancelaci=C3=B3n de tu pedido. Dirige tu solicitud a:=E2=80=A2 A=
+mazon EU S.=C3=A0.r.L, 38 avenue John F. Kennedy, L-1855 Luxembourg, Gran D=
+ucado de Luxemburgo para los productos vendido y enviado por Amazon; o a
+
+=E2=80=A2 Amazon Services Europe Sarl, 38 avenue John F. Kennedy, L-1855 Lu=
+xembourg, Gran Ducado de Luxemburgo para los productos vendidos por un vend=
+edor de Marketplace y gestionados por Amazon.
+
+Podr=C3=A1s notificarnos la cancelaci=C3=B3n a trav=C3=A9s de nuestro https=
+://www.amazon.es/gp/css/returns/homepage.html/ref=3DTE_SCE_tex">; contact=
+=C3=A1ndonos https://www.amazon.es/contact-us?ref=3DTE_SCE_tex"; o completa=
+ndo este https://images-eu.ssl-images-amazon.com/images/G/30/cs/documents/c=
+ancellationform_es.pdf y envi=C3=A1ndonoslo por correo.
+=20
+En caso de que utilices nuestro Centro de devoluciones online, te enviaremo=
+s un acuse de recibo de dicha cancelaci=C3=B3n sin ninguna demora indebida =
+(p. ej., por correo electr=C3=B3nico).
+
+Para cumplir el plazo de desistimiento, basta con enviar tu comunicado sobr=
+e el ejercicio del derecho de cancelaci=C3=B3n antes de que venza el plazo =
+de desistimiento y debes devolver los productos a trav=C3=A9s de nuestro Ce=
+ntro de devoluciones online en el plazo definido a continuaci=C3=B3n.
+
+Para obtener m=C3=A1s informaci=C3=B3n acerca del =C3=A1mbito de aplicaci=
+=C3=B3n, el contenido y las instrucciones del ejercicio, ponte en contacto =
+con nuestro servicio de atenci=C3=B3n al cliente.
+
+Efectos de la cancelaci=C3=B3n:
+
+En caso de desistimiento por tu parte, te reembolsaremos todos los pagos qu=
+e hayamos recibido de la mercanc=C3=ADa vendida y te reembolsaremos tambi=
+=C3=A9n los gastos de env=C3=ADo de la modalidad de entrega ordinaria menos=
+ costosa que se ofrezca. Este reembolso se realizar=C3=A1 sin ninguna demor=
+a indebida y, salvo en las situaciones que se describen a continuaci=C3=B3n=
+, un m=C3=A1ximo de 14 d=C3=ADas a partir de la fecha en la que recibimos t=
+u comunicado sobre la cancelaci=C3=B3n de este contrato. Para este reembols=
+o utilizaremos el mismo medio de pago empleado por ti en la transacci=C3=B3=
+n inicial, a no ser que hayas convenido expresamente lo contrario. En cualq=
+uier caso, no incurrir=C3=A1 en ning=C3=BAn gasto como consecuencia del ree=
+mbolso. Nos reservamos el derecho a retener el reembolso hasta haber recibi=
+do los bienes o hasta que hayas presentado una prueba de la devoluci=C3=B3n=
+ de los bienes, seg=C3=BAn la condici=C3=B3n que se cumpla primero.
+
+Debes enviar la mercanc=C3=ADa sin ninguna demora indebida y, en cualquier =
+caso, a m=C3=A1s tardar en el plazo de 14 d=C3=ADas a partir de la fecha en=
+ que nos comuniques la cancelaci=C3=B3n de este contrato a trav=C3=A9s de n=
+uestro Centro de devoluciones online: https://www.amazon.es/gp/css/returns/=
+homepage.html/ref=3DTE_SCE_r =20
+
+Para cumplir el plazo, basta con enviar los productos antes de que el plazo=
+ de 14 d=C3=ADas haya caducado. Tendr=C3=A1s que asumir el coste normal de =
+devoluci=C3=B3n de los bienes si la mercanc=C3=ADa entregada corresponde a =
+los productos del pedido y si el precio de los productos devueltos no super=
+a un importe de 40 euros, o si, en el caso en que el precio de los producto=
+s es mayor, en la fecha de la cancelaci=C3=B3n, a=C3=BAn no ha realizado el=
+ pago correspondiente o el  pago parcial acordado. De lo contrario, la devo=
+luci=C3=B3n de la mercanc=C3=ADa es gratuita. Solo tendr=C3=A1s que pagar e=
+l deterioro del valor de los bienes, en caso de que el importe de la mercan=
+c=C3=ADa disminuya debido a la manipulaci=C3=B3n de los productos de forma =
+que vaya m=C3=A1s all=C3=A1 de lo necesario para establecer la naturaleza, =
+las caracter=C3=ADsticas y el funcionamiento de los bienes.
+
+Excepciones al derecho de la cancelaci=C3=B3n:
+
+El derecho de desistimiento no existe o decae y, en su caso, en el caso de =
+los contratos relativos a:
+- la entrega de bienes que no sean aptos para ser devueltos por razones de =
+protecci=C3=B3n de la salud o de higiene y que hayan sido desprecintados po=
+r usted tras la entrega o, que, debido a su naturaleza, despu=C3=A9s de su =
+entrega, se hayan mezclado de forma indisociable con otros bienes;
+
+- el suministro de grabaciones sonoras o de v=C3=ADdeo precintadas o de pro=
+gramas inform=C3=A1ticos precintados que hayan sido desprecintados por uste=
+d despu=C3=A9s de la entrega;
+
+- el suministro de bienes confeccionados conforme a las especificaciones de=
+l cliente o claramente personalizados para necesidades personales.
+
+- el suministro de bienes que puedan deteriorarse o caducar con rapidez;
+
+- un servicio que haya sido completamente ejecutado por Amazon (por ejemplo=
+, el uso de MP3 de Amazon Service) y que has reconocido y aceptado expresam=
+ente antes de realizar el pedido que podemos empezar a entregar el servicio=
+, y que el derecho de cancelaci=C3=B3n dejar=C3=ADa de ser v=C3=A1lido una =
+vez que el contrato hubiera sido completado;
+
+- el suministro de prensa diaria, publicaciones peri=C3=B3dicas o revistas,=
+ con la excepci=C3=B3n de los contratos de suscripci=C3=B3n; y
+
+- el suministro de bebidas alcoh=C3=B3licas cuyo precio se ha acordado en l=
+a conclusi=C3=B3n del contrato de venta, que solo puede entregarse despu=C3=
+=A9s de 30 d=C3=ADas y cuyo valor real depende de fluctuaciones del mercado=
+ que no podemos controlar.
+
+
+FIN DE LAS INSTRUCCIONES SOBRE EL DERECHO DE CANCELACI=C3=93N
+______________________
+______________________
+
+Nuestra garant=C3=ADa de devoluci=C3=B3n voluntaria
+
+Sin perjuicio de lo dispuesto en el citado derecho de cancelaci=C3=B3n, pue=
+des devolver todos los productos que nos has comprado de Amazon.es en un pl=
+azo de 30 d=C3=ADas a partir de la fecha de recepci=C3=B3n de los productos=
+, si estos est=C3=A1n =C3=ADntegros, no han sufrido da=C3=B1os y est=C3=A1n=
+ sin usar. Para los medios de datos sellados o retractilados, (por ejemplo,=
+ CDs, casettes de audio, v=C3=ADdeos VHS, DVDs, PC, videojuegos y software)=
+ esto significa que solo aceptamos las devoluciones de productos cuyo embal=
+aje o sello no se han abierto. Una vez transcurrido el plazo de devoluci=C3=
+=B3n, en el caso de defectos en tus productos, consulta la informaci=C3=B3n=
+ sobre garant=C3=ADas.
+
+Para m=C3=A1s informaci=C3=B3n sobre pedidos en Amazon.es as=C3=AD como sob=
+re nuestra garant=C3=ADa de devoluci=C3=B3n voluntaria, consulta:
+
+https://www.amazon.es/help/ref=3DTE_SCE_tex_help_enhelp
+
+
+Amazon EU, Soci=C3=A9t=C3=A9 =C3=A0 responsabilit=C3=A9 limit=C3=A9e, 38 av=
+enue John F. Kennedy, L-1855 Luxembourg. Capital social: EUR 125.000; N=C3=
+=BAmero de Registro en Luxemburgo: B 101818; N=C3=BAmero de licencia mercan=
+til: 134248; N=C3=BAmero de Registro de IVA en Luxemburgo: LU 20260743.
+
+
+Nota: este correo ha sido enviado desde una direcci=C3=B3n de e-mail que no=
+ acepta correos entrantes. Por favor, no respondas a este e-mail.
+------=_Part_51567641_590819032.1615312937694
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+ <head>=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" =
+/>=20
+  <style type=3D"text/css">
+
+.buttonComponent {
+    border-collapse: separate;
+    text-decoration: none !important;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #CBA957;
+    border-width: 1px;
+    background: #F0C354 linear-gradient(#F7DEA2, #F0C354) repeat scroll 0% =
+0% !important;
+    background-color: #ffa723;
+    white-space: nowrap;
+    min-width: 222px;
+    min-height: 47px;
+}
+
+.buttonComponent:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.secondaryButtonComponent {
+    border-collapse: separate;
+    text-decoration: none !important;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A9A9A9;
+    background: #C3C3C3 linear-gradient(#F7F7F7, #C3C3C3) repeat scroll 0% =
+0% !important;
+    background-color: #C3C3C3;
+    white-space: nowrap;
+    min-width: 222px;
+    min-height: 47px;
+}
+
+.buttonComponent td {
+    padding: 0px !important;
+}
+
+.secondaryButtonComponent td {
+    padding: 0px !important;
+}
+
+.buttonComponentLink {
+    color: rgb(27, 27, 27) !important;
+    font: 16px/ 18px Arial, sans-serif !important;
+    display: table-cell;
+    margin: auto 0;
+    vertical-align: middle;
+
+    min-width: 222px;
+    height: 47px;
+}
+
+
+body {
+=09margin:0;
+=09font:13px/18px Arial, sans-serif;
+}
+
+a {
+=09text-decoration:none;
+=09color:#006699;
+=09font:13px/18px Arial, sans-serif;
+}
+
+a img {
+=09border:0;
+}
+
+h2 {
+=09font-size:20px;
+=09line-height:24px;
+=09margin:0;
+=09padding:0;
+=09font-weight:normal;
+=09color:#000 !important;
+}
+
+h3 {
+=09font-size:18px;
+=09color:#cc6600;
+=09margin:15px 0 0 0;
+=09font-weight:normal;
+}
+
+h4 {
+=09font-size:14px;
+=09margin:0;
+=09font-weight:normal;
+}
+
+p {
+=09margin:4px 0 0 0;
+=09font:13px/18px Arial, sans-serif;
+}
+
+table {
+=09border-collapse:collapse;
+}
+
+td {
+=09vertical-align: top;
+=09font-size: 13px;
+=09line-height: 18px;
+=09font-family: Arial, sans-serif;
+}
+
+/* heading */
+
+.heading {
+=09font-size:18px;
+=09color:#cc6600;
+=09margin:15px 0 0 0;
+=09font-weight:normal;
+}
+
+#headingBottom{
+    margin:3px 0 0 0;
+    border-top:1px solid #ccc;
+=09width:100%;
+}
+
+/* container */
+#container {
+=09width:655px;
+=09color:#333;
+=09margin:0 auto;
+}
+
+#container .frame {
+=09padding:0 20px 20px 20px;
+}
+
+/* content tables */
+#main, #header, #summary, #orderDetails, #itemDetails, #costBreakdown, #cos=
+tBreakdownNoAsin,
+#selfService, #closing, #marketingContent, #legalCopy {
+=09width:100%;
+}
+
+/* header */
+#header{
+=09margin:0 0 15px 0;
+}
+
+#header .logo {
+=09width:115px;
+=09padding:18px 0 0 0;
+}
+
+#header .navigation {
+=09text-align:right;
+=09padding:5px 0;
+=09border-bottom:1px solid #ccc;
+=09white-space:nowrap;
+}
+
+#header .navigation a {
+=09border-right:0px solid #CCC;
+=09margin-right:0px;
+=09padding-right:0px;
+}
+
+#header .navigation span {
+=09text-decoration:none; color:#CCC; font:15px Arial, san-serif;
+}
+
+#header .navigation a.last {
+=09border:0;
+=09margin:0;
+=09padding:0;
+}
+
+/* Added for Dynamic Marketing Content */
+#header .navigation td{
+      padding:0px;
+     vertical-align: bottom; }
+
+#header .title {
+=09text-align:right;
+=09padding:7px 0 5px 0;
+}
+
+#header .title img {
+=09padding:0 4px 0 0;
+}
+
+/* summary */
+
+#summary a{
+=09text-decoration:none;
+=09color:#006699;
+}
+
+#summary td{
+=09padding: 0 0 8px 0;
+}
+
+/* critical info */
+#criticalInfo {
+=09border-top:3px solid #2d3741;
+=09width:640px;
+}
+
+#criticalInfo td {
+=09font-size:14px;
+=09padding:11px 18px 18px 18px;
+=09width:280px;
+}
+
+#criticalInfo .detailsContent {
+=09background-color:#efefef;
+}
+
+#criticalInfo .label {
+=09color:#666;
+}
+
+#criticalInfo p {
+        color:#000000;
+=09margin:2px 0 9px 0;
+}
+
+#criticalInfo  p span{
+=09font-size:11px;
+}
+
+#criticalInfo  p .uniqueSpan{
+=09font-size:14px;
+}
+
+#criticalInfo span {
+=09color:#666;
+}
+
+#criticalInfo a {
+=09font-size:13px;
+=09color:#006699;
+=09text-decoration:none;
+}
+
+/* buttons */
+.button {
+=09text-decoration:none !important;
+=09display:block;
+=09height:26px;
+=09display:inline-block;
+=09margin:0 0 2px 0;
+}
+
+.button.small {
+=09height:20px;
+}
+
+.button .expandable {
+=09float:left;
+=09overflow:hidden;
+}
+
+.button .text {
+=09color:#000f68;
+=09font-size:12px;
+=09position:relative;
+=09z-index:10;
+=09top:-22px;
+    left:-12px;
+=09text-align:center;
+}
+
+.button.secondary .text {
+    left:0;
+}
+
+.button.small .text {
+=09top:-20px;
+    left:0;
+=09font-size:11px;
+}
+
+/* supporting details */
+#supportingDetails {
+=09font-size:11px;
+=09color:#666;
+=09line-height:14px;
+=09margin:10px 20px;
+}
+
+#supportingDetails {
+=09margin:0 18px 0 18px;
+}
+
+/* order details */
+#orderDetails .heading {
+=09width:640px;
+=09border-bottom:0px solid #ccc;
+=09margin:0 0 3px 0;
+=09padding:0 0 3px 0;
+}
+
+#orderDetails .frame {
+=09padding:16px 20px 6px 20px;
+}
+
+#orderDetails .frame-no-asin {
+=09padding: 16px 0 6px 0;
+}
+
+#orderDetails .orderDate {
+=09color:#666666;
+=09font-size:12px;
+}
+
+/* tracking text */
+#trackingText td{
+=09font-size:10px;
+=09color:#666;
+=09padding:0 10px 20px 10px;
+=09line-height:16px;
+=09width:640px;
+}
+
+#trackingText p{
+=09margin:10px 0 0 0;
+=09font:11px/16px Arial, sans-serif;
+=09color:#333;
+}
+
+#trackingText a{
+=09text-decoration:none;
+=09font:11px/16px Arial, sans-serif;
+=09color:#006699;
+}
+
+
+
+/* item details */
+#itemDetails .photo {
+=09width:150px;
+=09text-align:center;
+=09padding:0 0 30px 0;
+    vertical-align:middle;
+}
+
+#itemDetails .photo .play img {
+=09margin:3px 0 0 0;
+}
+
+#itemDetails .name {
+vertical-align:top;
+=09color:#666;
+=09padding:10px 10px 30px 10px;
+}
+
+#itemDetails ul {
+=09margin:0;
+=09padding:0;
+}
+
+#itemDetails ul li {
+=09list-style-type:none;
+=09line-height:14px;
+=09padding:0 0 4px 0;
+}
+
+#itemDetails ul li a {
+=09font-size:14px;
+=09line-height:14px;
+}
+
+#itemDetails .name p {
+=09margin:0;
+=09font-size:12px;
+=09line-height:14px;
+}
+
+#itemDetails .name p a {
+=09font-size:11px;
+}
+
+#itemDetails .name span {
+=09color:rgb(51, 51, 51);
+}
+
+#itemDetails .name .share {
+=09margin:3px 0 15px 0;
+}
+
+#itemDetails .name .share a {
+=09margin:4px 5px 0 0;
+=09font-size:0;
+}
+
+#itemDetails .name .supportingDetails,
+#itemDetails .name .supportingDetails a {
+=09margin:8px 0 0 0;
+=09font-size:12px;
+}
+
+#itemDetails .price {
+=09/*width:80px;*/
+=09text-align:right;
+=09font-size:14px;
+=09padding:10px 0 30px 0;
+}
+
+#itemDetails .divider {
+=09border-top:1px solid #eaeaea;
+=09padding:0 0 16px 0;
+}
+
+#collection {
+=09width:100%;
+=09margin:10px 0 0;
+}
+
+#collection .test {
+=09padding:0 10px 0 10px;
+}
+
+#itemDetails #collection .name {
+=09padding:0 10px 30px 10px;
+}
+
+#itemDetails #collection .price {
+=09padding:0;
+}
+
+/*shipmentDetails*/
+#shipmentDetails .name {
+=09width:580px;
+=09color:#666;
+=09padding:10px 10px 0px 10px;
+}
+
+#shipmentDetails ul {
+=09margin:0;
+=09padding:0;
+}
+
+#shipmentDetails ul li {
+=09list-style-type:none;
+=09line-height:14px;
+=09padding:0 0 4px 0;
+}
+
+#shipmentDetails ul li a {
+=09font-size:14px;
+=09line-height:16px;
+}
+
+#shipmentDetails .name p {
+=09margin:0;
+=09font-size:12px;
+=09line-height:16px;
+}
+
+#shipmentDetails .name p a {
+=09font-size:11px;
+}
+
+#shipmentDetails .name span {
+=09color:rgb(51, 51, 51);
+}
+
+/* cost breakdown */
+#costBreakdown td {
+=09width:100%;
+=09text-align:right;
+=09line-height:18px;
+=09padding:0 0 10px 10px;
+}
+
+#costBreakdownNoAsin td {
+=09text-align: left;
+=09line-height: 18px;
+=09padding: 0 0 10px 0;
+}
+
+#costBreakdown .price {
+=09white-space: nowrap;
+=09/*width:100px;*/
+}
+
+#costBreakdownNoAsin .price {
+=09white-space: nowrap;
+=09width: 70%;
+}
+
+.total {
+=09font-size:14px;
+=09font-weight:bold;
+}
+
+/* additional shipments */
+#additionalShipments {
+=09font-size:11px;
+}
+
+#additionalShipments .heading {
+=09margin:10px 0 0 0;
+}
+
+#additionalShipments p {
+=09margin:10px 20px 0px 20px;
+}
+
+#additionalShipments .orderDate {
+=09color:#666666;
+=09font-size:12px;
+}
+
+#additionalShipments .details {
+=09padding:10px 20px 10px 20px;
+}
+
+#additionalShipments .details .label {
+=09color:#666666;
+=09font-weight:bold;
+}
+
+#additionalShipments .details .edd, #additionalShipments .details .quantity=
+ {
+=09font-weight:bold;
+}
+
+/* self service */
+#selfService p {
+=09border-top:1px solid #ccc;
+=09padding:20px 0 0 0;
+=09line-height:22px;
+}
+
+/* division*/
+
+#division{
+    margin:0 0 0 0;
+=09border-top:1px solid #eaeaea;
+=09width:100%;
+}
+
+/* closing */
+#closing p {
+=09padding:0 0 20px 0;
+=09border-bottom:1px solid #eaeaea;
+=09margin:0;
+}
+
+#closing a {
+=09text-decoration:none;
+=09color:#006699;
+}
+
+#closing .signature {
+=09font-size:16px;
+=09line-height:24px;
+=09font-weight:bold;
+}
+
+/* marketing content */
+#marketingContent {
+=09border-bottom:1px solid #eaeaea;
+=09border-collapse:collapse;
+=09padding:0;
+}
+
+#marketingContent td.recs {
+=09padding:10px 0;
+}
+
+#marketingContent td.right {
+=09padding:10px 0 10px 3px;
+}
+
+#marketingContent td.left {
+=09padding:10px 0 10px 0;
+}
+
+#middleCenterMC {
+=09text-align:center;
+}
+#middleCenterMC .banner {
+=09padding: 0px 20px 0px 20px;
+}
+#middleCenterMC img {
+=09width:85%;
+}
+
+/* legal copy */
+#legalCopy td {
+=09padding:20px 0 0 0;
+}
+
+#legalCopy p{
+=09font-size:11px;
+=09color:#666;
+=09line-height:16px;
+=09margin:0 0 10px 0;
+}
+
+#legalCopy span{
+=09font-size:11px;
+=09color:#666;
+=09line-height:16px;
+=09margin:0 0 10px 0;
+
+}
+#legalCopy a{
+=09text-decoration:none;
+=09color:#006699;
+=09font:11px/16px Arial, sans-serif;
+}
+.inline-block{
+    display: inline-block;
+}
+</style>
+  <style type=3D"text/css">
+/* Styling for Amabot top banner content */
+
+#topAmabotBannerWrapper {
+    padding: 0px 0px 0px 0px;
+}
+
+#topAmabotBannerWrapper td{
+    vertical-align: middle;
+}
+
+#topAmabotBannerWrapper table{
+    border-spacing: 0;
+}
+
+/* To fix the blue href links in gmail clients */
+.noColorAndTextDecoration a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+#topAmabotBannerBackgroundTable {
+    border-top: 3px solid rgb(256, 256, 256);
+    background-color: #efefef;
+    width: 100%;
+}
+
+#topAmabotBannerLeftImage {
+    width: 0%;
+    padding: 9px 8px 9px 15px;
+}
+
+#topAmabotBannerTextArea {
+    padding: 9px 0 9px 0;
+    width: 100%;
+}
+
+#topAmabotBannerHeader {
+    font: bold 14px Arial, sans-serif;
+    color: #333;
+}
+
+#topAmabotBannerHeaderClickable {
+    font: bold 14px Arial, sans-serif;
+    color: #069;
+}
+
+#topAmabotBannerBodyPrefixClickable {
+    font: bold 14px Arial, sans-serif;
+    color: #069;
+}
+
+#topAmabotBannerBodyPrefix {
+    font: 14px Arial, sans-serif;
+    color: #333;
+}
+
+#topAmabotBannerBody {
+    font: 14px Georgia, serif;
+    line-height: 1.2;
+    color: #333;
+}
+
+#topAmabotBannerBodyEmphasized {
+    font: 14px Georgia, serif;
+    line-height: 1.2;
+    font-style: italic;
+    color: #333;
+}
+
+</style>=20
+  <title></title>=20
+ </head>=20
+ <body><img width=3D"1" height=3D"1" src=3D"https://www.amazon.es/gp/r.html=
+?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd1=
+5df64679a21016a29cf0p0eu&R=3D283OI3ABEIK7B&T=3DO&U=3Dhttps%3A%2F%2Fimages-e=
+u.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DWY81LOADFU=
+QMFPOUE9SMUGPAZCMA&ref_=3Dpe_3310721_189395781_opens" />=20
+  <table id=3D"container" cellpadding=3D"0" dir=3D"ltr">=20
+   <tbody>
+    <tr>=20
+     <td class=3D"frame">=20
+      <table id=3D"main" cellpadding=3D"0">=20
+       <tbody>
+        <tr>=20
+         <td>=20
+          <table id=3D"header" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td rowspan=3D"2" class=3D"logo"><a href=3D"https://www.amazon=
+.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:202103091=
+8021680becbd15df64679a21016a29cf0p0eu&R=3D1X9B0G9LZ862C&T=3DC&U=3Dhttps%3A%=
+2F%2Fwww.amazon.es%2Fref%3Dpe_3310721_189395781_TE_SCE_&H=3DYWPBFEWUNW33XCO=
+DBXFNXI6PXKKA&ref_=3Dpe_3310721_189395781_TE_SCE_" title=3D"Visit www.amazo=
+n.es"><img alt=3D"Amazon.es" src=3D"https://m.media-amazon.com/images/G/30/=
+email/logos/ES_prime_142x48.png" style=3D"border: 0; width: 115px;" /></a><=
+/td>=20
+             <td class=3D"navigation">=20
+              <table align=3D"right">=20
+               <tbody>=20
+                <tr>=20
+                 <td> <a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJ=
+EEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21=
+016a29cf0p0eu&R=3D11WRXW4DAGDP2&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%=
+2Fcss%2Fyour-orders-access%2Fref%3Dpe_3310721_189395781_TE_SCE_oh_tn&H=3D9H=
+NVWIY1UT2NLSLT6CYLTLSYAMMA&ref_=3Dpe_3310721_189395781_TE_SCE_oh_tn">Mis pe=
+didos</a> </td>=20
+                 <td> <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> </td>=20
+                 <td> <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJ=
+EEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21=
+016a29cf0p0eu&R=3D3NSSZQD7W7SNW&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%=
+2Fcss%2Fyour-account-access%2Fref%3Dpe_3310721_189395781_TE_SCE_ya_tn&H=3DN=
+TZDE88XWWS8UHZIJB8MA5OIAF8A&ref_=3Dpe_3310721_189395781_TE_SCE_ya_tn">Mi cu=
+enta</a> </td>=20
+                 <td> <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> </td>=20
+                 <td> <a class=3D"last" href=3D"https://www.amazon.es/gp/r.=
+html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680be=
+cbd15df64679a21016a29cf0p0eu&R=3D31VYS15KVG4AV&T=3DC&U=3Dhttps%3A%2F%2Fwww.=
+amazon.es%2Fref%3Dpe_3310721_189395781_TE_SCE_g_tn&H=3DODEZIZFNOB2XPPJH4JV9=
+OXQ0IT4A&ref_=3Dpe_3310721_189395781_TE_SCE_g_tn">Amazon.es</a> </td>=20
+                </tr>=20
+               </tbody>=20
+              </table> </td>=20
+            </tr>=20
+            <tr>=20
+             <td class=3D"title"> <h2>Confirmaci&oacute;n del env&iacute;o<=
+/h2> Pedido n&ordm; #<a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJE=
+EEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a210=
+16a29cf0p0eu&R=3D386X2T3WM7PEF&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2=
+Fcss%2Fsummary%2Fedit.html%2Fref%3Dpe_3310721_189395781_TE_SCE_od_tn%3Fie%3=
+DUTF8%26orderID%3D407-4003207-7943500&H=3DBDVPQCMEPDAR2AYOUWLTXQRUPFMA&ref_=
+=3Dpe_3310721_189395781_TE_SCE_od_tn" class=3D"inline-block">407-4003207-79=
+43500</a> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"summary" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> <span class=3D"heading">Hola:</span> <p> Te informamos de=
+ que ya hemos enviado tus productos. Dado que este pedido se encuentra en p=
+roceso de env&iacute;o, ya no podr&aacute;s realizar ninguna modificaci&oac=
+ute;n. <br /><br />Tu pedido est&aacute; en camino, y, por lo tanto, ya no =
+se puede modificar. Si deseas devolver un producto de tu pedido o gestionar=
+ otros productos, visita <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4=
+HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679=
+a21016a29cf0p0eu&R=3D4OPDW0MWG043&T=3DC&U=3Dhttp%3A%2F%2Fwww.amazon.es%2Fyo=
+urorders%3Fref_%3Dpe_3310721_189395781_TE_SCE_tex_gs&H=3DTATJ42SLYZHQXMMZGS=
+KO0EMY6MQA&ref_=3Dpe_3310721_189395781_TE_SCE_tex_gs">Mis pedidos</a> en Am=
+azon.es </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td colspan=3D"2">=20
+          <table id=3D"criticalInfo" cellpadding=3D"0">=20
+           <tbody>
+            <tr class=3D"detailsContent">=20
+             <td> <p> <span class=3D"uniqueSpan"> Entrega: </span> <br /> <=
+b style=3D"color:#009900;"> mi&eacute;rcoles, marzo 10 </b> </p> <a href=3D=
+"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Dur=
+n:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3D3JEHYP29VWPG&T=
+=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fcss%2Fshiptrack%2Fview.html%2Fr=
+ef%3Dpe_3310721_189395781_TE_SCE_%3Fie%3DUTF8%26addressID%3Dkljinxknnilq%26=
+latestArrivalDate%3D1615402800%26orderID%3D407-4003207-7943500%26shipmentDa=
+te%3D1615312570%26orderingShipmentId%3D30440886959302%26packageId%3D1&H=3DM=
+AKJAFYOQEB0BUIA1PON5BLPJXKA&ref_=3Dpe_3310721_189395781_TE_SCE_"> <img alt=
+=3D"Seguimiento de tu pedido" id=3D"trackButton" src=3D"https://images-eu.s=
+sl-images-amazon.com/images/G/30/x-locale/cs/te/button-track.png" /> </a> <=
+/td>=20
+             <td> <span>Tu pedido ha sido enviado a:</span><br /> <p> <stro=
+ng> Albert<br />=20
+                <nowrap>
+                 Barcelona, Barcelona=20
+                </nowrap> </strong> </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td colspan=3D"2">=20
+          <table id=3D"trackingText">=20
+           <tbody>
+            <tr>=20
+             <td> <p> La compa&ntilde;&iacute;a de transportes responsable =
+del env&iacute;o de tu pedido es Amazon Logistics. El n&uacute;mero de segu=
+imiento de tu pedido es EA0182990186. En funci&oacute;n del m&eacute;todo d=
+e env&iacute;o que hayas seleccionado, es posible que la informaci&oacute;n=
+ de seguimiento no se muestre de forma inmediata. <br /><br /> Si tienes un=
+ dispositivo m&oacute;vil, puedes utilizar la aplicaci&oacute;n <a href=3D"=
+https://www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn=
+:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3D3I31VAYKO2OA6&T=
+=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fapp%3Fref_%3Dpe_3310721_189395781&H=
+=3DCN3DR6RZ3W9G2NTOOZWBAAX1SSYA&ref_=3Dpe_3310721_189395781">Amazon M&oacut=
+e;vil</a> gratis para recibir notificaciones de entrega y realizar un segui=
+miento de tus pedidos. <br /><br /> Visita nuestras p&aacute;ginas de ayuda=
+ para <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9K=
+NWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=
+=3D2G0SC834VSRAU&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2F%2Fhelp%2Fen%2Fcar=
+riers%2Fref%3Dpe_3310721_189395781_TE_SCE_encar&H=3DLNWPSD4RAVLTPMDBJMFYBSU=
+ITHUA&ref_=3Dpe_3310721_189395781_TE_SCE_encar">informaci&oacute;n de conta=
+cto del transportista</a>. </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"orderDetails" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> <span class=3D"heading">Resumen del pedido</span>=20
+              <table id=3D"headingBottom">=20
+               <tbody>
+                <tr>=20
+                 <td></td>=20
+                </tr>=20
+               </tbody>
+              </table> </td>=20
+            </tr>=20
+            <tr>=20
+             <td class=3D"frame-no-asin">=20
+              <table id=3D"costBreakdownNoAsin">=20
+               <tbody>
+                <tr>=20
+                 <td>Importe de los productos:</td>=20
+                 <td class=3D"price">EUR 27,99</td>=20
+                </tr>=20
+                <tr>=20
+                 <td>Env&iacute;o y manipulaci&oacute;n: </td>=20
+                 <td class=3D"price">EUR 0,00</td>=20
+                </tr>=20
+                <tr>=20
+                 <td class=3D"total"><strong>Importe total del env&iacute;o=
+ (IVA incluido si corresponde):</strong></td>=20
+                 <td class=3D"total"><strong>EUR 27,99</strong></td>=20
+                </tr>=20
+                <tr>=20
+                 <td> Pagado por Visa: </td>=20
+                 <td class=3D"price">EUR 27,99</td>=20
+                </tr>=20
+               </tbody>
+              </table> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"orderDetails" cellpadding=3D"0">=20
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"division">=20
+           <tbody>
+            <tr>=20
+             <td></td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"closing" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> Puedes imprimir una copia del resumen de este pedido a tr=
+av&eacute;s de <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF=
+&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29c=
+f0p0eu&R=3D3DMRKH1YG2UQ4&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fcss%2=
+Fyour-orders-access%2F%3Fref%3DTE_SCE_oh_cl%26ref_%3Dpe_3310721_189395781&H=
+=3D5QO4VQXZQXAOBBJ12Z1WH87WOOGA&ref_=3Dpe_3310721_189395781">Mis pedidos</a=
+>. Para obtener m&aacute;s informaci&oacute;n, visita nuestra p&aacute;gina=
+ en <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNW=
+LZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3D=
+2MBFMYMT8R8KI&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Ffacturas%3Fref_%3Dpe_=
+3310721_189395781_TE_SCE_fa&H=3DAE4LZVPVR1VTMR14EODPAW76FPGA&ref_=3Dpe_3310=
+721_189395781_TE_SCE_fa">facturas</a>. <br /> <br />Devolver un pedido es f=
+&aacute;cil. Visita nuestro <a href=3D"https://www.amazon.es/gp/f.html?C=3D=
+1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64=
+679a21016a29cf0p0eu&R=3D1KREJA4RCMT58&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es=
+%2Fgp%2Fcss%2Freturns%2Fhomepage.html%2Fref%3Dpe_3310721_189395781_TE_SCE_r=
+&H=3DXCEFINRAE1DM4PSZ1UA0OAGSLCUA&ref_=3Dpe_3310721_189395781_TE_SCE_r">Cen=
+tro de devoluciones online</a>.<br /> Obtenga m&aacute;s informaci&oacute;n=
+ sobre el reciclaje del embalaje con <a href=3D"https://www.amazon.es/gp/r.=
+html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680be=
+cbd15df64679a21016a29cf0p0eu&R=3D1QHB6EZVJDPA5&T=3DC&U=3Dhttps%3A%2F%2Fwww.=
+amazon.es%2Famsc%3Fref_%3Dpe_3310721_189395781_ascyorn&H=3DMKSVEWLQIN6EWUDV=
+FQP7FZK0GBSA&ref_=3Dpe_3310721_189395781_ascyorn">Amazon Second Chance</a>.=
+ <br /> <br /> Si necesitas m&aacute;s informaci&oacute;n o ayuda acerca de=
+ tu pedido te sugerimos que contactes con nuestro <a href=3D"https://www.am=
+azon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:20210=
+30918021680becbd15df64679a21016a29cf0p0eu&R=3D170L29M3T1T9&T=3DC&U=3Dhttps%=
+3A%2F%2Fwww.amazon.es%2Fcontact-us%2Fref%3Dpe_3310721_189395781_TE_SCE_kr&H=
+=3DANLR51RDIQY6GVKIVP8EJQA8SF0A&ref_=3Dpe_3310721_189395781_TE_SCE_kr">Serv=
+icio de Atenci&oacute;n al Cliente</a>. <p> <br /> Esperamos volver a verte=
+ pronto.<br /> <span style=3D"padding-top:10px;" class=3D"signature"><stron=
+g>Amazon.es</strong></span> </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"marketingContent">=20
+           <tbody>
+            <tr>=20
+             <td class=3D"recs">
+              <table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" align=3D"left" class=3D"deviceWidth" style=3D"vertical-align:centr=
+al;background:white;">
+               <tbody>
+                <tr>
+                 <td>=20
+                  <table width=3D"640" class=3D"devicewidth" cellspacing=3D=
+"0" cellpadding=3D"0" align=3D"inherit" bgcolor=3D"#FFFFFF">=20
+                   <tbody>
+                    <tr>=20
+                     <td style=3D"font:18px Arial,sans-serif; text-decorati=
+on:none; color: #cc6600; text-align:left; padding:6px 0 5px 0;"> Las mejore=
+s selecciones para ti </td>=20
+                    </tr>=20
+                   </tbody>
+                  </table> </td>
+                </tr>
+                <tr>
+                 <td>=20
+                  <table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" align=3D"left" class=3D"deviceWidth p13n-te-widget-recs" style=
+=3D"vertical-align:central;background:white;">=20
+                   <tbody>
+                    <tr>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8P=
+M&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3D3SG41K=
+BGBYLUR&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB00F4OKI3Q%2=
+Fref%3Dpe_3310721_189395781_pd_te_s_rtpb_im%3F_encoding%3DUTF8%26pd_rd_i%3D=
+B00F4OKI3Q%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd_rd_wg%3D=
+Qebmf&H=3DK1AILRZNSBET1K3WXD9A31KKIIAA&ref_=3Dpe_3310721_189395781_pd_te_s_=
+rtpb_im"> <img src=3D"https://images-na.ssl-images-amazon.com/images/I/71gJ=
+dVUkiTL._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_image_=
+115 pr_image_desktop" alt=3D"Sunydeal Cargador Adaptador Fuente de Alimenta=
+ci&oacute;n para Port&aacute;til HP , 19V 4.74A, 90W, 7.4 x 5.0mm , Compati=
+ble con HP Pavilion G4 G6 G6t G7 M6 M7, HP EliteBook 745 820 840 850 G1 G2,=
+ HP Compaq Presario Cq40 Cq62, Hp Compaq 2210b 2510p 4510s 4720s, HP Proboo=
+k G0 G1 G2" border=3D"0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9=
+KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=
+=3D1NSLWSLMTABCB&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB00=
+F4OKI3Q%2Fref%3Dpe_3310721_189395781_pd_te_s_rtpb_ti%3F_encoding%3DUTF8%26p=
+d_rd_i%3DB00F4OKI3Q%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd=
+_rd_wg%3DQebmf&H=3DYFELNCVELOUNTXAAZOYC4FDITSWA&ref_=3Dpe_3310721_189395781=
+_pd_te_s_rtpb_ti" style=3D"font:13px Arial,sans-serif; text-decoration:none=
+; color: #868686;">Sunydeal Cargador Adaptador Fuente de...</a> </span> </t=
+d>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> EUR 17,99 </span> <span style=3D"vertical-align:0px"></span=
+> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8P=
+M&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3D3EBIYQ=
+OSH5ADH&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB07MMCXLVF%2=
+Fref%3Dpe_3310721_189395781_pd_te_s_rtpb_im%3F_encoding%3DUTF8%26pd_rd_i%3D=
+B07MMCXLVF%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd_rd_wg%3D=
+Qebmf&H=3DNMLENGLTY2VXJPKXBYS39CSZMXKA&ref_=3Dpe_3310721_189395781_pd_te_s_=
+rtpb_im"> <img src=3D"https://images-na.ssl-images-amazon.com/images/I/61%2=
+BO11-t%2B2L._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_im=
+age_115 pr_image_desktop" alt=3D"COOAU Action CAM HD 4K 20 MP WiFi con Webc=
+am PC Modo micr&oacute;fono Exterior c&aacute;mara bajo el Agua 40 m con Ma=
+ndo a Distancia EIS estabilizaci&oacute;n c&aacute;mara Impermeable (2)" bo=
+rder=3D"0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9=
+KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=
+=3D1D1WDGRIW1QJI&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB07=
+MMCXLVF%2Fref%3Dpe_3310721_189395781_pd_te_s_rtpb_ti%3F_encoding%3DUTF8%26p=
+d_rd_i%3DB07MMCXLVF%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd=
+_rd_wg%3DQebmf&H=3DJODZKVB1K9ASQFVYJHJS7BXNSXMA&ref_=3Dpe_3310721_189395781=
+_pd_te_s_rtpb_ti" style=3D"font:13px Arial,sans-serif; text-decoration:none=
+; color: #868686;">COOAU Action CAM HD 4K 20 MP WiFi con Webcam PC...</a> <=
+/span> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> EUR 42,99 </span> <span style=3D"vertical-align:0px"></span=
+> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8P=
+M&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3DDL7E1E=
+US9SUB&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB07NKWP2YG%2F=
+ref%3Dpe_3310721_189395781_pd_te_s_rtpb_im%3F_encoding%3DUTF8%26pd_rd_i%3DB=
+07NKWP2YG%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd_rd_wg%3DQ=
+ebmf&H=3D6ATTHS8T220RVPLMCA96SD9BP5QA&ref_=3Dpe_3310721_189395781_pd_te_s_r=
+tpb_im"> <img src=3D"https://images-na.ssl-images-amazon.com/images/I/81eyV=
+OMt72L._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_image_1=
+15 pr_image_desktop" alt=3D"Green Cell Bater&iacute;a HP JC04 JCO4 919682-1=
+21 919701-850 HSTNN-LB7W HSTNN-IB7X para HP 250 G6 255 G6 240 G6 245 G6 HP =
+15-BS034NS 15-BS035NS 15-BS040NS 15-BS127NS 15-BS199NS 15-BS512NS 15-BW007N=
+S Port&aacute;til" border=3D"0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9=
+KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=
+=3D2OXI8TSMWX3FB&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%2Fproduct%2FB07=
+NKWP2YG%2Fref%3Dpe_3310721_189395781_pd_te_s_rtpb_ti%3F_encoding%3DUTF8%26p=
+d_rd_i%3DB07NKWP2YG%26pd_rd_r%3DG1NEJAYZQP25P829QBKN%26pd_rd_w%3DfapYp%26pd=
+_rd_wg%3DQebmf&H=3DJQEKIU2S49D7XC7JY9A4ATEEAFAA&ref_=3Dpe_3310721_189395781=
+_pd_te_s_rtpb_ti" style=3D"font:13px Arial,sans-serif; text-decoration:none=
+; color: #868686;">Green Cell Bater&iacute;a HP JC04 JCO4 919682-121...</a>=
+ </span> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> EUR 32,95 </span> <span style=3D"vertical-align:0px"></span=
+> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                    </tr>=20
+                   </tbody>
+                  </table> </td>
+                </tr>
+               </tbody>
+              </table></td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"legalCopy">=20
+           <tbody>
+            <tr>=20
+             <td> <span> <br /> <strong>Instrucciones sobre el derecho de c=
+ancelaci&oacute;n</strong><br /> <br /> <strong>Derecho de cancelaci&oacute=
+;n:</strong><br /> <br /> Tienes el derecho a desistir este contrato sin ne=
+cesidad de justificaci&oacute;n en un plazo de 14 d&iacute;as a partir de l=
+a fecha en que asumes la posesi&oacute;n material de esos bienes (o del &ua=
+cute;ltimo de esos bienes, en el caso de que el contrato se refiera a la en=
+trega de productos en varios env&iacute;os parciales o varios lotes o pieza=
+s) o a partir de la fecha de formalizaci&oacute;n del contrato en el caso d=
+e contenido digital no proporcionados en un medio tangible (por ejemplo, CD=
+ o DVD).<br /> <br /> Para ejercer el derecho de cancelaci&oacute;n, debes =
+informarnos de tu decisi&oacute;n de cancelaci&oacute;n de tu pedido. Dirig=
+e tu solicitud a:=20
+               <ul>=20
+                <li>Amazon EU S.&agrave;.r.L, 38 avenue John F. Kennedy, L-=
+1855 Luxembourg, Gran Ducado de Luxemburgo para los productos vendido y env=
+iado por Amazon; o a </li>
+                <li>Amazon Services Europe Sarl, 38 avenue John F. Kennedy,=
+ L-1855 Luxembourg, Gran Ducado de Luxemburgo para los productos vendidos p=
+or un vendedor de Marketplace y gestionados por Amazon. </li>
+               </ul> Podr&aacute;s notificarnos la cancelaci&oacute;n a tra=
+v&eacute;s de nuestro <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJ=
+EEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21=
+016a29cf0p0eu&R=3D14X1G16X0UH3I&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fgp%=
+2Fcss%2Freturns%2Fhomepage.html%2Fref%3Dpe_3310721_189395781_TE_SCE_r&H=3D8=
+QHAXQJPRVG2YHSAFYMW9BPH7USA&ref_=3Dpe_3310721_189395781_TE_SCE_r">Centro de=
+ devoluciones online</a> ; contact&aacute;ndonos <a href=3D"https://www.ama=
+zon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:202103=
+0918021680becbd15df64679a21016a29cf0p0eu&R=3D2QVK5WGNOAOLU&T=3DC&U=3Dhttps%=
+3A%2F%2Fwww.amazon.es%2Fcontact-us%3Fref%3DTE_SCE_kr%26ref_%3Dpe_3310721_18=
+9395781&H=3DDF8UJNDDAWRAVSIQM7RRISASGAUA&ref_=3Dpe_3310721_189395781">Servi=
+cio de Atenci&oacute;n al Cliente</a>; o completando este <a href=3D"https:=
+//www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:m=
+sg:2021030918021680becbd15df64679a21016a29cf0p0eu&R=3DX0MY6U6PQ4W5&T=3DC&U=
+=3Dhttps%3A%2F%2Fimages-eu.ssl-images-amazon.com%2Fimages%2FG%2F30%2Fcs%2Fd=
+ocuments%2Fcancellationform_es.pdf&H=3DLDOFUABY2BLCV4T00CB0KYPJLT4A">Formul=
+ario est&aacute;ndar</a> y envi&aacute;ndonoslo por correo. <br /> <br /> P=
+ara cumplir el plazo de desistimiento, basta con enviar tu comunicado sobre=
+ el ejercicio del derecho de cancelaci&oacute;n antes de que venza el plazo=
+ de desistimiento y debes devolver los productos a trav&eacute;s de nuestro=
+ Centro de devoluciones online en el plazo definido a continuaci&oacute;n. =
+<br /> Para obtener m&aacute;s informaci&oacute;n acerca del &aacute;mbito =
+de aplicaci&oacute;n, el contenido y las instrucciones del ejercicio, ponte=
+ en contacto con nuestro servicio de atenci&oacute;n al cliente. <br /> <br=
+ /> <strong>Efectos de la cancelaci&oacute;n:</strong><br /> <br /> En caso=
+ de desistimiento por tu parte, te reembolsaremos todos los pagos que hayam=
+os recibido de la mercanc&iacute;a vendida y te reembolsaremos tambi&eacute=
+;n los gastos de env&iacute;o de la modalidad de entrega ordinaria menos co=
+stosa que se ofrezca. Este reembolso se realizar&aacute; sin ninguna demora=
+ indebida y, salvo en las situaciones que se describen a continuaci&oacute;=
+n, un m&aacute;ximo de 14 d&iacute;as a partir de la fecha en la que recibi=
+mos tu comunicado sobre la cancelaci&oacute;n de este contrato. Para este r=
+eembolso utilizaremos el mismo medio de pago empleado por ti en la transacc=
+i&oacute;n inicial, a no ser que hayas convenido expresamente lo contrario.=
+ En cualquier caso, no incurrir&aacute; en ning&uacute;n gasto como consecu=
+encia del reembolso. Nos reservamos el derecho a retener el reembolso hasta=
+ haber recibido los bienes o hasta que hayas presentado una prueba de la de=
+voluci&oacute;n de los bienes, seg&uacute;n la condici&oacute;n que se cump=
+la primero. <br /> <br />Debes enviar la mercanc&iacute;a sin ninguna demor=
+a indebida y, en cualquier caso, a m&aacute;s tardar en el plazo de 14 d&ia=
+cute;as a partir de la fecha en que nos comuniques la cancelaci&oacute;n de=
+ este contrato a trav&eacute;s de nuestro <a href=3D"https://www.amazon.es/=
+gp/f.html?C=3D1N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021=
+680becbd15df64679a21016a29cf0p0eu&R=3D3G42ZOBDT8S47&T=3DC&U=3Dhttps%3A%2F%2=
+Fwww.amazon.es%2Fgp%2Fcss%2Freturns%2Fhomepage.html%2Fref%3Dpe_3310721_1893=
+95781_TE_SCE_r&H=3DZRMAIRA5LITJXEMGSFAKCHAN1MMA&ref_=3Dpe_3310721_189395781=
+_TE_SCE_r">Centro de devoluciones online</a> .<br /> <br />Para cumplir el =
+plazo, basta con enviar los productos antes de que el plazo de 14 d&iacute;=
+as haya caducado. Tendr&aacute;s que asumir el coste normal de devoluci&oac=
+ute;n de los bienes si la mercanc&iacute;a entregada corresponde a los prod=
+uctos del pedido y si el precio de los productos devueltos no supera un imp=
+orte de 40 euros, o si, en el caso en que el precio de los productos es may=
+or, en la fecha de la cancelaci&oacute;n, a&uacute;n no ha realizado el pag=
+o correspondiente o el pago parcial acordado. De lo contrario, la devoluci&=
+oacute;n de la mercanc&iacute;a es gratuita. Solo tendr&aacute;s que pagar =
+el deterioro del valor de los bienes, en caso de que el importe de la merca=
+nc&iacute;a disminuya debido a la manipulaci&oacute;n de los productos de f=
+orma que vaya m&aacute;s all&aacute; de lo necesario para establecer la nat=
+uraleza, las caracter&iacute;sticas y el funcionamiento de los bienes. <br =
+/> <br /> <strong>Excepciones al derecho de la cancelaci&oacute;n:</strong>=
+<br /> <br /> El derecho de desistimiento no existe o decae y, en su caso, =
+en el caso de los contratos relativos a: <br /> <li> la entrega de bienes q=
+ue no sean aptos para ser devueltos por razones de protecci&oacute;n de la =
+salud o de higiene y que hayan sido desprecintados por usted tras la entreg=
+a o, que, debido a su naturaleza, despu&eacute;s de su entrega, se hayan me=
+zclado de forma indisociable con otros bienes; </li><li> el suministro de g=
+rabaciones sonoras o de v&iacute;deo precintadas o de programas inform&aacu=
+te;ticos precintados que hayan sido desprecintados por usted despu&eacute;s=
+ de la entrega; </li><li> el suministro de bienes confeccionados conforme a=
+ las especificaciones del cliente o claramente personalizados para necesida=
+des personales. </li><li> el suministro de bienes que puedan deteriorarse o=
+ caducar con rapidez; </li><li> un servicio que haya sido completamente eje=
+cutado por Amazon (por ejemplo, el uso de MP3 de Amazon Service) y que has =
+reconocido y aceptado expresamente antes de realizar el pedido que podemos =
+empezar a entregar el servicio, y que el derecho de cancelaci&oacute;n deja=
+r&iacute;a de ser v&aacute;lido una vez que el contrato hubiera sido comple=
+tado; </li><li> el suministro de prensa diaria, publicaciones peri&oacute;d=
+icas o revistas, con la excepci&oacute;n de los contratos de suscripci&oacu=
+te;n; y </li><li> el suministro de bebidas alcoh&oacute;licas cuyo precio s=
+e ha acordado en la conclusi&oacute;n del contrato de venta, que solo puede=
+ entregarse despu&eacute;s de 30 d&iacute;as y cuyo valor real depende de f=
+luctuaciones del mercado que no podemos controlar.  <br /> <br /><strong>Fi=
+n de las instrucciones sobre el derecho de cancelaci&oacute;n</strong><br /=
+> <br /> Ten en cuenta lo siguiente: Si adquieres un dispositivo subvencion=
+ado junto con tu nuevo contrato de servicios o la actualizaci&oacute;n de t=
+u contrato de servicios, solo puedes cancelar la compra y el contrato de se=
+rvicios de forma conjunta. Si cancelas el contrato de servicios, simult&aac=
+ute;neamente declaras la cancelaci&oacute;n del contrato de compra y viceve=
+rsa.<br /> ______________________________________________________________<b=
+r /> <br /> <strong>Nuestra garant&iacute;a de devoluci&oacute;n voluntaria=
+:</strong><br /> <br /> Sin perjuicio de lo dispuesto en el citado derecho =
+de cancelaci&oacute;n, puedes devolver todos los productos que nos has comp=
+rado de <a href=3D"https://www.amazon.es/gp/r.html?C=3D1N4HTJEEEZEIF&K=3D2L=
+9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0p0eu&=
+R=3D2V02BXZIEITJC&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%3Fref_%3Dpe_3310721=
+_189395781&H=3DJGDMHHJFZYDMUQICCCKOUGVBTFAA&ref_=3Dpe_3310721_189395781">Am=
+azon.es</a> en un plazo de 30 d&iacute;as a partir de la fecha de recepci&o=
+acute;n de los productos, si estos est&aacute;n &iacute;ntegros, no han suf=
+rido da&ntilde;os y est&aacute;n sin usar. Para los medios de datos sellado=
+s o retractilados, (por ejemplo, CDs, casettes de audio, v&iacute;deos VHS,=
+ DVDs, PC, videojuegos y software) esto significa que solo aceptamos las de=
+voluciones de productos cuyo embalaje o sello no se han abierto. Una vez tr=
+anscurrido el plazo de devoluci&oacute;n, en el caso de defectos en tus pro=
+ductos, consulta la informaci&oacute;n sobre garant&iacute;as. <br /> <br /=
+> Para m&aacute;s informaci&oacute;n sobre pedidos en www.amazon.es as&iacu=
+te; como sobre nuestra garant&iacute;a de devoluci&oacute;n voluntaria, con=
+sulta:<br /> <a href=3D"https://www.amazon.es/gp/f.html?C=3D1N4HTJEEEZEIF&K=
+=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df64679a21016a29cf0=
+p0eu&R=3D2A2LDB5AIXAYN&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.es%2Fhelp%2Fengli=
+sh%2Fref%3Dpe_3310721_189395781_TE_SCE_help_enhelp&H=3DVWHP5QQHHR6EW1PBZLYP=
+4RYNQM0A&ref_=3Dpe_3310721_189395781_TE_SCE_help_enhelp">P&aacute;ginas de =
+ayuda en ingl&eacute;s</a><br /> <br /> Para ver nuestros T&eacute;rminos y=
+ Condiciones generales, consulta:<br /> <br /> Amazon EU, Soci&eacute;t&eac=
+ute; &agrave; responsabilit&eacute; limit&eacute;e, 38 avenue John F. Kenne=
+dy, L-1855 Luxembourg. Capital social: EUR 125.000; N&uacute;mero de Regist=
+ro en Luxemburgo: B 101818; N&uacute;mero de licencia mercantil: 134248; N&=
+uacute;mero de Registro de IVA en Luxemburgo: LU 20260743. <br /> <br /> No=
+ta: este correo ha sido enviado desde una direcci&oacute;n de e-mail que no=
+ acepta correos entrantes. Por favor, no respondas a este e-mail.<br />  </=
+li></span></td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+       </tbody>
+      </table> </td>=20
+    </tr>=20
+   </tbody>
+  </table> =20
+ <img width=3D"1" height=3D"1" src=3D"https://www.amazon.es/gp/r.html?C=3D1=
+N4HTJEEEZEIF&K=3D2L9KNWLZHS8PM&M=3Durn:rtn:msg:2021030918021680becbd15df646=
+79a21016a29cf0p0eu&R=3D210IMGTAJOEY8&T=3DE&U=3Dhttps%3A%2F%2Fimages-eu.ssl-=
+images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3D5LETABRKLPX0VRZH=
+HWDGD62WXA4A&ref_=3Dpe_3310721_189395781_open" /></body>
+</html>
+------=_Part_51567641_590819032.1615312937694--
