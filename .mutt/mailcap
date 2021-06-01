@@ -1,5 +1,0 @@
-text/html; echo && /usr/local/bin/w3m -dump %s; nametemplate=%s.html; copiousoutput
-application/pdf; /usr/local/bin/zathura %s
-image/jpeg; /usr/local/bin/display %s
-image/gif; /usr/local/bin/display %s
-image/png; /usr/local/bin/display %s
